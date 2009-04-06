@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.container {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 10px;
+}
+
+.data {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: .8em;
+ border=1px;
+}
+
+p {
+ font-size: 10px;
+}
+
+#lib-bar {
+    position:absolute;
+    top:0;
+    right:10px;
+    z-index:100;
+    visibility:hidden;
+}
+#lib-bar-inner {
+    padding:4px;
+}
+#lib-bar * {
+    font-size:11px;
+}
+
+.calendar .x-menu-item-icon {
+    background-image:url(includes/images/calendar.gif);
+}
+
+.search-item {
+    font:normal 11px tahoma, arial, helvetica, sans-serif;
+    padding:3px 10px 3px 10px;
+    border-bottom:1px solid #eeeeee;
+}
+.search-item h3 {
+    display:block;
+    font:inherit;
+    font-weight:bold;
+}
+
+.search-item h3 span {
+    float: right;
+    font-weight:normal;
+    margin:0 0 5px 5px;
+    width:100px;
+    display:block;
+    clear:none;
+}

@@ -1,0 +1,376 @@
+<?php
+  /**
+   * Kontrollbase
+   *
+   * An open source MySQL monitoring and analytics application
+   *
+   * @package Kontrollbase
+   * @author Matt Reid
+   * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+   * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+   * @link http://kontrollbase.com
+   */
+
+function head(
+	      $root,
+	      $server_list,
+	      $servers,
+	      $footer,
+	      $overview,
+	      $summary,
+	      $data_size,
+	      $index_size,
+	      $total_size,
+	      $data,
+	      $alerts,
+	      $sessionpage){
+
+  $nroot = substr_replace($root,"",-1);
+  print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+
+<style type="text/css">
+    .settings {
+    background-image:url('$nroot/includes/images/folder_wrench.png');
+  }
+  .nav {
+    background-image:url('$nroot/includes/images/folder_go.png');
+  }
+</style>
+
+<script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
+
+<script type="text/javascript">
+ Ext.onReady(function() {  
+ Ext.QuickTips.init();
+HEAD;
+
+ print "    
+var alertData = [";
+ $r=0;
+ $u=count($alerts);
+ foreach($alerts as $key => $value) {
+   foreach($value as $vKey => $vValue) {
+     if($vKey == 'alert_name') { $alert_name=$vValue; }
+     if($vKey == 'alerts_current_id') { $alerts_current_id=$vValue; }
+     if($vKey == 'alert_desc') { $alert_desc=$vValue; }
+     if($vKey == 'alert_links') { $alert_links=$vValue; }
+     if($vKey == 'alert_solution') { $alert_solution=$vValue; }
+     if($vKey == 'server_list_id') { $server_list_id=$vValue; }
+     if($vKey == 'server_hostname') { $server_hostname=$vValue; }
+     if($vKey == 'alert_level') { $alert_level=$vValue; }
+   }
+
+   if($alert_level == 0) { $alert_level = 'crit';}
+   elseif($alert_level == 1) { $alert_level= 'warn';}
+   elseif($alert_level == 2) { $alert_level= 'info';}
+
+   // here we need hover pop up thing for the $alerts_current_id column: we need to display $alert_desc, $alert_links, $alert_solution
+   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']
+";
+   $r++;
+   if($r<$u) { print ",";} else { print "];";}
+ }
+
+ print "    
+var summaryData = [";
+
+ $queries_per_second_c=0;
+ $num_schema_c=0;
+ $num_tables_c=0;
+ $length_data_c=0;
+ $length_index_c=0;
+ $total_size_c=0;
+ $num_connections_c=0;
+ $engine_count_innodb_c=0;
+ $engine_count_myisam_c=0;
+ $engine_myisam_size_total_c=0;
+ $engine_innodb_size_total_c=0;
+
+ $z=0;
+ $c=count($data);
+ foreach($data as $key => $value) {
+   foreach($value as $k => $v) {
+     if($k == 'server_list_id') { $server_list_id=$v;}
+     if($k == 'server_hostname') { $server_hostname=$v;}
+     if($k == 'os_load_15') { $os_load_15=$v;}
+     if($k == 'mem_perc') { $mem_perc=$v;}
+     if($k == 'queries_per_second') { $queries_per_second=$v; $queries_per_second_c += $queries_per_second;}
+     if($k == 'num_schema') { $num_schema=$v; $num_schema_c += $num_schema;}
+     if($k == 'num_tables') { $num_tables=$v; $num_tables_c += $num_tables;}
+     if($k == 'num_connections') { $num_connections=$v; $num_connections_c += $num_connections;}
+     if($k == 'length_data') { $length_data=$v; $length_data_c += $length_data;}
+     if($k == 'length_index') { $length_index=$v; $length_index_c += $length_index;}
+     if($k == 'total_size') { $total_size=$v; $total_size_c += $total_size;}
+     if($k == 'engine_count_innodb') { $engine_count_innodb=round($v,0); $engine_count_innodb_c += $engine_count_innodb;}
+     if($k == 'engine_count_myisam') { $engine_count_myisam=round($v,0); $engine_count_myisam_c += $engine_count_myisam;}
+     if($k == 'engine_myisam_size_total') { $engine_myisam_size_total=$v; $engine_myisam_size_total_c += $engine_myisam_size_total;}
+     if($k == 'engine_innodb_size_total') { $engine_innodb_size_total=$v; $engine_innodb_size_total_c += $engine_innodb_size_total;}
+   }
+    print "
+  ['$server_hostname',
+$os_load_15,
+$mem_perc,
+$queries_per_second,
+$num_schema,
+$num_tables,
+$num_connections,
+$total_size,
+$engine_count_innodb,
+$engine_count_myisam,
+$engine_myisam_size_total,
+$engine_innodb_size_total],";
+ }
+ //print the last data line for summary information - totals
+print "
+['Total Values',
+ ,
+ ,
+ $queries_per_second_c,
+ $num_schema_c,
+ $num_tables_c,
+ $num_connections_c,
+ $total_size_c,
+ $engine_count_innodb_c,
+ $engine_count_myisam_c,
+ $engine_myisam_size_total_c,
+ $engine_innodb_size_total_c]
+];
+";
+
+ print<<<HEAD
+ var detailEl;
+ 
+ var contentPanel = {
+ id: 'content-panel',
+ region: 'center', 
+ layout: 'card',
+ margins: '2 5 5 0',
+ activeItem: 0,
+ border: false,
+ items: [
+	 border
+	 ]
+ };
+
+ var refreshTab=function(tab){
+   tab.getUpdater().refresh();
+ };
+
+ var border = {
+ id:'border-panel',
+ title: 'Kontrollbase',
+ layout:'border',
+ region:'center',
+ bodyBorder: false,
+ defaults: {
+   collapsible: true,
+   split: true,
+   animFloat: false,
+   autoHide: false,
+   useSplitTips: true,
+   bodyStyle: 'padding:0px'
+   },
+ 
+ items: [
+   {
+   title: 'Critical Environment Alerts',
+   region: 'south',
+   height: 200,
+   xtype: 'grid',
+   store: new Ext.data.SimpleStore({
+     fields: [
+	      {name: 'id'},
+	      {name: 'server'},
+	      {name: 'state'},
+	      {name: 'name'}
+	      ]}),	 
+   columns: [
+   {header: "id", width: 60, sortable: true, dataIndex: 'id'},
+   {header: "server", width: 160, sortable: true, dataIndex: 'server'},
+   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
+   {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
+	     ],
+   stripeRows: true,
+   autoExpandColumn: 'name',
+   listeners: { render: function(){this.store.loadData(alertData);}}
+   },
+   {
+     region:'west',
+     id:'west-panel',
+     title:'Navigation',
+     split:true,
+     width: 200,
+     minSize: 175,
+     maxSize: 400,
+     collapsible: true,
+     margins:'5 0 0 0',
+     layout:'accordion',
+     layoutConfig:{
+       animate:true
+     },
+     items: [{
+       title: 'Servers List',
+       html: "$servers",
+       iconCls:'nav'
+     },{
+       title:'Session',
+       iconCls:'settings',
+       deferredRender: true,
+       listeners: {activate: refreshTab},
+       autoLoad: {url: '$nroot/includes/pages/$sessionpage'}
+     }]
+   },
+   {
+   xtype: 'tabpanel',
+   plain: true,
+   region: 'center',
+   margins: '5 0 0 0',
+   activeTab: 0,
+   autoScroll: true,
+   animScroll: true,
+   collapsible: false,
+   bodyStyle: 'padding:5px 0px 0px 5px',
+   items: [
+   {
+   title: 'Overview',
+   deferredRender: true,
+   width:440,
+   height:480,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   autoLoad: {url: '$nroot/includes/pages/$overview'},
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Summary Data',
+   xtype: 'grid',
+   layout: 'fit',
+   store: new Ext.data.SimpleStore({
+     fields: [
+	      {name: 'hostname'},
+	      {name: 'load', type: 'float'},
+	      {name: 'mem_used', type: 'float'},
+	      {name: 'QPS', type: 'float'},
+	      {name: 'schema', type: 'float'},
+	      {name: 'tables', type: 'float'},
+	      {name: 'conn', type: 'float'},
+	      {name: 'total_size', type: 'float'},
+	      {name: 'num_innodb', type: 'float'},
+	      {name: 'num_myisam', type: 'float'},
+	      {name: 'myisam_total', type: 'float'},
+	      {name: 'innodb_total', type: 'float'}
+	      ]
+	 }),
+   columns: [
+   {id:'hostname',header: "server hostname", width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
+   {header: "load", width: 45, sortable: true, dataIndex: 'load'},
+   {header: "mem%", width: 50, sortable: true, dataIndex: 'mem_used'},
+   {header: "QPS", width: 50, sortable: true, dataIndex: 'QPS'},
+   {header: "schema", width: 55, sortable: true, dataIndex: 'schema'},
+   {header: "tables", width: 55, sortable: true, dataIndex: 'tables'},
+   {header: "#conn", width: 55, sortable: true, dataIndex: 'conn'},
+   {header: "total size", width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
+   {header: "#innodb", width: 65, sortable: true, dataIndex: 'num_innodb'},
+   {header: "#myisam", width: 65, sortable: true, dataIndex: 'num_myisam'},
+   {header: "myisam_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
+   {header: "innodb_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'},
+	     ],
+   stripeRows: true,
+   autoExpandColumn: 'hostname',
+   listeners: { render: function(){this.store.loadData(summaryData);}}},
+   {
+   title: 'User Guide',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/userguide/toc-embed.php'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   }
+	   
+	   ]}]};
+
+ 
+ new Ext.Viewport({
+   layout: 'border',
+       title: 'Ext Layout Browser',
+       items: [
+	       border
+	       ],
+       renderTo: Ext.getBody()
+       });
+   });
+  
+  </script>
+      
+      
+</head>
+<body>
+HEAD;
+  }
+
+$nroot = substr_replace($root,"",-1);
+$servers='<table>';
+$servers .= "<tr><td><a href='$nroot/index.php'><img src='$nroot/includes/images/arrow_icon.gif' width='14' height='14'> goto environment</a></td></tr>";
+foreach($server_list as $key => $value) {
+  $servers .= "<tr>";
+  foreach($value as $k => $v) {
+    if($k == 'id') { $id=$v;}
+    if($k == 'server_hostname') { $list_hostname=$v;}    
+    if($k == 'active') {$active=$v;}
+    if($k == 'server_client_name') {$server_client_name=$v;}
+    if($k == 'server_type') { $server_type=$v;}
+  }
+  if($server_type == 0) { $server_type='prod';}
+  elseif($server_type == 1) { $server_type='stage';}
+  elseif($server_type == 2) { $server_type='dev';}
+
+  if($active == 0) { $active="<img src='$nroot/includes/images/Record-Normal-Green-16x16.png' width='14px' heigh='14px'>";}
+  elseif($active == 1) { $active="<img src='$nroot/includes/images/Record-Disabled-16x16.png' width='14px' heigh='14px'>";}
+
+  $servers .= "<td>$active <a href='$nroot/index.php/main/host/$id' target='_self'>$list_hostname</a></td></tr>";
+}
+$servers .= "</table>";
+$footer=$alerts;
+
+head(
+     $root,
+     $server_list,
+     $servers,
+     $footer,
+     $overview,
+     $summary,
+     $data_size,
+     $index_size,
+     $total_size,
+     $data,
+     $alerts,
+     $sessionpage);
+
+?>
