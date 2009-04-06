@@ -1,0 +1,34 @@
+[
+{ text:'Servers',
+                expanded: true,
+                children:[
+ { text:'mysql0.etology.com',
+                       id:'mysql0.etology.com',
+                       leaf:true }
+,
+ { text:'mysql1.etology.com',
+                       id:'mysql1.etology.com',
+                       leaf:true }
+,
+ { text:'human.themattreid.com',
+                       id:'human.themattreid.com',
+                       leaf:true }
+,
+ { text:'node0.themattreid.com',
+                       id:'node0.themattreid.com',
+                       leaf:true }
+,
+ { text:'stage0.themattreid.com',
+                       id:'stage0.themattreid.com',
+                       leaf:true }
+,
+ { text:'stage1.themattreid.com',
+                       id:'stage1.themattreid.com',
+                       leaf:true }
+,
+ { text:'dev0.themattreid.com',
+                       id:'dev0.themattreid.com',
+                       leaf:true }
+]
+}
+]
