@@ -47,6 +47,7 @@ class Model_show extends Model
 			   "server_hostname" => "NULL",
 			   "server_ssh_user" => "NULL",
 			   "server_mysql_port" => "NULL",
+			   "server_mysql_socket" => "NULL",
 			   "server_mysql_db" => "NULL",
 			   "server_mysql_user" => "NULL",
 			   "server_mysql_pass" => "NULL",

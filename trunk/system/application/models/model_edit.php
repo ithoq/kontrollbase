@@ -43,6 +43,7 @@ class Model_edit extends Model
 		    "server_hostname" => "NULL",
 		    "server_ssh_user" => "NULL",
 		    "server_mysql_port" => "NULL",
+		    "server_mysql_socket" => "NULL",
 		    "server_mysql_db" => "NULL",
 		    "server_mysql_host" => "NULL",
 		    "server_mysql_user" => "NULL",
@@ -69,6 +70,7 @@ class Model_edit extends Model
 		     $server_hostname,
 		     $server_ssh_user,
 		     $server_mysql_port,
+		     $server_mysql_socket,
 		     $server_mysql_db,
 		     $server_mysql_host,
 		     $server_mysql_user,
@@ -89,6 +91,7 @@ class Model_edit extends Model
     $server_hostname = $this->db->escape_str($server_hostname);
     $server_ssh_user = $this->db->escape_str($server_ssh_user);
     $server_mysql_port = $this->db->escape_str($server_mysql_port);
+    $server_mysql_socket = $this->db->escape_str($server_mysql_socket);
     $server_mysql_db = $this->db->escape_str($server_mysql_db);
     $server_mysql_host = $this->db->escape_str($server_mysql_host);
     $server_mysql_user = $this->db->escape_str($server_mysql_user);
@@ -111,6 +114,7 @@ UPDATE `server_list` SET
 `server_hostname` = '$server_hostname',
 `server_ssh_user` = '$server_ssh_user',
 `server_mysql_port` = '$server_mysql_port',
+`server_mysql_socket` = '$server_mysql_socket',
 `server_mysql_db` = '$server_mysql_db',
 `server_mysql_host` = '$server_mysql_host',
 `server_mysql_user` = '$server_mysql_user',

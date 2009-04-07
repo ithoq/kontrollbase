@@ -162,6 +162,7 @@ sub get_mysql_stats {
     my($server_mysql_user,
        $server_mysql_pass,
        $server_mysql_port,
+       $server_mysql_socket,
        $server_mysql_db,
        $server_mysql_host) = @_;
 
@@ -185,7 +186,7 @@ sub get_mysql_stats {
     my $sql17 = "select * from user where Password='';";
     my $sql18 = "select * from user where User='';";
 
-    my $dsn = "DBI:mysql:database=$server_mysql_db;host=$server_mysql_host;port=$server_mysql_port";
+    my $dsn = "DBI:mysql:database=$server_mysql_db;host=$server_mysql_host;port=$server_mysql_port;mysql_socket=$server_mysql_socket";
 ## Optional line if you need to specify a different socket file. Comment out the line above this, then uncomment the line below.
 ##    my $dsn = "DBI:mysql:database=$server_mysql_db;host=$server_mysql_host;port=$server_mysql_port;mysql_socket=/tmp/mysqld.sock";
     my $dbh = DBI->connect(
@@ -416,6 +417,7 @@ my $server_snmp_port = '161';
 my $server_snmp_rocommunity = 'public';
 my $server_snmp_version = '1';
 my $server_mysql_port = '3306';
+my $server_mysql_socket = '/var/run/mysql.sock';
 my $server_mysql_db = 'mysql';
 my $server_mysql_user = 'root';
 my $server_mysql_pass = '';
@@ -435,6 +437,7 @@ GetOptions (
     'mysql-user=s' => \$server_mysql_user,
     'mysql-pass=s' => \$server_mysql_pass,
     'mysql-port=i' => \$server_mysql_port,
+    'mysql-socket=s' => \$server_mysql_socket,
     'mysql-db=s' => \$server_mysql_db,
     'mysql-host=s' => \$server_mysql_host,
     'verbose' => \$verbose,
@@ -461,6 +464,7 @@ package version: $package_version
 --mysql-user       = mysql username
 --mysql-pass       = mysql password
 --mysql-port       = mysql port
+--mysql-port       = mysql socket
 --mysql-db         = mysql database
 --mysql-host       = mysql host
                 
@@ -474,6 +478,7 @@ snmp-retries:     2
 mysql-user:       root
 mysql-pass:       <blank>
 mysql-port:       3306
+mysql-socket:       /var/run/mysql.sock
 mysql-db:         mysql
 mysql-host:       localhost
 
@@ -499,6 +504,7 @@ snmp retries:     $snmp_retries
 mysql user:       $server_mysql_user
 mysql pass:       $server_mysql_pass
 mysql port:       $server_mysql_port
+mysql socket:       $server_mysql_socket
 mysql db:         $server_mysql_db
 mysql host:       $server_mysql_host
 
@@ -518,6 +524,7 @@ GO
 	$server_mysql_user,
 	$server_mysql_pass,
 	$server_mysql_port,
+	$server_mysql_socket,
 	$server_mysql_db,
 	$server_mysql_host
 	);

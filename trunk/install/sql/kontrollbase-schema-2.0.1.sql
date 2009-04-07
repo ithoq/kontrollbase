@@ -210,6 +210,7 @@ CREATE TABLE `server_list` (
   `server_hostname` varchar(255) NOT NULL,
   `server_ssh_user` varchar(255) NOT NULL default 'kontrollbase',
   `server_mysql_port` int(11) NOT NULL default '3306',
+  `server_mysql_socket` varchar(255) NOT NULL default '/var/run/mysql.sock',
   `server_mysql_db` varchar(255) NOT NULL default 'mysql',
   `server_mysql_user` varchar(255) NOT NULL default 'kontrollbase' COMMENT 'user needs SUPER,REPL_CLIENT,PROCESS privileges ',
   `server_mysql_pass` varchar(255) NOT NULL,

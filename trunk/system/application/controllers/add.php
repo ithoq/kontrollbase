@@ -45,6 +45,7 @@ class Add extends Controller {
 	  $this->form_validation->set_rules('server_hostname', 'server_hostname', 'trim|required');
 	  $this->form_validation->set_rules('server_ssh_user', 'server_ssh_user', 'trim|required|min_length[6]');
 	  $this->form_validation->set_rules('server_mysql_port', 'server_mysql_port', 'trim|required|numeric');
+	  $this->form_validation->set_rules('server_mysql_socket', 'server_mysql_socket', 'trim|required');
 	  $this->form_validation->set_rules('server_mysql_db', 'server_mysql_db', 'trim|required');
 	  $this->form_validation->set_rules('server_mysql_host', 'server_mysql_host', 'trim|required');
 	  $this->form_validation->set_rules('server_mysql_user', 'server_mysql_user', 'trim|required|min_length[6]');
@@ -63,6 +64,7 @@ class Add extends Controller {
 	  $server_hostname = $this->input->post('server_hostname');
 	  $server_ssh_user = $this->input->post('server_ssh_user');
 	  $server_mysql_port = $this->input->post('server_mysql_port');
+	  $server_mysql_socket = $this->input->post('server_mysql_socket');
 	  $server_mysql_db = $this->input->post('server_mysql_db');
 	  $server_mysql_host = $this->input->post('server_mysql_host');
 	  $server_mysql_user = $this->input->post('server_mysql_user');
@@ -90,6 +92,7 @@ class Add extends Controller {
 					  $server_hostname,
 					  $server_ssh_user,
 					  $server_mysql_port,
+					  $server_mysql_socket,
 					  $server_mysql_db,
 					  $server_mysql_host,
 					  $server_mysql_user,
