@@ -464,7 +464,7 @@ package version: $package_version
 --mysql-user       = mysql username
 --mysql-pass       = mysql password
 --mysql-port       = mysql port
---mysql-port       = mysql socket
+--mysql-socket     = mysql socket
 --mysql-db         = mysql database
 --mysql-host       = mysql host
                 
