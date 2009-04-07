@@ -67,3 +67,29 @@ starting makefile for /var/www/html/kontrollbase/system/application/config/confi
 starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
 /var/www/html/kontrollbase/system/application/config/database.php created successfully 
 success, end. 
+Installation beginning 
+starting db install for localhost,kb_admin,kontrollbase 
+Selecting database kontrollbase 
+Running table check for alerts_current. 
+Running table check for alerts_custom. 
+Running table check for alerts_def. 
+Running table check for api_users. 
+Running table check for graphs_custom. 
+Running table check for graphs_default. 
+Running table check for server_client. 
+Running table check for server_list. 
+Running table check for server_report. 
+Running table check for server_statistics. 
+Running table check for system_main. 
+Running table check for system_pages. 
+Running table check for system_pruning_audit. 
+Running table check for system_users. 
+Running table check for system_users_audit. 
+Running table check for webapp_sessions. 
+starting makefile for /var/www/html/kontrollbase/config.cfg 
+/var/www/html/kontrollbase/config.cfg created successfully 
+starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
+/var/www/html/kontrollbase/system/application/config/config.php created successfully 
+starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
+/var/www/html/kontrollbase/system/application/config/database.php created successfully 
+success, end. 

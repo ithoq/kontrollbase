@@ -196,7 +196,7 @@ echo "<tr><td>".form_dropdown('server_type', $type,"$server_type")."</td><td>Ser
 echo "<tr><td>".form_dropdown('server_is_slave', $slave,"$server_is_slave")."</td><td>Replication Server</td></tr>";
 echo "<tr><td>".form_dropdown('active', $active,"$active")."</td><td>Server is active</td></tr>";
 echo "</table><table><tr><td colspan='2'>".form_reset('Reset','Reset').form_submit('submit', 'Edit host').form_close();
-echo "&nbsp;<a href='$nroot/index.php/show/hostssss/' target='_self'><button>Cancel</button></a></td></tr>";
+echo "&nbsp;<a href='$nroot/index.php/show/hosts/' target='_self'><button>Cancel</button></a></td></tr>";
 print "</table>";
 
 //end of page
