@@ -30,6 +30,7 @@ print "<div id='content'>
 <th>slave</th>
 <th>ssh_user</th>
 <th>mysql_port</th>
+<th>mysql_socket</th>
 <th>mysql_db</th>
 <th>mysql_user</th>
 <th>mysql_pass</th>
@@ -54,6 +55,7 @@ foreach($server_list as $key => $value) {
     if($vKey == 'server_hostname') { $server_hostname=$vValue; }
     if($vKey == 'server_ssh_user') { $server_ssh_user=$vValue; }
     if($vKey == 'server_mysql_port') { $server_mysql_port=$vValue; }
+    if($vKey == 'server_mysql_socket') { $server_mysql_socket=$vValue; }
     if($vKey == 'server_mysql_db') { $server_mysql_db=$vValue; }
     if($vKey == 'server_mysql_user') { $server_mysql_user=$vValue; }
     if($vKey == 'server_mysql_pass') { $server_mysql_pass=$vValue; }
@@ -89,6 +91,7 @@ foreach($server_list as $key => $value) {
 <td class='td'>$server_is_slave</td>
 <td class='td'>$server_ssh_user</td>
 <td class='td'>$server_mysql_port</td>
+<td class='td'>$server_mysql_socket</td>
 <td class='td'>$server_mysql_db</td>
 <td class='td'>$server_mysql_user</td>
 <td class='td'>$server_mysql_pass</td>

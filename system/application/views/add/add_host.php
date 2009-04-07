@@ -137,12 +137,21 @@ $data13 = array(
               'size'        => '50',
               'style'       => 'width:50%',
 	      );
+$data14 = array(
+              'name'        => 'server_mysql_socket',
+              'id'          => 'server_mysql_socket',
+              'value'       => '/var/run/mysql.sock',
+              'maxlength'   => '100',
+              'size'        => '50',
+              'style'       => 'width:50%',
+	      );
 
 echo form_open('add/subhost');
 echo "<tr><td>".form_input($data00)."</td><td>IP address</td></tr>";
 echo "<tr><td>".form_input($data01)."</td><td>Hostname</td></tr>";
 echo "<tr><td>".form_input($data02)."</td><td>SSH Username</td></tr>";
 echo "<tr><td>".form_input($data03)."</td><td>MySQL Port</td></tr>";
+echo "<tr><td>".form_input($data14)."</td><td>MySQL Socket</td></tr>";
 echo "<tr><td>".form_input($data04)."</td><td>Polling Database</td></tr>";
 echo "<tr><td>".form_input($data05)."</td><td>Polling Address</td></tr>";
 echo "<tr><td>".form_input($data06)."</td><td>MySQL Username</td></tr>";

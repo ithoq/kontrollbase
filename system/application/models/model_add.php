@@ -34,6 +34,7 @@ class Model_add extends Model
 		    $server_hostname,
 		    $server_ssh_user,
 		    $server_mysql_port,
+		    $server_mysql_socket,
 		    $server_mysql_db,
 		    $server_mysql_host,
 		    $server_mysql_user,
@@ -53,6 +54,7 @@ class Model_add extends Model
     $server_hostname = $this->db->escape_str($server_hostname);
     $server_ssh_user = $this->db->escape_str($server_ssh_user);
     $server_mysql_port = $this->db->escape_str($server_mysql_port);
+    $server_mysql_socket = $this->db->escape_str($server_mysql_socket);
     $server_mysql_db = $this->db->escape_str($server_mysql_db);
     $server_mysql_host = $this->db->escape_str($server_mysql_host);
     $server_mysql_user = $this->db->escape_str($server_mysql_user);
@@ -75,6 +77,7 @@ class Model_add extends Model
 `server_hostname` ,
 `server_ssh_user` ,
 `server_mysql_port` ,
+`server_mysql_socket` ,
 `server_mysql_db` ,
 `server_mysql_host`,
 `server_mysql_user` ,
@@ -97,6 +100,7 @@ NULL ,
 '$server_hostname',
 '$server_ssh_user',
 '$server_mysql_port',
+'$server_mysql_socket',
 '$server_mysql_db',
 '$server_mysql_host',
 '$server_mysql_user',

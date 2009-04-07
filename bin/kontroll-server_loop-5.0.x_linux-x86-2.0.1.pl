@@ -113,6 +113,7 @@ sub get_list {
 	my $server_mysql_pass = $row->{'server_mysql_pass'};
 	my $server_snmp_local_address = $row->{'server_snmp_local_address'};
 	my $server_snmp_port = $row->{'server_snmp_port'};
+	my $server_snmp_socket = $row->{'server_snmp_socket'};
 	my $server_snmp_rocommunity = $row->{'server_snmp_rocommunity'};
 	my $server_snmp_version = $row->{'server_snmp_version'};
 	my $server_client_name = $row->{'server_client_name'};
@@ -120,7 +121,7 @@ sub get_list {
 	my $xmlfile = "xml/$server_id-$server_client_name-$server_hostname-$server_ipaddress.xml";
 
 	print "\nEXEC $perlclient client script for host: $server_hostname $server_ssh_user\@$server_ipaddress\n";
-	system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
+	system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_port --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
 	print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress\n";
 	system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id");	
     }   

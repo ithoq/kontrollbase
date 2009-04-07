@@ -33,6 +33,7 @@ foreach($server as $key => $value) {
     if($vKey == 'server_hostname') { $server_hostname=$vValue; }
     if($vKey == 'server_ssh_user') { $server_ssh_user=$vValue; }
     if($vKey == 'server_mysql_port') { $server_mysql_port=$vValue; }
+    if($vKey == 'server_mysql_socket') { $server_mysql_socket=$vValue; }
     if($vKey == 'server_mysql_db') { $server_mysql_db=$vValue; }
     if($vKey == 'server_mysql_host') { $server_mysql_host=$vValue; }
     if($vKey == 'server_mysql_user') { $server_mysql_user=$vValue; }
@@ -164,6 +165,14 @@ $data13 = array(
               'size'        => '50',
               'style'       => 'width:50%',
 	      );
+$data14 = array(
+                'name'        => 'server_mysql_socket',
+                'id'          => 'server_mysql_socket',
+                'value'       => "$server_mysql_socket",
+                'maxlength'   => '100',
+                'size'        => '50',
+                'style'       => 'width:50%',
+                );
 
 echo form_open('edit/subhost');
 echo form_hidden('server_list_id', "$server_list_id");
@@ -171,6 +180,7 @@ echo "<tr><td>".form_input($data00)."</td><td>IP address</td></tr>";
 echo "<tr><td>".form_input($data01)."</td><td>Hostname</td></tr>";
 echo "<tr><td>".form_input($data02)."</td><td>SSH Username</td></tr>";
 echo "<tr><td>".form_input($data03)."</td><td>MySQL Port</td></tr>";
+echo "<tr><td>".form_input($data14)."</td><td>MySQL Socket</td></tr>";
 echo "<tr><td>".form_input($data04)."</td><td>Polling Database</td></tr>";
 echo "<tr><td>".form_input($data05)."</td><td>Polling Address</td></tr>";
 echo "<tr><td>".form_input($data06)."</td><td>MySQL Username</td></tr>";
