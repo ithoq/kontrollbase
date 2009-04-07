@@ -7,10 +7,10 @@
 <link rel="stylesheet" type="text/css" media="all" href="http://192.168.0.20/kontrollbase/userguide/css/userguide-nofluff.css" />
 </head>
 <body><table>
-<tr><td><div id='content'><h1>Overview Data for hostname.yahoo.com</h1></td></tr>
+<tr><td><div id='content'><h1>Overview Data for localhost.localdomain</h1></td></tr>
 <tr><td>
 <div id='content'><table cellpadding='0' cellspacing='1' border='0' style='width:100%' class='tableborder'>
-<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 192.168.0.55</td><td class='td'><strong>Data size</strong>: 0 Bytes</td></tr>
+<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 127.0.0.1</td><td class='td'><strong>Data size</strong>: 0 Bytes</td></tr>
 <tr><td class='td'><strong>MySQL version</strong>: 0</td><td class='td'><strong>Index size</strong>: 0 Bytes</td></tr>
 <tr><td class='td'><strong>Default engine</strong>: 0</td><td class='td'><strong>Total size</strong>: 0 Bytes</td></tr>
 <tr><td class='td'><strong>Uptime</strong>: 0 days</td><td class='td'><strong>InnoDB Tables</strong>: 0</td></tr>
