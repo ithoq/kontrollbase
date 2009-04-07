@@ -37,6 +37,11 @@ See the <a href="http://php.net" target="_blank">PHP documentation</a> for more 
   <code>memory_limit = 16M      ; Maximum amount of memory a script may consume (16MB)
 </code>
 <br>
+<h3>3. DomPDF file error: Failed opening required include/domdocument.cls.php</h3>
+From the DomPDF page: "This error occurs when the version of PHP that you are using does not have the DOM extension enabled. You can check which extensions are enabled by examning the output of phpinfo().
+
+There are a couple of ways that the DOM extension could have been disabled. DOM uses libxml, so if libxml is not present on your server then the DOM extension will not work. Alternatively, if PHP was compiled with the '--disable-dom' switch or the '--disable-xml' switch, DOM support will also be removed. You can check which switches were used to compile PHP with phpinfo()." See: <a href="http://www.digitaljunkies.ca/dompdf/faq.php#dom" target="_blank">http://www.digitaljunkies.ca/dompdf/faq.php#dom</a> for more info.
+<br>
 <br>
 <h2>Apache Errors</h2>
 <h3>1. Directory permissions</h3>
