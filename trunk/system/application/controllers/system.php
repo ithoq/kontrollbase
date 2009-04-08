@@ -24,8 +24,8 @@ class System extends Controller {
 	  $schema = $this->config->item('schema_readonly_name');
 
 	  $g['users'] = $this->system->get_system_quant(2);//system users
-	  $g['active'] = $this->system->get_system_quant(0);//active hosts
-	  $g['inactive'] = $this->system->get_system_quant(1);//inactive hosts
+	  $g['inactive'] = $this->system->get_system_quant(0);//inactive hosts
+	  $g['active'] = $this->system->get_system_quant(1);//active hosts
 	  $g['clients'] = $this->system->get_system_quant(3);//clients 
 	  $g['reports'] = $this->system->get_system_quant(4);//reports
 	  $g['stats'] = $this->system->get_system_quant(5);//stats

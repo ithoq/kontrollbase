@@ -78,8 +78,9 @@ foreach($server_list as $key => $value) {
   elseif($server_is_slave == 1) { $server_is_slave="yes";}
   else { $server_is_slave="NULL";}
 
-  if($active == 0) { $active="<img src='$nroot/includes/images/Record-Normal-Green-24x24.png' width='18px' height='18'px'>";}
-  elseif($active == 1) { $active="<img src='$nroot/includes/images/Record-Disabled-24x24.png' width='18px' height='18'px'>";}
+  if($active == 0) { $active="<img src='$nroot/includes/images/Record-Disabled-24x24.png' width='18px' height='18'px'>";} 
+  elseif($active == 1) { $active="<img src='$nroot/includes/images/Record-Normal-Green-24x24.png' width='18px' height='18'px'>";}
+  elseif($active == 2) { $active="<img src='$nroot/includes/images/Record-Problem-Red-24x24.png' width='18px' height='18'px'>";}
   else { $active="NULL";}
 
   print "

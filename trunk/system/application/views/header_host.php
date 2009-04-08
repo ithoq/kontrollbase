@@ -428,8 +428,9 @@ foreach($server_list as $key => $value) {
   elseif($server_type == 1) { $server_type='stage';}
   elseif($server_type == 2) { $server_type='dev';}
 
-  if($active == 0) { $active="<img src='$nroot/includes/images/Record-Normal-Green-16x16.png' width='14px' heigh='14px'>";}
-  elseif($active == 1) { $active="<img src='$nroot/includes/images/Record-Disabled-16x16.png' width='14px' heigh='14px'>";}
+  if($active == 0) { $active="<img src='$nroot/includes/images/Record-Disabled-16x16.png' width='14px' heigh='14px'>";}
+  elseif($active == 1) { $active="<img src='$nroot/includes/images/Record-Normal-Green-16x16.png' width='14px' heigh='14px'>";}
+  elseif($active == 2) { $active="<img src='$nroot/includes/images/Record-Problem-Red-16x16.png' width='14px' heigh='14px'>";}
 
   $servers .= "<td>$active <a href='$nroot/index.php/main/host/$id' target='_self'>$list_hostname</a></td></tr>";
 }
