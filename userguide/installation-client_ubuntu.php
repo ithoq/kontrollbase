@@ -40,7 +40,7 @@ Server version: 5.0.67-0ubuntu6-log (Ubuntu)
 
 Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 
-mysql> grant SELECT, PROCESS on *.* to 'kontrollbase'@'localhost' identified by 'password-here';
+mysql> grant SELECT, PROCESS, SUPER, REPLICATION CLIENT on *.* to 'kontrollbase'@'localhost' identified by 'password-here';
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> flush privileges;
