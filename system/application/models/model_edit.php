@@ -104,6 +104,7 @@ class Model_edit extends Model
     $threshold_seconds_behind_master = $this->db->escape_str($threshold_seconds_behind_master);
     
     $dbr = $this->load->database('write', TRUE);
+if ($active !=1010) {
     $sql0="
 UPDATE `server_list` SET 
 `active` = '$active',
@@ -126,6 +127,32 @@ UPDATE `server_list` SET
 `threshold_queries_per_second` = '$threshold_queries_per_second',
 `threshold_seconds_behind_master` = '$threshold_seconds_behind_master'
  WHERE `id` = '$server_list_id' LIMIT 1";
+}
+else {
+    $sql0="
+UPDATE `server_list` SET 
+`server_client_id` = '$server_client_id',
+`server_type` = '$server_type',
+`server_is_slave` = '$server_is_slave',
+`server_ipaddress` = '$server_ipaddress',
+`server_hostname` = '$server_hostname',
+`server_ssh_user` = '$server_ssh_user',
+`server_mysql_port` = '$server_mysql_port',
+`server_mysql_socket` = '$server_mysql_socket',
+`server_mysql_db` = '$server_mysql_db',
+`server_mysql_host` = '$server_mysql_host',
+`server_mysql_user` = '$server_mysql_user',
+`server_mysql_pass` = '$server_mysql_pass',
+`server_snmp_local_address` = '$server_snmp_local_address',
+`server_snmp_port` = '$server_snmp_port',
+`server_snmp_rocommunity` = '$server_snmp_rocommunity',
+`server_snmp_version` = '$server_snmp_version',
+`threshold_queries_per_second` = '$threshold_queries_per_second',
+`threshold_seconds_behind_master` = '$threshold_seconds_behind_master'
+ WHERE `id` = '$server_list_id' LIMIT 1";
+}
+
+
     $this->db->trans_start();
     $this->db->query($sql0);
     $this->db->trans_complete();

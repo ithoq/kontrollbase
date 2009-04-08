@@ -17,6 +17,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='2.93714' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='2.93671' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='2.93652' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='2.93594' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='2.93412' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Query Rate' xAxisName='' yAxisName='Q/sec' 
@@ -25,6 +30,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='2.93714' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='2.93671' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='2.93652' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='2.93594' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='2.93412' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -37,6 +47,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='4' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='4' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Server Connections' xAxisName='' yAxisName='connections' 
@@ -45,6 +60,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='4' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='4' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='4' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -57,6 +77,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Load AVG 15 minute' xAxisName='' yAxisName='load avg' 
@@ -65,6 +90,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -77,6 +107,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='11199651840' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='11195781120' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='11191336960' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='11187273728' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='11181662208' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Memory Used' xAxisName='' yAxisName='ram' 
@@ -85,6 +120,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='11199651840' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='11195781120' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='11191336960' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='11187273728' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='11181662208' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -97,6 +137,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='99' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='99' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS CPU Idle' xAxisName='' yAxisName='percentage' 
@@ -105,6 +150,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='99' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='99' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='99' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -117,6 +167,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='2116732123' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Data Size' xAxisName='' yAxisName='size' 
@@ -125,6 +180,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='2116732123' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='2116732123' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -137,6 +197,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='65684480' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Index Size' xAxisName='' yAxisName='size' 
@@ -145,6 +210,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='65684480' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='65684480' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -157,6 +227,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='479.634047103' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='479.528178862' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='479.419580549' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='479.298572407' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='478.97688498' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_received' xAxisName='' yAxisName='bytes/sec' 
@@ -165,6 +240,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='479.634047103' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='479.528178862' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='479.419580549' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='479.298572407' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='478.97688498' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -177,6 +257,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='1959.95548613' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='1959.8330192' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='1959.97006951' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='1959.89982169' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='1959.0628492' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://kontrollbase.npr.org/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_sent' xAxisName='' yAxisName='bytes/sec' 
@@ -185,6 +270,11 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
+<set name='04-07 18:10' value='1959.95548613' color='ff6600' showName='0'/>
+<set name='04-07 19:00' value='1959.8330192' color='ff6600' showName='0'/>
+<set name='04-07 20:00' value='1959.97006951' color='ff6600' showName='0'/>
+<set name='04-07 21:00' value='1959.89982169' color='ff6600' showName='0'/>
+<set name='04-07 23:14' value='1959.0628492' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr></table></td></tr></table></body></html>

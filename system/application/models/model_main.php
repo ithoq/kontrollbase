@@ -139,7 +139,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_summary_data");
     $dbr = $this->load->database('read', TRUE);
     $this->load->helper('number');
-    $sql0 = "select id,server_hostname from server_list where active='0' order by server_hostname";
+    $sql0 = "select id,server_hostname from server_list where active >='1' order by server_hostname";
     $i=0;
     $query = $dbr->query($sql0);
     if($query->num_rows() > 0) {
@@ -266,13 +266,13 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_current_alerts");
     $dbr = $this->load->database('read', TRUE);
     if($server_list_id == '0') {     
-      $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active = '0' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
+      $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
     }
     elseif($server_list_id == 'NULL') {
-      $sql="select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack,  t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active = '0' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
+      $sql="select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack,  t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
     }
     else {
-      $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active = '0' and t2.server_list_id='$server_list_id' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
+      $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.server_list_id='$server_list_id' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
     }
     log_message('debug', "$sql");
     $query = $dbr->query($sql);
@@ -376,7 +376,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_stats");
     $dbr = $this->load->database('read', TRUE);
     if($server_list_id == '0') { //here we are calculating sizes of variables for a list of hosts
-      $sql = "select id from server_list where active='0' order by server_hostname";
+      $sql = "select id from server_list where active >='1' order by server_hostname";
       log_message('debug', "$sql");
       $query = $dbr->query($sql);
       $vcount = 0;

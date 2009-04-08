@@ -203,7 +203,7 @@ sub get_list {
         }
     ) or error_report("$DBI::errstr");
 
-    my $sql0 = "select t1.id,t1.server_ipaddress,t1.server_hostname,t2.id as server_client_id ,t2.server_client_name from server_list as t1, server_client as t2 where t1.active='0' and t1.server_client_id = t2.id order by id;";
+    my $sql0 = "select t1.id,t1.server_ipaddress,t1.server_hostname,t2.id as server_client_id ,t2.server_client_name from server_list as t1, server_client as t2 where t1.active >='1' and t1.server_client_id = t2.id order by id;";
     my $sth = $dbh->prepare($sql0) or error_report("$DBI::errstr");
     $sth->execute or error_report("$DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {

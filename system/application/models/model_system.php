@@ -30,10 +30,10 @@ class Model_system extends Model
     $dbr = $this->load->database('read', TRUE);
 
     if($x == 0) {
-      $sql="select id from server_list where active='0'";
+      $sql="select id from server_list where active ='0'";
     }
     elseif($x == 1) {
-      $sql="select id from server_list where active='1'";
+      $sql="select id from server_list where active >='1'";
     }
     elseif($x == 2) {
       $sql="select id from system_users";

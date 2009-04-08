@@ -46,7 +46,7 @@ class Model_add extends Model
 		    $threshold_queries_per_second,
 		    $threshold_seconds_behind_master) {
     
-    $active = '0';
+    $active = '1';
     $server_client_id = $this->db->escape_str($server_client_id);
     $server_type = $this->db->escape_str($server_type);
     $server_is_slave = $this->db->escape_str($server_is_slave);

@@ -51,7 +51,7 @@ foreach($server as $key => $value) {
 
 $slave = array('0' => 'No','1' => 'Yes');
 $type = array('0' => 'Production','1' => 'Staging', '2' => 'Development');
-$active = array('0' => 'Yes','1' => 'No');
+$active = array('1010' => '', '1' => 'Yes','0' => 'No');
 
 $data00 = array(
               'name'        => 'server_ipaddress',

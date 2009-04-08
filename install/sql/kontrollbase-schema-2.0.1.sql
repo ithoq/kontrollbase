@@ -202,7 +202,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `server_list`;
 CREATE TABLE `server_list` (
   `id` int(11) NOT NULL auto_increment,
-  `active` tinyint(1) NOT NULL default '0' COMMENT '0=active, 1=not active',
+  `active` tinyint(1) NOT NULL default '0' COMMENT '0=off, 1=active,2=inactive',
   `server_client_id` int(16) NOT NULL,
   `server_type` tinyint(1) NOT NULL default '0' COMMENT '0 = prod, 1 = stage, 2 = dev',
   `server_is_slave` tinyint(1) NOT NULL default '0' COMMENT '0=not slave, 1=slave',

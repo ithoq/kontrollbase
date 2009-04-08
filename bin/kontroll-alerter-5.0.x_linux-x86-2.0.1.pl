@@ -124,7 +124,7 @@ sub get_alerts {
         }
 	) or error_report("$DBI::errstr");
 
-    my $sql0 = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.creation_time, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname,t4.server_client_name from alerts_def as t1, alerts_current as t2, server_list as t3, server_client as t4 where t3.server_client_id = t4.id and t3.active = '0' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
+    my $sql0 = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.creation_time, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname,t4.server_client_name from alerts_def as t1, alerts_current as t2, server_list as t3, server_client as t4 where t3.server_client_id = t4.id and t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
     my $sth = $dbh->prepare($sql0) or error_report("$DBI::errstr");
     $sth->execute or error_report("$DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
