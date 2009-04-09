@@ -197,7 +197,7 @@ sub get_mysql_stats {
 	    PrintError => 0,
 	    RaiseError => 0
 	})
-	or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+	or error_report("<error type=\"mysql-connection-error\"><![CDATA[$DBI::errstr ]]></error>\n");
     
     my $sth = $dbh->prepare($sql0) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
     $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
