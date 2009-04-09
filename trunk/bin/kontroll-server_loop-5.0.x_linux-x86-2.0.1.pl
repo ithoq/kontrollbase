@@ -103,6 +103,7 @@ sub get_list {
     $sth->execute or error_report("$DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
 	my $server_id = $row->{'id'};
+	my $active = $row->{'active'};
 	my $server_ipaddress = $row->{'server_ipaddress'};
 	my $server_hostname = $row->{'server_hostname'};
 	my $server_ssh_user = $row->{'server_ssh_user'};
@@ -121,9 +122,22 @@ sub get_list {
 	my $xmlfile = "xml/$server_id-$server_client_name-$server_hostname-$server_ipaddress.xml";
 
 	print "\nEXEC $perlclient client script for host: $server_hostname $server_ssh_user\@$server_ipaddress\n";
-	system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_port --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
+	
+
+	 eval {
+		local $SIG{ALRM} = sub {die "ssh connection timeout reached\n"};
+                alarm 5; 
+		system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_port --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
+		alarm 0;
+		};
+
+	 if ($@) {
+                die unless $@ eq "ssh connection timeout reached\n";
+		}
+
+
 	print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress\n";
-	system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id");	
+	system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id $active");	
     }   
 }
 
