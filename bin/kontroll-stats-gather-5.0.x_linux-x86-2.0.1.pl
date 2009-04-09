@@ -1596,6 +1596,9 @@ sub parse_data {
 	) or error_report("$DBI::errstr");
     
     my $file = $_[0];
+    my $server_id = $_[1];
+    my $active_status = $_[2];
+    my $updated_status;
     my $parser = XML::Parser->new(ErrorContext => 2, Style => "Tree");
     my $xso = XML::SimpleObject->new( $parser->parsefile($file));
     
@@ -1625,6 +1628,10 @@ sub parse_data {
 		if($error_type eq "mysql") {
                     $varlist{'server_mysql_error_code'} = $error_value;
                 }
+		if($error_type eq "mysql-connection-error") {
+                    $varlist{'server_mysql_error_code'} = $error_value;
+		    $updated_status = 2;	
+                }   modify_active_status($server_id,$active_status,$updated_status);
 	    }
 	}
 
@@ -1687,12 +1694,50 @@ sub debug_report {
     close FILE;
 }
 
+sub modify_active_status {
+     my $server_id = $_[0];
+     my $active_status = $_[1];
+     my $updated_status = $_[2];
+     my $sql1;
 
+     my $dbh = DBI->connect(
+     "DBI:mysql:$mysql_w_db:$mysql_w_host",
+     $mysql_w_user,
+     $mysql_w_pass,
+        {
+            PrintError => 0,
+            RaiseError => 0
+        }
+        ) or error_report("$DBI::errstr");
+
+    if (($active_status == 1) && ($updated_status == 2)) {
+    $sql1 = "UPDATE server_list set active = '2' where id = $server_id;"; 
+    }
+    elsif (($active_status == 2) && ($updated_status == 1)) {
+    $sql1 = "UPDATE server_list set active = '1' where id = $server_id;";
+    }
+    elsif ($active_status == $updated_status) {
+    $dbh->disconnect;
+    exit 1;
+    }
+
+    my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
+    $sth->execute or error_report("$DBI::errstr");
+    $sth->finish;
+    $dbh->disconnect;
+    exit 1;
+
+}
 config_connect($config);
 my $xml_file = $ARGV[0];
+my $server_id = $ARGV[1];
+my $active_status = $ARGV[2];
+my $updated_status = 1;
+
 $varlist{'server_list_id'} = $ARGV[1];
 if(!$xml_file) { error_report("No input file specified. Exiting.");}
 if(!$ARGV[1]) { error_report("No server_id value specified. Exiting.");}
 debug_report("## process start");
-parse_data($xml_file);
+parse_data($xml_file,$server_id,$active_status);
 insert_data() or error_report("$h [fail]");
+if ($active_status == 2) { modify_active_status( $server_id,$active_status,$updated_status);}
