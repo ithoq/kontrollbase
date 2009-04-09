@@ -1630,8 +1630,10 @@ sub parse_data {
                 }
 		if($error_type eq "mysql-connection-error") {
                     $varlist{'server_mysql_error_code'} = $error_value;
-		    $updated_status = 2;	
-                }   modify_active_status($server_id,$active_status,$updated_status);
+		    $updated_status = 2;
+                    modify_active_status($server_id,$active_status,$updated_status);
+	            error_report("mysql connection error occured, setting status of $h to inactive");	
+	    }
 	    }
 	}
 
@@ -1695,6 +1697,7 @@ sub debug_report {
 }
 
 sub modify_active_status {
+
      my $server_id = $_[0];
      my $active_status = $_[1];
      my $updated_status = $_[2];
@@ -1712,13 +1715,15 @@ sub modify_active_status {
 
     if (($active_status == 1) && ($updated_status == 2)) {
     $sql1 = "UPDATE server_list set active = '2' where id = $server_id;"; 
-    }
+    debug_report("connection with $h could not be established, updating database, setting active = '2'") 
+   }
     elsif (($active_status == 2) && ($updated_status == 1)) {
     $sql1 = "UPDATE server_list set active = '1' where id = $server_id;";
+    debug_report("connection with $h reestablished, updating database, setting active = '1'") 
     }
     elsif ($active_status == $updated_status) {
     $dbh->disconnect;
-    exit 1;
+    error_report("connection status of $h remains unchanged, no need to update database");
     }
 
     my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
@@ -1741,3 +1746,5 @@ debug_report("## process start");
 parse_data($xml_file,$server_id,$active_status);
 insert_data() or error_report("$h [fail]");
 if ($active_status == 2) { modify_active_status( $server_id,$active_status,$updated_status);}
+
+
