@@ -20,6 +20,7 @@ use POSIX qw(strftime);
 use Sys::Hostname;
 use DBI;
 use Time::HiRes qw(gettimeofday tv_interval);
+use File::Find;
 
 #GLOBS 
 my $server_host = hostname; #using Sys::Hostname
@@ -409,6 +410,63 @@ sub get_cnf {
     print "]]></item>\n";
 }
 
+sub check_perl_prerequisites {
+    no warnings 'File::Find';
+    my @lm;
+    find({wanted => sub { push @lm, $File::Find::name}, follow =>1}, @INC);
+
+
+print<<PREREQ;
+####################################
+$name
+Gets OS and MySQL stats, outputs XML
+$website
+package version: $package_version
+####################################
+
+PREREQUISITE            STATUS
+
+PREREQ
+
+my @match = grep(m/\/Net\/SNMP.pm/is, @lm);
+if (@match) {
+print "SNMP.pm                 FOUND.\n";
+}
+else {print "SNMP.pm                 NOT FOUND.\n";}
+
+@match = grep(m/\/Getopt\/Long.pm/is, @lm);
+if (@match) {
+print "Getopt/Long.pm          FOUND.\n";
+}
+else {print "Getopt/Long.pm          NOT FOUND.\n";}
+
+@match = grep(m/POSIX.pm/is, @lm);
+if (@match) {
+print "POSIX.pm                FOUND.\n";
+}
+else {print "POSIX.pm                NOT FOUND.\n";}
+
+@match = grep(m/\/Sys\/Hostname.pm/is, @lm);
+if (@match) {
+print "Sys/Hostname.pm         FOUND.\n";
+}
+else {print "Sys/Hostname.pm         NOT FOUND.\n";}
+
+@match = grep(m/DBI.pm/is, @lm);
+if (@match) {
+print "DBI.pm                  FOUND.\n";
+}
+else {print "DBI.pm                  NOT FOUND.\n";}
+
+@match = grep(m/\/Time\/HiRes.pm/is, @lm);
+if (@match) {
+print "Time/HiRes.pm           FOUND.\n";
+}
+else {print "Time/HiRes.pm            NOT FOUND.\n";}	
+
+
+}
+
 #### END FUNTIONS
 
 #### BEGIN OPERATIONS
@@ -425,6 +483,7 @@ my $server_mysql_host = 'localhost';
 my $snmp_timeout = 5;
 my $snmp_retries = 2;
 my $help = undef;
+my $prereq = undef;
 my $verbose = undef;
 
 GetOptions (
@@ -441,7 +500,8 @@ GetOptions (
     'mysql-db=s' => \$server_mysql_db,
     'mysql-host=s' => \$server_mysql_host,
     'verbose' => \$verbose,
-    'help' => \$help
+    'help' => \$help,
+    'prereq' => \$prereq
     );
 
 if(!$ARGV[0]) { $ARGV[0] = '';}
@@ -454,6 +514,7 @@ $website
 package version: $package_version
 ####################################
 --help        = this message
+--prereq      = prerequisite checks
 
 --snmp-host        = snmp host address
 --snmp-port        = snmp port
@@ -478,7 +539,7 @@ snmp-retries:     2
 mysql-user:       root
 mysql-pass:       <blank>
 mysql-port:       3306
-mysql-socket:       /var/run/mysql.sock
+mysql-socket:     /var/run/mysql.sock
 mysql-db:         mysql
 mysql-host:       localhost
 
@@ -510,6 +571,12 @@ mysql host:       $server_mysql_host
 
 GO
     }
+else {
+    if($prereq) {
+    check_perl_prerequisites();
+    exit;	
+}
+}
     my $t0 = [gettimeofday]; #start timer
     start_xml();
     get_snmp_os_stats(
