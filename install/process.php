@@ -314,15 +314,129 @@ function makefile($filename,$data,$INSTALL_LOG) {
   return 0;
 }
 
+
+function array_ereg_search($val, $array) {
+$i = 0;
+$return = array();
+        foreach($array as $v) {
+               if(eregi($val, $v)) $return[] = $i;
+               $i++;
+          }
+      return $return;
+      }
+
+
+function check_prerequisites_php($INSTALL_LOG) {
+
+logger("Beggining PHP prerequisite checks",$INSTALL_LOG);
+
+$lm_php=get_loaded_extensions();
+$mm_php=array();
+
+if (!(in_array("dom",$lm_php))) {
+    echo "Don't Got dom <br>";
+    array_push($mm_php, "dom");
+    logger("Unable to locate dom prerequisite",$INSTALL_LOG);
+}
+else {logger("Prerequisite dom located",$INSTALL_LOG);}
+  
+if (!(in_array("mbstring",$lm_php))) {
+    echo "Don't Got mbstring";
+    array_push($mm_php,"mbstring");
+    logger("Unable to locate mbstring prerequisite",$INSTALL_LOG);
+}
+else {logger("Prerequisite mbstring located",$INSTALL_LOG);}
+
+if (!(in_array("mysql", $lm_php))) {
+    echo "Don't Got mysql<br>";
+    array_push($mm_php, "mysql");
+    logger("Unable to locate mysql prerequisite",$INSTALL_LOG);
+}
+else {logger("Prerequisite mysql located",$INSTALL_LOG);}
+
+if (!(in_array("xml", $lm_php))) {
+    echo "Don't Got xml<br>";
+    array_push($mm_php, "xml");
+    logger("Unable to locate xml prerequisite",$INSTALL_LOG);
+}
+else {logger("Prerequisite xml located",$INSTALL_LOG);}
+
+
+if (empty($mm_php)){
+return(0);
+}
+else {
+return(1);
+}
+}
+
+function check_prerequisites_perl($INSTALL_LOG) {
+
+logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
+
+$lm_perl = "find `perl -e 'print \"@INC\"'` -name *.pm";
+exec($lm_perl,$output);
+$mm_perl = array();
+
+logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
+
+$xml_p = array_ereg_search('/XML/Parser.pm', $output);
+$xml_s = array_ereg_search('/XML/SimpleObject.pm', $output);
+$dbi = array_ereg_search('DBI.pm', $output);
+$mcu = array_ereg_search('/Math/Calc/Units', $output);
+
+if (!empty($xml_p)) {
+    echo "Got Parser.pm <br>";
+    array_push($mm_perl, Parser.pm);
+    logger("Prerequisite XML/Parser.pm located",$INSTALL_LOG);
+}
+else {logger("Unable to locate XML/Parser.pm prerequisite",$INSTALL_LOG);}
+
+if (!empty($xml_s)) {
+    echo "Got SimpleObject.pm <br>";
+    array_push($mm_perl, SimpleObject.pm);
+    logger("Prerequisite XML/SimpleObject.pm located",$INSTALL_LOG);
+}
+else {logger("Unable to locate XML/Parser.pm prerequisite",$INSTALL_LOG);}
+
+if (!empty($dbi)) {
+    echo "Got DBI.pm <br>";
+    array_push($mm_perl, DBI.pm);
+    logger("Prerequisite DBI.pm located",$INSTALL_LOG);
+}
+else {logger("Unable to locate Parser.pm prerequisite",$INSTALL_LOG);}
+
+if (!empty($mcu)) {
+    echo "Got Units.pm <br>";
+    array_push($mm_perl, Units.pm);
+    logger("Prerequisite /Math/Calc/Units.pm located",$INSTALL_LOG);
+}
+else {logger("Unable to locate /Math/Calc/Units.pm prerequisite",$INSTALL_LOG);}
+
+
+if (empty($xml_p) || empty($xml_s) ||  empty($dbi) ||  empty($mcu)){
+
+return(1);
+}
+else {
+return(0);
+}
+}
+
+echo ($INSTALL_LOG);
 logger("Installation beginning",$INSTALL_LOG);
-$s1 = setup_db($MYSQL_R_HOST,$MYSQL_A_USER,$MYSQL_A_PASS,$MYSQL_R_DB,$SQLFILE,$INSTALL_LOG);
+$s0 = check_prerequisites_php($INSTALL_LOG);
+if($s0 == 0) {
+$s1 = check_prerequisites_perl($INSTALL_LOG);
 if($s1 == 0) {
-  $s2 = makefile("$BASE_DIR/config.cfg",$cfgfile,$INSTALL_LOG);
-  if($s2 == 0) {
-    $s3 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
-    if($s3 == 0) {
-      $s4 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
-      if($s4 == 0) {     
+$s2 = setup_db($MYSQL_R_HOST,$MYSQL_A_USER,$MYSQL_A_PASS,$MYSQL_R_DB,$SQLFILE,$INSTALL_LOG);
+if($s2 == 0) {
+  $s3 = makefile("$BASE_DIR/config.cfg",$cfgfile,$INSTALL_LOG);
+  if($s3 == 0) {
+    $s4 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
+    if($s4 == 0) {
+      $s5 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
+      if($s5 == 0) {     
 	logger("success, end.",$INSTALL_LOG);
 	echo "{success: true}";
 	exit;
@@ -350,5 +464,17 @@ if($s1 == 0) {
    echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
    exit;
  }   
+}
+ else {
+   logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
+   echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
+   exit;
+ }
+}
+ else {
+   logger("Failed to meet PHP prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
+   echo "{success: false, errors: { reason: 'Failed to meet PHP prerequisite requrements' }}";
+   exit;
+ }
 
 
