@@ -84,7 +84,7 @@ function setup_db($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DB,$SQLFILE,$INSTAL
     exit;
   }
 
-  //REMOVING TABLE CHECKS BECAUSE USER IS INSTRUCTED TO IMPORT SQL FILE BEFORE CONTINUING - IF SUCH, THESE TABLES WILL EXIST AND INSTALL WILL FAIL.
+  //REMOVING TABLE CHECKS BECAUSE USER IS INSTRUCTED TO IMPORT SQL FILE BEFORE CONTINUING - IF SUCH, THESE TABLES WILL EXIST AND INSTALL WILL FAIL. SO WE AREN'T USING THIS RIGHT NOW.
   //  $tblist = array("alerts_current","alerts_custom","alerts_def","api_users","graphs_custom","graphs_default","server_client","server_list",
   //		  "server_report","server_statistics","system_main","system_pages","system_pruning_audit","system_users","system_users_audit","webapp_sessions");
   //  foreach($tblist as $table) {
