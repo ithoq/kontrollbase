@@ -83,6 +83,8 @@ function setup_db($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DB,$SQLFILE,$INSTAL
     echo "{success: false, errors: { reason: '$err' }}";
     exit;
   }
+
+  //REMOVING TABLE CHECKS BECAUSE USER IS INSTRUCTED TO IMPORT SQL FILE BEFORE CONTINUING - IF SUCH, THESE TABLES WILL EXIST AND INSTALL WILL FAIL.
   //  $tblist = array("alerts_current","alerts_custom","alerts_def","api_users","graphs_custom","graphs_default","server_client","server_list",
   //		  "server_report","server_statistics","system_main","system_pages","system_pruning_audit","system_users","system_users_audit","webapp_sessions");
   //  foreach($tblist as $table) {
@@ -293,7 +295,7 @@ $config[\'rewrite_short_tags\'] = FALSE;
 ?>';
 
 function makefile($filename,$data,$INSTALL_LOG) {
-  logger("starting makefile for $filename",$INSTALL_LOG);
+  logger("Starting makefile for $filename",$INSTALL_LOG);
   if (file_exists($filename)) {
     logger("$filename already exists!",$INSTALL_LOG);
     echo "{success: false, errors: { reason: 'Config file: $filename already exists!' }}";
@@ -334,34 +336,47 @@ function check_prerequisites_php($INSTALL_LOG) {
   $mm_php=array();
   
   if (!(in_array("dom",$lm_php))) {
-    echo "Don't Got dom <br>";
+    $err="PHP Pre-req check: DOM missing";
     array_push($mm_php, "dom");
     logger("Unable to locate dom prerequisite",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
   }
-  else {logger("Prerequisite dom located",$INSTALL_LOG);}
+  else {
+    logger("Prerequisite dom located",$INSTALL_LOG);
+  }
+
   
   if (!(in_array("mbstring",$lm_php))) {
-    echo "Don't Got mbstring";
+    $err="PHP Pre-req check: php-mbstring missing";
     array_push($mm_php,"mbstring");
     logger("Unable to locate mbstring prerequisite",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
   }
-  else {logger("Prerequisite mbstring located",$INSTALL_LOG);}
+  else {
+    logger("Prerequisite mbstring located",$INSTALL_LOG);
+  }
+
   
   if (!(in_array("mysql", $lm_php))) {
-    echo "Don't Got mysql<br>";
+    $err="PHP Pre-req check: php-mysql missing.";
     array_push($mm_php, "mysql");
     logger("Unable to locate mysql prerequisite",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
   }
-  else {logger("Prerequisite mysql located",$INSTALL_LOG);}
+  else {
+    logger("Prerequisite mysql located",$INSTALL_LOG);
+  }
   
   if (!(in_array("xml", $lm_php))) {
-    echo "Don't Got xml<br>";
+    $err="PHP Pre-req missing: php-xml";
     array_push($mm_php, "xml");
     logger("Unable to locate xml prerequisite",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
   }
-  else {logger("Prerequisite xml located",$INSTALL_LOG);}
-  
-  
+  else {
+    logger("Prerequisite xml located",$INSTALL_LOG);
+  }
+    
   if (empty($mm_php)){
     return(0);
   }
