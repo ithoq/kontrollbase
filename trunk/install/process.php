@@ -83,12 +83,12 @@ function setup_db($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DB,$SQLFILE,$INSTAL
     echo "{success: false, errors: { reason: '$err' }}";
     exit;
   }
-  $tblist = array("alerts_current","alerts_custom","alerts_def","api_users","graphs_custom","graphs_default","server_client","server_list",
-		  "server_report","server_statistics","system_main","system_pages","system_pruning_audit","system_users","system_users_audit","webapp_sessions");
-  foreach($tblist as $table) {
-    logger("Running table check for $table.",$INSTALL_LOG);
-    table_check($table,$MYSQL_DB,$MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$INSTALL_LOG);
-  }
+  //  $tblist = array("alerts_current","alerts_custom","alerts_def","api_users","graphs_custom","graphs_default","server_client","server_list",
+  //		  "server_report","server_statistics","system_main","system_pages","system_pruning_audit","system_users","system_users_audit","webapp_sessions");
+  //  foreach($tblist as $table) {
+  //    logger("Running table check for $table.",$INSTALL_LOG);
+  //    table_check($table,$MYSQL_DB,$MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$INSTALL_LOG);
+  //  }
   
   //  $handle = fopen("$SQLFILE", "rb");
   //  $contents = '';
@@ -316,161 +316,176 @@ function makefile($filename,$data,$INSTALL_LOG) {
 
 
 function array_ereg_search($val, $array) {
-$i = 0;
-$return = array();
-        foreach($array as $v) {
-               if(eregi($val, $v)) $return[] = $i;
-               $i++;
-          }
-      return $return;
-      }
+  $i = 0;
+  $return = array();
+  foreach($array as $v) {
+    if(eregi($val, $v)) $return[] = $i;
+    $i++;
+  }
+  return $return;
+}
 
 
 function check_prerequisites_php($INSTALL_LOG) {
-
-logger("Beggining PHP prerequisite checks",$INSTALL_LOG);
-
-$lm_php=get_loaded_extensions();
-$mm_php=array();
-
-if (!(in_array("dom",$lm_php))) {
+  
+  logger("Beggining PHP prerequisite checks",$INSTALL_LOG);
+  
+  $lm_php=get_loaded_extensions();
+  $mm_php=array();
+  
+  if (!(in_array("dom",$lm_php))) {
     echo "Don't Got dom <br>";
     array_push($mm_php, "dom");
     logger("Unable to locate dom prerequisite",$INSTALL_LOG);
-}
-else {logger("Prerequisite dom located",$INSTALL_LOG);}
+  }
+  else {logger("Prerequisite dom located",$INSTALL_LOG);}
   
-if (!(in_array("mbstring",$lm_php))) {
+  if (!(in_array("mbstring",$lm_php))) {
     echo "Don't Got mbstring";
     array_push($mm_php,"mbstring");
     logger("Unable to locate mbstring prerequisite",$INSTALL_LOG);
-}
-else {logger("Prerequisite mbstring located",$INSTALL_LOG);}
-
-if (!(in_array("mysql", $lm_php))) {
+  }
+  else {logger("Prerequisite mbstring located",$INSTALL_LOG);}
+  
+  if (!(in_array("mysql", $lm_php))) {
     echo "Don't Got mysql<br>";
     array_push($mm_php, "mysql");
     logger("Unable to locate mysql prerequisite",$INSTALL_LOG);
-}
-else {logger("Prerequisite mysql located",$INSTALL_LOG);}
-
-if (!(in_array("xml", $lm_php))) {
+  }
+  else {logger("Prerequisite mysql located",$INSTALL_LOG);}
+  
+  if (!(in_array("xml", $lm_php))) {
     echo "Don't Got xml<br>";
     array_push($mm_php, "xml");
     logger("Unable to locate xml prerequisite",$INSTALL_LOG);
-}
-else {logger("Prerequisite xml located",$INSTALL_LOG);}
-
-
-if (empty($mm_php)){
-return(0);
-}
-else {
-return(1);
-}
+  }
+  else {logger("Prerequisite xml located",$INSTALL_LOG);}
+  
+  
+  if (empty($mm_php)){
+    return(0);
+  }
+  else {
+    return(1);
+  }
 }
 
 function check_prerequisites_perl($INSTALL_LOG) {
-
-logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
-
-$lm_perl = "find `perl -e 'print \"@INC\"'` -name *.pm";
-exec($lm_perl,$output);
-$mm_perl = array();
-
-logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
-
-$xml_p = array_ereg_search('/XML/Parser.pm', $output);
-$xml_s = array_ereg_search('/XML/SimpleObject.pm', $output);
-$dbi = array_ereg_search('DBI.pm', $output);
-$mcu = array_ereg_search('/Math/Calc/Units', $output);
-
-if (!empty($xml_p)) {
+  
+  logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
+  
+  $lm_perl = "find `perl -e 'print \"@INC\"'` -name *.pm";
+  exec($lm_perl,$output);
+  $mm_perl = array();
+  
+  logger("Beggining Perl prerequisite checks",$INSTALL_LOG);
+  
+  $xml_p = array_ereg_search('/XML/Parser.pm', $output);
+  $xml_s = array_ereg_search('/XML/SimpleObject.pm', $output);
+  $dbi = array_ereg_search('DBI.pm', $output);
+  $mcu = array_ereg_search('/Math/Calc/Units', $output);
+  
+  if (!empty($xml_p)) {
     echo "Got Parser.pm <br>";
     array_push($mm_perl, Parser.pm);
     logger("Prerequisite XML/Parser.pm located",$INSTALL_LOG);
-}
-else {logger("Unable to locate XML/Parser.pm prerequisite",$INSTALL_LOG);}
+  }
+  else {
+    $err = "Unable to locate XML/Parser.pm prerequisite";
+    logger("$err",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
 
-if (!empty($xml_s)) {
+  }
+  
+  if (!empty($xml_s)) {
     echo "Got SimpleObject.pm <br>";
     array_push($mm_perl, SimpleObject.pm);
     logger("Prerequisite XML/SimpleObject.pm located",$INSTALL_LOG);
-}
-else {logger("Unable to locate XML/Parser.pm prerequisite",$INSTALL_LOG);}
-
-if (!empty($dbi)) {
+  }
+  else {
+    $err="Unable to locate XML/Parser.pm prerequisite";
+    logger("$err",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
+  }
+  
+  if (!empty($dbi)) {
     echo "Got DBI.pm <br>";
     array_push($mm_perl, DBI.pm);
     logger("Prerequisite DBI.pm located",$INSTALL_LOG);
-}
-else {logger("Unable to locate Parser.pm prerequisite",$INSTALL_LOG);}
-
-if (!empty($mcu)) {
+  }
+  else {
+    $err="Unable to locate Parser.pm prerequisite";
+    logger("$err",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
+  }
+  
+  if (!empty($mcu)) {
     echo "Got Units.pm <br>";
     array_push($mm_perl, Units.pm);
     logger("Prerequisite /Math/Calc/Units.pm located",$INSTALL_LOG);
-}
-else {logger("Unable to locate /Math/Calc/Units.pm prerequisite",$INSTALL_LOG);}
-
-
-if (empty($xml_p) || empty($xml_s) ||  empty($dbi) ||  empty($mcu)){
-
-return(1);
-}
-else {
-return(0);
-}
+  }
+  else {
+    $err="Unable to locate /Math/Calc/Units.pm prerequisite";
+    logger("$err",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: '$err' }}";
+  } 
+  
+  if (empty($xml_p) || empty($xml_s) ||  empty($dbi) ||  empty($mcu)) {    
+    return(1);
+  }
+  else {
+    return(0);
+  }
 }
 
 echo ($INSTALL_LOG);
 logger("Installation beginning",$INSTALL_LOG);
 $s0 = check_prerequisites_php($INSTALL_LOG);
 if($s0 == 0) {
-$s1 = check_prerequisites_perl($INSTALL_LOG);
-if($s1 == 0) {
-$s2 = setup_db($MYSQL_R_HOST,$MYSQL_A_USER,$MYSQL_A_PASS,$MYSQL_R_DB,$SQLFILE,$INSTALL_LOG);
-if($s2 == 0) {
-  $s3 = makefile("$BASE_DIR/config.cfg",$cfgfile,$INSTALL_LOG);
-  if($s3 == 0) {
-    $s4 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
-    if($s4 == 0) {
-      $s5 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
-      if($s5 == 0) {     
-	logger("success, end.",$INSTALL_LOG);
-	echo "{success: true}";
-	exit;
+  $s1 = check_prerequisites_perl($INSTALL_LOG);
+  if($s1 == 0) {
+    $s2 = setup_db($MYSQL_R_HOST,$MYSQL_A_USER,$MYSQL_A_PASS,$MYSQL_R_DB,$SQLFILE,$INSTALL_LOG);
+    if($s2 == 0) {
+      $s3 = makefile("$BASE_DIR/config.cfg",$cfgfile,$INSTALL_LOG);
+      if($s3 == 0) {
+	$s4 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
+	if($s4 == 0) {
+	  $s5 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
+	  if($s5 == 0) {     
+	    logger("success, end.",$INSTALL_LOG);
+	    echo "{success: true}";
+	    exit;
+	  }
+	  else {
+	    logger("Failed to create $BASE_DIR/system/application/config/database.php. Installer Exiting.",$INSTALL_LOG);
+	    echo "{success: false, errors: { reason: Failed to create $BASE_DIR/system/application/config/database.php' }}";
+	    exit;
+	  }
+	}
+	else {
+	  logger("Failed to create $BASE_DIR/system/application/config/config.php. Installer Exiting.",$INSTALL_LOG);
+	  echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/system/application/config/config.php' }}";
+	  exit;
+	}
       }
       else {
-	logger("Failed to create $BASE_DIR/system/application/config/database.php. Installer Exiting.",$INSTALL_LOG);
-	echo "{success: false, errors: { reason: Failed to create $BASE_DIR/system/application/config/database.php' }}";
+	logger("Failed to create $BASE_DIR/config.cfg. Installer Exiting.",$INSTALL_LOG);
+	echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/config.cfg' }}";
 	exit;
       }
     }
     else {
-      logger("Failed to create $BASE_DIR/system/application/config/config.php. Installer Exiting.",$INSTALL_LOG);
-      echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/system/application/config/config.php' }}";
+      logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
+      echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
       exit;
-    }
+    }   
   }
   else {
-    logger("Failed to create $BASE_DIR/config.cfg. Installer Exiting.",$INSTALL_LOG);
-    echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/config.cfg' }}";
+    logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
     exit;
   }
  }
- else {
-   logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
-   echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
-   exit;
- }   
-}
- else {
-   logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
-   echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
-   exit;
- }
-}
  else {
    logger("Failed to meet PHP prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
    echo "{success: false, errors: { reason: 'Failed to meet PHP prerequisite requrements' }}";
