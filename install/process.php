@@ -401,7 +401,6 @@ function check_prerequisites_perl($INSTALL_LOG) {
   $mcu = array_ereg_search('/Math/Calc/Units', $output);
   
   if (!empty($xml_p)) {
-    echo "Got Parser.pm <br>";
     array_push($mm_perl, Parser.pm);
     logger("Prerequisite XML/Parser.pm located",$INSTALL_LOG);
   }
@@ -413,7 +412,6 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
   
   if (!empty($xml_s)) {
-    echo "Got SimpleObject.pm <br>";
     array_push($mm_perl, SimpleObject.pm);
     logger("Prerequisite XML/SimpleObject.pm located",$INSTALL_LOG);
   }
@@ -424,7 +422,6 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
   
   if (!empty($dbi)) {
-    echo "Got DBI.pm <br>";
     array_push($mm_perl, DBI.pm);
     logger("Prerequisite DBI.pm located",$INSTALL_LOG);
   }
@@ -435,7 +432,6 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
   
   if (!empty($mcu)) {
-    echo "Got Units.pm <br>";
     array_push($mm_perl, Units.pm);
     logger("Prerequisite /Math/Calc/Units.pm located",$INSTALL_LOG);
   }
@@ -453,7 +449,6 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
 }
 
-echo ($INSTALL_LOG);
 logger("Installation beginning",$INSTALL_LOG);
 $s0 = check_prerequisites_php($INSTALL_LOG);
 if($s0 == 0) {
