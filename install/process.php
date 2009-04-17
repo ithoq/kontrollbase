@@ -340,6 +340,7 @@ function check_prerequisites_php($INSTALL_LOG) {
     array_push($mm_php, "dom");
     logger("Unable to locate dom prerequisite",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   else {
     logger("Prerequisite dom located",$INSTALL_LOG);
@@ -351,6 +352,7 @@ function check_prerequisites_php($INSTALL_LOG) {
     array_push($mm_php,"mbstring");
     logger("Unable to locate mbstring prerequisite",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   else {
     logger("Prerequisite mbstring located",$INSTALL_LOG);
@@ -362,6 +364,7 @@ function check_prerequisites_php($INSTALL_LOG) {
     array_push($mm_php, "mysql");
     logger("Unable to locate mysql prerequisite",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   else {
     logger("Prerequisite mysql located",$INSTALL_LOG);
@@ -372,6 +375,7 @@ function check_prerequisites_php($INSTALL_LOG) {
     array_push($mm_php, "xml");
     logger("Unable to locate xml prerequisite",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   else {
     logger("Prerequisite xml located",$INSTALL_LOG);
@@ -408,7 +412,7 @@ function check_prerequisites_perl($INSTALL_LOG) {
     $err = "Unable to locate XML/Parser.pm prerequisite";
     logger("$err",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
-
+    exit;
   }
   
   if (!empty($xml_s)) {
@@ -416,9 +420,10 @@ function check_prerequisites_perl($INSTALL_LOG) {
     logger("Prerequisite XML/SimpleObject.pm located",$INSTALL_LOG);
   }
   else {
-    $err="Unable to locate XML/Parser.pm prerequisite";
+    $err="Unable to locate XML/SimpleObject.pm prerequisite";
     logger("$err",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   
   if (!empty($dbi)) {
@@ -426,9 +431,10 @@ function check_prerequisites_perl($INSTALL_LOG) {
     logger("Prerequisite DBI.pm located",$INSTALL_LOG);
   }
   else {
-    $err="Unable to locate Parser.pm prerequisite";
+    $err="Unable to locate DBI.pm prerequisite";
     logger("$err",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   }
   
   if (!empty($mcu)) {
@@ -439,6 +445,7 @@ function check_prerequisites_perl($INSTALL_LOG) {
     $err="Unable to locate /Math/Calc/Units.pm prerequisite";
     logger("$err",$INSTALL_LOG);
     echo "{success: false, errors: { reason: '$err' }}";
+    exit;
   } 
   
   if (empty($xml_p) || empty($xml_s) ||  empty($dbi) ||  empty($mcu)) {    
