@@ -23,7 +23,8 @@ $height = 130;
 if($slave == '1') { $slv_state = "yes"; }
 elseif($slave == '0') { $slv_state = "no"; }
 
-$overview='<html>
+$overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -75,7 +76,8 @@ if($slave == '1') {
   if($slave_sql == '0') { $slave_sql = "YES"; } else { $slave_sql = "NO"; }
   if($slave_io == '0') { $slave_io = "YES"; }else {$slave_io = "NO"; }
 
-  $slavepagedata='<html>
+  $slavepagedata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -92,7 +94,8 @@ if($slave == '1') {
   $slavepagedata.="</table></body></html>";
  }
  else {
-   $slavepagedata='<html>
+   $slavepagedata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -124,7 +127,8 @@ if($user_role_tier == 0) {$sess_tier = "Admin";}
 elseif($user_role_tier == 1) {$sess_tier ="Standard";}
 elseif($user_role_tier == 2) {$sess_tier ="Client";}
 
-$sessiondata='<html>
+$sessiondata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -162,7 +166,8 @@ $data01 = array(
 		);
 
 
-$graphs='<html>
+$graphs='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">                  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>

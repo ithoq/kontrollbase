@@ -20,7 +20,8 @@ $this->load->file($file, true);
 $width = 240;
 $height = 130;
 
-$overview='<html>
+$overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -59,7 +60,8 @@ if($user_role_tier == 0) {$sess_tier = "Admin";}
 elseif($user_role_tier == 1) {$sess_tier ="Standard";}
 elseif($user_role_tier == 2) {$sess_tier ="Client";}
 
-$sessiondata='<html>
+$sessiondata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
