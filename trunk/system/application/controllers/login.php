@@ -65,7 +65,7 @@ class Login extends Controller {
 	    log_message('debug', "Login conroller: state = $state");
 	    if($state == 0) {
 	      log_message('debug', "redirecting to main");
-	      $user_system_user_id = $this->phpsession->userdata('user_system_user_id');
+	      $user_system_user_id = $this->phpsession->get('user_system_user_id');
 	      audit($user_system_user_id,'3','');
 	      echo "{success: true}"; //JSON wooo!
 	    }
