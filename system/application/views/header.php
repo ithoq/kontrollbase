@@ -79,10 +79,9 @@ var alertData = [";
    elseif($alert_level == 2) { $alert_level= 'info';}
 
    // here we need hover pop up thing for the $alerts_current_id column: we need to display $alert_desc, $alert_links, $alert_solution
-   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']
-";
+   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']";
    $r++;
-   if($r<$u) { print ",";} else { print "];";}
+   if($r<$u) { print ",\n";} else { print "\n];\n";}
  }
 
  print "    
@@ -132,13 +131,15 @@ $total_size,
 $engine_count_innodb,
 $engine_count_myisam,
 $engine_myisam_size_total,
-$engine_innodb_size_total],";
+$engine_innodb_size_total],
+";
  }
  //print the last data line for summary information - totals
+ //ADDED EMPTY QUOTES TO THE TWO LINES BELOW "Total Values" - might help IE7?
 print "
 ['Total Values',
- ,
- ,
+ 0,
+ 0,
  $queries_per_second_c,
  $num_schema_c,
  $num_tables_c,
@@ -147,8 +148,8 @@ print "
  $engine_count_innodb_c,
  $engine_count_myisam_c,
  $engine_myisam_size_total_c,
- $engine_innodb_size_total_c]
-];
+ $engine_innodb_size_total_c]];
+
 ";
 
  print<<<HEAD
@@ -199,11 +200,39 @@ print "
 	      {name: 'name'}
 	      ]}),	 
    columns: [
-   {header: "id", width: 60, sortable: true, dataIndex: 'id'},
-   {header: "server", width: 160, sortable: true, dataIndex: 'server'},
-   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
-   {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
-	     ],
+   {
+     id: 'id', 
+     header: "id", 
+     width: 60, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'id'
+   },
+   {
+     id: 'server', 
+     header: "server", 
+     width: 160, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'server'
+   },
+   {
+     id: 'state', 
+     header: "state", 
+     width: 35, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'state'
+   },
+   {
+     id: 'name', 
+     header: "name", 
+     width: 200, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'name'
+   }
+   ],
    stripeRows: true,
    autoExpandColumn: 'name',
    listeners: { render: function(){this.store.loadData(alertData);}}
@@ -284,18 +313,18 @@ print "
 	      ]
 	 }),
    columns: [
-   {id:'hostname',header: "server hostname", width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
-   {header: "load", width: 45, sortable: true, dataIndex: 'load'},
-   {header: "mem%", width: 50, sortable: true, dataIndex: 'mem_used'},
-   {header: "QPS", width: 50, sortable: true, dataIndex: 'QPS'},
-   {header: "schema", width: 55, sortable: true, dataIndex: 'schema'},
-   {header: "tables", width: 55, sortable: true, dataIndex: 'tables'},
-   {header: "#conn", width: 55, sortable: true, dataIndex: 'conn'},
-   {header: "total size", width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
-   {header: "#innodb", width: 65, sortable: true, dataIndex: 'num_innodb'},
-   {header: "#myisam", width: 65, sortable: true, dataIndex: 'num_myisam'},
-   {header: "myisam_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
-   {header: "innodb_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'},
+   {id: 'hostname', header: "server hostname", width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
+   {id: 'load', header: "load", width: 45, sortable: true, renderer: 'undef', dataIndex: 'load'},
+   {id: 'mem_used', header: "mem%", width: 50, sortable: true, renderer: 'undef', dataIndex: 'mem_used'},
+   {id: 'QPS', header: "QPS", width: 50, sortable: true, renderer: 'undef', dataIndex: 'QPS'},
+   {id: 'schema', header: "schema", width: 55, sortable: true, renderer: 'undef', dataIndex: 'schema'},
+   {id: 'tables', header: "tables", width: 55, sortable: true, renderer: 'undef', dataIndex: 'tables'},
+   {id: 'conn', header: "#conn", width: 55, sortable: true, renderer: 'undef',dataIndex: 'conn'},
+   {id: 'total_size', header: "total size", width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
+   {id: 'num_innodb', header: "#innodb", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_innodb'},
+   {id: 'num_myisam', header: "#myisam", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_myisam'},
+   {id: 'myisam_total', header: "myisam_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
+   {id: 'innodb_total', header: "innodb_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'}
 	     ],
    stripeRows: true,
    autoExpandColumn: 'hostname',
@@ -365,7 +394,7 @@ print "
    frame:true,
    animCollapse:false,
    enableTabScroll:true,
-       autoScroll:true
+   autoScroll:true
    }
      ]
    }]},   
@@ -451,7 +480,7 @@ print "
    frame:true,
    animCollapse:false,
    enableTabScroll:true,
-       autoScroll:true
+   autoScroll:true
    },
    {
    title: 'Clients',
@@ -471,7 +500,7 @@ print "
        autoScroll:true
    }
 
-	   ]}]},
+   ]}]},
    {
    title: 'User Guide',
    deferredRender: true,
@@ -490,7 +519,7 @@ print "
    autoScroll:true
    }
 	   
-	   ]}]};
+   ]}]};
 
  
  new Ext.Viewport({
@@ -509,12 +538,12 @@ print "
 </head>
 <body>
 <div id="lib-bar" class="x-layout-panel-hd">
-<div id="lib-bar-inner"> <span>??Kontrollbase??:</span>
+<div id="lib-bar-inner"> <span>Kontrollbase</span>
   <div id="west">
-    <p>Hi. the west panel.</p>
+    <p>west</p>
   </div>
   <div id="north">
-    <p>north - generally for menus, toolbars and/or advertisements</p>
+    <p>north</p>
   </div>
 </div>
 

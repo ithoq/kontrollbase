@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">                  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -14,10 +15,10 @@
 <script language="JavaScript">document.write(getCalendarStyles());</script>
 
 </head>
-<body><table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder"><tr><td colspan='3'><div id='content'><h1>Date range: start 2009-04-21 -> end 2009-04-28</h1></td></tr><tr><td colspan="3">
+<body><table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder"><tr><td colspan='3'><div id='content'><h1>Date range: start 2009-04-22 -> end 2009-04-29</h1></td></tr><tr><td colspan="3">
 
-<div id="content"><table cellpadding="0" cellspacing="1" border="0" class="tableborder"><form action="http://192.168.0.20/kontrollbase/index.php/main/graphs" method="post" name="graphform"><input type="hidden" name="server_list_id" value="12" /><tr><th>Start date</th><th>End Date</th><th>&nbsp;</th></tr><tr><td class='td'><input type="text" name="sday" value="2009-04-21" id="sday" maxlength="10" size="15" style="width:50%"  />
-<a href="#"onClick="cal.select(document.forms['graphform'].sday,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src='http://192.168.0.20/kontrollbase/includes/images/icon_calendar.gif' height='20' width='20' border='0'></a></td><td class='td'><input type="text" name="eday" value="2009-04-28" id="eday" maxlength="10" size="15" style="width:50%"  /> 
+<div id="content"><table cellpadding="0" cellspacing="1" border="0" class="tableborder"><form action="http://192.168.0.20/kontrollbase/index.php/main/graphs" method="post" name="graphform"><input type="hidden" name="server_list_id" value="12" /><tr><th>Start date</th><th>End Date</th><th>&nbsp;</th></tr><tr><td class='td'><input type="text" name="sday" value="2009-04-22" id="sday" maxlength="10" size="15" style="width:50%"  />
+<a href="#"onClick="cal.select(document.forms['graphform'].sday,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src='http://192.168.0.20/kontrollbase/includes/images/icon_calendar.gif' height='20' width='20' border='0'></a></td><td class='td'><input type="text" name="eday" value="2009-04-29" id="eday" maxlength="10" size="15" style="width:50%"  /> 
 <a href="#"onClick="cal.select(document.forms['graphform'].eday,'anchor1','yyyy-MM-dd'); return false;" NAME="anchor1" ID="anchor1"><img src='http://192.168.0.20/kontrollbase/includes/images/icon_calendar.gif' height='20' width='20' border='0'></a></td><td><input type="submit" name="submit" value="Submit"  /></td></tr></table></td></tr><table><tr><td>	<!-- START Code Block for Chart kontrollbase -->
 	<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"  width="240" height="130" id="kontrollbase">
 		<param name="allowScriptAccess" value="always" />
@@ -28,30 +29,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.160545' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.160655' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.160765' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.160873' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.160979' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.161085' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.161189' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.161292' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.161395' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.161495' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.161595' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.161694' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.161792' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.161889' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.161985' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.162079' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.162173' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.162266' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.162358' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.162449' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.162539' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.162628' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.162717' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.162804' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.16289' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.162976' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.16306' color='ff6600' showName='0'/>
@@ -196,6 +173,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.170017' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.170047' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.170076' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.170105' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.170135' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.170164' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.170192' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.170221' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.170249' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.170278' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.170306' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.170334' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.170361' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.170389' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.170705' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.170731' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.170758' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.170784' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.17081' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.170836' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.170861' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.170887' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.170913' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.170938' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.170963' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.170988' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.171013' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Query Rate' xAxisName='' yAxisName='Q/sec' 
@@ -204,30 +205,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.160545' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.160655' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.160765' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.160873' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.160979' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.161085' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.161189' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.161292' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.161395' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.161495' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.161595' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.161694' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.161792' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.161889' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.161985' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.162079' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.162173' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.162266' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.162358' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.162449' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.162539' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.162628' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.162717' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.162804' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.16289' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.162976' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.16306' color='ff6600' showName='0'/>
@@ -372,6 +349,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.170017' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.170047' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.170076' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.170105' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.170135' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.170164' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.170192' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.170221' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.170249' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.170278' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.170306' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.170334' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.170361' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.170389' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.170705' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.170731' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.170758' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.170784' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.17081' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.170836' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.170861' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.170887' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.170913' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.170938' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.170963' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.170988' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.171013' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -384,30 +385,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2' color='ff6600' showName='0'/>
@@ -552,6 +529,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Server Connections' xAxisName='' yAxisName='connections' 
@@ -560,30 +561,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2' color='ff6600' showName='0'/>
@@ -728,6 +705,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='8' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -740,30 +741,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.501' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.291' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.081' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.161' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.081' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.151' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.351' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.401' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.251' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.311' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.271' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.261' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.021' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.111' color='ff6600' showName='0'/>
@@ -908,6 +885,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.011' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.041' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.241' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.011' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.071' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.291' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Load AVG 1 minute' xAxisName='' yAxisName='load avg' 
@@ -916,30 +917,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.501' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.291' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.081' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.161' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.081' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.151' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.351' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.401' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.251' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.311' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.271' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.261' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.021' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.111' color='ff6600' showName='0'/>
@@ -1084,6 +1061,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.011' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.041' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.241' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.011' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.071' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.291' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1096,30 +1097,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.221' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.201' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.191' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.241' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.271' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.231' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.231' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.201' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.041' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.011' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.021' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.141' color='ff6600' showName='0'/>
@@ -1264,6 +1241,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.041' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.051' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.051' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.301' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Load AVG 5 minute' xAxisName='' yAxisName='load avg' 
@@ -1272,30 +1273,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.221' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.201' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.191' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.241' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.141' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.271' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.231' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.231' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.211' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.201' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.041' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.011' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.021' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.141' color='ff6600' showName='0'/>
@@ -1440,6 +1417,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.041' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.031' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.051' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.051' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.301' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1452,30 +1453,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.121' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.171' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.091' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.121' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.131' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.171' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.191' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.131' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.091' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.031' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.031' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.091' color='ff6600' showName='0'/>
@@ -1620,6 +1597,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.081' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.141' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Load AVG 15 minute' xAxisName='' yAxisName='load avg' 
@@ -1628,30 +1629,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.121' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.171' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.091' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.121' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.131' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.101' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.171' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.181' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.191' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.131' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.091' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.031' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.071' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.111' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.021' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.031' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.091' color='ff6600' showName='0'/>
@@ -1796,6 +1773,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.021' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.081' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.141' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1808,30 +1809,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1051709440' color='ff6600' showName='0'/>
@@ -1976,6 +1953,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1051709440' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Memory Total' xAxisName='' yAxisName='ram' 
@@ -1984,30 +1985,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1051709440' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1051709440' color='ff6600' showName='0'/>
@@ -2152,6 +2129,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1051709440' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1051709440' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1051709440' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -2164,30 +2165,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='9834496' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='8519680' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='8110080' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='7999488' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='8622080' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='8544256' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='7790592' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='7892992' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='8421376' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='8732672' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='9076736' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='8245248' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='7528448' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='7901184' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='8130560' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='10113024' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='9764864' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='9465856' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='8409088' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='8146944' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='8577024' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='8622080' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='7741440' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='9531392' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='8884224' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='7872512' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='8552448' color='ff6600' showName='0'/>
@@ -2332,6 +2309,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='8200192' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='9068544' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='8626176' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='9306112' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='9281536' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='9089024' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='11026432' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='10461184' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='9158656' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='8937472' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='8806400' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='8826880' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='7725056' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='9617408' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='8978432' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='12054528' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='11374592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='10424320' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='10301440' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='10006528' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='7823360' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='8273920' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='10641408' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='10346496' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='10264576' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='8704000' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='8196096' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Memory Used' xAxisName='' yAxisName='ram' 
@@ -2340,30 +2341,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='9834496' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='8519680' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='8110080' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='7999488' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='8622080' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='8544256' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='7790592' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='7892992' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='8421376' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='8732672' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='9076736' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='8245248' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='7528448' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='7901184' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='8130560' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='10113024' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='9764864' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='9465856' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='8409088' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='8146944' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='8577024' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='8622080' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='7741440' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='9531392' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='8884224' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='7872512' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='8552448' color='ff6600' showName='0'/>
@@ -2508,6 +2485,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='8200192' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='9068544' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='8626176' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='9306112' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='9281536' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='9089024' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='11026432' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='10461184' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='9158656' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='8937472' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='8806400' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='8826880' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='7725056' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='9617408' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='8978432' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='12054528' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='11374592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='10424320' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='10301440' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='10006528' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='7823360' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='8273920' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='10641408' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='10346496' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='10264576' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='8704000' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='8196096' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -2520,30 +2521,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2080366592' color='ff6600' showName='0'/>
@@ -2688,6 +2665,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2080366592' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Swap Total' xAxisName='' yAxisName='swap size' 
@@ -2696,30 +2697,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2080366592' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2080366592' color='ff6600' showName='0'/>
@@ -2864,6 +2841,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2080366592' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2080366592' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2080366592' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -2876,30 +2877,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2080288768' color='ff6600' showName='0'/>
@@ -3044,6 +3021,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2080288768' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Swap Free' xAxisName='' yAxisName='swap size' 
@@ -3052,30 +3053,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='2080288768' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='2080288768' color='ff6600' showName='0'/>
@@ -3220,6 +3197,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='2080288768' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='2080288768' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='2080288768' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -3232,30 +3233,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -3400,6 +3377,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS CPU User' xAxisName='' yAxisName='percentage' 
@@ -3408,30 +3409,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -3576,6 +3553,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -3588,30 +3589,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -3756,6 +3733,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS CPU System' xAxisName='' yAxisName='percentage' 
@@ -3764,30 +3765,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -3932,6 +3909,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -3944,30 +3945,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='99' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='96' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='98' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='96' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='99' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='99' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='99' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='97' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='97' color='ff6600' showName='0'/>
@@ -4112,6 +4089,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='99' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='99' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='97' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='98' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='99' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS CPU Idle' xAxisName='' yAxisName='percentage' 
@@ -4120,30 +4121,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='99' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='95' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='96' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='94' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='98' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='96' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='97' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='99' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='99' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='99' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='97' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='97' color='ff6600' showName='0'/>
@@ -4288,6 +4265,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='99' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='99' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='97' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='98' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='99' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='99' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -4300,30 +4301,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='5' color='ff6600' showName='0'/>
@@ -4468,6 +4445,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='5' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='5' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='5' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Schemas' xAxisName='' yAxisName='quantity' 
@@ -4476,30 +4477,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='5' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='5' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='5' color='ff6600' showName='0'/>
@@ -4644,6 +4621,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='5' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='5' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='5' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='5' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -4656,30 +4657,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='58' color='ff6600' showName='0'/>
@@ -4824,6 +4801,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='58' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='58' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='58' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Tables' xAxisName='' yAxisName='quantity' 
@@ -4832,30 +4833,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='58' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='58' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='58' color='ff6600' showName='0'/>
@@ -5000,6 +4977,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='58' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='58' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='58' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='58' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -5012,30 +5013,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='954847112' color='ff6600' showName='0'/>
@@ -5180,6 +5157,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='974786440' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='974786440' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='974786440' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='974786440' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='977932168' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='977932168' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Data Size' xAxisName='' yAxisName='size' 
@@ -5188,30 +5189,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='952749960' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='953798536' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='954847112' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='954847112' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='954847112' color='ff6600' showName='0'/>
@@ -5356,6 +5333,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='974786440' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='974786440' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='974786440' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='974786440' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='975835016' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='976883592' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='977932168' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='977932168' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -5368,30 +5369,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='38197248' color='ff6600' showName='0'/>
@@ -5536,6 +5513,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='38213632' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='38213632' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='38230016' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Index Size' xAxisName='' yAxisName='size' 
@@ -5544,30 +5545,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='38180864' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='38197248' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='38197248' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='38197248' color='ff6600' showName='0'/>
@@ -5712,6 +5689,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='38213632' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='38213632' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='38213632' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='38230016' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='38230016' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -5724,30 +5725,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='20' color='ff6600' showName='0'/>
@@ -5892,6 +5869,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='20' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='20' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='20' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='InnoDB Tables' xAxisName='' yAxisName='quant' 
@@ -5900,30 +5901,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='20' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='20' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='20' color='ff6600' showName='0'/>
@@ -6068,6 +6045,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='20' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='20' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='20' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='20' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -6080,30 +6081,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='25' color='ff6600' showName='0'/>
@@ -6248,6 +6225,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='25' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='25' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='25' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='MyISAM Tables' xAxisName='' yAxisName='quant' 
@@ -6256,30 +6257,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='25' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='25' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='25' color='ff6600' showName='0'/>
@@ -6424,6 +6401,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='25' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='25' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='25' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='25' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -6436,30 +6437,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='954384384' color='ff6600' showName='0'/>
@@ -6604,6 +6581,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='974323712' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='974323712' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='974323712' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='974323712' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='977469440' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='977469440' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='InnoDB Data Size' xAxisName='' yAxisName='quant' 
@@ -6612,30 +6613,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='952287232' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='953335808' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='954384384' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='954384384' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='954384384' color='ff6600' showName='0'/>
@@ -6780,6 +6757,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='974323712' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='974323712' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='974323712' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='974323712' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='975372288' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='976420864' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='977469440' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='977469440' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -6792,30 +6793,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='38109184' color='ff6600' showName='0'/>
@@ -6960,6 +6937,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='38125568' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='38125568' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='38141952' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='InnoDB Index Size' xAxisName='' yAxisName='quant' 
@@ -6968,30 +6969,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='38092800' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='38109184' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='38109184' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='38109184' color='ff6600' showName='0'/>
@@ -7136,6 +7113,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='38125568' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='38125568' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='38125568' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='38141952' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='38141952' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -7148,30 +7149,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='462728' color='ff6600' showName='0'/>
@@ -7316,6 +7293,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='462728' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='MyISAM Data Size' xAxisName='' yAxisName='quant' 
@@ -7324,30 +7325,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='462728' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='462728' color='ff6600' showName='0'/>
@@ -7492,6 +7469,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='462728' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='462728' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='462728' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -7504,30 +7505,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='88064' color='ff6600' showName='0'/>
@@ -7672,6 +7649,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='88064' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='MyISAM Index Size' xAxisName='' yAxisName='quant' 
@@ -7680,30 +7681,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='88064' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='88064' color='ff6600' showName='0'/>
@@ -7848,6 +7825,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='88064' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='88064' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='88064' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -7860,30 +7861,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -8028,6 +8005,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_free_memory' xAxisName='' yAxisName='free' 
@@ -8036,30 +8037,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -8204,6 +8181,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -8216,30 +8217,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -8384,6 +8361,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_hits' xAxisName='' yAxisName='per/sec' 
@@ -8392,30 +8393,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -8560,6 +8537,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -8572,30 +8573,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -8740,6 +8717,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_inserts' xAxisName='' yAxisName='per/sec' 
@@ -8748,30 +8749,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -8916,6 +8893,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -8928,30 +8929,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9096,6 +9073,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_queries_in_cache' xAxisName='' yAxisName='per/sec' 
@@ -9104,30 +9105,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9272,6 +9249,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -9284,30 +9285,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9452,6 +9429,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_lowmem_prunes' xAxisName='' yAxisName='per/sec' 
@@ -9460,30 +9461,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9628,6 +9605,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -9640,30 +9641,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9808,6 +9785,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Qcache_not_cached' xAxisName='' yAxisName='per/sec' 
@@ -9816,30 +9817,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -9984,6 +9961,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -9996,30 +9997,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010675598179341' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010671798372998' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010668042108403' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010664326589131' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010660651156216' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010657017172595' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010653423941453' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010649867835018' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010646352168737' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.0010642872413747' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010639430876779' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010636025991276' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010632657174847' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010629323857375' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010626025480693' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010622761498277' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010619531374942' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010616335469963' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010613170619716' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010610038971559' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001060693914941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010603870670563' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010600833901564' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010597825860278' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010594848611028' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010591901683754' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010588982197671' color='ff6600' showName='0'/>
@@ -10164,6 +10141,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001034945911044' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010348439961364' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010347426177997' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010346418555789' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001034541703886' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010344421020255' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010343430729223' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010342445843783' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010341467133391' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001034049346213' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010339525595887' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010338563216445' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010337606277278' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010336654732387' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010335708798381' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010334767644007' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010333832270246' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010332901593515' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010331976604142' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010331056485935' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010330141200624' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010329231466565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010328326231052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010327425959853' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010326531108163' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010325641134382' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010324755508193' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Open_tables' xAxisName='' yAxisName='per/sec' 
@@ -10172,30 +10173,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010675598179341' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010671798372998' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010668042108403' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010664326589131' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010660651156216' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010657017172595' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010653423941453' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010649867835018' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010646352168737' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.0010642872413747' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010639430876779' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010636025991276' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010632657174847' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010629323857375' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010626025480693' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010622761498277' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010619531374942' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010616335469963' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010613170619716' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010610038971559' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001060693914941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010603870670563' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010600833901564' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010597825860278' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010594848611028' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010591901683754' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010588982197671' color='ff6600' showName='0'/>
@@ -10340,6 +10317,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001034945911044' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010348439961364' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010347426177997' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010346418555789' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001034541703886' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010344421020255' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010343430729223' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010342445843783' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010341467133391' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001034049346213' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010339525595887' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010338563216445' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010337606277278' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010336654732387' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010335708798381' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010334767644007' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010333832270246' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010332901593515' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010331976604142' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010331056485935' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010330141200624' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010329231466565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010328326231052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010327425959853' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010326531108163' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010325641134382' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010324755508193' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -10352,30 +10353,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010675598179341' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010671798372998' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010668042108403' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010664326589131' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010660651156216' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010657017172595' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010653423941453' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010649867835018' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010646352168737' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.0010642872413747' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010639430876779' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010636025991276' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010632657174847' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010629323857375' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010626025480693' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010622761498277' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010619531374942' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010616335469963' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010613170619716' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010610038971559' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001060693914941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010603870670563' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010600833901564' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010597825860278' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010594848611028' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010591901683754' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010588982197671' color='ff6600' showName='0'/>
@@ -10520,6 +10497,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001034945911044' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010348439961364' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010347426177997' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010346418555789' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001034541703886' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010344421020255' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010343430729223' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010342445843783' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010341467133391' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001034049346213' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010339525595887' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010338563216445' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010337606277278' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010336654732387' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010335708798381' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010334767644007' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010333832270246' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010332901593515' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010331976604142' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010331056485935' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010330141200624' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010329231466565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010328326231052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010327425959853' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010326531108163' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010325641134382' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010324755508193' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Open_files' xAxisName='' yAxisName='per/sec' 
@@ -10528,30 +10529,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010675598179341' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010671798372998' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010668042108403' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010664326589131' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010660651156216' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010657017172595' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010653423941453' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010649867835018' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010646352168737' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.0010642872413747' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010639430876779' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010636025991276' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010632657174847' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010629323857375' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010626025480693' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010622761498277' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010619531374942' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010616335469963' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010613170619716' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010610038971559' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001060693914941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010603870670563' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010600833901564' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010597825860278' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010594848611028' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010591901683754' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010588982197671' color='ff6600' showName='0'/>
@@ -10696,6 +10673,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001034945911044' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010348439961364' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010347426177997' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010346418555789' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001034541703886' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010344421020255' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010343430729223' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010342445843783' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010341467133391' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001034049346213' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010339525595887' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010338563216445' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010337606277278' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010336654732387' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010335708798381' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010334767644007' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010333832270246' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010332901593515' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010331976604142' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010331056485935' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010330141200624' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010329231466565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010328326231052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010327425959853' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010326531108163' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010325641134382' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010324755508193' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -10708,30 +10709,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -10876,6 +10853,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Slow_queries' xAxisName='' yAxisName='per/sec' 
@@ -10884,30 +10885,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -11052,6 +11029,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -11064,30 +11065,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='7.3665856481481' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='7.4082523148148' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='7.4499074074074' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='7.4915740740741' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='7.5332523148148' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='7.5749189814815' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='7.6165740740741' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='7.6582523148148' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='7.6999074074074' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='7.7415856481481' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='7.7832523148148' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='7.8249189814815' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='7.8665856481481' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='7.9082523148148' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='7.9499189814815' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='7.9915856481481' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='8.0332523148148' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='8.0749074074074' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='8.1165856481481' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='8.1582523148148' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='8.1999189814815' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='8.2415856481481' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='8.2832407407407' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='8.3249189814815' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='8.3665856481481' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='8.4082407407407' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='8.4499189814815' color='ff6600' showName='0'/>
@@ -11232,6 +11209,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='14.241585648148' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='14.283240740741' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='14.324918981481' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='14.366585648148' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='14.408240740741' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='14.449907407407' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='14.491574074074' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='14.533252314815' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='14.574907407407' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='14.616585648148' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='14.658252314815' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='14.699918981481' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='14.741585648148' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='14.783252314815' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='14.824907407407' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='14.866585648148' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='14.908240740741' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='14.949918981481' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='14.991574074074' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='15.033240740741' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='15.074918981481' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='15.116574074074' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='15.158252314815' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='15.199930555556' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='15.241585648148' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='15.283240740741' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='15.324918981481' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Server Uptime' xAxisName='' yAxisName='days' 
@@ -11240,30 +11241,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='7.3665856481481' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='7.4082523148148' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='7.4499074074074' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='7.4915740740741' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='7.5332523148148' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='7.5749189814815' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='7.6165740740741' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='7.6582523148148' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='7.6999074074074' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='7.7415856481481' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='7.7832523148148' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='7.8249189814815' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='7.8665856481481' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='7.9082523148148' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='7.9499189814815' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='7.9915856481481' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='8.0332523148148' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='8.0749074074074' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='8.1165856481481' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='8.1582523148148' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='8.1999189814815' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='8.2415856481481' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='8.2832407407407' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='8.3249189814815' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='8.3665856481481' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='8.4082407407407' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='8.4499189814815' color='ff6600' showName='0'/>
@@ -11408,6 +11385,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='14.241585648148' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='14.283240740741' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='14.324918981481' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='14.366585648148' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='14.408240740741' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='14.449907407407' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='14.491574074074' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='14.533252314815' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='14.574907407407' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='14.616585648148' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='14.658252314815' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='14.699918981481' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='14.741585648148' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='14.783252314815' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='14.824907407407' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='14.866585648148' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='14.908240740741' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='14.949918981481' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='14.991574074074' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='15.033240740741' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='15.074918981481' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='15.116574074074' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='15.158252314815' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='15.199930555556' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='15.241585648148' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='15.283240740741' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='15.324918981481' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -11420,30 +11421,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.049239281163537' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.049275743548002' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.049311873127929' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.049347526233176' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.049382710605602' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.049417581779539' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.049452145054037' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.049486185774544' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.04952000384805' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.049553312811251' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.049586337295326' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.049619010077314' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.049651336745759' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.049683322771425' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.049714973510387' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.049746294207015' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.049777289996874' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.049808035867858' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.049838326871276' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.049868377707757' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.049898123146542' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.049927567819592' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.049956784672308' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.04998557293267' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.050014142179885' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.050042495787862' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.050070435422211' color='ff6600' showName='0'/>
@@ -11588,6 +11565,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.052368863843416' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.052378687791312' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.052388371565026' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.052398040559974' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.052407694927671' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.052417252449394' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.052426755010894' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.052436162121826' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.052445597138664' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.052454896889869' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.052464184392403' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.052473419244406' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.052482601892322' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.052491732777566' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.052606249492533' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.05261494247057' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.052623666999981' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.052632262964388' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.052640890870798' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.052649431198763' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.052657884654807' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.052666370613565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.052674731020644' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.052683045579217' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.052691393171551' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.052699695260483' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.052707874112681' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Table_locks_immediate' xAxisName='' yAxisName='per/sec' 
@@ -11596,30 +11597,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.049239281163537' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.049275743548002' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.049311873127929' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.049347526233176' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.049382710605602' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.049417581779539' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.049452145054037' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.049486185774544' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.04952000384805' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.049553312811251' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.049586337295326' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.049619010077314' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.049651336745759' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.049683322771425' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.049714973510387' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.049746294207015' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.049777289996874' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.049808035867858' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.049838326871276' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.049868377707757' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.049898123146542' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.049927567819592' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.049956784672308' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.04998557293267' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.050014142179885' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.050042495787862' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.050070435422211' color='ff6600' showName='0'/>
@@ -11764,6 +11741,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.052368863843416' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.052378687791312' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.052388371565026' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.052398040559974' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.052407694927671' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.052417252449394' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.052426755010894' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.052436162121826' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.052445597138664' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.052454896889869' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.052464184392403' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.052473419244406' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.052482601892322' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.052491732777566' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.052606249492533' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.05261494247057' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.052623666999981' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.052632262964388' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.052640890870798' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.052649431198763' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.052657884654807' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.052666370613565' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.052674731020644' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.052683045579217' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.052691393171551' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.052699695260483' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.052707874112681' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -11776,30 +11777,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -11944,6 +11921,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Table_locks_waited' xAxisName='' yAxisName='per/sec' 
@@ -11952,30 +11953,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -12120,6 +12097,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -12132,30 +12133,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -12300,6 +12277,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Threads_cached' xAxisName='' yAxisName='per/sec' 
@@ -12308,30 +12309,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -12476,6 +12453,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -12488,30 +12489,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.034644789331205' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.034685220279562' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.034725251370263' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.034764785128972' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.034803829625749' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.034842496176313' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.03488079115963' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.034918567026311' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.034956036027369' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.034993000165951' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.035029619033032' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.03506584791879' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.035101693020026' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.035137160402943' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.035172256006569' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.035206985646072' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.035241355015971' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.035275418821452' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.03530903514038' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.03534235670823' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.035375339638914' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.035407989068537' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.035440358152897' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.035472307454888' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.035503986177378' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.03553539847372' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.035566406373061' color='ff6600' showName='0'/>
@@ -12656,6 +12633,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.038114995615507' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.038125872720554' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.038136626556449' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.038147347924268' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.038158037131528' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.03816863493935' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.038179171804816' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.038189618634788' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.038200064799344' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.03821039249394' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.038220690847732' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.038230930820512' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.038241112907316' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.038251237597601' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.03826601877471' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.038275987895425' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.038285959169984' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.038295817130187' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.038305677880785' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.038315455256561' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.038325149926332' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.038334848308516' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.038344436359305' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.038353971829184' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.038363511895225' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.038372999957591' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.038382379974518' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Threads_created' xAxisName='' yAxisName='per/sec' 
@@ -12664,30 +12665,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.034644789331205' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.034685220279562' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.034725251370263' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.034764785128972' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.034803829625749' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.034842496176313' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.03488079115963' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.034918567026311' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.034956036027369' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.034993000165951' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.035029619033032' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.03506584791879' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.035101693020026' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.035137160402943' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.035172256006569' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.035206985646072' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.035241355015971' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.035275418821452' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.03530903514038' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.03534235670823' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.035375339638914' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.035407989068537' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.035440358152897' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.035472307454888' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.035503986177378' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.03553539847372' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.035566406373061' color='ff6600' showName='0'/>
@@ -12832,6 +12809,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.038114995615507' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.038125872720554' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.038136626556449' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.038147347924268' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.038158037131528' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.03816863493935' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.038179171804816' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.038189618634788' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.038200064799344' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.03821039249394' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.038220690847732' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.038230930820512' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.038241112907316' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.038251237597601' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.03826601877471' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.038275987895425' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.038285959169984' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.038295817130187' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.038305677880785' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.038315455256561' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.038325149926332' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.038334848308516' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.038344436359305' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.038353971829184' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.038363511895225' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.038372999957591' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.038382379974518' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -12844,30 +12845,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -13012,6 +12989,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Seconds_Behind_Master' xAxisName='' yAxisName='seconds' 
@@ -13020,30 +13021,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -13188,6 +13165,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -13200,30 +13201,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010031423171132' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010031246435953' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010031071725972' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010030898911122' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010030727960754' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001003055893826' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001003039181123' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010030226410931' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010030062891569' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.00100299010425' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010029740971013' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010029582604245' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010029425915109' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010029270877087' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010029117464218' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010028965651083' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010028815412788' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010028666766045' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010028519563708' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010028373905654' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001002822972788' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010028087007933' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010027945762863' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010027805853966' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010027667377257' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010027530310872' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010027394520822' color='ff6600' showName='0'/>
@@ -13368,6 +13345,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010016253912113' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010016206509831' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010016159357116' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010016112490967' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010016065908784' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010016019582337' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010015973522289' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010015927713664' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010015882192251' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010015836905215' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010015791888181' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010015747126346' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010015702617548' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010015658359646' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010015614362715' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010015570588093' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010015527082337' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010015483795047' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010015440772286' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001001539797609' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001001535540468' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010015313091468' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010015270987491' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010015229114412' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010015187493403' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010015146099274' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010015104907358' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Key_reads' xAxisName='' yAxisName='per/sec' 
@@ -13376,30 +13377,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010031423171132' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010031246435953' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010031071725972' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010030898911122' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010030727960754' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001003055893826' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001003039181123' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010030226410931' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010030062891569' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.00100299010425' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010029740971013' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010029582604245' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010029425915109' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010029270877087' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010029117464218' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010028965651083' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010028815412788' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010028666766045' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010028519563708' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010028373905654' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001002822972788' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010028087007933' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010027945762863' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010027805853966' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010027667377257' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010027530310872' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010027394520822' color='ff6600' showName='0'/>
@@ -13544,6 +13521,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010016253912113' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010016206509831' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010016159357116' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010016112490967' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010016065908784' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010016019582337' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010015973522289' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010015927713664' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010015882192251' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010015836905215' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010015791888181' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010015747126346' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010015702617548' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010015658359646' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010015614362715' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010015570588093' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010015527082337' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010015483795047' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010015440772286' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001001539797609' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001001535540468' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010015313091468' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010015270987491' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010015229114412' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010015187493403' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010015146099274' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010015104907358' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -13556,30 +13557,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -13724,6 +13701,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Key_writes' xAxisName='' yAxisName='per/sec' 
@@ -13732,30 +13733,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -13900,6 +13877,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -13912,30 +13913,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1.9670292376896' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1.9656195465205' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1.9641976037485' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1.962820885192' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1.9614410184475' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1.9600839148445' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1.9587476750264' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1.9573505341762' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1.9560705996946' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1.9547582276456' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1.9534747119959' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1.9521974697999' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1.9508984467531' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1.9496672633047' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1.9483994857856' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1.9471985146414' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1.9459999164353' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1.9447390750955' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1.9435768951607' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1.9423995528272' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1.9412539362827' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1.9401170947361' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1.9389720430588' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1.9378010852625' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1.936562854056' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1.9352280610953' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1.9340134479703' color='ff6600' showName='0'/>
@@ -14080,6 +14057,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1.8323490235056' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1.8320486973207' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1.8316550494355' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1.8313038308253' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1.8309930659538' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1.8307002479831' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1.8304011270917' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1.8300202361602' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1.8297341638661' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1.8294420737477' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1.8291491409608' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1.8288515699491' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1.8285399784717' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1.8281972608831' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1.839434385325' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1.838869326175' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1.838464775261' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1.8381099550738' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1.8378379213015' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1.837611404357' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1.8373724445727' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1.837143740927' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1.8369287600798' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1.8367073436313' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1.8364162679317' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1.8362078105405' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1.8359848739458' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_data_reads' xAxisName='' yAxisName='per/sec' 
@@ -14088,30 +14089,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1.9670292376896' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1.9656195465205' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1.9641976037485' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1.962820885192' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1.9614410184475' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1.9600839148445' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1.9587476750264' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1.9573505341762' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1.9560705996946' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1.9547582276456' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1.9534747119959' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1.9521974697999' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1.9508984467531' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1.9496672633047' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1.9483994857856' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1.9471985146414' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1.9459999164353' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1.9447390750955' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1.9435768951607' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1.9423995528272' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1.9412539362827' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1.9401170947361' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1.9389720430588' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1.9378010852625' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1.936562854056' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1.9352280610953' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1.9340134479703' color='ff6600' showName='0'/>
@@ -14256,6 +14233,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1.8323490235056' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1.8320486973207' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1.8316550494355' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1.8313038308253' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1.8309930659538' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1.8307002479831' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1.8304011270917' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1.8300202361602' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1.8297341638661' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1.8294420737477' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1.8291491409608' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1.8288515699491' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1.8285399784717' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1.8281972608831' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1.839434385325' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1.838869326175' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1.838464775261' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1.8381099550738' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1.8378379213015' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1.837611404357' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1.8373724445727' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1.837143740927' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1.8369287600798' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1.8367073436313' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1.8364162679317' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1.8362078105405' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1.8359848739458' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -14268,30 +14269,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.041155670389789' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.041184478957869' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.041211474166967' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.041239651954665' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.04126438337433' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.041291960096138' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.041317776778225' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.041343190669711' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.041368450799072' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.041399298521543' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.041423927800819' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.041446815654523' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.041470932345407' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.041497721993991' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.041521319079364' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.041546118385513' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.04157786428805' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.041600740749235' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.041620414588898' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.041642782458684' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.041664923010475' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.041686839691998' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.041708592763165' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.041730014890035' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.04175127996204' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.041769637370745' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.041790441503795' color='ff6600' showName='0'/>
@@ -14436,6 +14413,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.043554367304281' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.043563967094302' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.043571018354606' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.043578063004673' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.043586707709708' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.043597671393511' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.043609370707116' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.04361937622295' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.043630980439492' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.043642450982799' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.043653889976336' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.043665264122613' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.043677359102376' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.04368860298464' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.043701378435941' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.043718686963447' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.043732859653808' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.043743790417544' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.043754726420397' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.043765568893625' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.043776318587794' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.043785543216607' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.04379617889351' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.043806756244318' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.043817340776218' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.043827867610975' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.043838272512165' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_data_writes' xAxisName='' yAxisName='per/sec' 
@@ -14444,30 +14445,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.041155670389789' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.041184478957869' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.041211474166967' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.041239651954665' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.04126438337433' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.041291960096138' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.041317776778225' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.041343190669711' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.041368450799072' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.041399298521543' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.041423927800819' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.041446815654523' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.041470932345407' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.041497721993991' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.041521319079364' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.041546118385513' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.04157786428805' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.041600740749235' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.041620414588898' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.041642782458684' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.041664923010475' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.041686839691998' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.041708592763165' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.041730014890035' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.04175127996204' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.041769637370745' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.041790441503795' color='ff6600' showName='0'/>
@@ -14612,6 +14589,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.043554367304281' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.043563967094302' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.043571018354606' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.043578063004673' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.043586707709708' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.043597671393511' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.043609370707116' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.04361937622295' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.043630980439492' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.043642450982799' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.043653889976336' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.043665264122613' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.043677359102376' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.04368860298464' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.043701378435941' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.043718686963447' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.043732859653808' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.043743790417544' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.043754726420397' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.043765568893625' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.043776318587794' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.043785543216607' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.04379617889351' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.043806756244318' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.043817340776218' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.043827867610975' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.043838272512165' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -14624,30 +14625,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1.9199039079427' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1.9185686632618' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1.9172140469059' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1.9159008886527' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1.9145870238895' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1.9132874847396' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1.9120278632125' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1.9106885123014' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1.9094656020395' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1.9082037995255' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1.9069880872541' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1.905776447218' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1.9045276184283' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1.9033490274019' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1.9021260116499' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1.9009722320786' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1.8998289805251' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1.8986156818677' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1.8974921321654' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1.896364309599' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1.8952648865941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1.894172367159' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1.8930599492505' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1.8919339388521' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1.8907359937361' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1.889441024568' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1.88827418628' color='ff6600' showName='0'/>
@@ -14792,6 +14769,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1.7843463448609' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1.7840425842252' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1.7836447914756' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1.7832886077438' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1.7829696547115' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1.7826679332816' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1.7823671482151' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1.7819822517487' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1.7816865617595' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1.7813849848718' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1.7810904772545' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1.7807850414897' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1.7804617040638' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1.7801167017544' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1.781989144895' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1.7814449972868' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1.781060375507' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1.7807277848186' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1.7804754522602' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1.7802601026121' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1.7800422734291' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1.7798276052163' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1.7796037636876' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1.7794001860998' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1.7791176521958' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1.7789260203927' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1.7787229253976' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_buffer_pool_reads' xAxisName='' yAxisName='per/sec' 
@@ -14800,30 +14801,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='1.9199039079427' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='1.9185686632618' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='1.9172140469059' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='1.9159008886527' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='1.9145870238895' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='1.9132874847396' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='1.9120278632125' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='1.9106885123014' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='1.9094656020395' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='1.9082037995255' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='1.9069880872541' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='1.905776447218' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='1.9045276184283' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='1.9033490274019' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='1.9021260116499' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='1.9009722320786' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='1.8998289805251' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='1.8986156818677' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='1.8974921321654' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='1.896364309599' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='1.8952648865941' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='1.894172367159' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='1.8930599492505' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='1.8919339388521' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='1.8907359937361' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='1.889441024568' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='1.88827418628' color='ff6600' showName='0'/>
@@ -14968,6 +14945,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='1.7843463448609' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='1.7840425842252' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='1.7836447914756' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='1.7832886077438' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='1.7829696547115' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='1.7826679332816' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='1.7823671482151' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='1.7819822517487' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='1.7816865617595' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='1.7813849848718' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='1.7810904772545' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='1.7807850414897' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='1.7804617040638' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='1.7801167017544' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='1.781989144895' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='1.7814449972868' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='1.781060375507' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='1.7807277848186' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='1.7804754522602' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='1.7802601026121' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='1.7800422734291' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='1.7798276052163' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='1.7796037636876' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='1.7794001860998' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='1.7791176521958' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='1.7789260203927' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='1.7787229253976' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -14980,30 +14981,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.15474572055688' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.15499024798734' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.15523072620838' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.15546983648296' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.15567226325259' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.15590631393503' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.15613803960661' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.15636526350629' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.15659199846078' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.15682330277945' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.15704492671081' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.15723312867102' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.15745023415672' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.15766505188995' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.15787761784202' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.15810389834215' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.15833215382244' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.15853677946084' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.15871033534729' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.15891071583108' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.1591132943669' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.15930961151455' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.15950557238511' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.15969774063534' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.15988959748116' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.16004948848682' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.16023750090744' color='ff6600' showName='0'/>
@@ -15148,6 +15125,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.17544429906223' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.1755116978588' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.17557680663632' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.17564328959061' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.17570952836918' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.17578565798832' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.17584936968481' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.17589664904796' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.17595981805361' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.17602314167775' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.17608545385492' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.17614820014283' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.17621922816924' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.17628124371219' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.17632665246801' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.17638866134204' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.1764498195753' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.17650959104975' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.17656930127417' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.1766293152828' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.17668809487797' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.17673150637943' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.17678968185188' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.17684829974552' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.17690610484079' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.17696662405564' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.17702428264907' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_buffer_pool_write_requests' xAxisName='' yAxisName='per/sec' 
@@ -15156,30 +15157,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.15474572055688' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.15499024798734' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.15523072620838' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.15546983648296' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.15567226325259' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.15590631393503' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.15613803960661' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.15636526350629' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.15659199846078' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.15682330277945' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.15704492671081' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.15723312867102' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.15745023415672' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.15766505188995' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.15787761784202' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.15810389834215' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.15833215382244' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.15853677946084' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.15871033534729' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.15891071583108' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.1591132943669' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.15930961151455' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.15950557238511' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.15969774063534' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.15988959748116' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.16004948848682' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.16023750090744' color='ff6600' showName='0'/>
@@ -15324,6 +15301,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.17544429906223' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.1755116978588' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.17557680663632' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.17564328959061' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.17570952836918' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.17578565798832' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.17584936968481' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.17589664904796' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.17595981805361' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.17602314167775' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.17608545385492' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.17614820014283' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.17621922816924' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.17628124371219' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.17632665246801' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.17638866134204' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.1764498195753' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.17650959104975' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.17656930127417' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.1766293152828' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.17668809487797' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.17673150637943' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.17678968185188' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.17684829974552' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.17690610484079' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.17696662405564' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.17702428264907' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -15336,30 +15337,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -15504,6 +15481,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_buffer_pool_pages_free' xAxisName='' yAxisName='quant' 
@@ -15512,30 +15513,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.001' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.001' color='ff6600' showName='0'/>
@@ -15680,6 +15657,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -15692,30 +15693,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='512' color='ff6600' showName='0'/>
@@ -15860,6 +15837,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='512' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='512' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='512' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Innodb_buffer_pool_pages_total' xAxisName='' yAxisName='quant' 
@@ -15868,30 +15869,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='512' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='512' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='512' color='ff6600' showName='0'/>
@@ -16036,6 +16013,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='512' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='512' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='512' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='512' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -16048,30 +16049,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.12115120829949' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.12115035784981' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.12114970357573' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.12114887095379' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.12114786294715' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.12114704961091' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.12114642774651' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.1211454494894' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.12114484301158' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.12114388381651' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.12114311355251' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.12114235149163' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.12114159750351' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.12114085146054' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.12114011323782' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.12113938271301' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.12113865976634' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.1211381164788' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.12113723614056' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.12113653523401' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.12113584145056' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.12113515468217' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.12113464268548' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.12113380176929' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.12113313541936' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.12113264103778' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.12113182243419' color='ff6600' showName='0'/>
@@ -16216,6 +16193,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.12107821382509' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.12107808296437' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.12107775882644' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.12107753330653' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.12107740554852' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.1210771823477' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.12107696043039' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.12107664415815' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.12107652040226' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.1210762071879' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.12107599056593' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.12107577517198' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.12107556099564' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.12107534802662' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.12107835287211' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.12107803978752' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.12107791489917' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.12107760478078' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.12107748179533' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.12107726704402' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.12107696128826' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.12107684109299' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.1210765381893' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.12107623694675' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.12107611971694' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.12107600312615' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.12107570579568' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Created_tmp_disk_tables' xAxisName='' yAxisName='per/sec' 
@@ -16224,30 +16225,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.12115120829949' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.12115035784981' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.12114970357573' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.12114887095379' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.12114786294715' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.12114704961091' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.12114642774651' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.1211454494894' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.12114484301158' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.12114388381651' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.12114311355251' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.12114235149163' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.12114159750351' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.12114085146054' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.12114011323782' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.12113938271301' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.12113865976634' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.1211381164788' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.12113723614056' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.12113653523401' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.12113584145056' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.12113515468217' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.12113464268548' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.12113380176929' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.12113313541936' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.12113264103778' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.12113182243419' color='ff6600' showName='0'/>
@@ -16392,6 +16369,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.12107821382509' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.12107808296437' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.12107775882644' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.12107753330653' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.12107740554852' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.1210771823477' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.12107696043039' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.12107664415815' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.12107652040226' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.1210762071879' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.12107599056593' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.12107577517198' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.12107556099564' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.12107534802662' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.12107835287211' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.12107803978752' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.12107791489917' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.12107760478078' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.12107748179533' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.12107726704402' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.12107696128826' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.12107684109299' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.1210765381893' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.12107623694675' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.12107611971694' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.12107600312615' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.12107570579568' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -16404,30 +16405,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001007855792783' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010078116089883' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010077679314931' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010077247277806' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010076819901886' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010076397345651' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010075979528076' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010075566027328' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010075157228923' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001007475260625' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010074352427532' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010073956510613' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010073564787773' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010073177192718' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010072793660546' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010072414127707' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001007203853197' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010071666915112' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010071298909269' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010070934764135' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.0010070574319699' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010070217519833' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010069864407159' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010069514634916' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010069168443143' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010068825777181' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010068486302055' color='ff6600' showName='0'/>
@@ -16572,6 +16549,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010040634780284' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010040516274577' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001004039839279' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010040281227417' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001004016477196' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010040048955844' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010039933805724' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010039819284161' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010039705480627' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010039592263038' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010039479720452' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010039367815866' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001003925654387' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010039145899115' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010054650269504' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010054497058327' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001005434478818' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010054193282665' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010054042703' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010053892916315' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010053743916381' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010053595820139' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010053448456218' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010053301900441' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001005315622691' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010053011347458' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010052867175752' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Created_tmp_files' xAxisName='' yAxisName='per/sec' 
@@ -16580,30 +16581,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.001007855792783' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010078116089883' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010077679314931' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010077247277806' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010076819901886' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.0010076397345651' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010075979528076' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010075566027328' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010075157228923' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001007475260625' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010074352427532' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010073956510613' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010073564787773' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010073177192718' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010072793660546' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010072414127707' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.001007203853197' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010071666915112' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010071298909269' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010070934764135' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.0010070574319699' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010070217519833' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010069864407159' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010069514634916' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010069168443143' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010068825777181' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010068486302055' color='ff6600' showName='0'/>
@@ -16748,6 +16725,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010040634780284' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010040516274577' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.001004039839279' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010040281227417' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.001004016477196' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010040048955844' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010039933805724' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010039819284161' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010039705480627' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010039592263038' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.0010039479720452' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010039367815866' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.001003925654387' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010039145899115' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010054650269504' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010054497058327' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.001005434478818' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010054193282665' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010054042703' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010053892916315' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.0010053743916381' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010053595820139' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010053448456218' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010053301900441' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.001005315622691' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010053011347458' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010052867175752' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -16760,30 +16761,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.55207915025461' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.55207308072673' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.55206793522167' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.55206199557528' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.5520552749922' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.5520494703372' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.55204456655199' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.5520380505174' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.55203326158323' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.55202687655205' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.55202137929701' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.5520159405863' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.55201055948964' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.55200523509637' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.55199996651492' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.55199475287231' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.55198959331367' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.55198527674896' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.55197943311663' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.55197443085492' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.5519694794297' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.55196457806995' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.55196049586962' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.55195492253984' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.55195016690345' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.55194621678468' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.55194079633133' color='ff6600' showName='0'/>
@@ -16928,6 +16905,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.55155819997676' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.55155701774289' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.55155495272176' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.55155334322103' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.55155218528491' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.55155059304494' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.55154900996109' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.55154699750652' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.55154587094766' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.55154387891736' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.55154233291985' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.55154079568655' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.55153926714314' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.55153774721614' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.55160068453366' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.55159857233278' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.5515973268575' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.5515952357911' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.55159400650983' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.55159236014018' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.55159030014442' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.55158909462878' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.55158705493661' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.55158502643013' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.55158384521514' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.55158267043906' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.5515806704011' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Created_tmp_tables' xAxisName='' yAxisName='per/sec' 
@@ -16936,30 +16937,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.55207915025461' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.55207308072673' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.55206793522167' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.55206199557528' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.5520552749922' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.5520494703372' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.55204456655199' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.5520380505174' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.55203326158323' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.55202687655205' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.55202137929701' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.5520159405863' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.55201055948964' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.55200523509637' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.55199996651492' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.55199475287231' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.55198959331367' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.55198527674896' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.55197943311663' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.55197443085492' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.5519694794297' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.55196457806995' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.55196049586962' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.55195492253984' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.55195016690345' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.55194621678468' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.55194079633133' color='ff6600' showName='0'/>
@@ -17104,6 +17081,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.55155819997676' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.55155701774289' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.55155495272176' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.55155334322103' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.55155218528491' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.55155059304494' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.55154900996109' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.55154699750652' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.55154587094766' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.55154387891736' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.55154233291985' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.55154079568655' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.55153926714314' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.55153774721614' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.55160068453366' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.55159857233278' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.5515973268575' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.5515952357911' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.55159400650983' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.55159236014018' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.55159030014442' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.55158909462878' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.55158705493661' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.55158502643013' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.55158384521514' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.55158267043906' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.5515806704011' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -17116,30 +17117,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.065309090880524' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.065325475375465' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.065341776557004' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.065357797031233' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.065373541382113' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.065389210861258' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.065404806768864' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.065420038296863' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.065435298644765' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.065450202056295' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.065465041719147' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.065479723343485' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.06549424944054' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.065508622468618' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.065522844834489' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.065536918894729' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.06555084695702' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.065564723824376' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.065578274081563' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.065591777525881' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.065605143738717' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.06561837480146' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.065631563062408' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.065644439593868' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.065657277281071' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.065670076754507' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.065682572838607' color='ff6600' showName='0'/>
@@ -17284,6 +17261,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.066715379370372' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.066719828340648' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.066724145230606' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.066728490025965' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0667328624951' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.06673715710084' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.066741427010587' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.066745620077839' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.066749893589312' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.066754038608791' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.066758211979253' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.066762361691021' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.066766487944708' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.066770590938664' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.066869189114915' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.066872929987629' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.066876752231242' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.06688045116682' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.066884231265711' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.066887939689207' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.066891577023094' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.066895295205777' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.066898892318922' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.066902469705484' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.066906127622026' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.066909765598968' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.066913284237349' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Com_select' xAxisName='' yAxisName='per/sec' 
@@ -17292,30 +17293,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.065309090880524' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.065325475375465' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.065341776557004' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.065357797031233' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.065373541382113' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.065389210861258' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.065404806768864' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.065420038296863' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.065435298644765' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.065450202056295' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.065465041719147' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.065479723343485' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.06549424944054' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.065508622468618' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.065522844834489' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.065536918894729' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.06555084695702' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.065564723824376' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.065578274081563' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.065591777525881' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.065605143738717' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.06561837480146' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.065631563062408' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.065644439593868' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.065657277281071' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.065670076754507' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.065682572838607' color='ff6600' showName='0'/>
@@ -17460,6 +17437,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.066715379370372' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.066719828340648' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.066724145230606' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.066728490025965' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0667328624951' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.06673715710084' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.066741427010587' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.066745620077839' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.066749893589312' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.066754038608791' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.066758211979253' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.066762361691021' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.066766487944708' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.066770590938664' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.066869189114915' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.066872929987629' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.066876752231242' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.06688045116682' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.066884231265711' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.066887939689207' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.066891577023094' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.066895295205777' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.066898892318922' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.066902469705484' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.066906127622026' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.066909765598968' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.066913284237349' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -17472,30 +17473,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.014337564987046' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.014357851370078' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.014377931617345' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.014397767862661' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.014417364063343' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.014436765153032' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.014455974422252' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.014474933993075' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.014493728880819' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.014512281105681' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.014530654762347' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.014548832744393' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.014566818161086' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.014584614056168' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.014602223409568' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.014619649139068' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.014636894101917' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.014653980667133' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.014670852863293' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.014687572087454' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.014704121399122' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.014720503375356' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.014736739735521' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.014752775371799' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.014768670292015' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.014784426653746' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.014799989864027' color='ff6600' showName='0'/>
@@ -17640,6 +17617,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.016078754267668' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.016084209025081' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.016089607675048' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.016094987162373' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.016100347666266' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.016105665165098' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.016110952085823' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.01611619665311' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.016121435241949' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.016126620016423' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.016131787254841' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.016136925200362' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.016142034101375' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.016147114203463' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.016152177579024' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.016157188979449' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.016162195902092' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.016167151438483' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.016172102847896' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.016177015133131' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.016181888607288' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.016186758463546' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.016191578355819' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.016196371815783' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.016201162146995' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.016205926365724' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.016210641709332' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Com_insert' xAxisName='' yAxisName='per/sec' 
@@ -17648,30 +17649,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.014337564987046' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.014357851370078' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.014377931617345' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.014397767862661' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.014417364063343' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.014436765153032' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.014455974422252' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.014474933993075' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.014493728880819' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.014512281105681' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.014530654762347' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.014548832744393' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.014566818161086' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.014584614056168' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.014602223409568' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.014619649139068' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.014636894101917' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.014653980667133' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.014670852863293' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.014687572087454' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.014704121399122' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.014720503375356' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.014736739735521' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.014752775371799' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.014768670292015' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.014784426653746' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.014799989864027' color='ff6600' showName='0'/>
@@ -17816,6 +17793,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.016078754267668' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.016084209025081' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.016089607675048' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.016094987162373' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.016100347666266' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.016105665165098' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.016110952085823' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.01611619665311' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.016121435241949' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.016126620016423' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.016131787254841' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.016136925200362' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.016142034101375' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.016147114203463' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.016152177579024' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.016157188979449' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.016162195902092' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.016167151438483' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.016172102847896' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.016177015133131' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.016181888607288' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.016186758463546' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.016191578355819' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.016196371815783' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.016201162146995' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.016205926365724' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.016210641709332' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -17828,30 +17829,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -17996,6 +17973,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Com_delete' xAxisName='' yAxisName='per/sec' 
@@ -18004,30 +18005,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -18172,6 +18149,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -18184,30 +18185,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -18352,6 +18329,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Com_update' xAxisName='' yAxisName='per/sec' 
@@ -18360,30 +18361,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='0.0010015711585566' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='0.0010015623217977' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='0.0010015535862986' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='0.0010015449455561' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='0.0010015363980377' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='0.001001527946913' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='0.0010015195905615' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='0.0010015113205466' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='0.0010015031445785' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='0.001001495052125' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='0.0010014870485506' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='0.0010014791302123' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='0.0010014712957555' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='0.0010014635438544' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='0.0010014558732109' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='0.0010014482825541' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='0.0010014407706394' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='0.0010014333383022' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='0.0010014259781854' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='0.0010014186952827' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='0.001001411486394' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='0.0010014043503967' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='0.0010013972881432' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='0.0010013902926983' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='0.0010013833688629' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='0.0010013765155436' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='0.0010013697260411' color='ff6600' showName='0'/>
@@ -18528,6 +18505,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='0.0010008126956057' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='0.0010008103254915' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='0.0010008079678558' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='0.0010008056245483' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='0.0010008032954392' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='0.0010008009791169' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='0.0010007986761145' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='0.0010007963856832' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='0.0010007941096125' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='0.0010007918452608' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='0.001000789594409' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='0.0010007873563173' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='0.0010007851308774' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='0.0010007829179823' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='0.0010007807181358' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='0.0010007785294047' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='0.0010007763541169' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='0.0010007741897524' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='0.0010007720386143' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='0.0010007698988045' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='0.001000767770234' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='0.0010007656545734' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='0.0010007635493745' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='0.0010007614557206' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='0.0010007593746701' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='0.0010007573049637' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='0.0010007552453679' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -18540,30 +18541,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='65.464085672134' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='65.482021581913' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='65.499858623647' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='65.517396086962' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='65.534660371532' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='65.551837890944' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='65.568922549508' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='65.585620087264' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='65.602335586046' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='65.618680975312' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='65.634947425398' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='65.651045079451' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='65.666967791865' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='65.682718327813' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='65.698303762122' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='65.713735366915' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='65.729004009665' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='65.744207879921' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='65.759066725797' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='65.7738713215' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='65.788522639536' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='65.803024409014' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='65.817483428163' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='65.831623041599' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='65.845712870726' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='65.859778491119' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='65.8735318249' color='ff6600' showName='0'/>
@@ -18708,6 +18685,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='67.013554137311' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='67.018482714137' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='67.023275130022' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='67.028090516752' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='67.03293109653' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='67.037692475282' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='67.042426473877' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='67.047079932435' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='67.051817240437' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='67.056418182984' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='67.061056177273' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='67.065665516864' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='67.070251155516' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='67.074813293634' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='67.107354989413' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='67.111796043981' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='67.116319584619' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='67.120716311326' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='67.125191465576' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='67.129587057077' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='67.133904503203' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='67.138298654286' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='67.142572993411' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='67.146820084765' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='67.151147453095' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='67.155451989895' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='67.159630171448' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_received' xAxisName='' yAxisName='bytes/sec' 
@@ -18716,30 +18717,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='65.464085672134' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='65.482021581913' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='65.499858623647' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='65.517396086962' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='65.534660371532' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='65.551837890944' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='65.568922549508' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='65.585620087264' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='65.602335586046' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='65.618680975312' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='65.634947425398' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='65.651045079451' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='65.666967791865' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='65.682718327813' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='65.698303762122' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='65.713735366915' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='65.729004009665' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='65.744207879921' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='65.759066725797' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='65.7738713215' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='65.788522639536' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='65.803024409014' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='65.817483428163' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='65.831623041599' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='65.845712870726' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='65.859778491119' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='65.8735318249' color='ff6600' showName='0'/>
@@ -18884,6 +18861,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='67.013554137311' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='67.018482714137' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='67.023275130022' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='67.028090516752' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='67.03293109653' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='67.037692475282' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='67.042426473877' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='67.047079932435' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='67.051817240437' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='67.056418182984' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='67.061056177273' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='67.065665516864' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='67.070251155516' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='67.074813293634' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='67.107354989413' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='67.111796043981' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='67.116319584619' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='67.120716311326' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='67.125191465576' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='67.129587057077' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='67.133904503203' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='67.138298654286' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='67.142572993411' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='67.146820084765' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='67.151147453095' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='67.155451989895' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='67.159630171448' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -18896,30 +18897,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='119.4054311809' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='119.42972910902' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='119.4539532557' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='119.47772497497' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='119.50106702844' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='119.52433637446' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='119.54753431235' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='119.57011847242' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='119.59281767458' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='119.61491493901' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='119.63695196684' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='119.65875578525' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='119.68032715732' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='119.70167122073' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='119.7227930054' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='119.74369453983' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='119.76438069194' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='119.78502218808' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='119.80510300553' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='119.82515715597' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='119.84500609056' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='119.86465573052' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='119.88427799327' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='119.90337743805' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='119.92244834155' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='119.94152424319' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='119.9600985107' color='ff6600' showName='0'/>
@@ -19064,6 +19041,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='121.50234909665' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='121.50903918086' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='121.51549318762' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='121.52201328797' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='121.52858767809' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='121.53502761776' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='121.54143052476' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='121.54769991869' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='121.5541273053' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='121.56032950265' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='121.56660110401' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='121.57283400245' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='121.57903166668' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='121.58519439462' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='121.92252699723' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='121.93060889563' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='121.93883571726' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='121.94686271216' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='121.95505422799' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='121.96311029878' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='121.9710312613' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='121.97909456753' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='121.98568803052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='121.99051454609' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='121.9955060207' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='122.00046422794' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='122.00521043779' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://192.168.0.20/kontrollbase//includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_sent' xAxisName='' yAxisName='bytes/sec' 
@@ -19072,30 +19073,6 @@ showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
 canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>
-<set name='04-21 00:00' value='119.4054311809' color='ff6600' showName='0'/>
-<set name='04-21 01:00' value='119.42972910902' color='ff6600' showName='0'/>
-<set name='04-21 02:00' value='119.4539532557' color='ff6600' showName='0'/>
-<set name='04-21 03:00' value='119.47772497497' color='ff6600' showName='0'/>
-<set name='04-21 04:00' value='119.50106702844' color='ff6600' showName='0'/>
-<set name='04-21 05:00' value='119.52433637446' color='ff6600' showName='0'/>
-<set name='04-21 06:00' value='119.54753431235' color='ff6600' showName='0'/>
-<set name='04-21 07:00' value='119.57011847242' color='ff6600' showName='0'/>
-<set name='04-21 08:00' value='119.59281767458' color='ff6600' showName='0'/>
-<set name='04-21 09:00' value='119.61491493901' color='ff6600' showName='0'/>
-<set name='04-21 10:00' value='119.63695196684' color='ff6600' showName='0'/>
-<set name='04-21 11:00' value='119.65875578525' color='ff6600' showName='0'/>
-<set name='04-21 12:00' value='119.68032715732' color='ff6600' showName='0'/>
-<set name='04-21 13:00' value='119.70167122073' color='ff6600' showName='0'/>
-<set name='04-21 14:00' value='119.7227930054' color='ff6600' showName='0'/>
-<set name='04-21 15:00' value='119.74369453983' color='ff6600' showName='0'/>
-<set name='04-21 16:00' value='119.76438069194' color='ff6600' showName='0'/>
-<set name='04-21 17:00' value='119.78502218808' color='ff6600' showName='0'/>
-<set name='04-21 18:00' value='119.80510300553' color='ff6600' showName='0'/>
-<set name='04-21 19:00' value='119.82515715597' color='ff6600' showName='0'/>
-<set name='04-21 20:00' value='119.84500609056' color='ff6600' showName='0'/>
-<set name='04-21 21:00' value='119.86465573052' color='ff6600' showName='0'/>
-<set name='04-21 22:00' value='119.88427799327' color='ff6600' showName='0'/>
-<set name='04-21 23:00' value='119.90337743805' color='ff6600' showName='0'/>
 <set name='04-22 00:00' value='119.92244834155' color='ff6600' showName='0'/>
 <set name='04-22 01:00' value='119.94152424319' color='ff6600' showName='0'/>
 <set name='04-22 02:00' value='119.9600985107' color='ff6600' showName='0'/>
@@ -19240,6 +19217,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='04-27 21:00' value='121.50234909665' color='ff6600' showName='0'/>
 <set name='04-27 22:00' value='121.50903918086' color='ff6600' showName='0'/>
 <set name='04-27 23:00' value='121.51549318762' color='ff6600' showName='0'/>
+<set name='04-28 00:00' value='121.52201328797' color='ff6600' showName='0'/>
+<set name='04-28 01:00' value='121.52858767809' color='ff6600' showName='0'/>
+<set name='04-28 02:00' value='121.53502761776' color='ff6600' showName='0'/>
+<set name='04-28 03:00' value='121.54143052476' color='ff6600' showName='0'/>
+<set name='04-28 04:00' value='121.54769991869' color='ff6600' showName='0'/>
+<set name='04-28 05:00' value='121.5541273053' color='ff6600' showName='0'/>
+<set name='04-28 06:00' value='121.56032950265' color='ff6600' showName='0'/>
+<set name='04-28 07:00' value='121.56660110401' color='ff6600' showName='0'/>
+<set name='04-28 08:00' value='121.57283400245' color='ff6600' showName='0'/>
+<set name='04-28 09:00' value='121.57903166668' color='ff6600' showName='0'/>
+<set name='04-28 10:00' value='121.58519439462' color='ff6600' showName='0'/>
+<set name='04-28 11:00' value='121.92252699723' color='ff6600' showName='0'/>
+<set name='04-28 12:00' value='121.93060889563' color='ff6600' showName='0'/>
+<set name='04-28 13:00' value='121.93883571726' color='ff6600' showName='0'/>
+<set name='04-28 14:00' value='121.94686271216' color='ff6600' showName='0'/>
+<set name='04-28 15:00' value='121.95505422799' color='ff6600' showName='0'/>
+<set name='04-28 16:00' value='121.96311029878' color='ff6600' showName='0'/>
+<set name='04-28 17:00' value='121.9710312613' color='ff6600' showName='0'/>
+<set name='04-28 18:00' value='121.97909456753' color='ff6600' showName='0'/>
+<set name='04-28 19:00' value='121.98568803052' color='ff6600' showName='0'/>
+<set name='04-28 20:00' value='121.99051454609' color='ff6600' showName='0'/>
+<set name='04-28 21:00' value='121.9955060207' color='ff6600' showName='0'/>
+<set name='04-28 22:00' value='122.00046422794' color='ff6600' showName='0'/>
+<set name='04-28 23:00' value='122.00521043779' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr></tr></div></table></body></html>
