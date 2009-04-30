@@ -49,7 +49,7 @@ class Add extends Controller {
 	  $this->form_validation->set_rules('server_mysql_db', 'server_mysql_db', 'trim|required');
 	  $this->form_validation->set_rules('server_mysql_host', 'server_mysql_host', 'trim|required');
 	  $this->form_validation->set_rules('server_mysql_user', 'server_mysql_user', 'trim|required|min_length[6]');
-	  $this->form_validation->set_rules('server_mysql_pass', 'server_mysql_pass', 'trim|required|min_length[8]');
+	  $this->form_validation->set_rules('server_mysql_pass', 'server_mysql_pass', 'trim|required|min_length[6]');
 	  $this->form_validation->set_rules('server_snmp_local_address', 'server_snmp_local_address', 'trim|required');
 	  $this->form_validation->set_rules('server_snmp_port', 'server_snmp_port', 'trim|required|numeric');
 	  $this->form_validation->set_rules('server_snmp_rocommunity', 'server_snmp_rocommunity', 'trim|required');
