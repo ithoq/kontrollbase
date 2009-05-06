@@ -64,7 +64,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $sql1="select t1.id as server_list_id,t1.server_hostname,t2.id,t2.server_list_id,t2.os_load_15,t2.os_mem_total,round((t2.os_mem_total / t2.os_mem_used)) as mem_perc,round(t2.queries_per_second,2) as queries_per_second,t2.num_schema,t2.num_tables,t2.num_connections,t2.length_data,t2.length_index,(t2.length_data + t2.length_index) as total_size,t2.engine_count_innodb,t2.engine_count_myisam,t2.engine_myisam_size_data,t2.engine_myisam_size_index,(t2.engine_myisam_size_data + t2.engine_myisam_size_index) as engine_myisam_size_total, t2.engine_innodb_size_data,t2.engine_innodb_size_index,(t2.engine_innodb_size_data + t2.engine_innodb_size_index) as engine_innodb_size_total from server_list as t1, server_statistics as t2 where t1.id = t2.server_list_id and t2.server_list_id = '$server_list_id' order by t2.id desc limit 1";
     $query1 = $dbr->query($sql1);
     if($query1->num_rows() > 0) {
-      log_message('debug', "results greater than zero for host: $id, sql: $sql1");
+      log_message('debug', "results greater than zero for host: $server_list_id, sql: $sql1");
       foreach ($query1->result() as $row1) {    
 	$server_list_id = $row1->server_list_id;
 	$server_hostname = $row1->server_hostname;

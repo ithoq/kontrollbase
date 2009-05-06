@@ -138,8 +138,8 @@ $engine_innodb_size_total],
  //ADDED EMPTY QUOTES TO THE TWO LINES BELOW "Total Values" - might help IE7?
 print "
 ['Total Values',
- 0,
- 0,
+ ,
+ ,
  $queries_per_second_c,
  $num_schema_c,
  $num_tables_c,
