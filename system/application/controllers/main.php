@@ -316,7 +316,34 @@ class Main extends Controller {
       $this->load->view('main/data',$g);
     }
   }
-  
+
+  function cnf() {
+    $this->load->model('Model_main', 'main');
+    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $g['data'] = $this->main->get_cnf($server_list_id);
+    $g['server_list_id'] = $server_list_id;
+    $g['root'] = $this->config->item('base_url');
+    $this->load->view('main/cnf',$g);
+  }
+
+  function server_variables() {
+    $this->load->model('Model_main', 'main');
+    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $g['data'] = $this->main->get_server_variables($server_list_id);
+    $g['server_list_id'] = $server_list_id;
+    $g['root'] = $this->config->item('base_url');
+    $this->load->view('main/server_variables',$g);
+  }
+
+  function server_status() {
+    $this->load->model('Model_main', 'main');
+    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $g['data'] = $this->main->get_server_status($server_list_id);
+    $g['server_list_id'] = $server_list_id;
+    $g['root'] = $this->config->item('base_url');
+    $this->load->view('main/server_status',$g);
+  }
+
   function summary() {
     log_message('debug', "main-summary function called");
     $this->load->model('Model_main', 'main');

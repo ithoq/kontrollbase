@@ -14,6 +14,7 @@ include("doc_header.php");
 <h1>Troubleshooting</h1>
     Installation and runtime errors can occur. Sometimes these are not errors with the application, sometimes it is the underlying setup of your server or operating system. Here are the most common errors that I've seen.
 <br><br>
+<a name="php"></a>
 <h2>PHP Errors</h2>
 <h3>1. Script timeout issue</h3>
 <code>Fatal error: Maximum execution time of 30 seconds exceeded in includes/dompdf/include/style.cls.php</code>
@@ -43,9 +44,15 @@ From the DomPDF page: "This error occurs when the version of PHP that you are us
 There are a couple of ways that the DOM extension could have been disabled. DOM uses libxml, so if libxml is not present on your server then the DOM extension will not work. Alternatively, if PHP was compiled with the '--disable-dom' switch or the '--disable-xml' switch, DOM support will also be removed. You can check which switches were used to compile PHP with phpinfo()." See: <a href="http://www.digitaljunkies.ca/dompdf/faq.php#dom" target="_blank">http://www.digitaljunkies.ca/dompdf/faq.php#dom</a> for more info.
 <br>
 <br>
+<a name="apache"></a>
 <h2>Apache Errors</h2>
 <h3>1. Directory permissions</h3>
 <code>[Tue Mar 17 15:37:06 2009] [error] [client 192.168.0.103] (13)Permission denied: access to /kontrollbase/includes/pages/overview.php denied, referer: http://192.168.0.23/kontrollbase/</code>
+OR you might see this type of error
+<code>An Error Was Encountered
+Directory '/includes/pages' is NOT writeable
+</code>
+
 <em>Solution</em>
 You can solve this by correcting the permissions on the kontrollbase installation directory. 
 You need the following directories to be owned and writeable by the webserver user. In Redhat/Fedora, 
@@ -57,6 +64,7 @@ ROOT-(0)> chmod 1775 /var/www/html/kontrollbase/includes/graphs
 </code>
 <br>
 <br>
+<a name="debug"></a>
 <h2>Reading the debug logs</h2>
 <h3>Server scripts debug log</h3>
 This file is set in the config.cfg file. Simply, it is named 
@@ -113,6 +121,7 @@ or you can tail the current file (choose the right date) it in a console
 and watch what the webapp is in realtime. These files contain a vast amount 
 of useful information for troubleshooting.
 <br><br>
+<a name="perl"></a>
 <h2>Perl Errors</h2>
 <h3>1. Can't locate XML/Parser.pm in @INC</h3>
 You need to install a perl module

@@ -365,7 +365,7 @@ print "
    autoScroll:true
    },
    {
-     title: 'Global Variables',
+     title: 'Globals',
      deferredRender: true,
      height: 480,
      width:440,
@@ -373,24 +373,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/server_variables/$server_list_id'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-   autoScroll:true
-   },
-   {
-     title: 'Global Status',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/server_status/$server_list_id'
+     defaultSrc  : '$nroot/index.php/system/'
      },
      shim:false,
      frame:true,
