@@ -16,17 +16,14 @@ function head(
 	      $server_list,
 	      $servers,
 	      $footer,
+	      $overview,
+	      $summary,
 	      $data_size,
 	      $index_size,
 	      $total_size,
 	      $data,
 	      $alerts,
-	      $overviewpage,
-	      $slavepage,
-	      $graphspage,
-	      $server_statistics_id,
-	      $server_list_id,
-	      $sessionpage) {
+	      $sessionpage){
 
   $nroot = substr_replace($root,"",-1);
   print<<<HEAD
@@ -41,12 +38,6 @@ function head(
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
-<link rel="stylesheet" type="text/css" href="$nroot/includes/tasks.css" />
-
-<script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
-<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
-<script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
 
 <style type="text/css">
     .settings {
@@ -56,6 +47,11 @@ function head(
     background-image:url('$nroot/includes/images/folder_go.png');
   }
 </style>
+
+<script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
 
 <script type="text/javascript">
  Ext.onReady(function() {  
@@ -83,10 +79,9 @@ var alertData = [";
    elseif($alert_level == 2) { $alert_level= 'info';}
 
    // here we need hover pop up thing for the $alerts_current_id column: we need to display $alert_desc, $alert_links, $alert_solution
-   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']
-";
+   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']";
    $r++;
-   if($r<$u) { print ",";} else { print "];";}
+   if($r<$u) { print ",\n";} else { print "\n];\n";}
  }
 
  print "    
@@ -136,13 +131,15 @@ $total_size,
 $engine_count_innodb,
 $engine_count_myisam,
 $engine_myisam_size_total,
-$engine_innodb_size_total],";
+$engine_innodb_size_total],
+";
  }
-
+ //print the last data line for summary information - totals
+ //ADDED EMPTY QUOTES TO THE TWO LINES BELOW "Total Values" - might help IE7?
 print "
 ['Total Values',
- ,
- ,
+ 0,
+ 0,
  $queries_per_second_c,
  $num_schema_c,
  $num_tables_c,
@@ -151,68 +148,12 @@ print "
  $engine_count_innodb_c,
  $engine_count_myisam_c,
  $engine_myisam_size_total_c,
- $engine_innodb_size_total_c]
-];
+ $engine_innodb_size_total_c]];
+
 ";
 
  print<<<HEAD
-   var detailEl;
- 
- var refreshTab=function(tab){
-   tab.getUpdater().refresh();
- };
- 
- CompleteColumn = function(){
-   var grid;
-   
-   function getRecord(t){
-     var index = grid.getView().findRowIndex(t);
-     return grid.store.getAt(index);
-   }
-
-   function onMouseDown(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       e.stopEvent();
-       var record = getRecord(t);
-       record.set('completed', !record.data.completed);
-       grid.store.applyFilter();
-     }
-   }
-
-   function onMouseOver(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       Ext.fly(t.parentNode).addClass('task-check-over');
-     }
-   }
-
-   function onMouseOut(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       Ext.fly(t.parentNode).removeClass('task-check-over');
-     }
-   }
-
-   Ext.apply(this, {
-     width: 22,
-	 header: '<div class="task-col-hd"></div>',
-	 menuDisabled:true,
-	 fixed: true,
-	 id: 'task-col',
-	 renderer: function(){
-	 return '<div class="task-check"></div>';
-       },
-	 init : function(xg){
-	 grid = xg;
-	 grid.on('render', function(){
-	     var view = grid.getView();
-	     view.mainBody.on('mousedown', onMouseDown);
-	     view.mainBody.on('mouseover', onMouseOver);
-	     view.mainBody.on('mouseout', onMouseOut);
-	   });
-       }
-     });
- };
- 
- var completeColumn = new CompleteColumn();
+ var detailEl;
  
  var contentPanel = {
  id: 'content-panel',
@@ -225,7 +166,11 @@ print "
 	 border
 	 ]
  };
- 
+
+ var refreshTab=function(tab){
+   tab.getUpdater().refresh();
+ };
+
  var border = {
  id:'border-panel',
  title: 'Kontrollbase',
@@ -242,6 +187,56 @@ print "
    },
  
  items: [
+   {
+   title: 'Critical Environment Alerts',
+   region: 'south',
+   height: 200,
+   xtype: 'grid',
+   store: new Ext.data.SimpleStore({
+     fields: [
+	      {name: 'id'},
+	      {name: 'server'},
+	      {name: 'state'},
+	      {name: 'name'}
+	      ]}),	 
+   columns: [
+   {
+     id: 'id', 
+     header: "id", 
+     width: 60, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'id'
+   },
+   {
+     id: 'server', 
+     header: "server", 
+     width: 160, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'server'
+   },
+   {
+     id: 'state', 
+     header: "state", 
+     width: 35, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'state'
+   },
+   {
+     id: 'name', 
+     header: "name", 
+     width: 200, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'name'
+   }
+   ],
+   stripeRows: true,
+   autoExpandColumn: 'name',
+   listeners: { render: function(){this.store.loadData(alertData);}}
+   },
    {
      region:'west',
      id:'west-panel',
@@ -284,15 +279,13 @@ print "
    bodyStyle: 'padding:5px 0px 0px 5px',
    items: [
    {
-   title: 'Host Overview',
+   title: 'Overview',
    deferredRender: true,
    width:440,
    height:480,
    layout : 'fit',
-   items: {
-     xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/includes/pages/$overviewpage'
-     },
+   listeners: {activate: refreshTab},
+   autoLoad: {url: '$nroot/includes/pages/$overview'},
    shim:false,
    frame:true,
    animCollapse:false,
@@ -300,166 +293,234 @@ print "
    autoScroll:true
    },
    {
-   title: 'Perf Report',
-   deferredRender: true,
-   width:440,
-   height:480,
-   layout : 'fit',
-   items: {
-     xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/report/$server_statistics_id/$server_list_id'
-     },
-   shim:false,
-   frame:true,
-   animCollapse:false,
-   enableTabScroll:true,
-   autoScroll:true
-   },
-   { 
-   title: 'Graphs',
-   deferredRender: true,
-   width:440,
-   height:480,
-   layout : 'fit',
-   items: {  
-     xtype          : 'iframepanel', 
-     defaultSrc  : '$nroot/includes/graphs/$graphspage'
-     },
-   shim:false,
-   frame:true,
-   animCollapse:false,
-   enableTabScroll:true,
-   autoScroll:true
-   }, 
-   {
-     title: 'Variables',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-   items: [
-   {
-     xtype: 'tabpanel',
-     plain: true,
-     region: 'center',
-     margins: '0 5 5 5',
-     activeTab: 0,
-     autoScroll: true,
-     animScroll: true,
-   items: [
-   {
-     title: 'CNF File',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/cnf/$server_list_id'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-   autoScroll:true
-   },
-   {
-     title: 'Global Variables',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/server_variables/$server_list_id'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-   autoScroll:true
-   },
-   {
-     title: 'Global Status',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/server_status/$server_list_id'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-   autoScroll:true
-   }]}]},
-   {
-   title: 'View Alerts',
+   title: 'Summary Data',
    xtype: 'grid',
    layout: 'fit',
    store: new Ext.data.SimpleStore({
      fields: [
-	      {name: 'id'},
-	      {name: 'server'},
-	      {name: 'state'},
-	      {name: 'name'}
-	      ]}),
-   plugins: [completeColumn],
+	      {name: 'hostname'},
+	      {name: 'load', type: 'float'},
+	      {name: 'mem_used', type: 'float'},
+	      {name: 'QPS', type: 'float'},
+	      {name: 'schema', type: 'float'},
+	      {name: 'tables', type: 'float'},
+	      {name: 'conn', type: 'float'},
+	      {name: 'total_size', type: 'float'},
+	      {name: 'num_innodb', type: 'float'},
+	      {name: 'num_myisam', type: 'float'},
+	      {name: 'myisam_total', type: 'float'},
+	      {name: 'innodb_total', type: 'float'}
+	      ]
+	 }),
    columns: [
-   completeColumn, 
-   {header: "id", width: 60, sortable: true, dataIndex: 'id'},
-   {header: "server", width: 160, sortable: true, dataIndex: 'server'},
-   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
-   {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
+   {id: 'hostname', header: "server hostname", width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
+   {id: 'load', header: "load", width: 45, sortable: true, renderer: 'undef', dataIndex: 'load'},
+   {id: 'mem_used', header: "mem%", width: 50, sortable: true, renderer: 'undef', dataIndex: 'mem_used'},
+   {id: 'QPS', header: "QPS", width: 50, sortable: true, renderer: 'undef', dataIndex: 'QPS'},
+   {id: 'schema', header: "schema", width: 55, sortable: true, renderer: 'undef', dataIndex: 'schema'},
+   {id: 'tables', header: "tables", width: 55, sortable: true, renderer: 'undef', dataIndex: 'tables'},
+   {id: 'conn', header: "#conn", width: 55, sortable: true, renderer: 'undef',dataIndex: 'conn'},
+   {id: 'total_size', header: "total size", width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
+   {id: 'num_innodb', header: "#innodb", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_innodb'},
+   {id: 'num_myisam', header: "#myisam", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_myisam'},
+   {id: 'myisam_total', header: "myisam_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
+   {id: 'innodb_total', header: "innodb_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'}
 	     ],
    stripeRows: true,
-   autoExpandColumn: 'name',
-   listeners: {
-     render: function(){
-	 this.store.loadData(alertData);
-       }
-     }
-   },
+   autoExpandColumn: 'hostname',
+   listeners: { render: function(){this.store.loadData(summaryData);}}},
    {
-   title: 'Replication',
+   title: 'Alert Management',
    deferredRender: true,
    height: 480,
    width:440,
    layout : 'fit',
+   items: [ 
+   {
+   xtype: 'tabpanel',
+   plain: true,
+   region: 'center',
+   margins: '0 5 5 5',
+   activeTab: 0,
+   autoScroll: true,
+   animScroll: true,
+   items: [
+   {
+   title: 'Alerts',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
    items: {
      xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/includes/pages/$slavepage'
-     },
+     defaultSrc  : '$nroot/index.php/alerts/'
+   },
    shim:false,
    frame:true,
    animCollapse:false,
    enableTabScroll:true,
    autoScroll:true
    },
+   {
+   title: 'Acknowledged',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/alerts/response_main/ack/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Ignored',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/alerts/response_main/ign/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   }
+     ]
+   }]},   
+   {
+   title: 'System Management',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   items: [
+   {
+   xtype: 'tabpanel',
+   plain: true,
+   region: 'center',
+   margins: '0 5 5 5',
+   activeTab: 0,
+   autoScroll: true,
+   animScroll: true,
+   items: [
+   {
+   title: 'Data Management',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/system/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+     title: 'System',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+       defaultSrc  : '$nroot/index.php/system/settings/'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true
+   },
+   {
+   title: 'Hosts',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/hosts/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+   title: 'Users',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/users/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Clients',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/clients/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+       autoScroll:true
+   }
+
+   ]}]},
    {
    title: 'User Guide',
    deferredRender: true,
    height: 480,
    width:440,
    layout : 'fit',
+   listeners: {activate: refreshTab},
    items: {
      xtype          : 'iframepanel',
      defaultSrc  : '$nroot/userguide/toc-embed.php'
-     },
+   },
    shim:false,
    frame:true,
    animCollapse:false,
    enableTabScroll:true,
    autoScroll:true
    }
-	   ]	 
-   }
-	 ]};
+	   
+   ]}]};
+
  
  new Ext.Viewport({
    layout: 'border',
@@ -476,6 +537,17 @@ print "
       
 </head>
 <body>
+<div id="lib-bar" class="x-layout-panel-hd">
+<div id="lib-bar-inner"> <span>Kontrollbase</span>
+  <div id="west">
+    <p>west</p>
+  </div>
+  <div id="north">
+    <p>north</p>
+  </div>
+</div>
+
+</div></div>
 HEAD;
   }
 
@@ -509,16 +581,13 @@ head(
      $server_list,
      $servers,
      $footer,
+     $overview,
+     $summary,
      $data_size,
      $index_size,
      $total_size,
      $data,
      $alerts,
-     $overviewpage,
-     $slavepage,
-     $graphspage,
-     $server_statistics_id,
-     $server_list_id,
      $sessionpage);
 
 ?>
