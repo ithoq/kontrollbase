@@ -1998,7 +1998,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $xaxis = "";
   
     if($server_list_id == '0') {
-      $sql = "select $xval,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
+      $sql = "select max($xval) as $xval,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     }
     else {
       $sql = "select $xval,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE server_list_id = '$server_list_id' AND Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
