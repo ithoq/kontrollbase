@@ -174,6 +174,7 @@ print "
  var border = {
  id:'border-panel',
  title: 'Kontrollbase',
+ icon: '$nroot/includes/images/kb_logo.jpg',
  layout:'border',
  region:'center',
  bodyBorder: false,
@@ -188,6 +189,24 @@ print "
  
  items: [
    {
+     xtype: 'toolbar',
+     region: 'north',
+     items: [{
+       xtype: 'tbbutton',
+       text: 'Logout',
+       handler: function() {
+	 window.location = '$nroot/index.php/login/logout/';}
+     },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
+     text: 'Goto Environment',
+     handler: function() {
+       window.location = '$nroot/index.php';}
+   }]},
+  {
    title: 'Critical Environment Alerts',
    region: 'south',
    height: 200,
@@ -553,7 +572,6 @@ HEAD;
 
 $nroot = substr_replace($root,"",-1);
 $servers='<table>';
-$servers .= "<tr><td><a href='$nroot/index.php'><img src='$nroot/includes/images/arrow_icon.gif' width='14' height='14'> goto environment</a></td></tr>";
 foreach($server_list as $key => $value) {
   $servers .= "<tr>";
   foreach($value as $k => $v) {

@@ -243,6 +243,23 @@ print "
  
  items: [
    {
+     xtype: 'toolbar',
+     region: 'north',
+     items: [{
+       xtype: 'tbbutton',
+       text: 'Logout',
+       handler: function() {
+         window.location = '$nroot/index.php/login/logout/';}
+     },
+   {
+     
+   {
+     xtype: 'tbbutton',
+     text: 'Goto Environment',
+     handler: function() {
+       window.location = '$nroot/index.php';}
+   }]},
+   {
      region:'west',
      id:'west-panel',
      title:'Navigation',
@@ -365,7 +382,7 @@ print "
    autoScroll:true
    },
    {
-     title: 'Globals',
+     title: 'Global Variables',
      deferredRender: true,
      height: 480,
      width:440,
@@ -373,7 +390,24 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/system/'
+     defaultSrc  : '$nroot/index.php/main/server_variables/$server_list_id'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+     title: 'Global Status',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/main/server_status/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -464,7 +498,6 @@ HEAD;
 
 $nroot = substr_replace($root,"",-1);
 $servers='<table>';
-$servers .= "<tr><td><a href='$nroot/index.php'><img src='$nroot/includes/images/arrow_icon.gif' width='14' height='14'> goto environment</a></td></tr>";
 foreach($server_list as $key => $value) {
   $servers .= "<tr>";
   foreach($value as $k => $v) {
