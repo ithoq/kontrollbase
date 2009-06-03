@@ -575,6 +575,7 @@ sub alert_11 {
     my $engine_innodb_size_indexHR = human($engine_innodb_size_index);
     my $engine_innodb_size_dataHR = human($engine_innodb_size_data);
     my $os_mem_totalHR = human($os_mem_total);
+    my $innodb_recommend = human((($needed_innodb_buffer_size * 100) / 85));
 
     if($Innodb_buffer_pool_pages_free == 0) {
         $Innodb_buffer_pool_pages_free = 1;
@@ -589,6 +590,7 @@ sub alert_11 {
     writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
     writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR"); 
     writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+    writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
     writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
     writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
     writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
@@ -632,12 +634,14 @@ sub alert_12 {
     my $engine_innodb_size_indexHR = human($engine_innodb_size_index);
     my $engine_innodb_size_dataHR = human($engine_innodb_size_data);
     my $os_mem_totalHR = human($os_mem_total);
+    my $innodb_recommend = human((($needed_innodb_buffer_size * 100) / 85));
 
     writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
     writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
     writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
     writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
     writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+    writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
     writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
     writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
 
@@ -700,7 +704,7 @@ sub alert_13 {
     }
     else {
         $key_cache_miss_rate=round($Key_read_requests/$Key_reads);
-        if($Key_blocks_unused != 0) {
+        if($Key_blocks_unused > 0) {
 	    $key_blocks_total=($Key_blocks_used+$Key_blocks_unused);
 	    $key_buffer_fill=($Key_blocks_used/$key_blocks_total);
 	    $key_buffer_ratio=round($key_buffer_fill*100);
@@ -716,6 +720,12 @@ sub alert_13 {
 
     my $key_buffer_sizeHR = human($key_buffer_size);
     my $key_blocks_totalHR = human($key_blocks_total);
+
+    if($Key_blocks_used == 0) { $Key_blocks_used = 1;}
+    if($key_blocks_total == 0) { $key_blocks_total = 1;}
+    print "kbu: $Key_blocks_used mul kbs: $key_buffer_size div by kbt: $key_blocks_total mul 100 div 95";
+    my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
+
     writerx("Current Key_reads = $Key_reads");
     writerx("Current Key_read_requests = $Key_read_requests");
     writerx("Current Key_blocks_used = $Key_blocks_used");
@@ -724,6 +734,7 @@ sub alert_13 {
     writerx("Current buffer fill ratio = $key_buffer_ratio%");    
     writerx("Current cache miss rate is 1:$key_cache_miss_rate");
     writerx("Current key_buffer_size = $key_buffer_sizeHR");
+    writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
 
     if(($key_cache_miss_rate >= 1000) || ($key_buffer_ratio <= 50)) {
 	my $key_buffer_sizeC = human($key_buffer_size / 2);
@@ -733,7 +744,8 @@ sub alert_13 {
 
         writerx("Your key_buffer_size is too high. (Less than 50% utilized)");
         writerx("You can use these resources elsewhere.");
-	writerx("Recommend incremental decrease: change to $key_buffer_sizeC");
+	writerx("Recommended key_buffer_size = $key_recommend");
+#	writerx("Recommend incremental decrease: change to $key_buffer_sizeC");
 	$ALERT13=1;
     }
     else {
@@ -786,6 +798,11 @@ sub alert_14 {
 
     my $key_buffer_sizeHR = human($key_buffer_size);
     my $key_blocks_totalHR = human($key_blocks_total);
+
+    if($Key_blocks_used == 0) { $Key_blocks_used = 1;}
+    if($key_blocks_total == 0) { $key_blocks_total = 1;}
+    my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
+
     writerx("Current Key_reads = $Key_reads");
     writerx("Current Key_read_requests = $Key_read_requests");
     writerx("Current Key_blocks_used = $Key_blocks_used");
@@ -794,6 +811,7 @@ sub alert_14 {
     writerx("Current buffer fill ratio = $key_buffer_ratio%");
     writerx("Current cache miss rate is 1:$key_cache_miss_rate");
     writerx("Current key_buffer_size = $key_buffer_sizeHR");
+    writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
 
     if(($key_cache_miss_rate <= 100) && ($key_cache_miss_rate >= 0) && ($key_buffer_ratioRND >= 80)) {
         my $key_buffer_sizeC = human($key_buffer_size * 2);
@@ -802,7 +820,8 @@ sub alert_14 {
         writer("<solution>$alert_solution</solution>");
 
         writerx("Increase the key_buffer_size (we want between 75-90% buffer fill ratio)");
-        writerx("Recommend incremental increase: change to $key_buffer_sizeC");
+	writerx("Recommended key_buffer_size = $key_recommend");
+#        writerx("Recommend incremental increase: change to $key_buffer_sizeC");
         $ALERT14=1;
     }
     else {
