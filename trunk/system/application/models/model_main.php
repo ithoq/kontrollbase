@@ -139,7 +139,12 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_summary_data");
     $dbr = $this->load->database('read', TRUE);
     $this->load->helper('number');
-    $sql0 = "select id,server_hostname from server_list where active >='1' order by server_hostname";
+    if($user_server_client_id == 0) {
+      $sql0 = "select id,server_hostname from server_list where active >='1' order by server_hostname";
+    }
+    else {
+      $sql0 = "select id,server_hostname from server_list where active >='1' and server_client_id = '$user_server_client_id' order by server_hostname";
+    }
     $i=0;
     $query = $dbr->query($sql0);
     if($query->num_rows() > 0) {
@@ -193,6 +198,30 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 			      "engine_innodb_size_total" => "$engine_innodb_size_total");
 	    $i++;
 	  }
+	}
+	else {
+	  log_message('debug', "Data set as 0 return");
+	  $data = array(array(
+			      "server_list_id" => "0",
+			      "server_hostname" => "0",
+			      "os_load_15" => "0",
+			      "mem_perc" => "0",
+			      "os_mem_total" => "0",
+			      "queries_per_second" => "0",
+			      "num_schema" => "0",
+			      "num_tables" => "0",
+			      "num_connections" => "0",
+			      "length_data" => "0",
+			      "length_index" => "0",
+			      "total_size" => "0",
+			      "engine_count_innodb" => "0",
+			      "engine_count_myisam" => "0",
+			      "engine_myisam_size_data" => "0",
+			      "engine_myisam_size_index" => "0",
+			      "engine_myisam_size_total" => "0",
+			      "engine_innodb_size_data" => "0",
+			      "engine_innodb_size_index" => "0",
+			      "engine_innodb_size_total" => "0"));
 	}
       }
     }   
@@ -1750,7 +1779,13 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_current_alerts");
     $dbr = $this->load->database('read', TRUE);
     if($server_list_id == '0') {     
-      $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
+      $user_server_client_id = $this->phpsession->get('user_server_client_id');
+      if($user_server_client_id== 0) {
+	$sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
+      }
+      else {
+	$sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t3.server_client_id = '$user_server_client_id' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' and t1.alert_level ='0' order by server_hostname,t1.alert_level";
+      }
     }
     elseif($server_list_id == 'NULL') {
       $sql="select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack,  t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
@@ -1875,7 +1910,14 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_stats");
     $dbr = $this->load->database('read', TRUE);
     if($server_list_id == '0') { //here we are calculating sizes of variables for a list of hosts
-      $sql = "select id from server_list where active >='1' order by server_hostname";
+      $user_server_client_id = $this->phpsession->get('user_server_client_id');
+      if($user_server_client_id == 0) {
+	$sql = "select id from server_list where active >='1' order by server_hostname";
+      }
+      else {
+	$sql = "select id from server_list where active >='1' and server_client_id = '$user_server_client_id' order by server_hostname";
+      }
+
       log_message('debug', "$sql");
       $query = $dbr->query($sql);
       $vcount = 0;

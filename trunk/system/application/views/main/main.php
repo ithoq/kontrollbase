@@ -44,16 +44,22 @@ $overview.="<td class='td'><a href='$nroot/index.php/rss/alerts/' target='_blank
 $overview.="<td class='td'><a href='$nroot/index.php/rss/alerts_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
 $overview.="</table></td></tr></table>";
 
-$overview.= "<table id='container'><tr><td colspan='3'>&nbsp;</td></tr><tr><td colspan='3'><h1>Previous Week's Activity</h1></td></tr>";
-$overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g1, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g2, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g3, "kontrollbase", $width, $height)."</td></tr>";
-$overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g4, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g5, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g6, "kontrollbase", $width, $height)."</td></tr>";
-$overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g7, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g8, "kontrollbase", $width, $height)."</td>";
-$overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g9, "kontrollbase", $width, $height)."</td></tr></table></td></tr></table></body></html>";
+if($client_id == 0) {
+  $overview.= "<table id='container'><tr><td colspan='3'>&nbsp;</td></tr><tr><td colspan='3'><h1>Previous Week's Activity</h1></td></tr>";
+  $overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g1, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g2, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g3, "kontrollbase", $width, $height)."</td></tr>";
+  $overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g4, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g5, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g6, "kontrollbase", $width, $height)."</td></tr>";
+  $overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g7, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g8, "kontrollbase", $width, $height)."</td>";
+  $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g9, "kontrollbase", $width, $height)."</td></tr></table></td></tr></table></body></html>";
+}
+else {
+  $overview.="</body></html";
+}
+
 $overviewpage = "overview.php";
 
 if($user_role_tier == 0) {$sess_tier = "Admin";}
