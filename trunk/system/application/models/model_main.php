@@ -199,30 +199,6 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 	    $i++;
 	  }
 	}
-	else {
-	  log_message('debug', "Data set as 0 return");
-	  $data = array(array(
-			      "server_list_id" => "0",
-			      "server_hostname" => "0",
-			      "os_load_15" => "0",
-			      "mem_perc" => "0",
-			      "os_mem_total" => "0",
-			      "queries_per_second" => "0",
-			      "num_schema" => "0",
-			      "num_tables" => "0",
-			      "num_connections" => "0",
-			      "length_data" => "0",
-			      "length_index" => "0",
-			      "total_size" => "0",
-			      "engine_count_innodb" => "0",
-			      "engine_count_myisam" => "0",
-			      "engine_myisam_size_data" => "0",
-			      "engine_myisam_size_index" => "0",
-			      "engine_myisam_size_total" => "0",
-			      "engine_innodb_size_data" => "0",
-			      "engine_innodb_size_index" => "0",
-			      "engine_innodb_size_total" => "0"));
-	}
       }
     }   
     else {
@@ -248,6 +224,29 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 			  "engine_innodb_size_data" => "0",
 			  "engine_innodb_size_index" => "0",
 			  "engine_innodb_size_total" => "0"));
+    }
+    if(!isset($data)) {
+      $data = array(array(
+                          "server_list_id" => "0",
+                          "server_hostname" => "0",
+                          "os_load_15" => "0",
+                          "mem_perc" => "0",
+                          "os_mem_total" => "0",
+                          "queries_per_second" => "0",
+                          "num_schema" => "0",
+                          "num_tables" => "0",
+                          "num_connections" => "0",
+                          "length_data" => "0",
+                          "length_index" => "0",
+                          "total_size" => "0",
+                          "engine_count_innodb" => "0",
+                          "engine_count_myisam" => "0",
+                          "engine_myisam_size_data" => "0",
+                          "engine_myisam_size_index" => "0",
+                          "engine_myisam_size_total" => "0",
+                          "engine_innodb_size_data" => "0",
+                          "engine_innodb_size_index" => "0",
+                          "engine_innodb_size_total" => "0"));
     }
     log_message('debug', "Returning data");
     return $data;
