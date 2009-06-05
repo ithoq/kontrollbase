@@ -94,6 +94,12 @@ class Main extends Controller {
 	show_error("Your request has failed.");
       }
     }
+
+    $server_client_id = $this->phpsession->get('user_server_client_id');
+    $fatal = $this->main->get_valid_host($server_client_id,$server_list_id);
+    if($fatal == 0) {
+      show_error("Unauthorized access.");
+    }
     
     $prevWeek = time() - (7 * 24 * 60 * 60);
     $eday = date('Y-m-d');
