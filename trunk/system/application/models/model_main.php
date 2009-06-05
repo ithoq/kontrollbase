@@ -1800,6 +1800,21 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     return $data;
   }
 
+  function get_valid_host($server_client_id,$server_list_id) {
+    log_message('debug', "Starting get_valid_host");
+    $dbr = $this->load->database('read', TRUE);
+    $sql = "select id,server_hostname from server_list where server_client_id = '$server_client_id' and id = '$server_list_id'";
+    log_message('debug', "$sql");
+    $query = $dbr->query($sql);
+    if($query->num_rows() > 0) {
+      $data = "1";
+    }
+    else {
+      $data = "0";
+    }
+    return $data;
+  }
+
   function get_last_report($server_list_id) {
     log_message('debug', "Starting get_last_report");
     $dbr = $this->load->database('read', TRUE);

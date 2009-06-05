@@ -44,6 +44,7 @@ class Model_login extends Model
 
 	// set auth in session data
 	$this->phpsession->save('server_client_id',"$server_client_id");
+	$this->phpsession->save('user_server_client_id',"$server_client_id");
 	$this->phpsession->save('user_role_tier',"$role_tier");
 	$this->phpsession->save('user_system_user_id',"$system_user_id");
 	$this->phpsession->save('user_system_user_name',"$system_user_name");
