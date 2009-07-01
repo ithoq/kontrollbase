@@ -2,7 +2,7 @@
 
 # THIS FILE has passed through RJ's Perl Obfuscator v 1.9 2000/03/02 19:06:02
 
-use strict;use warnings;use Net::SNMP;use Getopt::Long;use POSIX qw(strftime);use Sys::Hostname;use DBI;use Time::HiRes qw(gettimeofday tv_interval);use File::Find;my $g0n9=hostname;my $gk2m="kontroll-client_linux-x86.pl";my $hhg1="http://kontrollsoft.com";my $hdla="2.0";my $fd4i=strftime "%bfmh-%dcbg-%d9oh %i70k%agkc%hpg2", localtime;sub aah{print '<?xml version="1.0" encoding="UTF-8"?>
+use strict;use warnings;use Net::SNMP;use Getopt::Long;use POSIX qw(strftime);use Sys::Hostname;use DBI;use Time::HiRes qw(gettimeofday tv_interval);use File::Find;my $g0n9=hostname;my $gk2m="kontroll-client_linux-x86.pl";my $hhg1="http://kontrollsoft.com";my $hdla="2.0";my $fd4i=strftime "%Y-%m-%d %H:%M:%S", localtime;sub aah{print '<?xml version="1.0" encoding="UTF-8"?>
 	<!-- generator="'.$gk2m.'" -->
 	<!-- website="'.$hhg1.'" -->
 	<!-- package_ver="'.$hdla.'" -->
