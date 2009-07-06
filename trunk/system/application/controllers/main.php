@@ -19,33 +19,34 @@ class Main extends Controller {
   }
 
   function index() {	  
-    $this->load->library('cache');
+    $this->load->model('Model_main', 'main');
+    log_message('debug', "main_index function called");
+
+    check_variables(); // ensure compress_output is set to FALSE in the config
+    check_writeable(); // make sure directories are writeable that need to be - runs helper filecheck_helper
+    check_files(); // make sure config files exist - runs helper filecheck_helper
+    auth(); // check user authentication, if not authenticated, redirect to login controller
+    log_message('debug', "main_index auth check finished, continuing...");
+
     // memcache library information
     $memcache = $this->config->item('memcache_enabled');
     if($memcache == TRUE) {
+      log_message('debug', "Memcache enabled in config");
       $memcache_ip = $this->config->item('memcache_ip');
       $memcache_port = $this->config->item('memcache_port');
       $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
       if(!$memcache) {
         log_message('debug', "Memcache connection failure.");
-        show_error("Memcache library not enabled correctly.");
+        show_error("Memcache library not enabled correctly. Please check configuration.");
       }
       else {
-        log_message('debug', "Memcache enabled!");
+        log_message('debug', "Memcache active!");
       }
     }
     else {
       log_message('debug', "Memcache not enabled in config.");
     }
     //end memcache
-
-    $this->load->model('Model_main', 'main');
-    log_message('debug', "main_index function called");
-
-    check_writeable(); // make sure directories are writeable that need to be - runs helper filecheck_helper
-    check_files(); // make sure config files exist - runs helper filecheck_helper
-    auth(); // check user authentication, if not authenticated, redirect to login controller
-    log_message('debug', "main_index auth check finished, continuing...");
 
     $server_list_id = "0"; //we do this to get get_grahs_default to display overall environment data    
     $prevWeek = time() - (7 * 24 * 60 * 60);
@@ -89,20 +90,20 @@ class Main extends Controller {
     log_message('debug', "main_host function called");
     auth();
     log_message('debug', "main_host auth check finished, continuing...");
-    $this->load->library('cache');
 
     // memcache library information       
     $memcache = $this->config->item('memcache_enabled');
     if($memcache == TRUE) {
+      log_message('debug', "Memcache enabled in config");
       $memcache_ip = $this->config->item('memcache_ip');
       $memcache_port = $this->config->item('memcache_port');
       $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
       if(!$memcache) {
         log_message('debug', "Memcache connection failure.");
-	show_error("Memcache library not enabled correctly.");
+	show_error("Memcache library not enabled correctly. Please check configuration.");
       }
       else {
-        log_message('debug', "Memcache enabled!");
+        log_message('debug', "Memcache active!");
       }
     }
     else {
