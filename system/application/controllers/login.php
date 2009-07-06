@@ -67,10 +67,11 @@ class Login extends Controller {
 	      log_message('debug', "redirecting to main");
 	      $user_system_user_id = $this->phpsession->get('user_system_user_id');
 	      audit($user_system_user_id,'3','');
+	      log_message('debug', "Login controller: JSON = {success: true}");
 	      echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) { 
-	      log_message('debug', "Login failed");
+              log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Login failed. Please retry.' }}");
 	      echo "{success: false, errors: { reason: 'Login failed. Please retry.' }}";
 	    }
 	    else {
