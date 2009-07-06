@@ -195,10 +195,11 @@ class Main extends Controller {
     $g['user_server_client_name'] = $this->main->get_client_info($user_server_client_id,"server_client_name");
     $g['user_role_tier'] = $this->phpsession->get('user_role_tier');
 
-    if($this->phpsession->get('memcache_active') == TRUE) {
-      log_message('debug', "Cacheing view main/host as cachedHost-$server_list_id");
-      $this->cache->save("cachedHost-$server_list_id",$this->load->view('main/host', $g, TRUE),NULL,3600);
-    }
+    //TESTING MEMCACHE
+    //if($this->phpsession->get('memcache_active') == TRUE) {
+    //log_message('debug', "Cacheing view main/host as cachedHost-$server_list_id");
+    //$this->cache->save("cachedHost-$server_list_id",$this->load->view('main/host', $g, TRUE),NULL,3600);
+    //}
 
     $this->load->view('main/host',$g);
   }
