@@ -81,6 +81,7 @@ class Main extends Controller {
     $g['user_server_client_name'] = $this->main->get_client_info($user_server_client_id,"server_client_name");
     $g['user_role_tier'] = $this->phpsession->get('user_role_tier');
     
+    $this->cache->save('cachedMain',$this->load->view('main/main', $g, TRUE),NULL,3600);
     $this->load->view('main/main',$g);
   }
   
@@ -232,7 +233,10 @@ class Main extends Controller {
     $user_server_client_id = $this->phpsession->get('user_server_client_id');
     $g['user_server_client_name'] = $this->main->get_client_info($user_server_client_id,"server_client_name");
     $g['user_role_tier'] = $this->phpsession->get('user_role_tier');
-    
+
+    //enable memcache for unique host id
+    $this->cache->save("cachedHost-$server_list_id",$this->load->view('main/host', $g, TRUE),NULL,3600);
+    //load view    
     $this->load->view('main/host',$g);
   }
   
