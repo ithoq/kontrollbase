@@ -28,26 +28,6 @@ class Main extends Controller {
     auth(); // check user authentication, if not authenticated, redirect to login controller
     log_message('debug', "main_index auth check finished, continuing...");
 
-    // memcache library information
-    $memcache = $this->config->item('memcache_enabled');
-    if($memcache == TRUE) {
-      log_message('debug', "Memcache enabled in config");
-      $memcache_ip = $this->config->item('memcache_ip');
-      $memcache_port = $this->config->item('memcache_port');
-      $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
-      if(!$memcache) {
-        log_message('debug', "Memcache connection failure.");
-        show_error("Memcache library not enabled correctly. Please check configuration.");
-      }
-      else {
-        log_message('debug', "Memcache active!");
-      }
-    }
-    else {
-      log_message('debug', "Memcache not enabled in config.");
-    }
-    //end memcache
-
     $server_list_id = "0"; //we do this to get get_grahs_default to display overall environment data    
     $prevWeek = time() - (7 * 24 * 60 * 60);
     $eday = date('Y-m-d');
@@ -81,8 +61,7 @@ class Main extends Controller {
     $user_server_client_id = $this->phpsession->get('user_server_client_id');
     $g['user_server_client_name'] = $this->main->get_client_info($user_server_client_id,"server_client_name");
     $g['user_role_tier'] = $this->phpsession->get('user_role_tier');
-    
-    $this->cache->save('cachedMain',$this->load->view('main/main', $g, TRUE),NULL,3600);
+
     $this->load->view('main/main',$g);
   }
   
@@ -91,26 +70,7 @@ class Main extends Controller {
     auth();
     log_message('debug', "main_host auth check finished, continuing...");
 
-    // memcache library information       
-    $memcache = $this->config->item('memcache_enabled');
-    if($memcache == TRUE) {
-      log_message('debug', "Memcache enabled in config");
-      $memcache_ip = $this->config->item('memcache_ip');
-      $memcache_port = $this->config->item('memcache_port');
-      $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
-      if(!$memcache) {
-        log_message('debug', "Memcache connection failure.");
-	show_error("Memcache library not enabled correctly. Please check configuration.");
-      }
-      else {
-        log_message('debug', "Memcache active!");
-      }
-    }
-    else {
-      log_message('debug', "Memcache not enabled in config.");
-    }
-    //end memcache
-
+    memcache_start(); // start memcache if enabled in config
     $this->load->model('Model_main', 'main');
     $this->load->library('form_validation');
     
@@ -235,9 +195,11 @@ class Main extends Controller {
     $g['user_server_client_name'] = $this->main->get_client_info($user_server_client_id,"server_client_name");
     $g['user_role_tier'] = $this->phpsession->get('user_role_tier');
 
-    //enable memcache for unique host id
-    $this->cache->save("cachedHost-$server_list_id",$this->load->view('main/host', $g, TRUE),NULL,3600);
-    //load view    
+    if($this->phpsession->get('memcache_active') == TRUE) {
+      log_message('debug', "Cacheing view main/host as cachedHost-$server_list_id");
+      $this->cache->save("cachedHost-$server_list_id",$this->load->view('main/host', $g, TRUE),NULL,3600);
+    }
+
     $this->load->view('main/host',$g);
   }
   
