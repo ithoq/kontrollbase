@@ -28,6 +28,12 @@ So, there are three components to the application.
 The webapp scaled like any other PHP/Apache application. You can set it up for 
 Load Balancing and High Availability. Basically you could use LVS/Ldirector or an F5, Ace, etc to 
 split the port 80 traffic to seprate apache servers running the webapp. Easy.
+<br><br>
+If you want to use Memcache with the webapp you can edit the system/application/config/config.php file 
+and set <code>$config['memcache_enabled']= TRUE;</code> then put in the IP and Port for their respective 
+option variables, and you're all set. Now the webapp will make use of Memcache. 
+<br><br>
+    I recommend using eAccelerator as well, as this speeds up the app considerably: http://eaccelerator.net
 
 <h2>Scaling the database</h2>
 The database is MySQL, and hopefully if you are using Kontrollbase you are a DBA that knows 

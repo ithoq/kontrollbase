@@ -19,6 +19,26 @@ class Main extends Controller {
   }
 
   function index() {	  
+    $this->load->library('cache');
+    // memcache library information
+    $memcache = $this->config->item('memcache_enabled');
+    if($memcache == TRUE) {
+      $memcache_ip = $this->config->item('memcache_ip');
+      $memcache_port = $this->config->item('memcache_port');
+      $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
+      if(!$memcache) {
+        log_message('debug', "Memcache connection failure.");
+        show_error("Memcache library not enabled correctly.");
+      }
+      else {
+        log_message('debug', "Memcache enabled!");
+      }
+    }
+    else {
+      log_message('debug', "Memcache not enabled in config.");
+    }
+    //end memcache
+
     $this->load->model('Model_main', 'main');
     log_message('debug', "main_index function called");
 
@@ -68,6 +88,27 @@ class Main extends Controller {
     log_message('debug', "main_host function called");
     auth();
     log_message('debug', "main_host auth check finished, continuing...");
+    $this->load->library('cache');
+
+    // memcache library information       
+    $memcache = $this->config->item('memcache_enabled');
+    if($memcache == TRUE) {
+      $memcache_ip = $this->config->item('memcache_ip');
+      $memcache_port = $this->config->item('memcache_port');
+      $memcache = $this->cache->useMemcache($memcache_ip, $memcache_port);
+      if(!$memcache) {
+        log_message('debug', "Memcache connection failure.");
+	show_error("Memcache library not enabled correctly.");
+      }
+      else {
+        log_message('debug', "Memcache enabled!");
+      }
+    }
+    else {
+      log_message('debug', "Memcache not enabled in config.");
+    }
+    //end memcache
+
     $this->load->model('Model_main', 'main');
     $this->load->library('form_validation');
     
