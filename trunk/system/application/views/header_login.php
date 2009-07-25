@@ -25,6 +25,7 @@ print<<<HEAD
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 
 <script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
