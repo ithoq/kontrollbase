@@ -244,6 +244,7 @@ print "
  items: [
    {
      xtype: 'toolbar',
+     height: 25,
      region: 'north',
      items: [{
        xtype: 'tbbutton',
