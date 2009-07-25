@@ -63,12 +63,8 @@ print<<<HEAD
 			      waitMsg:'Authenticating...',
  
 			      success:function(){
-                              Ext.Msg.alert('Kontrollbase','Authentication Success', function(btn, text){
-                                              if (btn == 'ok'){
-                                                var redirect = '$nroot/index.php/main/';
-                                                window.location = redirect;
-                                              }
-                                            });
+			      var redirect = '$nroot/index.php/main/';
+			      window.location = redirect;
 			    },
  
 			      failure:function(form, action){ 
