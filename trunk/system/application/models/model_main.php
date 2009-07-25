@@ -139,6 +139,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     log_message('debug', "Starting get_summary_data");
     $dbr = $this->load->database('read', TRUE);
     $this->load->helper('number');
+    $user_server_client_id = $this->phpsession->get('user_server_client_id');
     if($user_server_client_id == 0) {
       $sql0 = "select id,server_hostname from server_list where active >='1' order by server_hostname";
     }
