@@ -42,6 +42,7 @@ include("doc_header-nofluff.php");
 <li><a href="installation-client_other.php">Client Install - Other</a></li>
 <li><a href="installation-client_experiment.php">Client Install - Experimental</a></li>
 <li><a href="installation-troubleshooting.php">Troubleshooting</a></li>
+<li><a href="installation-vmware.php">VMware Virtual Appliance</a></li>
 </ul>
 
 </td><td class="td_sep" valign="top">
