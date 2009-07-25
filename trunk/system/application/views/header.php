@@ -40,7 +40,6 @@ function head(
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 
-
 <style type="text/css">
     .settings {
     background-image:url('$nroot/includes/images/folder_wrench.png');
