@@ -24,9 +24,9 @@ print "<div id='content'>
 <td><a href='$nroot/index.php/add/client/' target='_self'><button><img src='$nroot/includes/images/add-16x16.png' width='12px' height='12px'>&nbsp; Add</button></a></td></table>
 <table class='tableborder'>
 <tr>
-<th>server_client_name</th>
-<th>server_client_email</th>
-<th>server_client_phone</th>
+<th>name</th>
+<th>email</th>
+<th>phone</th>
 <th>creation_time</th>
 <th>&nbsp;</th>
 <th>&nbsp;</th>
