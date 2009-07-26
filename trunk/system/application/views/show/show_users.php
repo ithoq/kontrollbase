@@ -22,11 +22,10 @@ print "<div id='content'>
 <td><a href='$nroot/index.php/add/user/' target='_self'><button><img src='$nroot/includes/images/add-16x16.png' width='12px' height='12px'>&nbsp; Add</button></a></td></table> 
 <table class='tableborder'>
 <tr>
-<th>system_user_name</th>
-<th>system_user_pass</th>
-<th>system_user_email</th>
-<th>server_client_name</th>
-<th>role_tier</th>
+<th>username</th>
+<th>email</th>
+<th>client</th>
+<th>role</th>
 <th>creation_time</th>
 <th>&nbsp;</th>
 <th>&nbsp;</th>
@@ -54,7 +53,6 @@ foreach($user_list as $key => $value) {
   
   print "
 <td class='td'>$system_user_name</td>
-<td class='td'>$system_user_pass</td>
 <td class='td'>$system_user_email</td>
 <td class='td'>$server_client_name</td>
 <td class='td'>$role_tier</td>

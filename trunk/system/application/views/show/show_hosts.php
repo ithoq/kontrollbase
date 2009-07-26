@@ -28,16 +28,6 @@ print "<div id='content'>
 <th>ip_address</th>
 <th>type</th>
 <th>slave</th>
-<th>ssh_user</th>
-<th>mysql_port</th>
-<th>mysql_socket</th>
-<th>mysql_db</th>
-<th>mysql_user</th>
-<th>mysql_pass</th>
-<th>snmp_address</th>
-<th>snmp_port</th>
-<th>snmp_rocommunity</th>
-<th>snmp_ver</th>
 <th>threshold_QPS</th>
 <th>threshold_SBM</th>
 <th>&nbsp;</th>
@@ -90,16 +80,6 @@ foreach($server_list as $key => $value) {
 <td class='td'>$server_ipaddress</td> 
 <td class='td'>$server_type</td>
 <td class='td'>$server_is_slave</td>
-<td class='td'>$server_ssh_user</td>
-<td class='td'>$server_mysql_port</td>
-<td class='td'>$server_mysql_socket</td>
-<td class='td'>$server_mysql_db</td>
-<td class='td'>$server_mysql_user</td>
-<td class='td'>$server_mysql_pass</td>
-<td class='td'>$server_snmp_local_address</td>
-<td class='td'>$server_snmp_port</td>
-<td class='td'>$server_snmp_rocommunity</td>
-<td class='td'>$server_snmp_version</td>
 <td class='td'>$threshold_queries_per_second</td>
 <td class='td'>$threshold_seconds_behind_master</td>
 <td class='td'><a href='$nroot/index.php/edit/host/$id' target='_self'><img src='$nroot/includes/images/edit.gif' width='14px' height='14px'></a></td>
