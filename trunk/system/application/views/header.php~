@@ -38,6 +38,7 @@ function head(
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 
 <style type="text/css">
     .settings {
@@ -174,10 +175,13 @@ print "
  var border = {
  id:'border-panel',
  title: 'Kontrollbase',
- icon: '$nroot/includes/images/kb_logo.jpg',
  layout:'border',
  region:'center',
  bodyBorder: false,
+ autoEl: {
+     tag: 'div',
+                    html:'<p>some text here</p>'
+   },
  defaults: {
    collapsible: true,
    split: true,
@@ -190,6 +194,7 @@ print "
  items: [
    {
      xtype: 'toolbar',
+     height: 25,
      region: 'north',
      items: [{
        xtype: 'tbbutton',
@@ -198,8 +203,11 @@ print "
 	 window.location = '$nroot/index.php/login/logout/';}
      },
    {
+     xtype: 'tbseparator'
+   },
+   {
      xtype: 'tbbutton',
-     text: 'Environment',
+     text: 'Goto Environment',
      handler: function() {
        window.location = '$nroot/index.php';}
    }]},
@@ -552,18 +560,6 @@ print "
       
       
 </head>
-<body>
-<div id="lib-bar" class="x-layout-panel-hd">
-<div id="lib-bar-inner"> <span>Kontrollbase</span>
-  <div id="west">
-    <p>west</p>
-  </div>
-  <div id="north">
-    <p>north</p>
-  </div>
-</div>
-
-</div></div>
 HEAD;
   }
 

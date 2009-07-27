@@ -12,15 +12,38 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
-
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-echo validation_errors();
-print "<table>
-<tr><td><h2>Edit Host</h2></td></tr>\n";
+
+print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
+HEAD;
+
+//generate data store for clients
+print "\n
+<script type=\"text/javascript\">
+var clients = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+  data: [";
+
 foreach ($clients as $a) {
-  $clientlist[$a['id']]=$a['server_client_name'];
+  // $clientlist[$a['id']]=$a['server_client_name'];
+  print "['".$a['id']."','".$a['server_client_name']."'],\n";
 }
+print "['','']]});\n\n";
 
 foreach($server as $key => $value) {
   foreach($value as $vKey => $vValue) {
@@ -49,155 +72,266 @@ foreach($server as $key => $value) {
   }
 }
 
-$slave = array('0' => 'No','1' => 'Yes');
-$type = array('0' => 'Production','1' => 'Staging', '2' => 'Development');
-$active = array('1010' => '', '1' => 'Yes','0' => 'No');
+print<<<HEAD
+var slave = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+  data: [['0','no'],['1','yes']]
+});
 
-$data00 = array(
-              'name'        => 'server_ipaddress',
-              'id'          => 'server_ipaddress',
-              'value'       => "$server_ipaddress",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data01 = array(
-              'name'        => 'server_hostname',
-              'id'          => 'server_hostname',
-              'value'       => "$server_hostname",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data02 = array(
-              'name'        => 'server_ssh_user',
-              'id'          => 'server_ssh_user',
-              'value'       => "$server_ssh_user",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data03 = array(
-              'name'        => 'server_mysql_port',
-              'id'          => 'server_mysql_port',
-              'value'       => "$server_mysql_port",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data04 = array(
-              'name'        => 'server_mysql_db',
-              'id'          => 'server_mysql_db',
-              'value'       => "$server_mysql_db",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data05 = array(
-		'name'        => 'server_mysql_host',
-		'id'          => 'server_mysql_host',
-		'value'       => "$server_mysql_host",
-		'maxlength'   => '100',
-		'size'        => '50',
-		'style'       => 'width:50%',
-		);
-$data06 = array(
-              'name'        => 'server_mysql_user',
-              'id'          => 'server_mysql_user',
-              'value'       => "$server_mysql_user",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data07 = array(
-              'name'        => 'server_mysql_pass',
-              'id'          => 'server_mysql_pass',
-              'value'       => "$server_mysql_pass",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data08 = array(
-              'name'        => 'server_snmp_local_address',
-              'id'          => 'server_snmp_local_address',
-              'value'       => "$server_snmp_local_address",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data09 = array(
-              'name'        => 'server_snmp_port',
-              'id'          => 'server_snmp_port',
-              'value'       => "$server_snmp_port",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data10 = array(
-              'name'        => 'server_snmp_rocommunity',
-              'id'          => 'server_snmp_rocommunity',
-              'value'       => "$server_snmp_rocommunity",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data11 = array(
-              'name'        => 'server_snmp_version',
-              'id'          => 'server_snmp_version',
-              'value'       => "$server_snmp_version",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data12 = array(
-              'name'        => 'threshold_queries_per_second',
-              'id'          => 'threshold_queries_per_second',
-              'value'       => "$threshold_queries_per_second",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data13 = array(
-              'name'        => 'threshold_seconds_behind_master',
-              'id'          => 'threshold_seconds_behind_master',
-              'value'       => "$threshold_seconds_behind_master",
-              'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data14 = array(
-                'name'        => 'server_mysql_socket',
-                'id'          => 'server_mysql_socket',
-                'value'       => "$server_mysql_socket",
-                'maxlength'   => '100',
-                'size'        => '50',
-                'style'       => 'width:50%',
-                );
+var type = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+  data: [['0','Production'],['1','Staging'],['2','Development']]
+});
 
-echo form_open('edit/subhost');
-echo form_hidden('server_list_id', "$server_list_id");
-echo "<tr><td>".form_input($data00)."</td><td>IP address</td></tr>";
-echo "<tr><td>".form_input($data01)."</td><td>Hostname</td></tr>";
-echo "<tr><td>".form_input($data02)."</td><td>SSH Username</td></tr>";
-echo "<tr><td>".form_input($data03)."</td><td>MySQL Port</td></tr>";
-echo "<tr><td>".form_input($data14)."</td><td>MySQL Socket</td></tr>";
-echo "<tr><td>".form_input($data04)."</td><td>Polling Database</td></tr>";
-echo "<tr><td>".form_input($data05)."</td><td>Polling Address</td></tr>";
-echo "<tr><td>".form_input($data06)."</td><td>MySQL Username</td></tr>";
-echo "<tr><td>".form_password($data07)."</td><td>MySQL Password</td></tr>";
-echo "<tr><td>".form_input($data08)."</td><td>SNMP Local Address</td></tr>";
-echo "<tr><td>".form_input($data09)."</td><td>SNMP Port</td></tr>";
-echo "<tr><td>".form_input($data10)."</td><td>SNMP Community</td></tr>";
-echo "<tr><td>".form_input($data11)."</td><td>SNMP Version</td></tr>";
-echo "<tr><td>".form_input($data12)."</td><td>QPS Threshold</td></tr>";
-echo "<tr><td>".form_input($data13)."</td><td>SBM Threshold</td></tr>";
-echo "<tr><td>".form_dropdown('server_client_id', $clientlist,"$server_client_id")."</td><td>Associated Client</td></tr>";
-echo "<tr><td>".form_dropdown('server_type', $type,"$server_type")."</td><td>Server Type</td></tr>";
-echo "<tr><td>".form_dropdown('server_is_slave', $slave,"$server_is_slave")."</td><td>Replication Server</td></tr>";
-echo "<tr><td>".form_dropdown('active', $active,"$active")."</td><td>Server is active</td></tr>";
-echo "</table><table><tr><td colspan='2'>".form_reset('Reset','Reset').form_submit('submit', 'Edit host').form_close();
-echo "&nbsp;<a href='$nroot/index.php/show/hosts/' target='_self'><button>Cancel</button></a></td></tr>";
-print "</table>";
+var active = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+  data: [['0','no'],['1','yes'],['2','error']]
+});
 
-//end of page
+  Ext.onReady(function(){
+		Ext.QuickTips.init();
+		
+		var host = new Ext.FormPanel({ 
+		  renderTo: document.body,
+		      buttonAlign: 'right',
+		      width:390,
+		      labelWidth:120,
+		      url:'$nroot/index.php/edit/subhost/', 
+		      frame:true, 
+		      title:'Host Settings', 
+		      defaultType:'textfield',
+		      monitorValid:true,
+		      items:[
+			     {
+                             fieldLabel:'Server_list_id',
+                                 name:'server_list_id',
+                                 inputType: 'hidden',
+                                 width:250,
+                                 value: '$server_list_id',
+                                 allowBlank:false
+                                 },
+			     {
+			     fieldLabel:'IP Address',
+				 name:'server_ipaddress',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_ipaddress',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Hostname',
+				 name:'server_hostname',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_hostname',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'SSH User',
+				 name:'server_ssh_user',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_ssh_user',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL Port',
+				 name:'server_mysql_port',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_mysql_port',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL DB',
+				 name:'server_mysql_db',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_mysql_db',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL Host',
+				 name:'server_mysql_host',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_mysql_host',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL User',
+				 name:'server_mysql_user',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_mysql_user',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL Pass',
+				 name:'server_mysql_pass',
+				 inputType: 'password',
+				 width:250,
+				 value: '$server_mysql_pass',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'MySQL Socket',
+				 name:'server_mysql_socket',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_mysql_socket',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'SNMP Address',
+				 name:'server_snmp_local_address',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_snmp_local_address',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'SNMP Port',
+				 name:'server_snmp_port',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_snmp_port',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'SNMP rocommunity',
+				 name:'server_snmp_rocommunity',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_snmp_rocommunity',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'SNMP Version',
+				 name:'server_snmp_version',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_snmp_version',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Thrreshold QPS',
+				 name:'threshold_queries_per_second',
+				 inputType: 'text',
+				 width:250,
+				 value: '$threshold_queries_per_second',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Threshold SBM',
+				 name:'threshold_seconds_behind_master',
+				 inputType: 'text',
+				 width:250,
+				 value: '$threshold_seconds_behind_master',
+				 allowBlank:false
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'server_client_id',
+				 fieldLabel: 'Client',
+                                 valueField: 'id',
+				 hiddenName: 'server_client_id',
+				 hiddenValue: '$server_client_id',
+				 mode: 'local',
+				 store: clients,
+				 displayField: 'state',
+				 width: 120,
+                                 emptyText:'Select Client',
+                                 typeAhead: true,
+                                 value: '$server_client_name',
+                                 triggerAction: 'all'
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'server_is_slave',
+				 fieldLabel: 'Slave',
+				 valueField:'id',
+				 hiddenName: 'server_is_slave',
+				 hiddenValue: '$server_is_slave',
+				 mode: 'local',
+				 store: slave,
+				 displayField: 'state',
+				 width: 120,
+				 emptyText:'Replication',
+				 typeAhead: true,
+				 value: '$server_is_slave',
+				 triggerAction: 'all'
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'server_type',
+				 fieldLabel: 'Type',
+				 valueField:'id',
+				 hiddenName: 'server_type',
+				 hiddenValue: '$server_type',
+				 mode: 'local',
+				 store: type,
+				 displayField: 'state',
+				 width: 120,
+				 emptyText:'Server Type',
+				 typeAhead: true,
+				 value: '$server_type',
+				 triggerAction: 'all'
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'active',
+				 fieldLabel: 'Active',
+				 valueField:'id',
+				 hiddenName: 'active',
+				 hiddenValue: '$active',
+				 mode: 'local',
+				 store: active,
+				 displayField: 'state',
+				 width: 120,
+				 emptyText:'Active',
+				 typeAhead: true,
+				 value: '$active',
+				 triggerAction: 'all'
+				 }
+			     ],      
+		      buttons:[
+			       { 
+			       text:'Update Settings',
+				   formBind: true, 
+				   handler:function(){ 
+				   host.getForm().submit({ 
+				     method:'POST', 
+					 waitTitle:'Connecting.', 
+					 waitMsg:'Updating host settings...',
+					 setTimeout:10,
+					 
+					 success:function(){
+                                           var redirect = '$nroot/index.php/show/hosts/';
+                                           window.location = redirect;
+				       },
+					 
+					 failure:function(form, action){ 
+					 if(action.failureType == 'server'){ 
+					   obj = Ext.util.JSON.decode(action.response.responseText); 
+					   Ext.Msg.alert('Failed to update settings.', obj.errors.reason); 
+					 }else{ 
+					   Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
+					 } 
+					 host.getForm().reset(); 
+				       } 
+				     }); 
+				 } 
+			       }
+			       ] 
+		      });
+	      });
+</script>
+HEAD;
+
+print "</head>
+<body>
+</body>
+</html>";
+
 ?>

@@ -175,10 +175,13 @@ print "
  var border = {
  id:'border-panel',
  title: 'Kontrollbase',
- icon: '$nroot/includes/images/kb_logo.jpg',
  layout:'border',
  region:'center',
  bodyBorder: false,
+ autoEl: {
+     tag: 'div',
+                    html:''
+   },
  defaults: {
    collapsible: true,
    split: true,
@@ -557,18 +560,6 @@ print "
       
       
 </head>
-<body>
-<div id="lib-bar" class="x-layout-panel-hd">
-<div id="lib-bar-inner"> <span>Kontrollbase</span>
-  <div id="west">
-    <p>west</p>
-  </div>
-  <div id="north">
-    <p>north</p>
-  </div>
-</div>
-
-</div></div>
 HEAD;
   }
 

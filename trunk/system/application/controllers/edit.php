@@ -92,7 +92,8 @@ class Edit extends Controller {
 
 	  if ($this->form_validation->run() == FALSE) {	    
 	    if(!$server_list_id) {
-	      $g['hostname'] = "NULL";;
+	      log_message('debug', "Login controller: server_list_id is invalid or does not exist.");
+	      $g['hostname'] = "NULL";
 	      $g['server'] = array(array("id" => "NULL",
 					 "active" => "NULL",
 					 "server_client_id" => "NULL",
@@ -117,10 +118,14 @@ class Edit extends Controller {
 					 "creation_time" => "NULL"));
 	    }
 	    else {
+	      log_message('debug', "Login controller: server_list_id=$server_list_id");
 	      $g['server'] = $this->edit->get_server($server_list_id);
 	    }
-	    $g['clients'] = $this->main->get_client_list();
-	    $this->load->view('edit/edit_host',$g);
+	    log_message('debug', "Login controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
+
+	    //USE FOR TROUBLESHOOTING FORM SUBMISSION: 
+	    //echo "{success: false, errors: { reason: 'Form validation failed. Please retry. server_client_id: $server_client_id server_is_slave: $server_is_slave server_type: $server_type active: $active server_list_id: $server_list_id server_ipaddress: $server_ipaddress server_hostname: $server_hostname server_ssh_user: $server_ssh_user server_mysql_port: $server_mysql_port server_mysql_db: $server_mysql_db server_mysql_host: $server_mysql_host server_mysql_user: $server_mysql_user server_mysql_pass: $server_mysql_pass server_snmp_local_address: $server_snmp_local_address server_snmp_port: $server_snmp_port server_snmp_rocommunity: $server_snmp_rocommunity server_snmp_version: $server_snmp_version threshold_queries_per_second: $threshold_queries_per_second threshold_seconds_behind_master: $threshold_seconds_behind_master server_mysql_socket: $server_mysql_socket' }}";
 	  }
 	  else {
 	    $state = $this->edit->edit_host(
@@ -145,10 +150,12 @@ class Edit extends Controller {
 					    $threshold_queries_per_second,
 					    $threshold_seconds_behind_master);
 	    if($state == 0) {
-	      $this->load->view('edit/success_host',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+	      echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to edit host $server_hostname");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Update failed. Please retry.' }}");
+	      echo "{success: false, errors: { reason: 'Update failed. Please retry.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
