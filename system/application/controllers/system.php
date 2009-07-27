@@ -91,18 +91,19 @@ class System extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 
 	  if ($this->form_validation->run() == FALSE) {    
-	      $g['settings'] = array(array("system_alerts_email" => "$system_alerts_email",
-					 "system_hostname" => "$system_hostname"));
-	      $this->load->view('system/edit',$g);
+	    log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Update failed. Please retry.' }}");
+	    echo "{success: false, errors: { reason: 'Update failed. Please retry.' }}";
 	  }
 	  else {
 	    $state = $this->system->edit_settings($system_alerts_email,
 						$system_hostname);
 	    if($state == 0) {
-	      $this->load->view('system/edit_success',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+	      echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to edit system settings.");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Update failed. Please retry.' }}");
+	      echo "{success: false, errors: { reason: 'Update failed. Please retry.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");

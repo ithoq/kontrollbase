@@ -10,27 +10,91 @@
    * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
    * @link http://kontrollbase.com
    */
-
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-
 $system_alerts_email = $settings[0]['system_alerts_email'];
 $system_hostname = $settings[0]['system_hostname'];
+print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-//system table
-print "<div id='content'>
-<h2>System Information</h2>
-<table class='tableborder'>
-<th>Alert Email</th>
-<th>System Hostname</th>
-<tr>
-<td class='td'>$system_alerts_email</td>
-<td class='td'>$system_hostname</td>
-</tr>
-<tr><td><form><input type=\"button\" value=\"Refresh View\" onclick=\"window.location.reload()\"></form></td>
-<td><a href='$nroot/index.php/system/edit/' target='_self'><button>Edit Settings</button></a></td></tr></table>";
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
 
-print "</body></html>";
-//end of page
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
+
+</head>
+<body>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+		  Ext.QuickTips.init();
+		
+		var login = new Ext.FormPanel({ 
+		  renderTo: document.body,
+		      buttonAlign: 'left',
+		      width:380,
+		      labelWidth:110,
+		      url:'$nroot/index.php/system/subedit/', 
+		      frame:true, 
+		      title:'System Settings', 
+		      defaultType:'textfield',
+		      monitorValid:true,
+		      items:[{ 
+		    fieldLabel:'Alert Email', 
+			name:'system_alerts_email', 
+			inputType: 'text',
+			width:250,
+			value: '$system_alerts_email',
+			allowBlank:false 			
+			},
+			{ 
+			fieldLabel:'System Hostname', 
+			    name:'system_hostname', 
+			    inputType: 'text',
+			    width:250,
+			    value: '$system_hostname',
+			    allowBlank:false 
+			    }],		      
+		      buttons:[{ 
+		    text:'Update Settings',
+			formBind: true, 
+			handler:function(){ 
+			login.getForm().submit({ 
+			  method:'POST', 
+			      waitTitle:'Connecting.', 
+			      waitMsg:'Updating system settings...',
+ 
+			      success:function(){
+			      //we would usually redirect to do something but our extjs forms retain state, so no refresh needed. 
+			    },
+ 
+			      failure:function(form, action){ 
+			      if(action.failureType == 'server'){ 
+                                obj = Ext.util.JSON.decode(action.response.responseText); 
+                                Ext.Msg.alert('Failed to update settings.', obj.errors.reason); 
+			      }else{ 
+                                Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
+			      } 
+			      login.getForm().reset(); 
+			    } 
+			  }); 
+		      } 
+		    }] 
+		      });
+	      });
+</script>
+</div>
+</body>
+</head>
+</html>
+HEAD;
 ?>
