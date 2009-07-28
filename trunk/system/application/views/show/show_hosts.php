@@ -88,7 +88,10 @@ foreach($server_list as $key => $value) {
 
   print "[$active,'$server_client_name','$server_hostname','$server_ipaddress','$server_type','$server_is_slave','$threshold_queries_per_second','$threshold_seconds_behind_master','<a href=\"$nroot/index.php/edit/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
    $r++;
-   if($r<$u) { print ",\n";} else { print "];\n\n";}
+   if($r<$u) { print ",\n";} 
+   else { 
+     print ",['','','','','','','','','Add','<a href=\"$nroot/index.php/add/host/\" target=\"_self\"><img src=\"$nroot/includes/images/add-16x16.png\" width=\"12px\" height=\"12px\"></a>']];\n\n";
+   }
 }
 
 		
