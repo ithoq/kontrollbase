@@ -41,8 +41,6 @@ HEAD;
 
 // start the left table
 $i = 1;
-$nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-
 print "    
 var serverList = [";
  $r=0;

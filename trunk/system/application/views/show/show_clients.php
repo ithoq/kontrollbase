@@ -12,27 +12,42 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$nroot = substr_replace($root,"",-1);
+  print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-print "<table>
-<tr><td valign='top'>";
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/tasks.css" />
+
+<script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
+
+<script type="text/javascript">
+    Ext.onReady(function() {  
+		  Ext.QuickTips.init();
+HEAD;
+
+
 // start the left table
 $i = 1;
-$nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-print "<div id='content'>
-<table><tr><td><form><input type=\"button\" value=\"Refresh\" onclick=\"window.location.reload()\"></form></td>
-<td><a href='$nroot/index.php/add/client/' target='_self'><button><img src='$nroot/includes/images/add-16x16.png' width='12px' height='12px'>&nbsp; Add</button></a></td></table>
-<table class='tableborder'>
-<tr>
-<th>name</th>
-<th>email</th>
-<th>phone</th>
-<th>creation_time</th>
-<th>&nbsp;</th>
-<th>&nbsp;</th>
-</tr>";
+
+print "    
+var serverList = [";
+ $r=0;
+ $u=count($client_list);
+
 foreach($client_list as $key => $value) {
-  print "<tr>";
   foreach($value as $vKey => $vValue) {
     if($vKey == 'id') { $id=$vValue; }
     if($vKey == 'server_client_name') { $server_client_name=$vValue; }
@@ -40,16 +55,65 @@ foreach($client_list as $key => $value) {
     if($vKey == 'server_client_phone') { $server_client_phone=$vValue; }
     if($vKey == 'creation_time') { $creation_time=$vValue; }
   }  
-  print "
-<td class='td'>$server_client_name</td>
-<td class='td'>$server_client_email</td>
-<td class='td'>$server_client_phone</td>
-<td class='td'>$creation_time</td>
-<td class='td'><a href='$nroot/index.php/edit/client/$id' target='_self'><img src='$nroot/includes/images/edit.gif' width='14px' height='14px'></a></td>
-<td class='td'><a href='$nroot/index.php/delete/client/$id' target='_self'><img src='$nroot/includes/images/delete.gif' width='12px' height='12px'></a></td>
-  </tr>\n";
-  $i++;
-}
-print "</table>";
+  
+  print "['$server_client_name','$server_client_email','$server_client_phone','$creation_time','<a href=\"$nroot/index.php/edit/client/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
+
+  $r++;
+  if($r<$u) { print ",\n";} 
+  else { 
+    print ",['','','','','Add','<a href=\"$nroot/index.php/add/client/\" target=\"_self\"><img src=\"$nroot/includes/images/add-16x16.png\" width=\"12px\" height=\"12px\"></a>']];\n\n";
+  }
+ }
+
+  print<<<HEAD
+
+    var dataGrid = {
+    title: '',
+    xtype: 'grid',
+    layout: 'fit',
+    region:'center',
+    store: new Ext.data.SimpleStore({
+      fields: [
+	       {name: 'server_client_name'},
+	       {name: 'server_client_email'},
+	       {name: 'server_client_phone'},
+	       {name: 'creation_time'},
+	       {name: 'edit'},
+	       {name: 'delete'}
+	       ]}),
+    columns: [
+	            
+    { id:'server_client_name', header: "Client", width: 200, sortable: true, dataIndex: 'server_client_name' },
+    { id:'server_client_email', header: "Email", width: 200, sortable: true, dataIndex: 'server_client_email' },
+    { id:'server_client_phone', header: "Phone", width: 200, sortable: true, dataIndex: 'server_client_phone' },
+    { id: 'creation_time', header: "Created", width: 120, sortable: true, dataIndex: 'creation_time' },
+    { id: 'edit', header: "Edit", width: 50, sortable: true, dataIndex: 'edit' },
+    { id: 'delete', header: "Delete", width: 50, sortable: true, dataIndex: 'delete' }
+    ],
+    stripeRows: true,
+    autoExpandColumn: 'server_client_name',
+    listeners: {
+      render: function(){
+	this.store.loadData(serverList);
+      }
+    }
+  };
+  
+  new Ext.Viewport({
+    layout: 'border',
+	title: 'grid',
+	items: [ dataGrid ],
+	renderTo: Ext.getBody()
+	});
+		});
+
+</script>
+</head>
+<body>
+</body>
+</html>
+HEAD;
+
+
 //end of page
 ?>
