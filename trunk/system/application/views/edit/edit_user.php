@@ -12,14 +12,44 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
-
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-echo validation_errors();
-$clientlist=array("0"=> "Kontrollbase Account");
+
+print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
+HEAD;
+
+print "\n
+<script type=\"text/javascript\">
+var clients = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+  data: [";
+
 foreach ($clients as $a) {
-  $clientlist[$a['id']]=$a['server_client_name'];
+  print "['".$a['id']."','".$a['server_client_name']."'],\n";
 }
+print "['','']]});\n\n";
+
+print<<<HEAD
+var type = new Ext.data.SimpleStore({
+  fields: ['id','state'],
+      data: [['0','Admin'],['1','Standard'],['2','Client']]
+      });
+HEAD;
+
 $server_client_name = 0;
 foreach($user as $key => $value) {
   foreach($value as $vKey => $vValue) {
@@ -35,45 +65,122 @@ foreach($user as $key => $value) {
 }
 if($server_client_id == 0) { $server_client_name="system user"; }
 
-$roletier = array('0' => 'Admin','1' => 'Standard', '2' => 'Client');
+print<<<HEAD
+  Ext.onReady(function(){
+		Ext.QuickTips.init();
+		
+		var host = new Ext.FormPanel({ 
+		  renderTo: document.body,
+		      buttonAlign: 'right',
+		      width:390,
+		      labelWidth:120,
+		      url:'$nroot/index.php/edit/subuser/', 
+		      frame:true, 
+		      title:'Edit User', 
+		      defaultType:'textfield',
+		      monitorValid:true,
+		      items:[
+			     {
+                                 name:'system_user_id',
+                                 inputType: 'hidden',
+                                 width:250,
+                                 value: '$system_user_id',
+                                 allowBlank:false
+                                 },
+			     {
+			     fieldLabel:'Name',
+				 name:'system_user_name',
+				 inputType: 'text',
+				 width:250,
+				 value: '$system_user_name',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Password',
+				 name:'system_user_pass',
+				 inputType: 'password',
+				 width:250,
+				 value: '$system_user_pass',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Email',
+				 name:'system_user_email',
+				 inputType: 'text',
+				 width:250,
+				 value: '$system_user_email',
+				 allowBlank:false
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'server_client_id',
+				 fieldLabel: 'Client',
+                                 valueField: 'id',
+				 hiddenName: 'server_client_id',
+				 hiddenValue: '$server_client_id',
+				 mode: 'local',
+				 store: clients,
+				 displayField: 'state',
+				 width: 120,
+                                 emptyText:'Select Client',
+                                 typeAhead: true,
+                                 value: '$server_client_name',
+                                 triggerAction: 'all'
+				 },
+			     {
+			     xtype: 'combo',
+				 name: 'role_tier',
+				 fieldLabel: 'Role',
+				 valueField:'id',
+				 hiddenName: 'role_tier',
+				 hiddenValue: '$role_tier',
+				 mode: 'local',
+				 store: type,
+				 displayField: 'state',
+				 width: 120,
+				 emptyText:'role',
+				 typeAhead: true,
+				 value: '$role_tier',
+				 triggerAction: 'all'
+				 }
+			     ],      
+		      buttons:[
+			       { 
+			       text:'Edit User',
+				   formBind: true, 
+				   handler:function(){ 
+				   host.getForm().submit({ 
+				     method:'POST', 
+					 waitTitle:'Connecting.', 
+					 waitMsg:'Editing user...',
+					 setTimeout:10,
+					 
+					 success:function(){
+                                           var redirect = '$nroot/index.php/show/users/';
+                                           window.location = redirect;
+				       },
+					 
+					 failure:function(form, action){ 
+					 if(action.failureType == 'server'){ 
+					   obj = Ext.util.JSON.decode(action.response.responseText); 
+					   Ext.Msg.alert('Failed to edit user.', obj.errors.reason); 
+					 }else{ 
+					   Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
+					 } 
+					 host.getForm().reset(); 
+				       } 
+				     }); 
+				 } 
+			       }
+			       ] 
+		      });
+	      });
+</script>
+HEAD;
 
-print "<table>
-<tr><td><h2>Edit User</h2></td></tr>\n";
-$data00 = array(
-              'name'        => 'system_user_name',
-              'id'          => 'system_user_name',
-              'value'       => "$system_user_name",
-	      'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data01 = array(
-              'name'        => 'system_user_pass',
-              'id'          => 'system_user_pass',
-              'value'       => "$system_user_pass",
-	      'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
-$data02 = array(
-              'name'        => 'system_user_email',
-              'id'          => 'system_user_email',
-              'value'       => "$system_user_email",
-	      'maxlength'   => '100',
-              'size'        => '50',
-              'style'       => 'width:50%',
-	      );
+print "</head>
+<body>
+</body>
+</html>";
 
-echo form_open('edit/subuser');
-echo form_hidden('system_user_id', "$system_user_id");
-echo "<tr><td>".form_input($data00)."</td><td>User Name</td></tr>";
-echo "<tr><td>".form_input($data01)."</td><td>User Password</td></tr>";
-echo "<tr><td>".form_input($data02)."</td><td>User Email</td></tr>";
-echo "<tr><td>".form_dropdown('server_client_id', $clientlist,"$server_client_id")."</td><td>Associated Client</td></tr>";
-echo "<tr><td>".form_dropdown('role_tier', $roletier,"$role_tier")."</td><td>Role Tier</td></tr>";
-echo "</table><table><tr><td colspan='2'>".form_reset('Reset','Reset').form_submit('submit', 'Edit user').form_close();
-echo "&nbsp;<a href='$nroot/index.php/show/users/' target='_self'><button>Cancel</button></a></td></tr>";
-print "</table>";
-
-//end of page
 ?>
