@@ -80,9 +80,9 @@ class Add extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 
 	  if ($this->form_validation->run() == FALSE) {	    
-	    log_message('debug', "Login controller: form validation failed.");
-	    //            echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
-	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry. server_client_id: $server_client_id server_is_slave: $server_is_slave server_type: $server_type server_ipaddress: $server_ipaddress server_hostname: $server_hostname server_ssh_user: $server_ssh_user server_mysql_port: $server_mysql_port server_mysql_db: $server_mysql_db server_mysql_host: $server_mysql_host server_mysql_user: $server_mysql_user server_mysql_pass: $server_mysql_pass server_snmp_local_address: $server_snmp_local_address server_snmp_port: $server_snmp_port server_snmp_rocommunity: $server_snmp_rocommunity server_snmp_version: $server_snmp_version threshold_queries_per_second: $threshold_queries_per_second threshold_seconds_behind_master: $threshold_seconds_behind_master server_mysql_socket: $server_mysql_socket' }}";
+	    log_message('debug', "Add controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
+	    //echo "{success: false, errors: { reason: 'Form validation failed. Please retry. server_client_id: $server_client_id server_is_slave: $server_is_slave server_type: $server_type server_ipaddress: $server_ipaddress server_hostname: $server_hostname server_ssh_user: $server_ssh_user server_mysql_port: $server_mysql_port server_mysql_db: $server_mysql_db server_mysql_host: $server_mysql_host server_mysql_user: $server_mysql_user server_mysql_pass: $server_mysql_pass server_snmp_local_address: $server_snmp_local_address server_snmp_port: $server_snmp_port server_snmp_rocommunity: $server_snmp_rocommunity server_snmp_version: $server_snmp_version threshold_queries_per_second: $threshold_queries_per_second threshold_seconds_behind_master: $threshold_seconds_behind_master server_mysql_socket: $server_mysql_socket' }}";
 	  }
 	  else {
 	    $state = $this->add->add_host(
@@ -109,8 +109,8 @@ class Add extends Controller {
               echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Please retry.' }}");
-              echo "{success: false, errors: { reason: 'Add failed. Please retry.' }}";
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
+              echo "{success: false, errors: { reason: 'Add failed due to failed transaction - possibly a duplicate key.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
@@ -141,7 +141,8 @@ class Add extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 
 	  if ($this->form_validation->run() == FALSE) {    
-	    $this->load->view('add/add_client',$g);
+	    log_message('debug', "Add controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
 	  }
 	  else {
 	    $state = $this->add->add_client(
@@ -153,21 +154,22 @@ class Add extends Controller {
               echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Please retry.' }}");
-              echo "{success: false, errors: { reason: 'Add failed. Please retry.' }}";
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
+              echo "{success: false, errors: { reason: 'Add failed due to failed transaction - possibly a duplicate key.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
+	    }
 	  }
 	}
-
+	  
 	function user() {
 	  check();
 	  $this->load->model('Model_main', 'main');
-          $g['root'] = $this->config->item('base_url');
+	  $g['root'] = $this->config->item('base_url');
 	  $g['clients'] = $this->main->get_client_list();
-
-          $this->load->view('add/add_user',$g);
+	  
+	  $this->load->view('add/add_user',$g);
 	}
 	
 	function subuser() {
@@ -192,8 +194,8 @@ class Add extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 
 	  if ($this->form_validation->run() == FALSE) {    
-	    $g['clients'] = $this->main->get_client_list();
-	    $this->load->view('add/add_user',$g);
+	    log_message('debug', "Add controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
 	  }
 	  else {
 	    $state = $this->add->add_user(
@@ -203,10 +205,12 @@ class Add extends Controller {
 					  $server_client_id,
 					  $role_tier);
 	    if($state == 0) {
-	      $this->load->view('add/success_user',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+              echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to add user $system_user_name.");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
+              echo "{success: false, errors: { reason: 'Add failed due to failed transaction - possibly a duplicate key.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
