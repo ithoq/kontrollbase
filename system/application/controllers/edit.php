@@ -196,18 +196,8 @@ class Edit extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 
 	  if ($this->form_validation->run() == FALSE) {    
-	    if(!$server_client_id) {
-	      $g['client'] = array(array("id" => "NULL",
-					 "server_client_name" => "NULL",
-					 "server_client_email" => "NULL",
-					 "server_client_phone" => "NULL",
-					 "creation_time" => "NULL"));
-	      $g['clientname'] = "NULL";
-	    }
-	    else {
-	      $g['client'] = $this->edit->get_client($server_client_id);
-	    }
-	    $this->load->view('edit/edit_client',$g);
+	    log_message('debug', "Edit controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
 	  }
 	  else {
 	    $state = $this->edit->edit_client(
@@ -216,10 +206,12 @@ class Edit extends Controller {
 					      $server_client_email,
 					      $server_client_phone);
 	    if($state == 0) {
-	      $this->load->view('edit/success_client',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+              echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to edit client $server_client_name.");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Edit failed. Probably a duplicate entry.' }}");
+              echo "{success: false, errors: { reason: 'Edit failed due to failed transaction - possibly a duplicate key.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
@@ -267,22 +259,8 @@ class Edit extends Controller {
 	  $g['username'] = $system_user_name;
 
 	  if ($this->form_validation->run() == FALSE) {    
-	    if(!$system_user_id) {
-	      $g['user'] = array(array("id" => "NULL",
-				       "system_user_name" => "NULL",
-				       "system_user_pass" => "NULL",
-				       "system_user_email" => "NULL",
-				       "server_client_id" => "NULL",
-				       "role_tier" => "NULL",
-				       "server_client_name" => "NULL",
-				       "creation_time" => "NULL"));
-	      $g['username'] = "NULL";
-	    }
-	    else {
-	      $g['user'] = $this->edit->get_user($system_user_id);
-	    }
-	    $g['clients'] = $this->main->get_client_list();
-	    $this->load->view('edit/edit_user',$g);
+	    log_message('debug', "Edit controller: form validation failed.");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
 	  }
 	  else {
 	    $state = $this->edit->edit_user(
@@ -293,10 +271,12 @@ class Edit extends Controller {
 					    $server_client_id,
 					    $role_tier);
 	    if($state == 0) {
-	      $this->load->view('edit/success_user',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+              echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to edit user $system_user_name.");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Edit failed. Probably a duplicate entry.' }}");
+              echo "{success: false, errors: { reason: 'Edit failed due to failed transaction - possibly a duplicate key.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");

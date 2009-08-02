@@ -169,24 +169,26 @@ UPDATE `server_list` SET
 
   function get_user($system_user_id) {
     $dbr = $this->load->database('read', TRUE);
-    $sql0 = "select * from system_users where id='$system_user_id' limit 1";
+    //    $sql0 = "select * from system_users where id='$system_user_id' limit 1";
+    $sql0 = "select t1.*,t2.server_client_name from system_users as t1, server_client as t2 where t1.server_client_id = t2.id and t1.id = '$system_user_id' limit 1";
     $query = $dbr->query($sql0);
     if($query->num_rows() > 0) {      
       return $query->result_array();
     }
     else {
       $user=array("id" => "NULL",
-		   "system_user_name" => "NULL",
-		   "system_user_pass" => "NULL",
-		   "system_user_email" => "NULL",
-		   "server_client_id" => "NULL",
-		   "role_tier" => "NULL",
-		   "server_client_name" => "NULL",
-		   "creation_time" => "NULL");
+		  "system_user_name" => "NULL",
+		  "system_user_pass" => "NULL",
+		  "system_user_email" => "NULL",
+		  "server_client_id" => "NULL",
+		  "server_client_name" => "NULL",
+		  "role_tier" => "NULL",
+		  "server_client_name" => "NULL",
+		  "creation_time" => "NULL");
       return $user;
     }
   }
-
+  
   function edit_user(
 		     $system_user_id,
 		     $system_user_name,

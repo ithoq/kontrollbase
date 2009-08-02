@@ -12,10 +12,29 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
-
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-echo validation_errors();
+
+print<<<HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+
+<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+
+<script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
+HEAD;
+
+print "\n
+<script type=\"text/javascript\">";
+
 foreach($client as $key => $value) {
   foreach($value as $vKey => $vValue) {
     if($vKey == 'id') { $server_client_id=$vValue; }
@@ -26,41 +45,89 @@ foreach($client as $key => $value) {
   }
 }
 
-print "<table>
-<tr><td><h2>Edit Client</h2></td></tr>\n";
-$data00 = array(
-		'name'        => 'server_client_name',
-		'id'          => 'server_client_name',
-		'value'       => "$server_client_name",
-		'maxlength'   => '100',
-		'size'        => '50',
-		'style'       => 'width:50%',
-		);
-$data01 = array(
-		'name'        => 'server_client_email',
-		'id'          => 'server_client_email',
-		'value'       => "$server_client_email",
-		'maxlength'   => '100',
-		'size'        => '50',
-		'style'       => 'width:50%',
-		);
-$data02 = array(
-		'name'        => 'server_client_phone',
-		'id'          => 'server_client_phone',
-		'value'       => "$server_client_phone",
-		'maxlength'   => '100',
-		'size'        => '50',
-		'style'       => 'width:50%',
-		);
+print<<<HEAD
+  Ext.onReady(function(){
+		Ext.QuickTips.init();
+		
+		var host = new Ext.FormPanel({ 
+		  renderTo: document.body,
+		      buttonAlign: 'right',
+		      width:390,
+		      labelWidth:120,
+		      url:'$nroot/index.php/edit/subclient/', 
+		      frame:true, 
+		      title:'Edit Client', 
+		      defaultType:'textfield',
+		      monitorValid:true,
+		      items:[
+                             {
+			     name:'server_client_id',
+                                 inputType: 'hidden',
+                                 value: '$server_client_id',
+                                 allowBlank:false
+                                 },
+                             {
+                             fieldLabel:'Name',
+                                 name:'server_client_name',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$server_client_name',
+                                 allowBlank:false
+                                 },
+			     {
+			     fieldLabel:'Email',
+				 name:'server_client_email',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_client_email',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel:'Phone',
+				 name:'server_client_phone',
+				 inputType: 'text',
+				 width:250,
+				 value: '$server_client_phone',
+				 allowBlank:false
+				 }
+			     ],      
+		      buttons:[
+			       { 
+			       text:'Edit Client',
+				   formBind: true, 
+				   handler:function(){ 
+				   host.getForm().submit({ 
+				     method:'POST', 
+					 waitTitle:'Connecting.', 
+					 waitMsg:'Editing client...',
+					 setTimeout:10,
+					 
+					 success:function(){
+                                           var redirect = '$nroot/index.php/show/clients/';
+                                           window.location = redirect;
+				       },
+					 
+					 failure:function(form, action){ 
+					 if(action.failureType == 'server'){ 
+					   obj = Ext.util.JSON.decode(action.response.responseText); 
+					   Ext.Msg.alert('Failed to edit client.', obj.errors.reason); 
+					 }else{ 
+					   Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
+					 } 
+					 host.getForm().reset(); 
+				       } 
+				     }); 
+				 } 
+			       }
+			       ] 
+		      });
+	      });
+</script>
+HEAD;
 
-echo form_open('edit/subclient');
-echo form_hidden('server_client_id', "$server_client_id");
-echo "<tr><td>".form_input($data00)."</td><td>Client Name</td></tr>";
-echo "<tr><td>".form_input($data01)."</td><td>Client Email</td></tr>";
-echo "<tr><td>".form_input($data02)."</td><td>Client Phone</td></tr>";
-echo "</table><table><tr><td colspan='2'>".form_reset('Reset','Reset').form_submit('submit', 'Edit client').form_close();
-echo "&nbsp;<a href='$nroot/index.php/show/clients/' target='_self'><button>Cancel</button></a></td></tr>";
-print "</table>";
+print "</head>
+<body>
+</body>
+</html>";
 
-//end of page
 ?>
