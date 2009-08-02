@@ -150,7 +150,7 @@ NULL , '$server_client_name', '$server_client_email', '$server_client_phone', NO
     $this->db->query($sql0);
     $this->db->trans_complete();
     if ($this->db->trans_status() === FALSE) {
-      show_error('Could not add the desired client. Transaction failed.');
+      log_message('debug', "Transaction failed: $sql0");
       $this->db->trans_off();
       return 1;
     } 
@@ -189,7 +189,7 @@ NULL , '$system_user_name', md5('$system_user_pass'), '$system_user_email', '$se
     $this->db->query($sql0);
     $this->db->trans_complete();
     if ($this->db->trans_status() === FALSE) {
-      show_error('Could not add the desired user. Transaction failed.');
+      log_message('debug', "Transaction failed: $sql0");
       $this->db->trans_off();
       return 1;
     } 
