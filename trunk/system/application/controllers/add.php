@@ -149,14 +149,15 @@ class Add extends Controller {
 					    $server_client_email,
 					    $server_client_phone);
 	    if($state == 0) {
-	      $this->load->view('add/success_client',$g);
+	      log_message('debug', "Login controller: JSON = {success: true}");
+              echo "{success: true}"; //JSON wooo!
 	    }
 	    elseif($state == 1) {
-	      show_error("Failed to add client $server_client_name.");
+	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Please retry.' }}");
+              echo "{success: false, errors: { reason: 'Add failed. Please retry.' }}";
 	    }
 	    else {
 	      show_error("This is a general failure message.");
-	    }
 	  }
 	}
 
