@@ -56,7 +56,7 @@ foreach($client_list as $key => $value) {
     if($vKey == 'creation_time') { $creation_time=$vValue; }
   }  
   
-  print "['$server_client_name','$server_client_email','$server_client_phone','$creation_time','<a href=\"$nroot/index.php/edit/client/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
+  print "['$server_client_name','$server_client_email','$server_client_phone','$creation_time','<a href=\"$nroot/index.php/edit/client/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/client/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
 
   $r++;
   if($r<$u) { print ",\n";} 
