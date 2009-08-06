@@ -76,6 +76,12 @@ class Add extends Controller {
 	  $threshold_queries_per_second = $this->input->post('threshold_queries_per_second');
 	  $threshold_seconds_behind_master = $this->input->post('threshold_seconds_behind_master');
 
+	  $server_hostname = strtolower($server_hostname);
+          $server_ssh_user = strtolower($server_ssh_user);
+          $server_mysql_db = strtolower($server_mysql_db);
+          $server_mysql_host = strtolower($server_mysql_host);
+          $server_mysql_user = strtolower($server_mysql_user);
+
 	  $g['hostname'] = $server_hostname;
 	  $g['root'] = $this->config->item('base_url');
 
@@ -137,6 +143,9 @@ class Add extends Controller {
 	  $server_client_email = $this->input->post('server_client_email');
 	  $server_client_phone = $this->input->post('server_client_phone');
 
+	  $server_client_name = strtolower($server_client_name);
+	  $server_client_email = strtolower($server_client_email);
+
 	  $g['client'] = $server_client_name;
 	  $g['root'] = $this->config->item('base_url');
 
@@ -189,6 +198,9 @@ class Add extends Controller {
 	  $system_user_email = $this->input->post('system_user_email');
 	  $server_client_id = $this->input->post('server_client_id');
 	  $role_tier = $this->input->post('role_tier');
+
+	  $system_user_name = strtolower($system_user_name);
+          $system_user_email = strtolower($system_user_email);
 
 	  $g['username'] = $system_user_name;
 	  $g['root'] = $this->config->item('base_url');
