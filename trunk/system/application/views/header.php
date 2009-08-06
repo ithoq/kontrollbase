@@ -281,14 +281,6 @@ print "
        autoScroll: true,
        animScroll: true,
        iconCls:'nav'
-     },{
-       title:'Session',
-       iconCls:'settings',
-       deferredRender: true,
-       autoScroll: true,
-       animScroll: true,
-       listeners: {activate: refreshTab},
-       autoLoad: {url: '$nroot/includes/pages/$sessionpage'}
      }]
    },
    {

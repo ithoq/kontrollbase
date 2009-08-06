@@ -113,26 +113,5 @@ if($client_id == 0) {
  }
 ?>
 <body>
-    <!-- use class="x-hide-display" to prevent a brief flicker of the content -->
-<div id="north" class="x-hide-display">
-  <p>Hi. I'm the north panel.</p>
-</div>
-
-    <div id="west" class="x-hide-display">
-        <p>Hi. I'm the west panel.</p>
-    </div>
-    <div id="center2" class="x-hide-display">
-        <a id="hideit" href="#">Toggle the west region</a>
-        <p>My closable attribute is set to false so you can't close me. The other center panels can be closed.</p>
-</div>
-    <div id="center1" class="x-hide-display">
-        <p><b>Done reading me? Close me by clicking the X in the top right corner.</b></p>
-
-    </div>
-    <div id="props-panel" class="x-hide-display" style="width:200px;height:200px;overflow:hidden;">
-
-    </div>
-    <div id="south" class="x-hide-display">
-        <p>south - generally for informational stuff, also could be for status bar</p>
-    </div>
 </body>
+</html>

@@ -41,7 +41,7 @@ var clients = new Ext.data.SimpleStore({
 foreach ($clients as $a) {
   print "['".$a['id']."','".$a['server_client_name']."'],\n";
 }
-print "['','']]});\n\n";
+print "['0','System User'],['','']]});\n\n";
 
 print<<<HEAD
 var type = new Ext.data.SimpleStore({
