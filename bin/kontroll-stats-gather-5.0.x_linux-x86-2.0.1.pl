@@ -1715,15 +1715,15 @@ sub modify_active_status {
 
     if (($active_status == 1) && ($updated_status == 2)) {
     $sql1 = "UPDATE server_list set active = '2' where id = $server_id;"; 
-    debug_report("connection with $h could not be established, updating database, setting active = '2'") 
+    debug_report("connection with server_list_id: $server_id resulted in 0 byte XML file - check client script. Updating database, setting active = '2'") 
    }
     elsif (($active_status == 2) && ($updated_status == 1)) {
     $sql1 = "UPDATE server_list set active = '1' where id = $server_id;";
-    debug_report("connection with $h reestablished, updating database, setting active = '1'") 
+    debug_report("connection with server_list_id: $server_id reestablished, updating database, setting active = '1'") 
     }
     elsif ($active_status == $updated_status) {
     $dbh->disconnect;
-    error_report("connection status of $h remains unchanged, no need to update database");
+    error_report("connection status of server_list_id: $server_id remains unchanged, no need to update database");
     }
 
     my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
@@ -1740,11 +1740,24 @@ my $active_status = $ARGV[2];
 my $updated_status = 1;
 
 $varlist{'server_list_id'} = $ARGV[1];
-if(!$xml_file) { error_report("No input file specified. Exiting.");}
-if(!$ARGV[1]) { error_report("No server_id value specified. Exiting.");}
-debug_report("## process start");
-parse_data($xml_file,$server_id,$active_status);
-insert_data() or error_report("$h [fail]");
-if ($active_status == 2) { modify_active_status( $server_id,$active_status,$updated_status);}
+if(-e $xml_file) {
+    if(!$ARGV[1]) { 
+	error_report("No server_id value specified. Exiting.");
+    }
+    if(-z $xml_file) { 
+	debug_report("XML File is 0 size.");
+	modify_active_status($server_id,$active_status,"2");
+    }
 
+    debug_report("## process start");
+    parse_data($xml_file,$server_id,$active_status);
+    insert_data() or error_report("$h [fail]");
+
+    if ($active_status == 2) { 
+	modify_active_status( $server_id,$active_status,$updated_status);
+    }
+}
+else {
+    error_report("No input file specified. Exiting.");
+}
 
