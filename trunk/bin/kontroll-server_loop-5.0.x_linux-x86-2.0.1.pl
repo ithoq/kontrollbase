@@ -104,6 +104,8 @@ sub get_list {
     while(my $row = $sth->fetchrow_hashref) {
 	my $server_id = $row->{'id'};
 	my $active = $row->{'active'};
+	my $active_status = undef;
+	my $updated_status = undef;
 	my $server_ipaddress = $row->{'server_ipaddress'};
 	my $server_hostname = $row->{'server_hostname'};
 	my $server_ssh_user = $row->{'server_ssh_user'};
@@ -132,13 +134,37 @@ sub get_list {
 		alarm 0;
 		};
 
-	 if ($@) {
-                die unless $@ eq "ssh connection timeout reached\n";
-		}
-
-
-	print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress\n";
-	system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id $active");	
+	if ($@  eq "ssh connection timeout reached\n") { 
+	    $active_status = $active;
+	    $updated_status = '2';
+	    
+	    if($active_status != $updated_status) {		
+		my $dbh2 = DBI->connect(
+				       "DBI:mysql:$mysql_w_db:$mysql_w_host",
+				       $mysql_w_user,
+				       $mysql_w_pass,
+				       {
+					   PrintError => 0,
+					   RaiseError => 0
+					   }
+				       ) or error_report("$DBI::errstr");
+		
+		my $sql2 = "UPDATE server_list set active = '2' where id = $server_id;";
+		debug_report("New status: connection with $server_hostname could not be established, updating database, setting active = '2'");
+		
+		my $sth2 = $dbh2->prepare($sql2) or error_report("$DBI::errstr");
+		$sth2->execute or error_report("$DBI::errstr");
+		$sth2->finish;
+		$dbh2->disconnect;
+	    }
+	    else {
+		debug_report("Same status: connection with $server_hostname still down, continuing with server loop.");
+	    }
+	}
+	else {	    
+	    print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress active: $active\n";
+	    system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id $active");	
+	}
     }   
 }
 
