@@ -20,11 +20,13 @@ class Add extends Controller {
 
 	function index() {
 	  check();
+	  
 	  $this->load->view('add/index');
         }
 
 	function host() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $g['root'] = $this->config->item('base_url');
 	  $g['clients'] = $this->main->get_client_list();
@@ -34,6 +36,7 @@ class Add extends Controller {
 	
 	function subhost() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $this->load->model('Model_add', 'add');
 	  $this->load->library('form_validation');	  
@@ -126,12 +129,14 @@ class Add extends Controller {
 	
 	function client() {
 	  check();
+	  
           $g['root'] = $this->config->item('base_url');
           $this->load->view('add/add_client',$g);
 	}
 	
 	function subclient() {
 	  check();
+	  
 	  $this->load->model('Model_add', 'add');
 	  $this->load->library('form_validation');  
 	  
@@ -174,6 +179,7 @@ class Add extends Controller {
 	  
 	function user() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $g['root'] = $this->config->item('base_url');
 	  $g['clients'] = $this->main->get_client_list();
@@ -183,6 +189,7 @@ class Add extends Controller {
 	
 	function subuser() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $this->load->model('Model_add', 'add');
 	  $this->load->library('form_validation');  

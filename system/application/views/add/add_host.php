@@ -244,7 +244,7 @@ var type = new Ext.data.SimpleStore({
 			     ],      
 		      buttons:[
 			       { 
-			       text:'Submitting Settings',
+			       text:'Submit Host',
 				   formBind: true, 
 				   handler:function(){ 
 				   host.getForm().submit({ 

@@ -20,11 +20,13 @@ class Edit extends Controller {
 
 	function index() {
 	  check();
+	  
 	  $this->load->view('edit/index');
         }
 
 	function host() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $this->load->model('Model_edit', 'edit');
 	  $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
@@ -41,6 +43,7 @@ class Edit extends Controller {
 	
 	function subhost() {
 	  check();
+	  
 	  $this->load->model('Model_main', 'main');
 	  $this->load->model('Model_edit', 'edit');
 	  $this->load->library('form_validation');	  
@@ -171,6 +174,7 @@ class Edit extends Controller {
 	
 	function client() {
 	  check();
+	  
           $this->load->model('Model_main', 'main');
           $this->load->model('Model_edit', 'edit');
           $server_client_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
@@ -184,7 +188,7 @@ class Edit extends Controller {
 	}
 	
 	function subclient() {
-	  check();
+	  check();	 
 	  $this->load->model('Model_edit', 'edit');
 	  $this->load->library('form_validation');  
 	  
@@ -229,7 +233,7 @@ class Edit extends Controller {
 	}
 
 	function user() {
-	  check();
+	  check();	  
           $this->load->model('Model_main', 'main');
           $this->load->model('Model_edit', 'edit');
           $system_user_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
