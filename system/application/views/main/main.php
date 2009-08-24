@@ -30,22 +30,17 @@ $overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 <link rel="stylesheet" type="text/css" media="all" href="'.$nroot.'/userguide/css/userguide-nofluff.css" />
 </head>
 <body>';
-$overview.="<div id='content'><h1>Overall Environment Data</h1><h2>Data Statistics</h2><table class='tableborder'>";
-$overview.="<tr><th>Data size</th><th>Index size</th><th>Total size</th></tr>";
-$overview.="<tr>";
-$overview.="<td class='td'>$size_data</td>";
-$overview.="<td class='td'>$size_index</td>";
-$overview.="<td class='td'>$size</td></tr></table></td><td>";
-$overview.="<h2>Statistics Available Via  RSS</h2><table class='tableborder'><tr>
-<th>Summary RSS</th><th>Summary RSS-XML</th><th>Alerts RSS</th><th>Alerts RSS-XML</th></tr>";
-$overview.="<td class='td'><a href='$nroot/index.php/rss/summary/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-$overview.="<td class='td'><a href='$nroot/index.php/rss/summary_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-$overview.="</table></td></tr></table>";
+
+// THIS DATA CAN BE FOUND ELSEWHERE - like the Summary tab. I'll put the RSS feeds somewhere else... currently they seems rather useless.
+//$overview.="<h2>Statistics Available Via  RSS</h2><table class='tableborder'><tr><th>Summary RSS</th><th>Summary RSS-XML</th><th>Alerts RSS</th><th>Alerts RSS-XML</th></tr>";
+//$overview.="<td class='td'><a href='$nroot/index.php/rss/summary/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
+//$overview.="<td class='td'><a href='$nroot/index.php/rss/summary_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
+//$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
+//$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
+//$overview.="</table></td></tr></table>";
 
 if($client_id == 0) {
-  $overview.= "<table id='container'><tr><td colspan='3'>&nbsp;</td></tr><tr><td colspan='3'><h1>Previous Week's Activity</h1></td></tr>";
+  $overview.= "<table id='content'><tr><td colspan='3'><h1>Environment - Weekly Activity</h1></td></tr>";
   $overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g1, "kontrollbase", $width, $height)."</td>";
   $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g2, "kontrollbase", $width, $height)."</td>";
   $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g3, "kontrollbase", $width, $height)."</td></tr>";
@@ -57,7 +52,13 @@ if($client_id == 0) {
   $overview.= "<td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g9, "kontrollbase", $width, $height)."</td></tr></table></td></tr></table></body></html>";
 }
 else {
-  $overview.="</body></html";
+  $overview.="<div id='content'><h1>Overall Environment Data</h1><h2>Data Statistics</h2><table class='tableborder'>";
+  $overview.="<tr><th>Data size</th><th>Index size</th><th>Total size</th></tr>";
+  $overview.="<tr>";
+  $overview.="<td class='td'>$size_data</td>";
+  $overview.="<td class='td'>$size_index</td>";
+  $overview.="<td class='td'>$size</td></tr></table></td>";
+  $overview.="</table></td></tr></table></div></body></html";
 }
 
 $overviewpage = "overview.php";
