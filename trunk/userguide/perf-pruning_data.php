@@ -26,10 +26,8 @@ page.
 <li>4. You're bored and want to mess with things.</li>
 </ul>
 <br>
-<h2>The System Management Method</h2>
-    Login to the webapp and go to the System Management tab, 
-and then the Data Management tab. There are two options for pruning data.
-<br><br>
+<h2>Tables Involved</h2>
+
 <h3>Statistics Table</h3>
 The statistics table is where all of the data gathered from your hosts
 is stored. Typically there will be many thousands of rows of data - this is 
@@ -39,7 +37,8 @@ size of the cnf file, since that is collected from each host and stored as well.
 <br><br>
 So, the stats table is where the data lives. Keep in mind that when you prune this
 table you will be removing all historical data that the graphs depend on for graph
-generation. It will fill up again, at the rate of 1 row per host every 5 minutes. 
+ generation. It will fill up again, at the rate of 1 row per host every X minutes, 
+where X is the value that you have the server-loop script running from crontab.
 <br><br>
 <h3>Reporting Table</h3>
 The reporting table is where the host Perf Reports are stored. One report per hour per 
@@ -48,13 +47,20 @@ contains, so no average value to tell you about there. This table is a good plac
 first, as it does not impact any graph generation, and you probably don't need to keep 
 an hourly report for each server for an entire year. 
 <br><br>
-<h3>To Do</h3>
-Keep in mind here that there are improvements to the process coming soon. Such as:
-<ul>
-<li>1. Date range pruning - only prune certain data</li>
-<li>2. Auto pruning - scheduled table pruning</li>
-<li>3. If you have other ideas, let us know.</li>
-</ul>
+<h2>How to prune</h2>
+To actually prune the data you need to use a GUI tool like <a href="http://www.phpmyadmin.net/" target="_blank">PhpMyAdmin</a>
+or, if you aren't a lazy mouse clicker, use the MySQL CLI. I'll give instructions for the CLI because if you can't figure out
+a GUI client then you need to leave the data alone and not attempt to prune anything. There used to be a button in the
+System Management tab to prune the data but it proved too tempting for users to click and thus removing the data without 
+understanding the process. It is actually a rather rare process to need to prune the data so we now use the manual pruning methods.<br><br>
+ <code>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 244
+ Server version: 5.0.84-log Source distribution
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+mysql> use kontrollbase;
+mysql> truncate table server_statistics;
+mysql> truncate table server_report;
+</code>
 </div>
 <!-- END CONTENT -->
 
