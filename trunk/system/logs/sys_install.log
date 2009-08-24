@@ -157,3 +157,50 @@ Starting makefile for /var/www/html/kontrollbase/system/application/config/confi
 Starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
 /var/www/html/kontrollbase/system/application/config/database.php created successfully 
 success, end. 
+Installation beginning 
+Beggining PHP prerequisite checks 
+Prerequisite dom located 
+Prerequisite mbstring located 
+Prerequisite mysql located 
+Prerequisite xml located 
+Beggining Perl prerequisite checks 
+Beggining Perl prerequisite checks 
+Prerequisite XML/Parser.pm located 
+Unable to locate XML/SimpleObject.pm prerequisite 
+Installation beginning 
+Beggining PHP prerequisite checks 
+Prerequisite dom located 
+Prerequisite mbstring located 
+Prerequisite mysql located 
+Prerequisite xml located 
+Beggining Perl prerequisite checks 
+Beggining Perl prerequisite checks 
+Prerequisite XML/Parser.pm located 
+Prerequisite XML/SimpleObject.pm located 
+Prerequisite DBI.pm located 
+Prerequisite /Math/Calc/Units.pm located 
+starting db install for localhost,kb_admin,kontrollbase 
+Selecting database kontrollbase 
+Starting makefile for /var/www/html/kontrollbase/config.cfg 
+cannot open /var/www/html/kontrollbase/config.cfg 
+Installation beginning 
+Beggining PHP prerequisite checks 
+Prerequisite dom located 
+Prerequisite mbstring located 
+Prerequisite mysql located 
+Prerequisite xml located 
+Beggining Perl prerequisite checks 
+Beggining Perl prerequisite checks 
+Prerequisite XML/Parser.pm located 
+Prerequisite XML/SimpleObject.pm located 
+Prerequisite DBI.pm located 
+Prerequisite /Math/Calc/Units.pm located 
+starting db install for localhost,kb_admin,kontrollbase 
+Selecting database kontrollbase 
+Starting makefile for /var/www/html/kontrollbase/config.cfg 
+/var/www/html/kontrollbase/config.cfg created successfully 
+Starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
+/var/www/html/kontrollbase/system/application/config/config.php created successfully 
+Starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
+/var/www/html/kontrollbase/system/application/config/database.php created successfully 
+success, end. 

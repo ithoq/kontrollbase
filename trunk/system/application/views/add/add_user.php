@@ -74,7 +74,7 @@ print<<<HEAD
 				 allowBlank:false
 				 },
 			     {
-			     fieldLabel:'Email',
+			     fieldLabel:'Password',
 				 name:'system_user_pass',
 				 inputType: 'password',
 				 width:250,
@@ -82,7 +82,7 @@ print<<<HEAD
 				 allowBlank:false
 				 },
 			     {
-			     fieldLabel:'Phone',
+			     fieldLabel:'Email',
 				 name:'system_user_email',
 				 inputType: 'text',
 				 width:250,
