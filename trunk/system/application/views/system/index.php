@@ -25,7 +25,6 @@ $report_total= byte_format(($report_size[0]["DATA_LENGTH"]) + ($report_size[0]["
 
 print "<div id='content'>
 <h2>System Information</h2>
-<form><input type=\"button\" value=\"Refresh View\" onclick=\"window.location.reload()\"></form><br>
 <table class='tableborder'>
 <th>System Users</th>
 <th>Servers On</th>
@@ -53,7 +52,6 @@ print "<div id='content'>
 <td class='td'>$stats_data</td>
 <td class='td'>$stats_index</td>
 <td class='td'>$stats_total</td>
-<td colspan='2'><a href='$nroot/index.php/system/data_prune/1' target='_self'><button>Prune Statistics Table</button></a></td></tr>
 </table>
 <br>
 
@@ -70,7 +68,6 @@ print "<div id='content'>
 <td class='td'>$report_data</td>
 <td class='td'>$report_index</td>
 <td class='td'>$report_total</td>
-<td colspan='2'><a href='$nroot/index.php/system/data_prune/0' target='_self'><button>Prune Reporting Table</button></a></td></tr>
 </table>
 <br>
 ";

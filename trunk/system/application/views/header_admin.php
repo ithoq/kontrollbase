@@ -431,7 +431,7 @@ print "
    animScroll: true,
    items: [
    {
-   title: 'Data Management',
+   title: 'Stats',
    deferredRender: true,
    height: 480,
    width:440,
