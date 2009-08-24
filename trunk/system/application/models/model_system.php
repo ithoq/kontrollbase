@@ -28,7 +28,7 @@ class Model_system extends Model
 
   function get_system_quant($x) {
     $dbr = $this->load->database('read', TRUE);
-
+    log_message('debug', "Model System: get_system_quant($x) called.");
     if($x == 0) {
       $sql="select id from server_list where active ='0'";
     }
@@ -101,6 +101,7 @@ class Model_system extends Model
     }
   }
 
+  //this functionality has been removed as of revision 102 - feel free to delete at will
   function data_prune(
 		 $choice,
 		 $system_users_id) {    
@@ -158,7 +159,7 @@ NULL , '$system_users_id', '$type', NOW( ))";
     $this->db->query($sql0);
     $this->db->trans_complete();
     if ($this->db->trans_status() === FALSE) {
-      show_error('Could not edit the system settings. Transaction failed.');
+      log_message('debug', "Edit failed. Please check database.");
       $this->db->trans_off();
       return 1;
     } 

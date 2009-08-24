@@ -22,6 +22,7 @@ class System extends Controller {
 	  check();
           $this->load->model('Model_system', 'system');
 	  $schema = $this->config->item('schema_readonly_name');
+	  log_message('debug', "Controller System started.");
 
 	  $g['users'] = $this->system->get_system_quant(2);//system users
 	  $g['inactive'] = $this->system->get_system_quant(0);//inactive hosts
@@ -31,11 +32,14 @@ class System extends Controller {
 	  $g['stats'] = $this->system->get_system_quant(5);//stats
 	  $g['stat_size'] = $this->system->get_data_size($schema);
 	  $g['report_size'] = $this->system->get_report_size($schema);
+	  $g['settings'] = $this->system->get_settings();
 	  $g['root'] = $this->config->item('base_url');
 	  
-	  $this->load->view('system/index',$g);
+	  $this->load->view('system/settings',$g);
+	  //	  $this->load->view('system/index',$g);
         }
-
+	
+	//the data_prune functionality was removed in revision 102 - feel free to delete the function
 	function data_prune() {
 	  check();
 	  $this->load->model('Model_system', 'system');

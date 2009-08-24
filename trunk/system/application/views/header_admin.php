@@ -431,23 +431,6 @@ print "
    animScroll: true,
    items: [
    {
-   title: 'Stats',
-   deferredRender: true,
-   height: 480,
-   width:440,
-   layout : 'fit',
-   listeners: {activate: refreshTab},
-   items: {
-     xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/system/'
-   },
-   shim:false,
-   frame:true,
-   animCollapse:false,
-   enableTabScroll:true,
-   autoScroll:true
-   },
-   {
      title: 'System',
      deferredRender: true,
      height: 480,
@@ -456,7 +439,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-       defaultSrc  : '$nroot/index.php/system/settings/'
+       defaultSrc  : '$nroot/index.php/system/'
      },
      shim:false,
      frame:true,
