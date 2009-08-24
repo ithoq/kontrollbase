@@ -67,7 +67,7 @@ function check() {
       log_message('info', "User forcefully logged out.");
       redirect("authfail");
     }
-    else {
+    elseif($tier == 0) {
       log_message('info', "Session is an admin user. Access to this controller is ALLOWED.");
       return;
     }

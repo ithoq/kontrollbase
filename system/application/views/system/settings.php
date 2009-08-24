@@ -14,6 +14,13 @@ $g['root'] = $root;
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
 $system_alerts_email = $settings[0]['system_alerts_email'];
 $system_hostname = $settings[0]['system_hostname'];
+$stats_data=byte_format($stat_size[0]["DATA_LENGTH"]);
+$stats_index=byte_format($stat_size[0]["INDEX_LENGTH"]);
+$stats_total = byte_format(($stat_size[0]["DATA_LENGTH"]) + ($stat_size[0]["INDEX_LENGTH"]));
+$report_data=byte_format($report_size[0]["DATA_LENGTH"]);
+$report_index=byte_format($report_size[0]["INDEX_LENGTH"]);
+$report_total= byte_format(($report_size[0]["DATA_LENGTH"]) + ($report_size[0]["INDEX_LENGTH"]));
+
 print<<<HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
@@ -45,25 +52,80 @@ print<<<HEAD
 		      labelWidth:110,
 		      url:'$nroot/index.php/system/subedit/', 
 		      frame:true, 
-		      title:'System Settings', 
+		      title:'Information & Statistics', 
 		      defaultType:'textfield',
 		      monitorValid:true,
-		      items:[{ 
-		    fieldLabel:'Alert Email', 
-			name:'system_alerts_email', 
-			inputType: 'text',
-			width:250,
-			value: '$system_alerts_email',
-			allowBlank:false 			
-			},
-			{ 
-			fieldLabel:'System Hostname', 
-			    name:'system_hostname', 
-			    inputType: 'text',
-			    width:250,
-			    value: '$system_hostname',
-			    allowBlank:false 
-			    }],		      
+		      items:[
+			     {
+                             fieldLabel:'Active hosts',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$active',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Inactive hosts',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$inactive',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Users',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$users',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Clients',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$clients',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Statistics table',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$stats_total',
+				 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Report table',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '$report_total',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     { 
+			     fieldLabel:'Alert Email', 
+				 name:'system_alerts_email', 
+				 inputType: 'text',
+				 width:250,
+				 value: '$system_alerts_email',
+				 allowBlank:false 			
+				 },
+			     { 
+			     fieldLabel:'System Hostname', 
+				 name:'system_hostname', 
+				 inputType: 'text',
+				 width:250,
+				 value: '$system_hostname',
+				 allowBlank:false 
+				 }],		      
 		      buttons:[{ 
 		    text:'Update Settings',
 			formBind: true, 
@@ -94,7 +156,6 @@ print<<<HEAD
 </script>
 </div>
 </body>
-</head>
 </html>
 HEAD;
 ?>
