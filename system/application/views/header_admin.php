@@ -346,6 +346,178 @@ print "
    autoExpandColumn: 'hostname',
    listeners: { render: function(){this.store.loadData(summaryData);}}},
    {
+   title: 'Alert Management',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   items: [ 
+   {
+   xtype: 'tabpanel',
+   plain: true,
+   region: 'center',
+   margins: '0 5 5 5',
+   activeTab: 0,
+   autoScroll: true,
+   animScroll: true,
+   items: [
+   {
+   title: 'Alerts',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/alerts/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Acknowledged',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/alerts/response_main/ack/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Ignored',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/alerts/response_main/ign/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   }
+     ]
+   }]},   
+   {
+   title: 'System Management',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   items: [
+   {
+   xtype: 'tabpanel',
+   plain: true,
+   region: 'center',
+   margins: '0 5 5 5',
+   activeTab: 0,
+   autoScroll: true,
+   animScroll: true,
+   items: [
+   {
+   title: 'Data Management',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/system/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+     title: 'System',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+       defaultSrc  : '$nroot/index.php/system/settings/'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true
+   },
+   {
+   title: 'Hosts',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/hosts/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+   title: 'Users',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/users/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true
+   },
+   {
+   title: 'Clients',
+   deferredRender: true,
+   height: 480,
+   width:440,
+   layout : 'fit',
+   listeners: {activate: refreshTab},
+   items: {
+     xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/show/clients/'
+   },
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+       autoScroll:true
+   }
+
+   ]}]},
+   {
    title: 'User Guide',
    deferredRender: true,
    height: 480,
