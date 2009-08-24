@@ -106,7 +106,12 @@ if ( ! write_file("$dir/includes/pages/$sessionpage", $sessiondata)){echo 'Unabl
 $g['summary'] = "summary";
 
 if($client_id == 0) {
-  $this->load->view('header',$g);
+  if($user_role_tier == 0) {
+    $this->load->view('header_admin',$g);
+  }
+  elseif($user_role_tier == 1) {
+    $this->load->view('header',$g);
+  }
  }
  else {
    $this->load->view('header_client',$g);
