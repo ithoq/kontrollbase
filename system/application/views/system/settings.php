@@ -127,7 +127,7 @@ print<<<HEAD
 				 allowBlank:false 
 				 }],		      
 		      buttons:[{ 
-		    text:'Update Settings',
+		    text:'Update Email / Hostname',
 			formBind: true, 
 			handler:function(){ 
 			login.getForm().submit({ 
