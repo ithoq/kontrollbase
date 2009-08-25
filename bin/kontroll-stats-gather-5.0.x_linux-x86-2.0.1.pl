@@ -1677,7 +1677,7 @@ sub error_report {
     my $errtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
     my $err1 = $errtime." | ERROR | stats-gather-5.0.x_linux-x86: ".$err0."\n";
     print $err1;
-    sysopen(FILE, $error_log, O_RDWR|O_EXCL|O_CREAT, 0600);    
+    sysopen(FILE, $error_log, O_RDWR|O_EXCL|O_CREAT, 0644);    
     open FILE, ">>$error_log" or die $!; 
     print FILE $err1; 
     close FILE;   
@@ -1690,7 +1690,7 @@ sub debug_report {
     my $debugtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
     $note = $debugtime." | DEBUG | stats-gather-5.0.x_linux-x86: ".$note."\n";
     print $note;
-    sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0600);
+    sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$debug_log" or die $!;
     print FILE $note;
     close FILE;

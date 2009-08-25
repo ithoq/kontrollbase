@@ -74,7 +74,7 @@ sub writer {
     my $note = $_[0];
     $note = $note."\n";
 #    print $note;
-    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0600);
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
     print FILE $note;
     close FILE;
@@ -84,7 +84,7 @@ sub writerx {
     my $note = $_[0];
     $note = "<detail>".$note."</detail>\n";
 #    print $note;
-    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0600);
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
     print FILE $note;
     close FILE;
@@ -93,7 +93,7 @@ sub writerx {
 sub flush_writer {
     debug_report("truncating $commit_report");
     my $note = "";
-    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0600);
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">$commit_report" or die $!;
     print FILE $note;
     close FILE;
@@ -105,7 +105,7 @@ sub debug_report {
     my $debugtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
     $note = $debugtime." | DEBUG | reporter-5.0.x_linux-x86: ".$note."\n";
     print $note;
-    sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0600);
+    sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$debug_log" or die $!;
     print FILE $note;
     close FILE;
@@ -116,7 +116,7 @@ sub error_report {
     my $errtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
     $err = $errtime." | reporter-5.0.x_linux-x86: ".$err."\n";
     print $err."\n";
-    sysopen(FILE, $error_log, O_RDWR|O_EXCL|O_CREAT, 0600);    
+    sysopen(FILE, $error_log, O_RDWR|O_EXCL|O_CREAT, 0644);    
     open FILE, ">>$error_log" or die $!; 
     print FILE $err; 
     close FILE;   
