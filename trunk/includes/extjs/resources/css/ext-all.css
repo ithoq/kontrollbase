@@ -101,9 +101,9 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,bloc
 
 .x-item-disabled {
     cursor: default;
-    opacity: .6;
-    -moz-opacity: .6;
-    filter: alpha(opacity=60);
+    opacity: .9;
+    -moz-opacity: .9;
+    filter: alpha(opacity=90);
 }
 
 .x-item-disabled * {
