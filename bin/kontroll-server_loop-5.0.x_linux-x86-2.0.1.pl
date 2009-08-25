@@ -64,6 +64,17 @@ sub config_connect {
     $debug_log =~ s/DEBUG_LOG=//g;
 }
 
+sub debug_clear {
+    my $note = "LOG TRUNCATED";
+    my $debugtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
+    $note = $debugtime." | DEBUG | server-loop-5.0.x_linux-x86: ".$note."\n";
+    print $note;
+    sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">$debug_log" or die $!;
+    print FILE $note;
+    close FILE;
+}
+
 sub debug_report {
     my $note = $_[0];
     my $debugtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
@@ -169,6 +180,7 @@ sub get_list {
 }
 
 config_connect($config);
+debug_clear();
 debug_report("#### server-loop process start");
 get_list();
 debug_report("#### server-loop process end");
