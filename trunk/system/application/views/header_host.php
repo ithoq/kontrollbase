@@ -372,7 +372,7 @@ print "
    columns: [
    {header: "id", width: 60, sortable: true, dataIndex: 'id'},
    {header: "server", width: 160, sortable: true, dataIndex: 'server'},
-   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
+   {header: "state", width: 60, sortable: true, dataIndex: 'state'},
    {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
 	     ],
    stripeRows: true,

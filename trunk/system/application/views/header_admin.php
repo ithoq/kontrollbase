@@ -431,23 +431,6 @@ print "
    animScroll: true,
    items: [
    {
-     title: 'System',
-     deferredRender: true,
-     height: 480,
-     width:440,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-       defaultSrc  : '$nroot/index.php/system/'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-     autoScroll:true
-   },
-   {
    title: 'Hosts',
    deferredRender: true,
    height: 480,
@@ -497,6 +480,40 @@ print "
    animCollapse:false,
    enableTabScroll:true,
        autoScroll:true
+   },
+   {
+     title: 'System',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+       defaultSrc  : '$nroot/index.php/system/'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true
+   },
+   {
+     title: 'Debug Log',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+       defaultSrc  : '$nroot/system/logs/sys_debug.log'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true
    }
 
    ]}]},
