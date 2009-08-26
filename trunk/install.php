@@ -84,19 +84,14 @@ function check_install() {
   $syspath = rtrim($syspath, ".php");
   $syspath = rtrim($syspath, "/install");
 
-  $binconfig="$syspath/config.cfg";
   $sysconfig="$syspath/system/application/config/config.php";
   $sysdatabase="$syspath/system/application/config/database.php";
   
   //check to see if config files exist
-  $install_bc = exists($binconfig);
   $install_sc = exists($sysconfig);
   $install_sd = exists($sysdatabase);
 
-  if($install_bc == 1) {    
-    head_i($nroot);
-  }
-  elseif($install_sc == 1) {
+  if($install_sc == 1) {
     head_i($nroot);
   }
   elseif($install_sd == 1) {

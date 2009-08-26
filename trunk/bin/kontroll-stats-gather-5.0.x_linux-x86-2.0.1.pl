@@ -21,7 +21,6 @@ use Fcntl;
 use POSIX qw(strftime);
 use Time::HiRes qw(gettimeofday tv_interval);
 
-my $config = "../config.cfg";
 my $mysql_r_user = undef;
 my $mysql_r_pass = undef;
 my $mysql_r_db = undef;
@@ -535,34 +534,17 @@ my %varlist = (
     'collection_time_elapse' => '0');
 
 sub config_connect {    
-    open(DAT, $_[0]) || die ("Could not open config file ($_[0])");
-    my @data=<DAT>;
-    close(DAT);    
-    @data = grep(!/^#/, @data); #remove comment lines
-    foreach my $item(@data) { chomp($item);} #remove carriage returns
-
-    $mysql_r_user = $data[0];
-    $mysql_r_pass = $data[1];
-    $mysql_r_db = $data[2];
-    $mysql_r_host = $data[3];
-    $mysql_w_user = $data[4];
-    $mysql_w_pass = $data[5];
-    $mysql_w_db = $data[6];
-    $mysql_w_host = $data[7];
-    $error_log = $data[8];
-    $debug_log = $data[9];
-
-    #remove the starting string                                                                                                                           
-    $mysql_r_user =~ s/MYSQL_R_USER=//g;
-    $mysql_r_pass =~ s/MYSQL_R_PASS=//g;
-    $mysql_r_db =~ s/MYSQL_R_DB=//g;
-    $mysql_r_host =~ s/MYSQL_R_HOST=//g;
-    $mysql_w_user =~ s/MYSQL_W_USER=//g;
-    $mysql_w_pass =~ s/MYSQL_W_PASS=//g;
-    $mysql_w_db =~ s/MYSQL_W_DB=//g;
-    $mysql_w_host =~ s/MYSQL_W_HOST=//g;
-    $error_log =~ s/ERROR_LOG=//g;
-    $debug_log =~ s/DEBUG_LOG=//g;
+    my $cfgapp = "../system/application/config/bin-read-configs.php";
+    $mysql_r_user = `php $cfgapp read username`;
+    $mysql_r_pass = `php $cfgapp read password`;
+    $mysql_r_db = `php $cfgapp read database`;
+    $mysql_r_host = `php $cfgapp read hostname`;
+    $mysql_w_user = `php $cfgapp write username`;
+    $mysql_w_pass = `php $cfgapp write password`;
+    $mysql_w_db = `php $cfgapp write database`;
+    $mysql_w_host = `php $cfgapp write hostname`;
+    $error_log = "../system/logs/sys_error.log";
+    $debug_log = "../system/logs/sys_debug.log";
 }
 
 sub insert_data {
@@ -1733,7 +1715,7 @@ sub modify_active_status {
     exit 1;
 
 }
-config_connect($config);
+config_connect();
 my $xml_file = $ARGV[0];
 my $server_id = $ARGV[1];
 my $active_status = $ARGV[2];

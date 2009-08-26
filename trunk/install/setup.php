@@ -93,7 +93,7 @@ function head() {
 			{
                         fieldLabel:'Web Root',
 			    name:'web_root',
-			    value: "http://localhost/kontrollbase/",
+			    value: "http://$IP/kontrollbase/",
 			    allowBlank:false
 			    },
 			{
