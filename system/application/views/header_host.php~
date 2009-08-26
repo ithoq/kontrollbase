@@ -163,58 +163,6 @@ print "
    tab.getUpdater().refresh();
  };
  
- CompleteColumn = function(){
-   var grid;
-   
-   function getRecord(t){
-     var index = grid.getView().findRowIndex(t);
-     return grid.store.getAt(index);
-   }
-
-   function onMouseDown(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       e.stopEvent();
-       var record = getRecord(t);
-       record.set('completed', !record.data.completed);
-       grid.store.applyFilter();
-     }
-   }
-
-   function onMouseOver(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       Ext.fly(t.parentNode).addClass('task-check-over');
-     }
-   }
-
-   function onMouseOut(e, t){
-     if(Ext.fly(t).hasClass('task-check')){
-       Ext.fly(t.parentNode).removeClass('task-check-over');
-     }
-   }
-
-   Ext.apply(this, {
-     width: 22,
-	 header: '<div class="task-col-hd"></div>',
-	 menuDisabled:true,
-	 fixed: true,
-	 id: 'task-col',
-	 renderer: function(){
-	 return '<div class="task-check"></div>';
-       },
-	 init : function(xg){
-	 grid = xg;
-	 grid.on('render', function(){
-	     var view = grid.getView();
-	     view.mainBody.on('mousedown', onMouseDown);
-	     view.mainBody.on('mouseover', onMouseOver);
-	     view.mainBody.on('mouseout', onMouseOut);
-	   });
-       }
-     });
- };
- 
- var completeColumn = new CompleteColumn();
- 
  var contentPanel = {
  id: 'content-panel',
  region: 'center', 
@@ -282,14 +230,6 @@ print "
        autoScroll: true,
        animScroll: true,
        iconCls:'nav'
-     },{
-       title:'Session',
-       iconCls:'settings',
-       deferredRender: true,
-       autoScroll: true,
-       animScroll: true,
-       listeners: {activate: refreshTab},
-       autoLoad: {url: '$nroot/includes/pages/$sessionpage'}
      }]
    },
    {
@@ -429,12 +369,10 @@ print "
 	      {name: 'state'},
 	      {name: 'name'}
 	      ]}),
-   plugins: [completeColumn],
    columns: [
-   completeColumn, 
    {header: "id", width: 60, sortable: true, dataIndex: 'id'},
    {header: "server", width: 160, sortable: true, dataIndex: 'server'},
-   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
+   {header: "state", width: 60, sortable: true, dataIndex: 'state'},
    {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
 	     ],
    stripeRows: true,
