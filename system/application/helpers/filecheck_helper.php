@@ -23,6 +23,17 @@ function exists($file) {
   }
 }
 
+function removeinstall($file) {
+  if (file_exists($file)) {
+    log_message('debug', "Install file: $file exists. Removing");
+    system("rm -f $file");
+    return 0;
+  }
+  else {
+    log_message('debug', "File $file does NOT exist");
+    return 0;
+  }
+}
 
 function writeable($file) {
   if(is_writable($file)) {
@@ -56,15 +67,14 @@ function check_files() {
   $CI = get_instance();
   $syspath = $g['root'] = $CI->config->item('base_dir');
 
-  $binconfig="$syspath/config.cfg";
+  $installfile="$syspath/install.php";
   $sysconfig="$syspath/system/application/config/config.php";
   $sysdatabase="$syspath/system/application/config/database.php";
   
   //check to see if config files exist
-  exists($binconfig);
   exists($sysconfig);
   exists($sysdatabase);
-  
+  removeinstall($installfile);
 }
 
 ?>
