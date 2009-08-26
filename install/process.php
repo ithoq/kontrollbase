@@ -46,25 +46,6 @@ function logger($data,$INSTALL_LOG) {
   return 0;
 }
 
-function table_check($table,$MYSQL_DB,$MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$INSTALL_LOG) {
-  $link = @mysql_connect($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS);
-  if(!$link) {
-    $err = mysql_error();
-    $err = str_replace("'", '"', $err);
-    logger("Database error: $err.",$INSTALL_LOG);
-    echo "{success: false, errors: { reason: '$err' }}";    
-    exit;
-  }
-  $tables = mysql_list_tables($MYSQL_DB);
-  while(list($temp) = mysql_fetch_array($tables)) {
-    if (strtolower($temp) == strtolower($table)) {
-      logger("Table $table already exists in $MYSQL_DB. Exiting.",$INSTALL_LOG);
-      echo "{success: false, errors: { reason: 'Table $table already exists in $MYSQL_DB' }}";
-      exit;
-    }
-  }
-}
-
 function setup_db($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DB,$SQLFILE,$INSTALL_LOG) {
   logger("starting db install for $MYSQL_HOST,$MYSQL_USER,$MYSQL_DB",$INSTALL_LOG);
   $link = @mysql_connect($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS);
@@ -83,36 +64,6 @@ function setup_db($MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DB,$SQLFILE,$INSTAL
     echo "{success: false, errors: { reason: '$err' }}";
     exit;
   }
-
-  //REMOVING TABLE CHECKS BECAUSE USER IS INSTRUCTED TO IMPORT SQL FILE BEFORE CONTINUING - IF SUCH, THESE TABLES WILL EXIST AND INSTALL WILL FAIL. SO WE AREN'T USING THIS RIGHT NOW.
-  //  $tblist = array("alerts_current","alerts_custom","alerts_def","api_users","graphs_custom","graphs_default","server_client","server_list",
-  //		  "server_report","server_statistics","system_main","system_pages","system_pruning_audit","system_users","system_users_audit","webapp_sessions");
-  //  foreach($tblist as $table) {
-  //    logger("Running table check for $table.",$INSTALL_LOG);
-  //    table_check($table,$MYSQL_DB,$MYSQL_HOST,$MYSQL_USER,$MYSQL_PASS,$INSTALL_LOG);
-  //  }
-  
-  //  $handle = fopen("$SQLFILE", "rb");
-  //  $contents = '';
-  //  while (!feof($handle)) {
-  //    $contents .= fread($handle, 8192);
-  //  }
-  //  fclose($handle);
-  //  $sql = explode("\n",$contents);
-  //  foreach ($sql as $statement) {
-  //    if (substr(rtrim($statement, -1) == ';')) {
-  //      logger("Query executing: $sql",$INSTALL_LOG);
-  //      mysql_query($sql);
-  //      if(!$result) {
-  //	$err = mysql_error();
-  //	$err = str_replace("'", '"', $err);
-  //	logger("Database error: $err.",$INSTALL_LOG);
-  //	echo "{success: false, errors: { reason: '$err' }}";
-  //	exit;
-  //      }
-  //      $sql = "";
-  //    }       
-  //  }
 }
 
 
@@ -148,52 +99,6 @@ function mkRandPasswd()
 $salt = date('l jS \of F Y h:i:s A U').mkRandPasswd();
 $ENCRYPTION_KEY = md5(md5($salt.$salt));
 
-$cfgfile="################################################################################
-## NAME: config.cfg
-## VERSION: 2.0.1
-## DATE: 2009-03-18
-## AUTHOR: Matt Reid
-## WEBSITE: http://kontrollsoft.com
-## EMAIL: kontact@kontrollsoft.com
-## LICENSE: PLEASE REFER TO THE LICENSE.txt file bundled with this software release
-## to understand your right and options for using this software.
-## Copyright 2008 Kontrollsoft LLC
-## All rights reserved.
-################################################################################
-# NOTES
-# do not encapsulate anything in quotes.
-# the order of these is absolutely important so don't go moving them from 
-# one line to the next or anything.
-#
-# We're splitting the read/write query types for scalability if needed. Feel free
-# to use the same settings for each if you don't need to scale in this fashion.
-#
-# MySQL Database connections settings for select queries
-# mysql> GRANT SELECT on dbname.* to '<user>'@'<host>' identified by '<password>';
-MYSQL_R_USER=$MYSQL_R_USER
-MYSQL_R_PASS=$MYSQL_R_PASS
-MYSQL_R_DB=$MYSQL_R_DB
-MYSQL_R_HOST=$MYSQL_R_HOST
-#
-# MySQL Database connections settings for insert/update/delete queries
-# mysql> GRANT INSERT,UPDATE,DELETE on dbname.* to '<user>'@'<host>' identified by '<password>';
-MYSQL_W_USER=$MYSQL_R_USER
-MYSQL_W_PASS=$MYSQL_R_PASS
-MYSQL_W_DB=$MYSQL_R_DB
-MYSQL_W_HOST=$MYSQL_R_HOST
-#
-# Error logging 
-ERROR_LOG=$ERROR_LOG
-DEBUG_LOG=$DEBUG_LOG
-#
-# Web Stuff - no trailing slash
-WEB_ROOT=$WEB_ROOT
-#
-# USER CREATION - ONLY FOR kontrollbase USER ON CLIENT SERVERS
-##############################################################
-# mysql> grant select,process,super,replication client on *.* to 'kontrollbase'@'127.0.0.1' identified by '<password>';
-";
-
 //db
 $dbfile='<?php  
 /**
@@ -212,6 +117,9 @@ $dbfile='<?php
 if ( ! defined(\'BASEPATH\')) exit(\'No direct script access allowed\');
 $active_group = "write";
 $active_record = TRUE;
+//
+// MySQL Database connections settings for select queries
+// mysql> GRANT SELECT on dbname.* to '<user>'@'<host>' identified by '<password>';
 $db[\'read\'][\'hostname\'] = "'.$MYSQL_R_HOST.'";
 $db[\'read\'][\'username\'] = "'.$MYSQL_R_USER.'";
 $db[\'read\'][\'password\'] = "'.$MYSQL_R_PASS.'";
@@ -224,6 +132,9 @@ $db[\'read\'][\'cache_on\'] = FALSE;
 $db[\'read\'][\'cachedir\'] = "";
 $db[\'read\'][\'char_set\'] = "utf8";
 $db[\'read\'][\'dbcollat\'] = "utf8_general_ci";
+//
+// MySQL Database connections settings for insert/update/delete queries
+// mysql> GRANT INSERT,UPDATE,DELETE on dbname.* to '<user>'@'<host>' identified by '<password>'
 $db[\'write\'][\'hostname\'] = "'.$MYSQL_R_HOST.'";
 $db[\'write\'][\'username\'] = "'.$MYSQL_R_USER.'";
 $db[\'write\'][\'password\'] = "'.$MYSQL_R_PASS.'";
@@ -466,46 +377,39 @@ if($s0 == 0) {
   if($s1 == 0) {
     $s2 = setup_db($MYSQL_R_HOST,$MYSQL_A_USER,$MYSQL_A_PASS,$MYSQL_R_DB,$SQLFILE,$INSTALL_LOG);
     if($s2 == 0) {
-      $s3 = makefile("$BASE_DIR/config.cfg",$cfgfile,$INSTALL_LOG);
+      $s3 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
       if($s3 == 0) {
-	$s4 = makefile("$BASE_DIR/system/application/config/config.php",$configfile,$INSTALL_LOG);
-	if($s4 == 0) {
-	  $s5 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
-	  if($s5 == 0) {     
-	    logger("success, end.",$INSTALL_LOG);
-	    echo "{success: true}";
-	    exit;
-	  }
-	  else {
-	    logger("Failed to create $BASE_DIR/system/application/config/database.php. Installer Exiting.",$INSTALL_LOG);
-	    echo "{success: false, errors: { reason: Failed to create $BASE_DIR/system/application/config/database.php' }}";
-	    exit;
-	  }
+	$s4 = makefile("$BASE_DIR/system/application/config/database.php",$dbfile,$INSTALL_LOG);
+	if($s4 == 0) {     
+	  logger("success, end.",$INSTALL_LOG);
+	  echo "{success: true}";
+	  exit;
 	}
 	else {
-	  logger("Failed to create $BASE_DIR/system/application/config/config.php. Installer Exiting.",$INSTALL_LOG);
-	  echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/system/application/config/config.php' }}";
+	  logger("Failed to create $BASE_DIR/system/application/config/database.php. Installer Exiting.",$INSTALL_LOG);
+	  echo "{success: false, errors: { reason: Failed to create $BASE_DIR/system/application/config/database.php' }}";
 	  exit;
 	}
       }
       else {
-	logger("Failed to create $BASE_DIR/config.cfg. Installer Exiting.",$INSTALL_LOG);
-	echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/config.cfg' }}";
+	logger("Failed to create $BASE_DIR/system/application/config/config.php. Installer Exiting.",$INSTALL_LOG);
+	echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/system/application/config/config.php' }}";
 	exit;
       }
     }
-    else {
-      logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
-      echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
-      exit;
-    }   
   }
   else {
-    logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
-    echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
+    logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
     exit;
-  }
+  }   
  }
+ else {
+   logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
+   echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
+   exit;
+ }
+}
  else {
    logger("Failed to meet PHP prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
    echo "{success: false, errors: { reason: 'Failed to meet PHP prerequisite requrements' }}";

@@ -20,7 +20,6 @@ use POSIX qw(strftime);
 use Time::HiRes qw(gettimeofday tv_interval);
 use Math::Calc::Units qw(convert readable);
 
-my $config = "../config.cfg";
 my $mysql_r_user = undef;
 my $mysql_r_pass = undef;
 my $mysql_r_db = undef;
@@ -37,37 +36,19 @@ my $commit_report = "tmp/kontrollbase-reporter-$tmpfiletime.log";
 
 # this is really dirty
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
-# I feel ashamed for those variables
 
 sub config_connect {    
-    open(DAT, $_[0]) || die ("Could not open config file ($_[0])");
-    my @data=<DAT>;
-    close(DAT);    
-    @data = grep(!/^#/, @data); #remove comment lines
-    foreach my $item(@data) { chomp($item);} #remove carriage returns
-
-    $mysql_r_user = $data[0];
-    $mysql_r_pass = $data[1];
-    $mysql_r_db = $data[2];
-    $mysql_r_host = $data[3];
-    $mysql_w_user = $data[4];
-    $mysql_w_pass = $data[5];
-    $mysql_w_db = $data[6];
-    $mysql_w_host = $data[7];   
-    $error_log = $data[8];
-    $debug_log = $data[9]; 
-   
-    #remove the starting string
-    $mysql_r_user =~ s/MYSQL_R_USER=//g;
-    $mysql_r_pass =~ s/MYSQL_R_PASS=//g;
-    $mysql_r_db =~ s/MYSQL_R_DB=//g;
-    $mysql_r_host =~ s/MYSQL_R_HOST=//g;
-    $mysql_w_user =~ s/MYSQL_W_USER=//g;
-    $mysql_w_pass =~ s/MYSQL_W_PASS=//g;
-    $mysql_w_db =~ s/MYSQL_W_DB=//g;
-    $mysql_w_host =~ s/MYSQL_W_HOST=//g;    
-    $error_log =~ s/ERROR_LOG=//g;
-    $debug_log =~ s/DEBUG_LOG=//g;
+    my $cfgapp = "../system/application/config/bin-read-configs.php";
+    $mysql_r_user = `php $cfgapp read username`;
+    $mysql_r_pass = `php $cfgapp read password`;
+    $mysql_r_db = `php $cfgapp read database`;
+    $mysql_r_host = `php $cfgapp read hostname`;
+    $mysql_w_user = `php $cfgapp write username`;
+    $mysql_w_pass = `php $cfgapp write password`;
+    $mysql_w_db = `php $cfgapp write database`;
+    $mysql_w_host = `php $cfgapp write hostname`;
+    $error_log = "../system/logs/sys_error.log";
+    $debug_log = "../system/logs/sys_debug.log";
 }
 
 sub writer {
@@ -723,7 +704,7 @@ sub alert_13 {
 
     if($Key_blocks_used == 0) { $Key_blocks_used = 1;}
     if($key_blocks_total == 0) { $key_blocks_total = 1;}
-    print "kbu: $Key_blocks_used mul kbs: $key_buffer_size div by kbt: $key_blocks_total mul 100 div 95";
+    #print "kbu: $Key_blocks_used mul kbs: $key_buffer_size div by kbt: $key_blocks_total mul 100 div 95";
     my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
 
     writerx("Current Key_reads = $Key_reads");
@@ -2855,7 +2836,7 @@ sub xml_end {
     writer(" </kontrollbase>");
 }
 
-config_connect($config);
+config_connect();
 debug_report("#### reporter process start");
 get_list();
 system("rm -f $commit_report");
