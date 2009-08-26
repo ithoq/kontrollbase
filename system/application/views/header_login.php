@@ -11,8 +11,7 @@
    * @link http://kontrollbase.com
    */
 
-function head($root) {
-  $nroot = substr_replace($root,"",-1);
+$nroot = substr_replace($root,"",-1);
 print<<<HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
@@ -36,10 +35,13 @@ print<<<HEAD
 		Ext.QuickTips.init();
  
 		var login = new Ext.FormPanel({ 
-		  labelWidth:80,
+		  renderTo: "loginbox",
+		      buttonAlign: 'center',
+		      autoHeight: true,
+		      labelWidth:80,
 		      url:'$nroot/index.php/login/auth/', 
 		      frame:true, 
-		      title:'Kontrollbase Login', 
+		      title:'<img src="$nroot/includes/images/kontrollbase_logo-trans32.png" align="center">',		      
 		      defaultType:'textfield',
 		      monitorValid:true,
 		      items:[{ 
@@ -80,37 +82,28 @@ print<<<HEAD
 		      } 
 		    }] 
 		      });
- 
 		var win = new Ext.Window({
 		  layout:'fit',
-		      width:300,
-		      height:150,
-		      closable: false,
-		      resizable: false,
-		      plain: true,
-		      border: false,
+                      width:300,
+                      height:150,
+                      closable: false,
+                      resizable: false,
+                      plain: true,
+                      border: false,
 		      items: [login]
-		      });
-		win.show();
-	      });
+                      });
+                win.show();
+              });
 </script>
-
-</head>
-<body>
+    
+    </head>
+    <body>
+<div id="loginbox" width="200px">
+</div>
+</body>
+</html>
 HEAD;
-}
 
-function row_color($i) {
-  $bg1 = "#0099FF";
-  $bg2 = "#336699";
-  if($i % 2) {
-    return $bg1;
-  }
-  else {
-    return $bg2;
-  }
-}
 
-head($root);
 
 ?>
