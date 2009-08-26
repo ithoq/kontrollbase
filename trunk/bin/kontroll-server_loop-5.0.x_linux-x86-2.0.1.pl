@@ -32,6 +32,7 @@ my $error_log = undef;
 my $debug_log = undef;
 my $datetime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
 
+# If you have issues with the php binary not being found please specify the full path in the commands below.
 sub config_connect {    
     my $cfgapp = "../system/application/config/bin-read-configs.php";
     $mysql_r_user = `php $cfgapp read username`;
