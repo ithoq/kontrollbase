@@ -65,6 +65,7 @@ include("doc_header-nofluff.php");
 <li><a href="admin-auth.php">Authentication and User Roles</a></li>
 <li><a href="admin-system_management.php">System Management</a></li>
 <li><a href="admin-bulk.php">Adding Clients/Hosts in Bulk</a></li>
+<li><a href="admin-googleanalytics.php">Google Analytics Support</a></li>
 </ul>
 </td></tr></table>
 
