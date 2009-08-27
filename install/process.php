@@ -169,6 +169,7 @@ if ( ! defined(\'BASEPATH\')) exit(\'No direct script access allowed\');
 $config[\'base_url\']= "'.$WEB_ROOT.'"; //USE TRAILING SLASH
 $config[\'base_dir\']     = "'.$BASE_DIR.'"; //NO TRAILING SLASH
 $config[\'schema_readonly_name\'] = "'.$MYSQL_R_DB.'";
+$config[\'google_uacct\']= "";
 $config[\'index_page\'] = "index.php";
 $config[\'uri_protocol\']= "AUTO";
 $config[\'url_suffix\'] = "";

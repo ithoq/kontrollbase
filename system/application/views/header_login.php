@@ -25,7 +25,11 @@ print<<<HEAD
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+HEAD;
 
+echo google_analytics();
+
+print<<<HEAD
 <script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/states.js"></script>

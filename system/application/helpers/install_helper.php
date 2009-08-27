@@ -1,9 +1,20 @@
 <?php
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Kontrollbase
+ *
+ * An open source MySQL monitoring and analytics application
+ *
+ * @package Kontrollbase
+ * @author Matt Reid
+ * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+ * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+ * @link http://kontrollbase.com
+ */
 
 function check_install() {
   //check to see if config files exist
   
-  //config.cfg
   //system/application/config/config.php
   //system/application/config/database.php
 

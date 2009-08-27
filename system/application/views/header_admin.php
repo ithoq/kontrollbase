@@ -48,7 +48,11 @@ function head(
     background-image:url('$nroot/includes/images/folder_go.png');
   }
 </style>
+HEAD;
 
+echo google_analytics();
+
+print<<<HEAD
 <script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
