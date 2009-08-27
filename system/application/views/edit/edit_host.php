@@ -88,14 +88,27 @@ var active = new Ext.data.SimpleStore({
   data: [['0','no'],['1','yes'],['2','error']]
 });
 
+Ext.apply(Ext.form.VTypes, {
+  password : function(val, field) {
+	      if (field.initialPassField) {
+		var pwd = Ext.getCmp(field.initialPassField);
+		return (val == pwd.getValue());
+	      }
+	      return true;
+	    },
+	      passwordText : 'Passwords do not match'
+	      });
+
   Ext.onReady(function(){
 		Ext.QuickTips.init();
-		
+		Ext.form.Field.prototype.msgTarget = 'side';
+
 		var host = new Ext.FormPanel({ 
 		  renderTo: document.body,
+		      bodyStyle:'padding:5px 5px 0',
 		      buttonAlign: 'right',
 		      width:390,
-		      labelWidth:120,
+		      labelWidth:100,
 		      url:'$nroot/index.php/edit/subhost/', 
 		      frame:true, 
 		      title:'Host Settings', 
@@ -171,7 +184,17 @@ var active = new Ext.data.SimpleStore({
 				 name:'server_mysql_pass',
 				 inputType: 'password',
 				 width:250,
+				 id: 'pass',
 				 value: '$server_mysql_pass',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel: 'Confirm Pass',
+				 name: 'server_mysql_pass_cfm',
+				 width:250,
+				 vtype: 'password',
+				 inputType: 'password',
+				 initialPassField: 'pass',
 				 allowBlank:false
 				 },
 			     {
