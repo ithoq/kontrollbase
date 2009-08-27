@@ -51,14 +51,27 @@ var type = new Ext.data.SimpleStore({
 HEAD;
 
 print<<<HEAD
+Ext.apply(Ext.form.VTypes, {
+  password : function(val, field) {
+	      if (field.initialPassField) {
+		var pwd = Ext.getCmp(field.initialPassField);
+		return (val == pwd.getValue());
+	      }
+	      return true;
+	    },
+	      passwordText : 'Passwords do not match'
+	      });
+
   Ext.onReady(function(){
 		Ext.QuickTips.init();
-		
+		Ext.form.Field.prototype.msgTarget = 'side';
+
 		var host = new Ext.FormPanel({ 
 		  renderTo: document.body,
+		      bodyStyle:'padding:5px 5px 0',
 		      buttonAlign: 'right',
 		      width:390,
-		      labelWidth:120,
+		      labelWidth:100,
 		      url:'$nroot/index.php/add/subuser/', 
 		      frame:true, 
 		      title:'Add User', 
@@ -78,7 +91,17 @@ print<<<HEAD
 				 name:'system_user_pass',
 				 inputType: 'password',
 				 width:250,
+				 id: 'pass',
 				 value: '12345678',
+				 allowBlank:false
+				 },
+			     {
+			     fieldLabel: 'Confirm Pass',
+				 name: 'system_user_pass_cfm',
+				 width:250,
+				 vtype: 'password',
+				 inputType: 'password',
+				 initialPassField: 'pass',
 				 allowBlank:false
 				 },
 			     {

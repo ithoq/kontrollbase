@@ -66,115 +66,138 @@ foreach($user as $key => $value) {
 if($server_client_id == 0) { $server_client_name="system user"; }
 
 print<<<HEAD
-  Ext.onReady(function(){
-		Ext.QuickTips.init();
-		
-		var host = new Ext.FormPanel({ 
-		  renderTo: document.body,
-		      buttonAlign: 'right',
-		      width:390,
-		      labelWidth:120,
-		      url:'$nroot/index.php/edit/subuser/', 
-		      frame:true, 
-		      title:'Edit User', 
-		      defaultType:'textfield',
-		      monitorValid:true,
-		      items:[
-			     {
-                                 name:'system_user_id',
-                                 inputType: 'hidden',
-                                 width:250,
-                                 value: '$system_user_id',
-                                 allowBlank:false
-                                 },
-			     {
-			     fieldLabel:'Name',
-				 name:'system_user_name',
-				 inputType: 'text',
-				 width:250,
-				 value: '$system_user_name',
-				 allowBlank:false
-				 },
-			     {
-			     fieldLabel:'Password',
-				 name:'system_user_pass',
-				 inputType: 'password',
-				 width:250,
-				 value: '$system_user_pass',
-				 allowBlank:false
-				 },
-			     {
-			     fieldLabel:'Email',
-				 name:'system_user_email',
-				 inputType: 'text',
-				 width:250,
-				 value: '$system_user_email',
-				 allowBlank:false
-				 },
-			     {
-			     xtype: 'combo',
-				 name: 'server_client_id',
-				 fieldLabel: 'Client',
-                                 valueField: 'id',
-				 hiddenName: 'server_client_id',
-				 hiddenValue: '$server_client_id',
-				 mode: 'local',
-				 store: clients,
-				 displayField: 'state',
-				 width: 120,
-                                 emptyText:'Select Client',
-                                 typeAhead: true,
-                                 value: '$server_client_name',
-                                 triggerAction: 'all'
-				 },
-			     {
-			     xtype: 'combo',
-				 name: 'role_tier',
-				 fieldLabel: 'Role',
-				 valueField:'id',
-				 hiddenName: 'role_tier',
-				 hiddenValue: '$role_tier',
-				 mode: 'local',
-				 store: type,
-				 displayField: 'state',
-				 width: 120,
-				 emptyText:'role',
-				 typeAhead: true,
-				 value: '$role_tier',
-				 triggerAction: 'all'
-				 }
-			     ],      
-		      buttons:[
-			       { 
-			       text:'Edit User',
-				   formBind: true, 
-				   handler:function(){ 
-				   host.getForm().submit({ 
-				     method:'POST', 
-					 waitTitle:'Connecting.', 
-					 waitMsg:'Editing user...',
-					 setTimeout:10,
-					 
-					 success:function(){
-                                           var redirect = '$nroot/index.php/show/users/';
-                                           window.location = redirect;
-				       },
-					 
-					 failure:function(form, action){ 
-					 if(action.failureType == 'server'){ 
-					   obj = Ext.util.JSON.decode(action.response.responseText); 
-					   Ext.Msg.alert('Failed to edit user.', obj.errors.reason); 
-					 }else{ 
-					   Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
-					 } 
-					 host.getForm().reset(); 
-				       } 
-				     }); 
-				 } 
-			       }
-			       ] 
-		      });
+Ext.apply(Ext.form.VTypes, {
+  password : function(val, field) {
+	      if (field.initialPassField) {
+		var pwd = Ext.getCmp(field.initialPassField);
+		return (val == pwd.getValue());
+	      }
+	      return true;
+	    },
+	      passwordText : 'Passwords do not match'
 	      });
+
+Ext.onReady(function(){
+	      Ext.QuickTips.init();
+	      Ext.form.Field.prototype.msgTarget = 'side';
+
+	      var host = new Ext.FormPanel({ 
+		renderTo: document.body,
+		    bodyStyle:'padding:5px 5px 0',
+		    buttonAlign: 'right',
+		    width:390,
+		    labelWidth:100,
+		    url:'$nroot/index.php/edit/subuser/', 
+		    frame:true, 
+		    title:'Edit User', 
+		    defaultType:'textfield',
+		    monitorValid:true,
+		    items:[
+			   {
+			   name:'system_user_id',
+			       inputType: 'hidden',
+			       width:250,
+			       value: '$system_user_id',
+			       allowBlank:false
+			       },
+			   {
+			   fieldLabel:'Name',
+			       name:'system_user_name',
+			       inputType: 'text',
+			       width:250,
+			       value: '$system_user_name',
+			       allowBlank:false
+			       },
+			   {
+			   fieldLabel:'Password',
+			       name:'system_user_pass',
+			       inputType: 'password',
+			       width:250,
+			       value: '$system_user_pass',
+			       id: 'pass',
+			       allowBlank:false
+			       },			     
+			   {
+			   fieldLabel: 'Confirm Pass',
+			       name: 'system_user_pass_cfm',
+			       width:250,
+			       vtype: 'password',
+			       inputType: 'password',
+			       initialPassField: 'pass',
+			       allowBlank:false
+			       },
+			   {
+			   fieldLabel:'Email',
+			       name:'system_user_email',
+			       inputType: 'text',
+			       width:250,
+			       value: '$system_user_email',
+			       allowBlank:false
+			       },
+			   {
+			   xtype: 'combo',
+			       name: 'server_client_id',
+			       fieldLabel: 'Client',
+			       valueField: 'id',
+			       hiddenName: 'server_client_id',
+			       hiddenValue: '$server_client_id',
+			       mode: 'local',
+			       store: clients,
+			       displayField: 'state',
+			       width: 120,
+			       emptyText:'Select Client',
+			       typeAhead: true,
+			       value: '$server_client_name',
+			       triggerAction: 'all'
+			       },
+			   {
+			   xtype: 'combo',
+			       name: 'role_tier',
+			       fieldLabel: 'Role',
+			       valueField:'id',
+			       hiddenName: 'role_tier',
+			       hiddenValue: '$role_tier',
+			       mode: 'local',
+			       store: type,
+			       displayField: 'state',
+			       width: 120,
+			       emptyText:'role',
+			       typeAhead: true,
+			       value: '$role_tier',
+			       triggerAction: 'all'
+			       }
+			   ],      
+		    buttons:[
+			     { 
+			     text:'Edit User',
+				 formBind: true, 
+				 handler:function(){ 
+				 host.getForm().submit({ 
+				   method:'POST', 
+				       waitTitle:'Connecting.', 
+				       waitMsg:'Editing user...',
+				       setTimeout:10,
+				       
+				       success:function(){
+				       var redirect = '$nroot/index.php/show/users/';
+				       window.location = redirect;
+				     },
+				       
+				       failure:function(form, action){ 
+				       if(action.failureType == 'server'){ 
+					 obj = Ext.util.JSON.decode(action.response.responseText); 
+					 Ext.Msg.alert('Failed to edit user.', obj.errors.reason); 
+				       }else{ 
+					 Ext.Msg.alert('Warning!', 'Update server is unreachable : ' + action.response.responseText); 
+				       } 
+				       host.getForm().reset(); 
+				     } 
+				   }); 
+			       } 
+			     }
+			     ] 
+		    });
+	    });
 </script>
 HEAD;
 
