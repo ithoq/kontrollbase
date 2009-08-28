@@ -38,6 +38,7 @@ function head(
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 
 <style type="text/css">
     .settings {
@@ -172,7 +173,7 @@ print "
 
  var border = {
  id:'border-panel',
- title: 'Kontrollbase',
+ title: '<img src="$nroot/includes/images/kontrollbase_logo-trans32.png" align="center">',
  layout:'border',
  region:'center',
  bodyBorder: false,
@@ -186,6 +187,25 @@ print "
    },
  
  items: [
+   {
+     xtype: 'toolbar',
+     height: 25,
+     region: 'north',
+     items: [{
+       xtype: 'tbbutton',
+       text: 'Logout',
+       handler: function() {
+         window.location = '$nroot/index.php/login/logout/';}
+     },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
+     text: 'Goto Environment',
+     handler: function() {
+       window.location = '$nroot/index.php';}
+   }]},
    {
    title: 'Critical Environment Alerts',
    region: 'south',
@@ -337,7 +357,6 @@ HEAD;
 
 $nroot = substr_replace($root,"",-1);
 $servers='<table>';
-$servers .= "<tr><td><a href='$nroot/index.php'><img src='$nroot/includes/images/arrow_icon.gif' width='14' height='14'> goto environment</a></td></tr>";
 foreach($server_list as $key => $value) {
   $servers .= "<tr>";
   foreach($value as $k => $v) {
