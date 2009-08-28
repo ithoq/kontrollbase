@@ -63,6 +63,7 @@ print<<<HEAD
 				 name:'server_client_email',
 				 inputType: 'text',
 				 width:250,
+				 vtype:'email',
 				 value: 'email@email.com',
 				 allowBlank:false
 				 },

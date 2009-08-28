@@ -79,6 +79,7 @@ print<<<HEAD
 				 name:'server_client_email',
 				 inputType: 'text',
 				 width:250,
+				 vtype:'email',
 				 value: '$server_client_email',
 				 allowBlank:false
 				 },
