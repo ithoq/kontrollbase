@@ -199,6 +199,7 @@ Ext.apply(Ext.form.VTypes, {
 				 minLength: 6,
 				 maxLength: 32,
 				 inputType: 'password',
+				 value: '$server_mysql_pass',
 				 initialPassField: 'pass',
 				 allowBlank:false
 				 },

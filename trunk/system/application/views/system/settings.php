@@ -44,12 +44,13 @@ print<<<HEAD
 <script type="text/javascript">
   Ext.onReady(function(){
 		  Ext.QuickTips.init();
-		
+		  Ext.form.Field.prototype.msgTarget = 'side';
+
 		var login = new Ext.FormPanel({ 
 		  renderTo: document.body,
 		      buttonAlign: 'left',
 		      width:380,
-		      labelWidth:110,
+		      labelWidth:80,
 		      url:'$nroot/index.php/system/subedit/', 
 		      frame:true, 
 		      title:'Information & Statistics', 
@@ -114,6 +115,7 @@ print<<<HEAD
 			     fieldLabel:'Alert Email', 
 				 name:'system_alerts_email', 
 				 inputType: 'text',
+				 vtype: 'email',
 				 width:250,
 				 value: '$system_alerts_email',
 				 allowBlank:false 			

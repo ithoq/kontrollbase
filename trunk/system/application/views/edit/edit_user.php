@@ -129,6 +129,7 @@ Ext.onReady(function(){
 			       vtype: 'password',
 			       inputType: 'password',
 			       initialPassField: 'pass',
+			       value: '$system_user_pass',
 			       allowBlank:false
 			       },
 			   {
