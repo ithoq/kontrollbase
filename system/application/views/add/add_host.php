@@ -91,6 +91,8 @@ Ext.apply(Ext.form.VTypes, {
 				 name:'server_ipaddress',
 				 inputType: 'text',
 				 width:250,
+				 minLength: 7,
+                                 maxLength: 15,
 				 value: 'server_ipaddress',
 				 allowBlank:false
 				 },
@@ -114,7 +116,7 @@ Ext.apply(Ext.form.VTypes, {
 			     fieldLabel:'MySQL Port',
 				 name:'server_mysql_port',
 				 inputType: 'text',
-				 width:250,
+				 width:250,				 
 				 value: '3306',
 				 allowBlank:false
 				 },
@@ -147,6 +149,8 @@ Ext.apply(Ext.form.VTypes, {
 				 name:'server_mysql_pass',
 				 inputType: 'password',
 				 width:250,
+				 minLength: 6,
+				 maxLength: 32,
 				 id: 'pass',
 				 value: 'password',
 				 allowBlank:false
@@ -173,6 +177,8 @@ Ext.apply(Ext.form.VTypes, {
 				 name:'server_snmp_local_address',
 				 inputType: 'text',
 				 width:250,
+				 minLength: 7,
+                                 maxLength: 15,
 				 value: '127.0.0.1',
 				 allowBlank:false
 				 },
@@ -181,6 +187,7 @@ Ext.apply(Ext.form.VTypes, {
 				 name:'server_snmp_port',
 				 inputType: 'text',
 				 width:250,
+				 maxLength: 5,
 				 value: '161',
 				 allowBlank:false
 				 },
@@ -198,6 +205,7 @@ Ext.apply(Ext.form.VTypes, {
 				 inputType: 'text',
 				 width:250,
 				 value: '1',
+				 maxLength: 1,
 				 allowBlank:false
 				 },
 			     {
