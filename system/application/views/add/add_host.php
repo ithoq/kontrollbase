@@ -93,7 +93,7 @@ Ext.apply(Ext.form.VTypes, {
 				 width:250,
 				 minLength: 7,
                                  maxLength: 15,
-				 value: 'server_ipaddress',
+				 value: '0.0.0.0',
 				 allowBlank:false
 				 },
 			     {
