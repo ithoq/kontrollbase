@@ -92,6 +92,8 @@ Ext.apply(Ext.form.VTypes, {
 				 inputType: 'password',
 				 width:250,
 				 id: 'pass',
+				 minLength: 6,
+				 maxLength: 32,
 				 value: '12345678',
 				 allowBlank:false
 				 },
@@ -109,6 +111,7 @@ Ext.apply(Ext.form.VTypes, {
 				 name:'system_user_email',
 				 inputType: 'text',
 				 width:250,
+				 vtype: 'email',
 				 value: 'email@email.com',
 				 allowBlank:false
 				 },

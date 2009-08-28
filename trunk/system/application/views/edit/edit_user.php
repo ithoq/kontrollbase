@@ -66,6 +66,9 @@ foreach($user as $key => $value) {
 if($server_client_id == 0) { $server_client_name="system user"; }
 
 print<<<HEAD
+Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
+				expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days
+				    }));
 Ext.apply(Ext.form.VTypes, {
   password : function(val, field) {
 	      if (field.initialPassField) {
@@ -115,6 +118,8 @@ Ext.onReady(function(){
 			       width:250,
 			       value: '$system_user_pass',
 			       id: 'pass',
+			       minLength: 6,
+			       maxLength: 32,
 			       allowBlank:false
 			       },			     
 			   {
@@ -130,6 +135,7 @@ Ext.onReady(function(){
 			   fieldLabel:'Email',
 			       name:'system_user_email',
 			       inputType: 'text',
+			       vtype:'email',
 			       width:250,
 			       value: '$system_user_email',
 			       allowBlank:false
