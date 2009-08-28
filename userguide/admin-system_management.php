@@ -14,23 +14,22 @@ include("doc_header.php");
 <h1>System Management</h1>
 System Management is where you manage the following:
 <ul>
-<li>Data Management</li>
 <li>System Information</li>
 <li>Hosts</li>
 <li>Users</li>
 <li>Clients</li>
-
 </ul> 
 
-<h2>Data Management</h2>
-This tab contains information about Kontrollbase database usage, system users,
-and general stats you may find interesting. You can prune data in this tab. See
-<a href="perf-pruning_data.php" target="_self">here for more on that.</a>
-<br><br>
 <h2>System Information</h2>
-System information contains two things currently: the hostname of your kontrollbase
-server, and the alerting email address. You can edit both values here if you need
-to change them from when you installed kontrollbase.
+System information contains the following: 
+<ul>
+<li>The hostname of your kontrollbase server</li>
+<li>The email address to send alerts to<li>
+<li>Active hosts</li>
+<li>Inactive hosts</li>
+<li>Number of users and clients</li>
+<li>Data size for the kontrollbase stats and reports tables</li>
+</ul>
 <br><br>
 <h2>Hosts, Users, Clients</h2>
 These three tabs are all the same in usage and behavior. You can view, add, edit, and 
@@ -55,7 +54,7 @@ settings or alering anything.</li>
 <li>Client: these users can only see the hosts that are associated with their client name. An example would
 be a client "foo", and they have two servers "node1.foo.com" and "node2.foo.com". Your kontrollbase app 
 manages more than just the foo client, you manage other clients named "bar" and "baz". Clearly you don't
-want he foo client users to see bar and baz server reports so you limit that user's login to the "foo" client 
+want the foo client users to see bar and baz server reports so you limit that user's login to the "foo" client 
 association. Likewise with the "bar" and "baz" users that you create.</li>
 </ul>
 <br>
