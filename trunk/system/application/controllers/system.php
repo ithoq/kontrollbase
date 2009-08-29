@@ -24,7 +24,7 @@ class System extends Controller {
 	  $schema = $this->config->item('schema_readonly_name');
 	  log_message('debug', "Controller System started.");
 
-	  $version_file = "./system/application/config/version.txt";
+	  $version_file = "./version.txt";
 	  $handle = fopen($version_file, "r");
 	  if(!$handle) { 
 	    log_message('debug', "Version file failed to open. file: $version_file");
