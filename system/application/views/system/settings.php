@@ -20,6 +20,7 @@ $stats_total = byte_format(($stat_size[0]["DATA_LENGTH"]) + ($stat_size[0]["INDE
 $report_data=byte_format($report_size[0]["DATA_LENGTH"]);
 $report_index=byte_format($report_size[0]["INDEX_LENGTH"]);
 $report_total= byte_format(($report_size[0]["DATA_LENGTH"]) + ($report_size[0]["INDEX_LENGTH"]));
+if($revision != "") { $revision = "revision $revision"; }
 
 print<<<HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -62,7 +63,7 @@ print<<<HEAD
                                  name:'',
                                  inputType: 'text',
                                  width:250,
-                                 value: '2.0.1-$revision',
+                                 value: '2.0.1 $revision',
                                  disabled: true,
                                  allowBlank:true
                                  },
