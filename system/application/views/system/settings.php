@@ -58,6 +58,15 @@ print<<<HEAD
 		      monitorValid:true,
 		      items:[
 			     {
+                             fieldLabel:'Version',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: '2.0.1-$revision',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
                              fieldLabel:'Active hosts',
                                  name:'',
                                  inputType: 'text',
