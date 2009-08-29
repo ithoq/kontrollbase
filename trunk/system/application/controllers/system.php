@@ -30,9 +30,9 @@ class System extends Controller {
 	    log_message('debug', "Version file failed to open. file: $version_file");
 	  }
 	  else {
-	    $first_line = fgets ($handle);
-	    $revid = str_replace('$', "", $first_line);
-	    $revid = substr($revid,-5);	
+	    $revid = fgets ($handle);
+	    //	    $revid = str_replace('$', "", $revid);
+	    //	    $revid = substr($revid,-5);	
 	  }
 
 	  $g['revision'] = trim($revid);
