@@ -11,11 +11,11 @@
 <tr><td><div id='content'><h1>Overview Data for demo01.kontrollbase.com</h1></td></tr>
 <tr><td>
 <div id='content'><table cellpadding='0' cellspacing='1' border='0' style='width:100%' class='tableborder'>
-<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 127.0.0.1</td><td class='td'><strong>Data size</strong>: 34.9 MB</td></tr>
+<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 127.0.0.1</td><td class='td'><strong>Data size</strong>: 35.9 MB</td></tr>
 <tr><td class='td'><strong>MySQL version</strong>: 5.0.45-log</td><td class='td'><strong>Index size</strong>: 294.0 KB</td></tr>
-<tr><td class='td'><strong>Default engine</strong>: InnoDB</td><td class='td'><strong>Total size</strong>: 34.9 MB</td></tr>
+<tr><td class='td'><strong>Default engine</strong>: InnoDB</td><td class='td'><strong>Total size</strong>: 35.9 MB</td></tr>
 <tr><td class='td'><strong>Uptime</strong>: 4 days</td><td class='td'><strong>InnoDB Tables</strong>: 11</td></tr>
-<tr><td class='td'><strong>Avg Load</strong>: 0</td><td class='td'><strong>InnoDB Size</strong>: 34.4 MB</td></tr><tr><td class='td'><strong>Memory Used</strong>:  %</td><td class='td'><strong>MyISAM Tables</strong>: 25</td></tr><tr><td class='td'><strong>Memory Size</strong>: 128.0 MB</td><td class='td'><strong>MyISAM Size</strong>: 538.3 KB</td></tr><tr><td class='td'><strong>QPS</strong>: 0.55</td><td class='td'><strong>Collection Date</strong>: 2009-08-28 15:50:04</td></tr><tr><td class='td'><strong>Connections</strong>: 11</td><td class='td'><strong>Polling time</strong>: 0.158272</td></tr></div></table></td></tr><tr><td><table><tr><td colspan='4'><div id='content'><h1>Previous Week's Activity</h1></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
+<tr><td class='td'><strong>Avg Load</strong>: 0.05</td><td class='td'><strong>InnoDB Size</strong>: 35.4 MB</td></tr><tr><td class='td'><strong>Memory Used</strong>:  %</td><td class='td'><strong>MyISAM Tables</strong>: 25</td></tr><tr><td class='td'><strong>Memory Size</strong>: 128.0 MB</td><td class='td'><strong>MyISAM Size</strong>: 538.3 KB</td></tr><tr><td class='td'><strong>QPS</strong>: 0.55</td><td class='td'><strong>Collection Date</strong>: 2009-08-28 17:50:05</td></tr><tr><td class='td'><strong>Connections</strong>: 11</td><td class='td'><strong>Polling time</strong>: 0.161378</td></tr></div></table></td></tr><tr><td><table><tr><td colspan='4'><div id='content'><h1>Previous Week's Activity</h1></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
 	<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"  width="240" height="130" id="kontrollbase">
 		<param name="allowScriptAccess" value="always" />
 		<param name="movie" value="http://demo01.kontrollbase.com/includes/FCF_Line.swf"/>		

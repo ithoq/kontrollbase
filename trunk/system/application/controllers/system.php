@@ -24,6 +24,18 @@ class System extends Controller {
 	  $schema = $this->config->item('schema_readonly_name');
 	  log_message('debug', "Controller System started.");
 
+	  $version_file = "./system/application/config/version.txt";
+	  $handle = fopen($version_file, "r");
+	  if(!$handle) { 
+	    log_message('debug', "Version file failed to open. file: $version_file");
+	  }
+	  else {
+	    $first_line = fgets ($handle);
+	    $revid = str_replace('$', "", $first_line);
+	    $revid = substr($revid,-5);	
+	  }
+
+	  $g['revision'] = trim($revid);
 	  $g['users'] = $this->system->get_system_quant(2);//system users
 	  $g['inactive'] = $this->system->get_system_quant(0);//inactive hosts
 	  $g['active'] = $this->system->get_system_quant(1);//active hosts
