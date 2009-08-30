@@ -33,14 +33,18 @@ $SQLFILE = "$BASE_DIR/install/sql/kontrollbase-schema-2.0.1.sql";
 
 $revid = ""; // revision number 
 
+logger("BaseDir: $BASE_DIR",$INSTALL_LOG);
+logger("WebRoot: $WEB_ROOT",$INSTALL_LOG);
+
 function logger($data,$INSTALL_LOG) {
-  $data = "$data \n";
+  $date = date("c");
+  $data = "$date - process.php - $data\n";
   if (!$handle = fopen("$INSTALL_LOG", 'a')) {
-    echo "{success: false, errors: { reason: 'Cannot open file: $filename' }}";
+    echo "{success: false, errors: { reason: 'Cannot open log file: $filename' }}";
     exit;
   }
   if (fwrite($handle, $data) === FALSE) {
-    echo "{success: false, errors: { reason: 'Cannot write to file: $filename' }}";
+    echo "{success: false, errors: { reason: 'Cannot write to log file: $filename' }}";
     exit;
   }
   fclose($handle);
@@ -120,7 +124,7 @@ $active_group = "write";
 $active_record = TRUE;
 //
 // MySQL Database connections settings for select queries
-// mysql> GRANT SELECT on dbname.* to '<user>'@'<host>' identified by '<password>';
+// mysql> GRANT SELECT on dbname.* to \'<user>\'@\'<host>\' identified by \'<password>\';
 $db[\'read\'][\'hostname\'] = "'.$MYSQL_R_HOST.'";
 $db[\'read\'][\'username\'] = "'.$MYSQL_R_USER.'";
 $db[\'read\'][\'password\'] = "'.$MYSQL_R_PASS.'";
@@ -135,7 +139,7 @@ $db[\'read\'][\'char_set\'] = "utf8";
 $db[\'read\'][\'dbcollat\'] = "utf8_general_ci";
 //
 // MySQL Database connections settings for insert/update/delete queries
-// mysql> GRANT INSERT,UPDATE,DELETE on dbname.* to '<user>'@'<host>' identified by '<password>'
+// mysql> GRANT INSERT,UPDATE,DELETE on dbname.* to \'<user>\'@\'<host>\' identified by \'<password>\';
 $db[\'write\'][\'hostname\'] = "'.$MYSQL_R_HOST.'";
 $db[\'write\'][\'username\'] = "'.$MYSQL_R_USER.'";
 $db[\'write\'][\'password\'] = "'.$MYSQL_R_PASS.'";
@@ -376,19 +380,23 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
 }
 
-function get_revision() {
+function get_revision($INSTALL_LOG,$BASE_DIR) {
+  logger("Starting get_revision function",$INSTALL_LOG);
   $version_file = "$BASE_DIR/version.txt"; // we initially get this from subverion on each commit
+  logger("version_file:$version_file",$INSTALL_LOG);
   $handle = fopen($version_file, "r");
   if(!$handle) {
+    logger("Failed to get version from $BASE_DIR/version.txt",$INSTALL_LOG);
     echo "{success: false, errors: { reason: Failed to open version.txt file' }}";
   }
   else {
     $revid = fgets ($handle);
+    logger("revid:$revid",$INSTALL_LOG);
   }
 }
 
 logger("Installation beginning",$INSTALL_LOG);
-get_revision(); //populate revid value for config.php file
+get_revision($INSTALL_LOG,$BASE_DIR); //populate revid value for config.php file
 $s0 = check_prerequisites_php($INSTALL_LOG);
 if($s0 == 0) {
   $s1 = check_prerequisites_perl($INSTALL_LOG);
@@ -403,35 +411,33 @@ if($s0 == 0) {
 	  echo "{success: true}";
 	  exit;
 	}
-	else {
+	else { //s4 fail
 	  logger("Failed to create $BASE_DIR/system/application/config/database.php. Installer Exiting.",$INSTALL_LOG);
 	  echo "{success: false, errors: { reason: Failed to create $BASE_DIR/system/application/config/database.php' }}";
 	  exit;
 	}
-      }
+      } // s3 fail
       else {
 	logger("Failed to create $BASE_DIR/system/application/config/config.php. Installer Exiting.",$INSTALL_LOG);
 	echo "{success: false, errors: { reason: 'Failed to create $BASE_DIR/system/application/config/config.php' }}";
 	exit;
       }
-    }
-  }
+    } // s2 fail  
+    else {
+      logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
+      echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
+      exit;
+    }   
+  } // s1 fail
   else {
-    logger("Failed to import schema file. Installer Exiting.",$INSTALL_LOG);
-    echo "{success: false, errors: { reason: 'Failed to import schema file' }}";
+    logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
+    echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
     exit;
-  }   
- }
- else {
-   logger("Failed to meet Perl prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
-   echo "{success: false, errors: { reason: 'Failed to meet Perl prerequisite requrements' }}";
-   exit;
- }
-}
+  }
+ } //s0 fail
  else {
    logger("Failed to meet PHP prerequisite requrements. Installer Exiting.",$INSTALL_LOG);
    echo "{success: false, errors: { reason: 'Failed to meet PHP prerequisite requrements' }}";
    exit;
- }
-
+  }
 

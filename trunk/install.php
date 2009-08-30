@@ -16,9 +16,13 @@ function head_d($nroot,$syspath,$w_logs,$w_includes,$w_config) {
   $d_includes = "$syspath/includes";
   $d_config = "$syspath/system/application/config";
 
-  if($w_logs == 1) { $w_logs = "FAIL"; } else { $w_logs = "OK"; }
-  if($w_includes == 1) { $w_includes = "FAIL"; } else { $w_includes = "OK"; }
-  if($w_config == 1) { $w_config = "FAIL"; } else { $w_config = "OK"; }
+
+  if($w_logs == 1) { $w_logs = '<img src="includes/images/delete-icon.png" width="11" height="11">'; } 
+  else { $w_logs = '<img src="includes/images/check-red.png" width="16" height="20">'; }
+  if($w_includes == 1) { $w_includes = '<img src="includes/images/delete-icon.png" width="11" height="11">'; } 
+  else { $w_includes = '<img src="includes/images/check-red.png" width="16" height="20">'; }
+  if($w_config == 1) { $w_config = '<img src="includes/images/delete-icon.png" width="11" height="11">'; } 
+  else { $w_config = '<img src="includes/images/check-red.png" width="16" height="20">'; }
 
   print<<<HEAD
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -38,10 +42,9 @@ function head_d($nroot,$syspath,$w_logs,$w_includes,$w_config) {
     <script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
     
     <script type='text/javascript'>                                                                                                                                                                                                           
-    Ext.onReady(function(){                                                                                                                                                                                                                   
-                  Ext.Msg.alert('Installer Failure.', 'Directory Check: FAIL<br>$d_logs = $w_logs<br>$d_includes=$w_includes<br>d_config=$w_config<br>Please correct the permissions.', function(btn, text){
+    Ext.onReady(function(){                                                                                                                                       Ext.Msg.alert('Installation Failure.', '<table><tr><td colspan="2">Directory Check:</td></td></tr><tr><td align="left">$d_logs</td><td align="center">$w_logs</td></tr><tr><td align="left">$d_includes</td><td align="center">$w_includes</td></tr><tr><td align="left">$d_config</td><td align="center">$w_config</td></tr><tr><td colspan="2">&nbsp;</td></tr><tr><td colspan="2">Directories must be writeable by the webserver user and group</td></tr><tr><td colspan="2">ie: $> chown -R apache:apache includes</td></tr><tr><td colspan="2">ie: $> chown -R apache:apache system/logs</td></tr><tr><td colspan="2">ie: $> chown -R apache:apache system/application/config</td></tr><tr><td colspan="2">&nbsp;</td></tr><tr><td colspan="2">Run the proper commands, then refresh this screen to continue.</td></tr></table>', function(btn, text){
                                   if (btn == 'ok'){
-                                    var redirect = '$nroot/index.php';
+                                    var redirect = '$nroot/install.php';
                                     window.location = redirect;
                                   }
                                 })});
@@ -49,14 +52,16 @@ function head_d($nroot,$syspath,$w_logs,$w_includes,$w_config) {
       </head>
       <body>
       
-      HEAD;
+HEAD;
 }
 
 function head_m($nroot,$syspath,$install_sc,$install_sd) {
-  $sysconfig="$syspath/system/application/config/config.php";
-  $sysdatabase="$syspath/system/application/config/database.php";
-  if($install_sc == 1) { $install_sc = "EXISTS"; } else { $install_sc = "OK"; }
-  if($install_sd == 1) { $install_sd = "EXISTS"; } else { $install_sd = "OK"; }
+  $sysconfig="system/application/config/config.php";
+  $sysdatabase="system/application/config/database.php";
+  if($install_sc == 1) { $install_sc = '<img src="includes/images/delete-icon.png" width="11" height="11">';  } 
+  else { $install_sc = '<img src="includes/images/check-red.png" width="16" height="20">'; }
+  if($install_sd == 1) { $install_sd = '<img src="includes/images/delete-icon.png" width="11" height="11">';  } 
+  else { $install_sd = '<img src="includes/images/check-red.png" width="16" height="20">'; }
 
   print<<<HEAD
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -77,9 +82,9 @@ function head_m($nroot,$syspath,$install_sc,$install_sd) {
     
     <script type='text/javascript'>                                                                                                                                                                                                           
     Ext.onReady(function(){                                                                                                                                                                                                                   
-		  Ext.Msg.alert('Installer Failure.', 'Config files check: FAIL<br>$sysconfig=$install_sc<br>$sysdatabase=$install_sd<br>Please remove config files if you want to reinstall.', function(btn, text){
+		  Ext.Msg.alert('Installation Failure.', '<table><tr><td colspan="2">Config files check</td></tr><tr><td>$sysconfig</td><td>$install_sc</td></tr><tr><td>$sysdatabase</td><td>$install_sd</td></tr><tr><td colspan="2">Remove the config files to continue.</td></tr></table>', function(btn, text){
 				  if (btn == 'ok'){
-				    var redirect = '$nroot/index.php';
+				    var redirect = '$nroot/install.php';
 				    window.location = redirect;
 				  }
 				})});
@@ -114,7 +119,7 @@ function head_i($nroot,$syspath,$d_logs,$d_includes,$d_config) {
     
     <script type='text/javascript'>                                                                                                                                                                                                           
     Ext.onReady(function(){                                                                                                                                                                                                                   
-		  Ext.Msg.alert('The Kontrollbase Installer', '<table><tr><td>Config File Check</td><td><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td>Directory $d_logs:</td><td><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td>Directory $d_includes:</td><td><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td>Directory $d_config:</td><td><img src="includes/images/check-red.png" width="16" height="20"></td></tr></table>', function(btn, text){
+		  Ext.Msg.alert('The Kontrollbase Installer', '<table><tr><td align="left">Config File Check</td><td align="center"><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td align="left">Directory $d_logs:</td><td align="center"><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td align="left">Directory $d_includes:</td><td align="center"><img src="includes/images/check-red.png" width="16" height="20"></td></tr><tr><td align="left">Directory $d_config:</td><td align="center"><img src="includes/images/check-red.png" width="16" height="20"></td></tr></table>', function(btn, text){
 				  if (btn == 'ok'){
 				    var redirect = '$nroot/install/overview.php';
 				    window.location = redirect;

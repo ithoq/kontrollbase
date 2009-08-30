@@ -1,206 +1,52 @@
+2009-08-30T14:48:21-07:00: Install process: IP:208.77.100.60
+2009-08-30T14:48:28-07:00: Install process: IP:208.77.100.60
+2009-08-30T15:10:21-07:00 - setup.php - BaseDir: /var/www/html/kontrollbase-demo02
+2009-08-30T15:10:21-07:00 - setup.php - WebRoot: http://208.77.100.60/kontrollbase/
+2009-08-30T15:10:21-07:00 - setup.php - Installation beginning
+2009-08-30T15:10:21-07:00 - setup.php - Starting get_revision function
+2009-08-30T15:10:21-07:00 - setup.php - Beggining PHP prerequisite checks
+2009-08-30T15:10:21-07:00 - setup.php - Prerequisite dom located
+2009-08-30T15:10:21-07:00 - setup.php - Prerequisite mbstring located
+2009-08-30T15:10:21-07:00 - setup.php - Prerequisite mysql located
+2009-08-30T15:10:21-07:00 - setup.php - Prerequisite xml located
+2009-08-30T15:10:21-07:00 - setup.php - Beggining Perl prerequisite checks
+2009-08-30T15:10:24-07:00 - setup.php - Beggining Perl prerequisite checks
+2009-08-30T15:10:24-07:00 - setup.php - Prerequisite XML/Parser.pm located
+2009-08-30T15:10:24-07:00 - setup.php - Prerequisite XML/SimpleObject.pm located
+2009-08-30T15:10:24-07:00 - setup.php - Prerequisite DBI.pm located
+2009-08-30T15:10:24-07:00 - setup.php - Prerequisite /Math/Calc/Units.pm located
+2009-08-30T15:10:24-07:00 - setup.php - starting db install for localhost,kb_admin,kontrollbase
+2009-08-30T15:10:24-07:00 - setup.php - Selecting database kontrollbase
+2009-08-30T15:10:24-07:00 - setup.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/config.php
+2009-08-30T15:10:24-07:00 - setup.php - /var/www/html/kontrollbase-demo02/system/application/config/config.php created successfully
+2009-08-30T15:10:24-07:00 - setup.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/database.php
+2009-08-30T15:10:24-07:00 - setup.php - /var/www/html/kontrollbase-demo02/system/application/config/database.php created successfully
+2009-08-30T15:10:24-07:00 - setup.php - success, end.
+2009-08-30T15:15:35-07:00 - setup.php - IP:208.77.100.60
+2009-08-30T15:15:35-07:00 - setup.php - syspath:/var/www/html/kontrollbase-demo02
+2009-08-30T15:15:35-07:00 - setup.php - nroot:
+2009-08-30T15:16:04-07:00 - process.php - BaseDir: /var/www/html/kontrollbase-demo02
+2009-08-30T15:16:04-07:00 - process.php - WebRoot: http://208.77.100.60/kontrollbase/
+2009-08-30T15:16:04-07:00 - process.php - Installation beginning
+2009-08-30T15:16:04-07:00 - process.php - Starting get_revision function
+2009-08-30T15:16:04-07:00 - process.php - version_file:/var/www/html/kontrollbase-demo02/version.txt
+2009-08-30T15:16:04-07:00 - process.php - revid:138
 
-Installation beginning 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Running table check for alerts_current. 
-Running table check for alerts_custom. 
-Running table check for alerts_def. 
-Running table check for api_users. 
-Running table check for graphs_custom. 
-Running table check for graphs_default. 
-Running table check for server_client. 
-Running table check for server_list. 
-Running table check for server_report. 
-Running table check for server_statistics. 
-Running table check for system_main. 
-Running table check for system_pages. 
-Running table check for system_pruning_audit. 
-Running table check for system_users. 
-Running table check for system_users_audit. 
-Running table check for webapp_sessions. 
-starting makefile for /var/www/html/kontrollbase/config.cfg 
-cannot open /var/www/html/kontrollbase/config.cfg 
-Installation beginning 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Running table check for alerts_current. 
-Running table check for alerts_custom. 
-Running table check for alerts_def. 
-Running table check for api_users. 
-Running table check for graphs_custom. 
-Running table check for graphs_default. 
-Running table check for server_client. 
-Running table check for server_list. 
-Running table check for server_report. 
-Running table check for server_statistics. 
-Running table check for system_main. 
-Running table check for system_pages. 
-Running table check for system_pruning_audit. 
-Running table check for system_users. 
-Running table check for system_users_audit. 
-Running table check for webapp_sessions. 
-starting makefile for /var/www/html/kontrollbase/config.cfg 
-cannot open /var/www/html/kontrollbase/config.cfg 
-Installation beginning 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Running table check for alerts_current. 
-Running table check for alerts_custom. 
-Running table check for alerts_def. 
-Running table check for api_users. 
-Running table check for graphs_custom. 
-Running table check for graphs_default. 
-Running table check for server_client. 
-Running table check for server_list. 
-Running table check for server_report. 
-Running table check for server_statistics. 
-Running table check for system_main. 
-Running table check for system_pages. 
-Running table check for system_pruning_audit. 
-Running table check for system_users. 
-Running table check for system_users_audit. 
-Running table check for webapp_sessions. 
-starting makefile for /var/www/html/kontrollbase/config.cfg 
-/var/www/html/kontrollbase/config.cfg created successfully 
-starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
-/var/www/html/kontrollbase/system/application/config/config.php created successfully 
-starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
-/var/www/html/kontrollbase/system/application/config/database.php created successfully 
-success, end. 
-Installation beginning 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Running table check for alerts_current. 
-Running table check for alerts_custom. 
-Running table check for alerts_def. 
-Running table check for api_users. 
-Running table check for graphs_custom. 
-Running table check for graphs_default. 
-Running table check for server_client. 
-Running table check for server_list. 
-Running table check for server_report. 
-Running table check for server_statistics. 
-Running table check for system_main. 
-Running table check for system_pages. 
-Running table check for system_pruning_audit. 
-Running table check for system_users. 
-Running table check for system_users_audit. 
-Running table check for webapp_sessions. 
-starting makefile for /var/www/html/kontrollbase/config.cfg 
-/var/www/html/kontrollbase/config.cfg created successfully 
-starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
-/var/www/html/kontrollbase/system/application/config/config.php created successfully 
-starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
-/var/www/html/kontrollbase/system/application/config/database.php created successfully 
-success, end. 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Unable to locate XML/SimpleObject.pm prerequisite 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Prerequisite XML/SimpleObject.pm located 
-Prerequisite DBI.pm located 
-Unable to locate /Math/Calc/Units.pm prerequisite 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Prerequisite XML/SimpleObject.pm located 
-Prerequisite DBI.pm located 
-Prerequisite /Math/Calc/Units.pm located 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Starting makefile for /var/www/html/kontrollbase/config.cfg 
-/var/www/html/kontrollbase/config.cfg created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
-/var/www/html/kontrollbase/system/application/config/config.php created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
-/var/www/html/kontrollbase/system/application/config/database.php created successfully 
-success, end. 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Prerequisite XML/SimpleObject.pm located 
-Prerequisite DBI.pm located 
-Prerequisite /Math/Calc/Units.pm located 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Starting makefile for /var/www/html/kontrollbase/config.cfg 
-/var/www/html/kontrollbase/config.cfg created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
-/var/www/html/kontrollbase/system/application/config/config.php created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
-/var/www/html/kontrollbase/system/application/config/database.php created successfully 
-success, end. 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Unable to locate XML/SimpleObject.pm prerequisite 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Prerequisite XML/SimpleObject.pm located 
-Prerequisite DBI.pm located 
-Prerequisite /Math/Calc/Units.pm located 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Starting makefile for /var/www/html/kontrollbase/config.cfg 
-cannot open /var/www/html/kontrollbase/config.cfg 
-Installation beginning 
-Beggining PHP prerequisite checks 
-Prerequisite dom located 
-Prerequisite mbstring located 
-Prerequisite mysql located 
-Prerequisite xml located 
-Beggining Perl prerequisite checks 
-Beggining Perl prerequisite checks 
-Prerequisite XML/Parser.pm located 
-Prerequisite XML/SimpleObject.pm located 
-Prerequisite DBI.pm located 
-Prerequisite /Math/Calc/Units.pm located 
-starting db install for localhost,kb_admin,kontrollbase 
-Selecting database kontrollbase 
-Starting makefile for /var/www/html/kontrollbase/config.cfg 
-/var/www/html/kontrollbase/config.cfg created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/config.php 
-/var/www/html/kontrollbase/system/application/config/config.php created successfully 
-Starting makefile for /var/www/html/kontrollbase/system/application/config/database.php 
-/var/www/html/kontrollbase/system/application/config/database.php created successfully 
-success, end. 
+2009-08-30T15:16:04-07:00 - process.php - Beggining PHP prerequisite checks
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite dom located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite mbstring located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite mysql located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite xml located
+2009-08-30T15:16:04-07:00 - process.php - Beggining Perl prerequisite checks
+2009-08-30T15:16:04-07:00 - process.php - Beggining Perl prerequisite checks
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite XML/Parser.pm located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite XML/SimpleObject.pm located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite DBI.pm located
+2009-08-30T15:16:04-07:00 - process.php - Prerequisite /Math/Calc/Units.pm located
+2009-08-30T15:16:04-07:00 - process.php - starting db install for localhost,kb_admin,kontrollbase
+2009-08-30T15:16:04-07:00 - process.php - Selecting database kontrollbase
+2009-08-30T15:16:04-07:00 - process.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/config.php
+2009-08-30T15:16:04-07:00 - process.php - /var/www/html/kontrollbase-demo02/system/application/config/config.php created successfully
+2009-08-30T15:16:04-07:00 - process.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/database.php
+2009-08-30T15:16:04-07:00 - process.php - /var/www/html/kontrollbase-demo02/system/application/config/database.php created successfully
+2009-08-30T15:16:04-07:00 - process.php - success, end.
