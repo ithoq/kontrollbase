@@ -11,9 +11,17 @@
    * @link http://kontrollbase.com
    */
 
+function logger($syspath,$data) {
+  $date = date("c");
+  $data = "$date - setup.php - $data\n";
+  $INSTALL_LOG = "$syspath/system/logs/sys_install.log";
+  if (!$handle = fopen("$INSTALL_LOG", 'a')) { print "<h1>Log file Error</h1>File: $INSTALL_LOG"; return 1; }
+  if (fwrite($handle, $data) === FALSE) { print "<h1>Log file Error</h1>"; return 1; }
+}
+
 function head() {
   $IP=$_SERVER['SERVER_ADDR'];
-
+  
   $syspath = $_SERVER['SCRIPT_FILENAME'];
   $syspath = rtrim($syspath, ".php");
   $syspath = rtrim($syspath, "/setup");
@@ -22,6 +30,10 @@ function head() {
   $nroot = $_SERVER['PHP_SELF'];
   $nroot = rtrim($nroot, "/setup.php");
   $nroot = rtrim($nroot, "/install");
+  
+  logger($syspath,"IP:$IP"); 
+  logger($syspath,"syspath:$syspath");
+  logger($syspath,"nroot:$nroot");
 
   print<<<HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -42,67 +54,115 @@ function head() {
 <script type="text/javascript" src="$nroot/includes/extjs/states.js"></script>
 
 <script type="text/javascript">
+    Ext.apply(Ext.form.VTypes, {
+      password : function(val, field) {
+		  if (field.initialPassField) {
+		    var pwd = Ext.getCmp(field.initialPassField);
+		    return (val == pwd.getValue());
+		  }
+		  return true;
+		},
+		  passwordText : 'Passwords do not match'
+		  });
+
   Ext.onReady(function(){
 		Ext.QuickTips.init();
- 
+		Ext.form.Field.prototype.msgTarget = 'side';
+
 		var login = new Ext.FormPanel({ 
-		  labelWidth:125,
+		  bodyStyle:'padding:5px 5px 0',
+		      buttonAlign: 'right',
 		      url:'$nroot/install/process.php', 
+		      width:360,
+		      labelWidth:115,
 		      frame:true, 
 		      title:'Kontrollbase 2.0.1 - Installation Settings', 
 		      defaultType:'textfield',
 		      monitorValid:true,
-		      autoWidth:true,
 		      autoHeight: true,
 		      items:[
 			{
 			fieldLabel:'DB admin user',
 			    name:'mysql_a_user',
 			    value: 'kb_admin',
+			    width: 200,
 			    allowBlank:false
 			    },
 			{
 			fieldLabel:'DB admin password',
 			    name:'mysql_a_pass',
 			    value: 'password',
+			    vtype: 'password',
+			    width: 200,
+			    minLength: 6,
+			    maxLength: 32,
+			    id: 'adminpass',
+			    allowBlank:false
+			    },
+			{
+			fieldLabel: 'Confirm admin pass',
+			    name: 'mysql_a_pass_c',
+			    vtype: 'password',
+			    inputType: 'password',
+			    initialPassField: 'adminpass',
+			    width: 200,
 			    allowBlank:false
 			    },
 			{ 
 		        fieldLabel:'DB app user', 
 			    name:'mysql_r_user', 
 			    value: 'kb_app',			    
+			    width: 200,
 			    allowBlank:false 
 			    },
 			{ 
 			fieldLabel:'DB app password', 
 			    name:'mysql_r_pass', 
 			    value: 'password',
+			    vtype: 'password',
+			    width: 200,
+                            minLength: 6,
+                            maxLength: 32,
+                            id: 'apppass',
 			    allowBlank:false 
+			    },
+			{
+                        fieldLabel: 'Confirm app pass',
+                            name: 'mysql_r_pass_c',
+                            vtype: 'password',
+                            inputType: 'password',
+                            initialPassField: 'apppass',
+			    width: 200,
+                            allowBlank:false
 			    },
 			{
                         fieldLabel:'DB app schema',
 			    name:'mysql_r_db',
 			    value: 'kontrollbase',
+			    width: 200,
 			    allowBlank:false
 			    },
 			{
                         fieldLabel:'DB app hostname',
 			    name:'mysql_r_host',
 			    value: "localhost",
+			    width: 200,
 			    allowBlank:false
 			    },
 			{
                         fieldLabel:'Web Root',
 			    name:'web_root',
 			    value: "http://$IP/kontrollbase/",
+			    width: 200,
 			    allowBlank:false
 			    },
 			{
                         fieldLabel:'Base DIR',
 			    name:'base_dir',
 			    value: "$syspath",
+			    width: 200,
 			    allowBlank:false
-			    },
+			    }
 			],		      
 		      buttons:[
 			       { 
