@@ -15,8 +15,27 @@ function logger($syspath,$data) {
   $date = date("c");
   $data = "$date - setup.php - $data\n";
   $INSTALL_LOG = "$syspath/system/logs/sys_install.log";
-  if (!$handle = fopen("$INSTALL_LOG", 'a')) { print "<h1>Log file Error</h1>File: $INSTALL_LOG"; return 1; }
-  if (fwrite($handle, $data) === FALSE) { print "<h1>Log file Error</h1>"; return 1; }
+  if (!$handle = fopen("$INSTALL_LOG", 'a')) { 
+    print "<h1>Log file error</h1>Could not open file: $INSTALL_LOG<br>Check permissions on directory and retry."; 
+    return 1; 
+  }
+  if (fwrite($handle, $data) === FALSE) { 
+    print "<h1>Log file error</h1>Could not write to file: $INSTALL_LOG<br>Check permissions on directory and retry."; 
+    return 1; 
+  }
+}
+
+function clear_log($syspath) {
+  $data = "";
+  $INSTALL_LOG = "$syspath/system/logs/sys_install.log";
+  if (!$handle = fopen("$INSTALL_LOG", 'w')) { 
+    print "<h1>Log file error</h1>Could not open file: $INSTALL_LOG<br>Check permissions on directory and retry."; 
+    return 1; 
+  }
+  if (fwrite($handle, $data) === FALSE) { 
+    print "<h1>Log file error</h1>Could not truncate file: $INSTALL_LOG<br>Check permissions on file and retry."; 
+    return 1; 
+  }
 }
 
 function head() {
@@ -31,7 +50,10 @@ function head() {
   $nroot = rtrim($nroot, "/setup.php");
   $nroot = rtrim($nroot, "/install");
   
-  logger($syspath,"IP:$IP"); 
+  $tstate = clear_log($syspath);
+  if($tstate == 1) { exit; }
+  $lstate = logger($syspath,"IP:$IP"); 
+  if($lstate == 1) { exit; }
   logger($syspath,"syspath:$syspath");
   logger($syspath,"nroot:$nroot");
 
