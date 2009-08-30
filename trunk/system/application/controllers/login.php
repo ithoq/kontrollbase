@@ -74,6 +74,10 @@ class Login extends Controller {
               log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Login failed. Please retry.' }}");
 	      echo "{success: false, errors: { reason: 'Login failed. Please retry.' }}";
 	    }
+	    elseif($state == 2) {
+              log_message('debug',"{success: false, errors: { reason: 'Database access incorrect. Please check database configuration.' }}");
+              echo "{success: false, errors: { reason: 'Database access incorrect. Please check database configuration.' }}";
+            }
 	    else {
 	      show_error("This is a general failure message.");
 	    }
