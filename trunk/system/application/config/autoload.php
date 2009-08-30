@@ -51,7 +51,17 @@ $autoload['libraries'] = array('database','phpsession','Cache');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','form','number','file','audit','auth','filecheck','variables','memcache','googleanalytics');
+$autoload['helper'] = array('url',
+			    'form',
+			    'number',
+			    'file',
+			    'audit',
+			    'auth',
+			    'filecheck',
+			    'variables',
+			    'memcache',
+			    'googleanalytics',
+			    'versioncheck');
 
 
 /*

@@ -51,7 +51,7 @@ print<<<HEAD
 		  renderTo: document.body,
 		      buttonAlign: 'left',
 		      width:380,
-		      labelWidth:80,
+		      labelWidth:135,
 		      url:'$nroot/index.php/system/subedit/', 
 		      frame:true, 
 		      title:'Information & Statistics', 
@@ -59,11 +59,29 @@ print<<<HEAD
 		      monitorValid:true,
 		      items:[
 			     {
-                             fieldLabel:'Version',
+                             fieldLabel:'Kontrollbase Version',
                                  name:'',
                                  inputType: 'text',
                                  width:250,
                                  value: '2.0.1 $revision',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'CodeIgniter Framework',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: 'version $ci_version',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'ExtJS framework',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:250,
+                                 value: 'version $extjs_version',
                                  disabled: true,
                                  allowBlank:true
                                  },

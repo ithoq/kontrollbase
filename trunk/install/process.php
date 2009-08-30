@@ -29,8 +29,9 @@ $BASE_DIR = $_POST['base_dir'];
 $ERROR_LOG = "$BASE_DIR/system/logs/sys_error.log";
 $DEBUG_LOG = "$BASE_DIR/system/logs/sys_debug.log";
 $INSTALL_LOG = "$BASE_DIR/system/logs/sys_install.log";
-
 $SQLFILE = "$BASE_DIR/install/sql/kontrollbase-schema-2.0.1.sql";
+
+$revid = ""; // revision number 
 
 function logger($data,$INSTALL_LOG) {
   $data = "$data \n";
@@ -205,6 +206,10 @@ $config[\'global_xss_filtering\'] = TRUE;
 $config[\'compress_output\'] = FALSE;
 $config[\'time_reference\'] = \'local\';
 $config[\'rewrite_short_tags\'] = FALSE;
+$config[\'ci_version\'] = \'1.7.0\'; #CodeIgniter Framework Version
+$config[\'extjs_version\'] = \'3.0.0\'; #ExtJS Framework Version
+$config[\'kb_version\'] = \'2.0.1\'; #Kontrollbase major version
+$config[\'kb_revision\'] = "'.$revid.'"; #Kontrollbase revision number
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
 ?>';
@@ -371,7 +376,19 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
 }
 
+function get_revision() {
+  $version_file = "$BASE_DIR/version.txt"; // we initially get this from subverion on each commit
+  $handle = fopen($version_file, "r");
+  if(!$handle) {
+    echo "{success: false, errors: { reason: Failed to open version.txt file' }}";
+  }
+  else {
+    $revid = fgets ($handle);
+  }
+}
+
 logger("Installation beginning",$INSTALL_LOG);
+get_revision(); //populate revid value for config.php file
 $s0 = check_prerequisites_php($INSTALL_LOG);
 if($s0 == 0) {
   $s1 = check_prerequisites_perl($INSTALL_LOG);

@@ -366,7 +366,7 @@ print "
    animScroll: true,
    items: [
    {
-   title: 'Alerts',
+   title: 'Current Alerts',
    deferredRender: true,
    height: 480,
    width:440,

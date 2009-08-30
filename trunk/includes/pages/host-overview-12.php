@@ -11,11 +11,11 @@
 <tr><td><div id='content'><h1>Overview Data for demo01.kontrollbase.com</h1></td></tr>
 <tr><td>
 <div id='content'><table cellpadding='0' cellspacing='1' border='0' style='width:100%' class='tableborder'>
-<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 127.0.0.1</td><td class='td'><strong>Data size</strong>: 35.9 MB</td></tr>
-<tr><td class='td'><strong>MySQL version</strong>: 5.0.45-log</td><td class='td'><strong>Index size</strong>: 294.0 KB</td></tr>
-<tr><td class='td'><strong>Default engine</strong>: InnoDB</td><td class='td'><strong>Total size</strong>: 35.9 MB</td></tr>
-<tr><td class='td'><strong>Uptime</strong>: 4 days</td><td class='td'><strong>InnoDB Tables</strong>: 11</td></tr>
-<tr><td class='td'><strong>Avg Load</strong>: 0.05</td><td class='td'><strong>InnoDB Size</strong>: 35.4 MB</td></tr><tr><td class='td'><strong>Memory Used</strong>:  %</td><td class='td'><strong>MyISAM Tables</strong>: 25</td></tr><tr><td class='td'><strong>Memory Size</strong>: 128.0 MB</td><td class='td'><strong>MyISAM Size</strong>: 538.3 KB</td></tr><tr><td class='td'><strong>QPS</strong>: 0.55</td><td class='td'><strong>Collection Date</strong>: 2009-08-28 17:50:05</td></tr><tr><td class='td'><strong>Connections</strong>: 11</td><td class='td'><strong>Polling time</strong>: 0.161378</td></tr></div></table></td></tr><tr><td><table><tr><td colspan='4'><div id='content'><h1>Previous Week's Activity</h1></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
+<tr><th>Host Info</th><th>Data Info</th></tr><tr><td class='td'><strong>IP Address</strong>: 127.0.0.1</td><td class='td'><strong>Data size</strong>: 48.0 MB</td></tr>
+<tr><td class='td'><strong>MySQL version</strong>: 5.0.45-log</td><td class='td'><strong>Index size</strong>: 358.0 KB</td></tr>
+<tr><td class='td'><strong>Default engine</strong>: InnoDB</td><td class='td'><strong>Total size</strong>: 48.0 MB</td></tr>
+<tr><td class='td'><strong>Uptime</strong>: 5 days</td><td class='td'><strong>InnoDB Tables</strong>: 11</td></tr>
+<tr><td class='td'><strong>Avg Load</strong>: 0.05</td><td class='td'><strong>InnoDB Size</strong>: 47.5 MB</td></tr><tr><td class='td'><strong>Memory Used</strong>:  %</td><td class='td'><strong>MyISAM Tables</strong>: 25</td></tr><tr><td class='td'><strong>Memory Size</strong>: 128.0 MB</td><td class='td'><strong>MyISAM Size</strong>: 538.3 KB</td></tr><tr><td class='td'><strong>QPS</strong>: 0.57</td><td class='td'><strong>Collection Date</strong>: 2009-08-29 21:05:04</td></tr><tr><td class='td'><strong>Connections</strong>: 11</td><td class='td'><strong>Polling time</strong>: 0.179123</td></tr></div></table></td></tr><tr><td><table><tr><td colspan='4'><div id='content'><h1>Previous Week's Activity</h1></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
 	<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"  width="240" height="130" id="kontrollbase">
 		<param name="allowScriptAccess" value="always" />
 		<param name="movie" value="http://demo01.kontrollbase.com/includes/FCF_Line.swf"/>		
@@ -110,6 +110,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.530673' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.529793' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.528949' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.528123' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.527329' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='0.527114' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.532535' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.533185' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.534129' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.533606' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.535929' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.543494' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.545572' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.545142' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.545979' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.545877' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.547667' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.548156' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.549434' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.552666' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.553421' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.557032' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.557384' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.557363' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.557359' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.557339' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.557315' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Query Rate' xAxisName='' yAxisName='Q/sec' 
@@ -203,6 +227,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.530673' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.529793' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.528949' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.528123' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.527329' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='0.527114' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.532535' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.533185' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.534129' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.533606' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.535929' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.543494' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.545572' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.545142' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.545979' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.545877' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.547667' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.548156' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.549434' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.552666' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.553421' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.557032' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.557384' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.557363' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.557359' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.557339' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.557315' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -300,6 +348,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='11' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='11' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='9' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='7' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='13' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='13' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='15' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='8' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='8' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='12' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='12' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='12' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Server Connections' xAxisName='' yAxisName='connections' 
@@ -393,6 +465,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='11' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='11' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='9' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='7' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='13' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='13' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='14' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='15' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='8' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='8' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='10' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='11' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='12' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='12' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='12' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -490,6 +586,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.011' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.031' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.021' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.021' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.061' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.041' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.041' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.011' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Load AVG 15 minute' xAxisName='' yAxisName='load avg' 
@@ -583,6 +703,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.011' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.031' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.021' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.021' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.061' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.041' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.041' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.011' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.011' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -680,6 +824,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='10145792' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS Memory Used' xAxisName='' yAxisName='ram' 
@@ -773,6 +941,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='0.001' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='10145792' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='0.001' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='0.001' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -870,6 +1062,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='100' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='99' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='99' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='OS CPU Idle' xAxisName='' yAxisName='percentage' 
@@ -963,6 +1179,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='100' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='99' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='100' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='99' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='99' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1060,6 +1300,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='27939128' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='27939128' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='28987704' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='31084856' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='32149816' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='32149836' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='33198412' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='33198412' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='36344140' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='36344140' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='38441292' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='38441292' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='38441292' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Data Size' xAxisName='' yAxisName='size' 
@@ -1153,6 +1417,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='27939128' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='27939128' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='28987704' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='30036280' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='31084856' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='31101240' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='32149816' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='32149836' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='33198412' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='33198412' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='34246988' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='36344140' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='36344140' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='37392716' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='38441292' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='38441292' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='38441292' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr><tr><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1250,6 +1538,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='301056' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='301056' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='301056' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Total Index Size' xAxisName='' yAxisName='size' 
@@ -1343,6 +1655,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='301056' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='301056' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='301056' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='301056' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1440,6 +1776,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='196.72902032398' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='196.35268516697' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='195.98644257703' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='195.62814525322' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='195.32595203605' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='195.1392644733' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='195.45779940916' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='195.78810079328' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='196.07834155256' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='195.95071412489' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='195.98597140707' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='196.86441011044' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='197.25556635734' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='197.37046786183' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='197.58467041685' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='197.78331477516' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='198.65849936414' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='199.43959714645' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='200.13044453677' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='201.19498423145' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='255.78324507807' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='256.25705457293' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='256.41678141755' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='256.55726801934' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='256.57951831158' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='256.75625372168' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='256.9263693052' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_received' xAxisName='' yAxisName='bytes/sec' 
@@ -1533,6 +1893,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='196.72902032398' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='196.35268516697' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='195.98644257703' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='195.62814525322' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='195.32595203605' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='195.1392644733' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='195.45779940916' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='195.78810079328' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='196.07834155256' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='195.95071412489' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='195.98597140707' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='196.86441011044' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='197.25556635734' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='197.37046786183' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='197.58467041685' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='197.78331477516' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='198.65849936414' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='199.43959714645' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='200.13044453677' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='201.19498423145' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='255.78324507807' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='256.25705457293' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='256.41678141755' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='256.55726801934' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='256.57951831158' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='256.75625372168' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='256.9263693052' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td><td>	<!-- START Code Block for Chart kontrollbase -->
@@ -1630,6 +2014,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='2099.8052124719' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='2126.9389496783' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='2154.038358873' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='2181.0875818271' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='2208.0939642685' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='2235.2947771049' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='2265.3440605818' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='2293.3215212319' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='2371.1837742385' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='2397.7448532499' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='2425.4712656132' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='2457.3452542943' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='2485.508884961' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='2512.0389418452' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='2539.197371989' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='2565.8221841542' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='2593.8543309312' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='2621.2176947825' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='2649.1553995292' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='2678.9276703688' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='2757.4475274949' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='2788.0884870553' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='2815.9407858815' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='2843.5359094159' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='2871.2824144005' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='2899.2378485437' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='2927.325865523' color='ff6600' showName='0'/>
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo01.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_sent' xAxisName='' yAxisName='bytes/sec' 
@@ -1723,6 +2131,30 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 <set name='08-27 21:00' value='2099.8052124719' color='ff6600' showName='0'/>
 <set name='08-27 22:00' value='2126.9389496783' color='ff6600' showName='0'/>
 <set name='08-27 23:00' value='2154.038358873' color='ff6600' showName='0'/>
+<set name='08-28 00:00' value='2181.0875818271' color='ff6600' showName='0'/>
+<set name='08-28 01:00' value='2208.0939642685' color='ff6600' showName='0'/>
+<set name='08-28 02:00' value='2235.2947771049' color='ff6600' showName='0'/>
+<set name='08-28 03:00' value='2265.3440605818' color='ff6600' showName='0'/>
+<set name='08-28 04:00' value='2293.3215212319' color='ff6600' showName='0'/>
+<set name='08-28 05:00' value='2371.1837742385' color='ff6600' showName='0'/>
+<set name='08-28 06:00' value='2397.7448532499' color='ff6600' showName='0'/>
+<set name='08-28 07:00' value='2425.4712656132' color='ff6600' showName='0'/>
+<set name='08-28 08:00' value='2457.3452542943' color='ff6600' showName='0'/>
+<set name='08-28 09:00' value='2485.508884961' color='ff6600' showName='0'/>
+<set name='08-28 10:00' value='2512.0389418452' color='ff6600' showName='0'/>
+<set name='08-28 11:00' value='2539.197371989' color='ff6600' showName='0'/>
+<set name='08-28 12:00' value='2565.8221841542' color='ff6600' showName='0'/>
+<set name='08-28 13:00' value='2593.8543309312' color='ff6600' showName='0'/>
+<set name='08-28 14:00' value='2621.2176947825' color='ff6600' showName='0'/>
+<set name='08-28 15:00' value='2649.1553995292' color='ff6600' showName='0'/>
+<set name='08-28 16:00' value='2678.9276703688' color='ff6600' showName='0'/>
+<set name='08-28 17:00' value='2757.4475274949' color='ff6600' showName='0'/>
+<set name='08-28 18:00' value='2788.0884870553' color='ff6600' showName='0'/>
+<set name='08-28 19:00' value='2815.9407858815' color='ff6600' showName='0'/>
+<set name='08-28 20:00' value='2843.5359094159' color='ff6600' showName='0'/>
+<set name='08-28 21:00' value='2871.2824144005' color='ff6600' showName='0'/>
+<set name='08-28 22:00' value='2899.2378485437' color='ff6600' showName='0'/>
+<set name='08-28 23:00' value='2927.325865523' color='ff6600' showName='0'/>
 </graph>" quality="high" width="240" height="130" name="kontrollbase" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
 	</object>
 	<!-- END Code Block for Chart kontrollbase --></td></tr></td></tr></div></table></td></tr></div></table></td></tr></body></html>
