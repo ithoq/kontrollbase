@@ -36,6 +36,8 @@ class System extends Controller {
 	  }
 
 	  $g['revision'] = trim($revid);
+	  $g['ci_version'] = $this->config->item('ci_version');
+	  $g['extjs_version'] = $this->config->item('extjs_version');
 	  $g['users'] = $this->system->get_system_quant(2);//system users
 	  $g['inactive'] = $this->system->get_system_quant(0);//inactive hosts
 	  $g['active'] = $this->system->get_system_quant(1);//active hosts
