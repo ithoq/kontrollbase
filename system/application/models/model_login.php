@@ -30,9 +30,9 @@ class Model_login extends Model
     log_message('debug', "Starting get_user from model_login");
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from system_users where system_user_name = '$system_user_name' and system_user_pass = md5('$system_user_pass')";
-
     log_message('debug', "$sql");
     $query = $dbr->query($sql);
+    if(!$query) { return 2; }
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	log_message('debug', "received matching login results from database");
