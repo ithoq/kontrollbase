@@ -22,8 +22,7 @@ function head(
 	      $index_size,
 	      $total_size,
 	      $data,
-	      $alerts,
-	      $sessionpage){
+	      $alerts) {
 
   $nroot = substr_replace($root,"",-1);
   print<<<HEAD
@@ -246,12 +245,6 @@ print "
        title: 'Servers List',
        html: "$servers",
        iconCls:'nav'
-     },{
-       title:'Session',
-       iconCls:'settings',
-       deferredRender: true,
-       listeners: {activate: refreshTab},
-       autoLoad: {url: '$nroot/includes/pages/$sessionpage'}
      }]
    },
    {
@@ -390,7 +383,6 @@ head(
      $index_size,
      $total_size,
      $data,
-     $alerts,
-     $sessionpage);
+     $alerts);
 
 ?>

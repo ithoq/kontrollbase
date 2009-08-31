@@ -67,27 +67,6 @@ if($user_role_tier == 0) {$sess_tier = "Admin";}
 elseif($user_role_tier == 1) {$sess_tier ="Standard";}
 elseif($user_role_tier == 2) {$sess_tier ="Client";}
 
-$sessiondata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
-
-<link rel="stylesheet" type="text/css" href="'.$nroot.'/includes/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="'.$nroot.'/userguide/css/userguide-nofluff.css" />
-</head>
-<body>
-<table>
-<tr><td>User: </td><td>'.$user_system_user_name.'</td></tr>
-<tr><td>Client: </td><td>'.$user_server_client_name.'</td></tr>
-<tr><td>Role: </td><td>'.$sess_tier.'</td></tr>
-<tr><td>Logout: </td><td><a href="'.$nroot.'/index.php/login/logout/" target="_self"><img src="'.$nroot.'/includes/images/off.png" width="20px" height="20px"></a></td></tr>
-</table>
-</body>
-</html>';
- $sessionpage = "session.php";
-
-
 $g['data_size'] = $size_data;
 $g['index_size'] = $size_index;
 $g['total_size'] = $size;
@@ -95,7 +74,6 @@ $g['root'] = $root;
 $g['server_list'] = $server_list;
 $g['dir'] = $dir;
 $g['overview'] = $overviewpage;
-$g['sessionpage'] = $sessionpage;
 $g['data'] = $data;
 $g['alerts'] = $alerts;
 $g['user_system_user_name'] = $user_system_user_name;
@@ -103,7 +81,6 @@ $g['user_server_client_name'] = $user_server_client_name;
 $g['sess_tier'] = $sess_tier;
 
 if ( ! write_file("$dir/includes/pages/$overviewpage", $overview)){echo 'Unable to write the overview file'; }
-if ( ! write_file("$dir/includes/pages/$sessionpage", $sessiondata)){echo 'Unable to write the session file'; }
 $g['summary'] = "summary";
 
 if($client_id == 0) {

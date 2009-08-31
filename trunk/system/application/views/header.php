@@ -22,8 +22,7 @@ function head(
 	      $index_size,
 	      $total_size,
 	      $data,
-	      $alerts,
-	      $sessionpage){
+	      $alerts){
 
   $nroot = substr_replace($root,"",-1);
   print<<<HEAD
@@ -439,7 +438,6 @@ head(
      $index_size,
      $total_size,
      $data,
-     $alerts,
-     $sessionpage);
+     $alerts);
 
 ?>
