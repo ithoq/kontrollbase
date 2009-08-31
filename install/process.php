@@ -104,6 +104,20 @@ function mkRandPasswd()
 $salt = date('l jS \of F Y h:i:s A U').mkRandPasswd();
 $ENCRYPTION_KEY = md5(md5($salt.$salt));
 
+logger("Starting get_revision function",$INSTALL_LOG);
+$version_file = "$BASE_DIR/version.txt"; // we initially get this from subverion on each commit                                                                                                                                                                               
+logger("version_file:$version_file",$INSTALL_LOG);
+$handle = fopen($version_file, "r");
+if(!$handle) {
+  logger("Failed to get version from $BASE_DIR/version.txt",$INSTALL_LOG);
+  echo "{success: false, errors: { reason: Failed to open version.txt file' }}";
+ }
+ else {
+   $revid = fgets ($handle);
+   $revid = trim($revid);
+   logger("revid:$revid",$INSTALL_LOG);
+ }
+
 //db
 $dbfile='<?php  
 /**
@@ -210,10 +224,10 @@ $config[\'global_xss_filtering\'] = TRUE;
 $config[\'compress_output\'] = FALSE;
 $config[\'time_reference\'] = \'local\';
 $config[\'rewrite_short_tags\'] = FALSE;
-$config[\'ci_version\'] = \'1.7.0\'; #CodeIgniter Framework Version
-$config[\'extjs_version\'] = \'3.0.0\'; #ExtJS Framework Version
-$config[\'kb_version\'] = \'2.0.1\'; #Kontrollbase major version
-$config[\'kb_revision\'] = "'.$revid.'"; #Kontrollbase revision number
+$config[\'ci_version\'] = \'1.7.0\'; // CodeIgniter Framework Version
+$config[\'extjs_version\'] = \'3.0.0\'; // ExtJS Framework Version
+$config[\'kb_version\'] = \'2.0.1\'; // Kontrollbase major version
+$config[\'kb_revision\'] = "'.$revid.'"; //Kontrollbase revision number
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
 ?>';
@@ -380,23 +394,7 @@ function check_prerequisites_perl($INSTALL_LOG) {
   }
 }
 
-function get_revision($INSTALL_LOG,$BASE_DIR) {
-  logger("Starting get_revision function",$INSTALL_LOG);
-  $version_file = "$BASE_DIR/version.txt"; // we initially get this from subverion on each commit
-  logger("version_file:$version_file",$INSTALL_LOG);
-  $handle = fopen($version_file, "r");
-  if(!$handle) {
-    logger("Failed to get version from $BASE_DIR/version.txt",$INSTALL_LOG);
-    echo "{success: false, errors: { reason: Failed to open version.txt file' }}";
-  }
-  else {
-    $revid = fgets ($handle);
-    logger("revid:$revid",$INSTALL_LOG);
-  }
-}
-
 logger("Installation beginning",$INSTALL_LOG);
-get_revision($INSTALL_LOG,$BASE_DIR); //populate revid value for config.php file
 $s0 = check_prerequisites_php($INSTALL_LOG);
 if($s0 == 0) {
   $s1 = check_prerequisites_perl($INSTALL_LOG);
