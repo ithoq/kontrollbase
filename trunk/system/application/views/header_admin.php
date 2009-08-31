@@ -38,6 +38,7 @@ function head(
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
+<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/kb_extras.css" />
 
 <style type="text/css">
     .settings {
@@ -213,7 +214,20 @@ print "
      text: 'Goto Environment',
      handler: function() {
        window.location = '$nroot/index.php';}
-   }]},
+   },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
+     id: this.id + 'AuditButton',
+     cls: 'x-btn-icon audit-button',
+     tooltip: 'Contact Support',
+     handler: function() {
+       window.location = 'http://kontrollsoft.com/support';},
+     scope: this,     
+   }
+       ]},
   {
    title: 'Critical Environment Alerts',
    region: 'south',

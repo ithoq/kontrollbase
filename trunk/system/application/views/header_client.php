@@ -204,7 +204,20 @@ print "
      text: 'Goto Environment',
      handler: function() {
        window.location = '$nroot/index.php';}
-   }]},
+   },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
+     id: this.id + 'AuditButton',
+     cls: 'x-btn-icon audit-button',
+     tooltip: 'Contact Support',
+     handler: function() {
+       window.location = 'http://kontrollsoft.com/support';},
+     scope: this,
+   }
+       ]},
    {
    title: 'Critical Environment Alerts',
    region: 'south',
