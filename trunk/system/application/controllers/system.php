@@ -24,18 +24,7 @@ class System extends Controller {
 	  $schema = $this->config->item('schema_readonly_name');
 	  log_message('debug', "Controller System started.");
 
-	  $version_file = "./version.txt";
-	  $handle = fopen($version_file, "r");
-	  if(!$handle) { 
-	    log_message('debug', "Version file failed to open. file: $version_file");
-	  }
-	  else {
-	    $revid = fgets ($handle);
-	    //	    $revid = str_replace('$', "", $revid);
-	    //	    $revid = substr($revid,-5);	
-	  }
-
-	  $g['revision'] = trim($revid);
+	  $g['revision'] = $this->config->item('kb_revision');
 	  $g['ci_version'] = $this->config->item('ci_version');
 	  $g['extjs_version'] = $this->config->item('extjs_version');
 	  $g['users'] = $this->system->get_system_quant(2);//system users
@@ -50,7 +39,6 @@ class System extends Controller {
 	  $g['root'] = $this->config->item('base_url');
 	  
 	  $this->load->view('system/settings',$g);
-	  //	  $this->load->view('system/index',$g);
         }
 	
 	//the data_prune functionality was removed in revision 102 - feel free to delete the function
@@ -76,7 +64,8 @@ class System extends Controller {
 	    show_error("This is a general failure message.");
 	  }
 	}	
-	
+
+	// this seems to have no place since the index() function serves the settings view. let's delete this at revision 150, eh?
 	function settings() {
 	  check();
           $this->load->model('Model_system', 'system');

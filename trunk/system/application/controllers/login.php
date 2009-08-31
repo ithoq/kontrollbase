@@ -32,7 +32,6 @@ class Login extends Controller {
 
 	function logout() {
 	  $user_system_user_name = $this->phpsession->get('user_system_user_name');
-	  audit('5','');
 	  log_message('debug', "Logout called for user $user_system_user_name");
 	  $this->phpsession->clear('server_client_id');
 	  $this->phpsession->clear('user_role_tier');
@@ -66,17 +65,41 @@ class Login extends Controller {
 	    if($state == 0) {
 	      log_message('debug', "redirecting to main");
 	      $user_system_user_id = $this->phpsession->get('user_system_user_id');
-	      audit($user_system_user_id,'3','');
-	      log_message('debug', "Login controller: JSON = {success: true}");
-	      echo "{success: true}"; //JSON wooo!
+	      $last_login = $this->login->record_login($user_system_user_id); //update the system_users table for last login date
+	      if($last_login == 1) { // database connection for 'write' account is not working
+		log_message('debug',"Database write access incorrect. Please check database configuration.");
+		$this->phpsession->clear('server_client_id');
+		$this->phpsession->clear('user_role_tier');
+		$this->phpsession->clear('user_system_user_id');
+		$this->phpsession->clear('user_system_user_name');
+		$this->phpsession->clear('user_system_user_email');
+		$this->phpsession->clear('logged_in');
+		echo "{success: false, errors: { reason: 'Database write permissions incorrect. Please check config file.' }}";
+	      }
+	      else {
+		log_message('debug', "Login controller: JSON = {success: true}");
+		echo "{success: true}"; 
+	      }
 	    }
 	    elseif($state == 1) { 
+	      $this->phpsession->clear('server_client_id');
+	      $this->phpsession->clear('user_role_tier');
+	      $this->phpsession->clear('user_system_user_id');
+	      $this->phpsession->clear('user_system_user_name');
+	      $this->phpsession->clear('user_system_user_email');
+	      $this->phpsession->clear('logged_in');
               log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Login failed. Please retry.' }}");
 	      echo "{success: false, errors: { reason: 'Login failed. Please retry.' }}";
 	    }
 	    elseif($state == 2) {
-              log_message('debug',"{success: false, errors: { reason: 'Database access incorrect. Please check database configuration.' }}");
-              echo "{success: false, errors: { reason: 'Database access incorrect. Please check database configuration.' }}";
+	      $this->phpsession->clear('server_client_id');
+	      $this->phpsession->clear('user_role_tier');
+	      $this->phpsession->clear('user_system_user_id');
+	      $this->phpsession->clear('user_system_user_name');
+	      $this->phpsession->clear('user_system_user_email');
+	      $this->phpsession->clear('logged_in');
+	      log_message('debug',"Database read access incorrect. Please check database configuration.");
+              echo "{success: false, errors: { reason: 'Database read access incorrect. Please check database configuration.' }}";
             }
 	    else {
 	      show_error("This is a general failure message.");

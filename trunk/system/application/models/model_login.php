@@ -26,13 +26,23 @@ class Model_login extends Model
     parent::Model();
   }
 
+  function record_login($system_user_id) {
+    log_message('debug', "Logging user's last login");
+    $dbr = $this->load->database('write', TRUE);
+    $sql = "update system_users set system_user_last_login = NOW() where id = '$system_user_id' limit 1";
+    log_message('debug', "$sql");
+    $query = $dbr->query($sql);
+    if(!$query) { return 1; } //we return state "2" because the write access database account is incorrectly setup
+    else { return 0; }
+  }
+
   function get_user($system_user_name,$system_user_pass) {
     log_message('debug', "Starting get_user from model_login");
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from system_users where system_user_name = '$system_user_name' and system_user_pass = md5('$system_user_pass')";
     log_message('debug', "$sql");
     $query = $dbr->query($sql);
-    if(!$query) { return 2; }
+    if(!$query) { return 2; } //we return state "2" because the read access database account is incorrectly setup
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	log_message('debug', "received matching login results from database");
@@ -52,6 +62,7 @@ class Model_login extends Model
 	$this->phpsession->save('logged_in',TRUE);
 
 	log_message('debug', "logged_in state == TRUE");
+	
 	return 0;
       }
     }

@@ -858,6 +858,7 @@ CREATE TABLE `system_users` (
   `server_client_id` int(11) NOT NULL default '0' COMMENT '0 = not associated with a client, can see all clients. If set to a number other than 0, limited to that client view.',
   `role_tier` tinyint(4) NOT NULL COMMENT '0 = admin, 1 = standard, 2 = client',
   `creation_time` datetime NOT NULL,
+  `system_user_last_login` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `system_user_name_uix` (`system_user_name`),
   UNIQUE KEY `system_user_email_uix` (`system_user_email`),
@@ -888,17 +889,8 @@ CREATE TABLE `system_users_audit` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `system_users_audit`
---
 
-LOCK TABLES `system_users_audit` WRITE;
-/*!40000 ALTER TABLE `system_users_audit` DISABLE KEYS */;
-INSERT INTO `system_users_audit` (`id`, `system_user_id`, `system_pages_id`, `system_pages_attribute`, `Creation_time`) VALUES (1,9,5,0,'2009-04-29 09:39:31'),(2,9,9,3,'2009-04-29 10:30:46'),(3,9,5,0,'2009-04-29 10:33:12'),(4,9,9,3,'2009-04-29 10:33:35'),(5,9,5,0,'2009-04-29 10:46:37'),(6,9,9,3,'2009-04-29 10:46:46'),(7,9,5,0,'2009-04-29 10:54:43'),(8,9,9,3,'2009-04-29 10:54:53'),(9,9,9,3,'2009-04-29 11:22:37'),(10,9,9,3,'2009-04-29 17:48:21'),(11,9,9,3,'2009-05-01 15:03:15'),(12,9,9,3,'2009-05-05 08:56:12');
-/*!40000 ALTER TABLE `system_users_audit` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
