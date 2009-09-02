@@ -294,7 +294,7 @@ $engine_innodb_size_total],
      },
      items: [{
        title: 'Servers List',
-       html: '$servers',
+       html: \"$servers\",
        autoScroll: true,
        animScroll: true,
        iconCls:'nav'
@@ -415,16 +415,12 @@ $engine_innodb_size_total],
  $base = $CI->config->item('base_dir');
  $CI->load->library('jsmin');
  $jString = $CI->jsmin->minify($jsfile);
- $page_name = "header.js";
- $header_file = "$base/includes/pages/$page_name";
- if (!write_file($header_file, $jString)){
-   echo "Unable to write the header file: $header_file"; 
-   log_message('debug', "$header_file not written");
- }
- log_message('debug', "$header_file written");
- // $jFile = $CI->jsmin->minify(file_get_contents($header_file, 'r')); 
- print "\n<script type=\"text/javascript\" src=\"$nroot/includes/pages/$page_name\"></script>";
- print "\n</head>\n";
+
+ print "\n<script type=\"text/javascript\">
+$jString
+</script>
+</head>
+";
   }
 
 $nroot = substr_replace($root,"",-1);

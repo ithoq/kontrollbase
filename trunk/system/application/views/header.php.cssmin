@@ -32,10 +32,17 @@ function head(
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
+HEAD;
 
-<link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
+  $CI = get_instance();
+  $base = $CI->config->item('base_dir');
+  $CI->load->library('cssmin');
+  $css_style = $CI->cssmin->minify( file_get_contents("$nroot/includes/style.css") );
+  
+
+  print<<<HEAD
+<link rel="stylesheet" type="text/css" href="$css_style" />
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
-<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/kb_extras.css" />
