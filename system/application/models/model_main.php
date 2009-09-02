@@ -2166,9 +2166,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 
 	$val1 = ($val1 / $Uptime);
 	if($val1 < 1) { $val1 = $val1 + .001; }
-	//	if($i % 2) {
 	$strXML .= "<set name='$val2' value='$val1' color='ff6600' showName='0'/>\n";
-	  //}
 	$i++;
       }
     }

@@ -152,6 +152,7 @@ function check_install() {
 
   $sysconfig="$syspath/system/application/config/config.php";
   $sysdatabase="$syspath/system/application/config/database.php";
+  //  $d_cache = "$syspath/system/cache"; // might want to be checking this too...
   $d_logs = "$syspath/system/logs";
   $d_includes = "$syspath/includes";
   $d_config = "$syspath/system/application/config";
