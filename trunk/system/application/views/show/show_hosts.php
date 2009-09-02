@@ -84,7 +84,7 @@ foreach($server_list as $key => $value) {
   elseif($active == 2) { $active="'<img src=\"$nroot/includes/images/Record-Problem-Red-24x24.png\" width=\"18px\" height=\"18px\">'";}
   else { $active="NULL";}
 
-  print "[$active,'$server_client_name','$server_hostname','$server_ipaddress','$server_type','$server_is_slave','$threshold_queries_per_second','$threshold_seconds_behind_master','<a href=\"$nroot/index.php/edit/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
+  print "[$active,'$server_client_name','$server_hostname','$server_ipaddress','$server_type','$server_is_slave','$threshold_queries_per_second','$threshold_seconds_behind_master','<a href=\"$nroot/index.php/edit/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\">','<a href=\"$nroot/index.php/delete/check/host/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
    $r++;
    if($r<$u) { print ",\n";} 
    else { 
