@@ -56,13 +56,14 @@ print<<<HEAD
 <script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
-
-<script type="text/javascript">
- Ext.onReady(function() {  
- Ext.QuickTips.init();
 HEAD;
 
- print "    
+ $jsfile = "
+ Ext.onReady(function() {  
+ Ext.QuickTips.init();
+";
+
+ $jsfile .= "    
 var alertData = [";
  $r=0;
  $u=count($alerts);
@@ -83,12 +84,12 @@ var alertData = [";
    elseif($alert_level == 2) { $alert_level= 'info';}
 
    // here we need hover pop up thing for the $alerts_current_id column: we need to display $alert_desc, $alert_links, $alert_solution
-   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']";
+   $jsfile .= "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']";
    $r++;
-   if($r<$u) { print ",\n";} else { print "\n];\n";}
+   if($r<$u) { $jsfile .= ",\n";} else { $jsfile .= "\n];\n";}
  }
 
- print "    
+ $jsfile .= "    
 var summaryData = [";
 
  $queries_per_second_c=0;
@@ -123,7 +124,7 @@ var summaryData = [";
      if($k == 'engine_myisam_size_total') { $engine_myisam_size_total=$v; $engine_myisam_size_total_c += $engine_myisam_size_total;}
      if($k == 'engine_innodb_size_total') { $engine_innodb_size_total=$v; $engine_innodb_size_total_c += $engine_innodb_size_total;}
    }
-    print "
+   $jsfile .= "
   ['$server_hostname',
 $os_load_15,
 $mem_perc,
@@ -140,7 +141,7 @@ $engine_innodb_size_total],
  }
  //print the last data line for summary information - totals
  //ADDED EMPTY QUOTES TO THE TWO LINES BELOW "Total Values" - might help IE7?
-print "
+ $jsfile .= "
 ['Total Values',
  ,
  ,
@@ -156,7 +157,7 @@ print "
 
 ";
 
- print<<<HEAD
+ $jsfile .="
  var detailEl;
  
  var contentPanel = {
@@ -177,7 +178,7 @@ print "
 
  var border = {
  id:'border-panel',
- title: '<img src="$nroot/includes/images/kontrollbase_logo-trans32.png" align="center">',
+ title: '<img src=\"$nroot/includes/images/kontrollbase_logo-trans32.png\" align=\"center\">',
  layout:'border',
  region:'center',
  bodyBorder: false,
@@ -242,7 +243,7 @@ print "
    columns: [
    {
      id: 'id', 
-     header: "id", 
+     header: 'id', 
      width: 60, 
      sortable: true, 
      renderer: 'undef', 
@@ -250,7 +251,7 @@ print "
    },
    {
      id: 'server', 
-     header: "server", 
+     header: 'server', 
      width: 160, 
      sortable: true, 
      renderer: 'undef', 
@@ -258,7 +259,7 @@ print "
    },
    {
      id: 'state', 
-     header: "state", 
+     header: 'state', 
      width: 35, 
      sortable: true, 
      renderer: 'undef', 
@@ -266,7 +267,7 @@ print "
    },
    {
      id: 'name', 
-     header: "name", 
+     header: 'name', 
      width: 200, 
      sortable: true, 
      renderer: 'undef', 
@@ -293,7 +294,7 @@ print "
      },
      items: [{
        title: 'Servers List',
-       html: "$servers",
+       html: '$servers',
        autoScroll: true,
        animScroll: true,
        iconCls:'nav'
@@ -345,18 +346,18 @@ print "
 	      ]
 	 }),
    columns: [
-   {id: 'hostname', header: "server hostname", width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
-   {id: 'load', header: "load", width: 45, sortable: true, renderer: 'undef', dataIndex: 'load'},
-   {id: 'mem_used', header: "mem%", width: 50, sortable: true, renderer: 'undef', dataIndex: 'mem_used'},
-   {id: 'QPS', header: "QPS", width: 50, sortable: true, renderer: 'undef', dataIndex: 'QPS'},
-   {id: 'schema', header: "schema", width: 55, sortable: true, renderer: 'undef', dataIndex: 'schema'},
-   {id: 'tables', header: "tables", width: 55, sortable: true, renderer: 'undef', dataIndex: 'tables'},
-   {id: 'conn', header: "#conn", width: 55, sortable: true, renderer: 'undef',dataIndex: 'conn'},
-   {id: 'total_size', header: "total size", width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
-   {id: 'num_innodb', header: "#innodb", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_innodb'},
-   {id: 'num_myisam', header: "#myisam", width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_myisam'},
-   {id: 'myisam_total', header: "myisam_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
-   {id: 'innodb_total', header: "innodb_total", width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'}
+   {id: 'hostname', header: 'server hostname', width: 80, sortable: true, renderer: 'lowercase', dataIndex: 'hostname'},
+   {id: 'load', header: 'load', width: 45, sortable: true, renderer: 'undef', dataIndex: 'load'},
+   {id: 'mem_used', header: 'mem%', width: 50, sortable: true, renderer: 'undef', dataIndex: 'mem_used'},
+   {id: 'QPS', header: 'QPS', width: 50, sortable: true, renderer: 'undef', dataIndex: 'QPS'},
+   {id: 'schema', header: 'schema', width: 55, sortable: true, renderer: 'undef', dataIndex: 'schema'},
+   {id: 'tables', header: 'tables', width: 55, sortable: true, renderer: 'undef', dataIndex: 'tables'},
+   {id: 'conn', header: '#conn', width: 55, sortable: true, renderer: 'undef',dataIndex: 'conn'},
+   {id: 'total_size', header: 'total size', width: 65, sortable: true, renderer: 'fileSize', dataIndex: 'total_size'},
+   {id: 'num_innodb', header: '#innodb', width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_innodb'},
+   {id: 'num_myisam', header: '#myisam', width: 65, sortable: true, renderer: 'undef', dataIndex: 'num_myisam'},
+   {id: 'myisam_total', header: 'myisam_total', width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'myisam_total'},
+   {id: 'innodb_total', header: 'innodb_total', width: 75, sortable: true, renderer: 'fileSize', dataIndex: 'innodb_total'}
 	     ],
    stripeRows: true,
    autoExpandColumn: 'hostname',
@@ -408,12 +409,22 @@ print "
        renderTo: Ext.getBody()
        });
    });
-  
-  </script>
-      
-      
-</head>
-HEAD;
+";      
+ 
+ $CI = get_instance();
+ $base = $CI->config->item('base_dir');
+ $CI->load->library('jsmin');
+ $jString = $CI->jsmin->minify($jsfile);
+ $page_name = "header.js";
+ $header_file = "$base/includes/pages/$page_name";
+ if (!write_file($header_file, $jString)){
+   echo "Unable to write the header file: $header_file"; 
+   log_message('debug', "$header_file not written");
+ }
+ log_message('debug', "$header_file written");
+ // $jFile = $CI->jsmin->minify(file_get_contents($header_file, 'r')); 
+ print "\n<script type=\"text/javascript\" src=\"$nroot/includes/pages/$page_name\"></script>";
+ print "\n</head>\n";
   }
 
 $nroot = substr_replace($root,"",-1);
