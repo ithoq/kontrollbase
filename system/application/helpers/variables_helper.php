@@ -14,14 +14,33 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 function check_variables() {
   $CI = get_instance();
-  $compress = $CI->config->item('compress_output');
+  $base = $CI->config->item('base_dir'); 
+  $config = "$base/system/application/config/config.php";
+  $compress = $CI->config->item('compress_output'); // needs to be false
+  $sessdb = $CI->config->item('sess_use_database'); // needs to be false
+  $sessip = $CI->config->item('sess_match_ip'); // needs to be TRUE 
+  $sessuser = $CI->config->item('sess_match_useragent'); // needs to be TRUE
+  $sessencrypt = $CI->config->item('sess_encrypt_cookie'); // needs to be TRUE                                                                        
 
   if($compress == TRUE) {
     log_message('debug', "ERROR: compress_output is enabled in the config. TURN IT OFF.");
-    show_error("ERROR: compress_output is enabled, login functions will not work with this setting enabled. Please set it to FALSE in the system/application/config/config.php file.");
+    show_error("ERROR: compress_output is enabled. Set it to FALSE in the $config file.");
   }
-  else {
-    log_message('debug', "CHECK: compress_output is disabled. Good, all is well. Continuing.");
+  if($sessdb == TRUE) {
+    log_message('debug', "ERROR: sess_use_database is enabled in the config. TURN IT OFF.");
+    show_error("ERROR: sess_use_database is enabled. Set it to FALSE in the $config file");
+  }
+  if($sessip == FALSE) {
+    log_message('debug', "ERROR: sess_match_ip is not enabled in the config. TURN IT ON.");
+    show_error("ERROR: sess_match_ip is not enabled. Set it to TRUE in the $config file");
+  }
+  if($sessuser == FALSE) {
+    log_message('debug', "ERROR: sess_match_useragent is not enabled in the config. TURN IT ON.");
+    show_error("ERROR: sess_match_useragent is not enabled. Set it to TRUE in the $config file");
+  }
+  if($sessencrypt == FALSE) {
+    log_message('debug', "ERROR: sess_encrypt_cookie is not enabled in the config. TURN IT ON.");
+    show_error("ERROR: sess_encrypt_cookie is not enabled. Set it to TRUE in the $config file");
   }
 }
 

@@ -19,7 +19,7 @@ class Main extends Controller {
   }
 
   function index() {	  
-    $this->load->model('Model_main', 'main');
+    $this->load->model('Model_main', 'main');  
     log_message('debug', "main_index function called");
 
     check_variables(); // ensure compress_output is set to FALSE in the config
