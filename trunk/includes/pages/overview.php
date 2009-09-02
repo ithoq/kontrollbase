@@ -152,7 +152,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 		<param name="allowScriptAccess" value="always" />
 		<param name="movie" value="http://demo02.kontrollbase.com/includes/FCF_Line.swf"/>		
 		<param name="FlashVars" value="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_received' xAxisName='' yAxisName='bytes/sec' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='0'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
@@ -160,7 +160,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo02.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_received' xAxisName='' yAxisName='bytes/sec' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='0'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
@@ -172,7 +172,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 		<param name="allowScriptAccess" value="always" />
 		<param name="movie" value="http://demo02.kontrollbase.com/includes/FCF_Line.swf"/>		
 		<param name="FlashVars" value="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_sent' xAxisName='' yAxisName='bytes/sec' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='0'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
@@ -180,7 +180,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 </graph>" />
 		<param name="quality" value="high" />
 		<embed src="http://demo02.kontrollbase.com/includes/FCF_Line.swf" FlashVars="&chartWidth=240&chartHeight=130&dataXML=<graph caption='Bytes_sent' xAxisName='' yAxisName='bytes/sec' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='0'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
