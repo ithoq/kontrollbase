@@ -33,7 +33,7 @@ class Model_main extends Model
     $page_id = $this->db->escape_str($page_id);
     $host_id = $this->db->escape_str($host_id);
 
-    $sql0="INSERT INTO `system_users_audit` (
+    $sql0="INSERT DELAYED INTO `system_users_audit` (
 `id` ,
 `system_user_id` ,
 `system_pages_id` ,
