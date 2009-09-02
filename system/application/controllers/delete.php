@@ -19,8 +19,20 @@ class Delete extends Controller {
 	}
 
 	function index() {
+          $this->load->view('delete/index');
+        }
+
+	function check() {
 	  check();
-	  $this->load->view('delete/index');
+	  $type = ($this->uri->segment(3))?$this->uri->segment(3):0;
+	  $id =  ($this->uri->segment(4))?$this->uri->segment(4):0;
+	  $g['type'] = $type;
+	  $g['id'] = $id;
+	  log_message('debug', "delete check function started. type:$type, id:$id");
+	  $converted_type = $type."s";
+	  $g['page'] = "show/$converted_type/";
+	  $g['root'] = $this->config->item('base_url');
+	  $this->load->view('delete/check',$g);
         }
 
 	function host() {
