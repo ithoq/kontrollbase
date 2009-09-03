@@ -45,6 +45,18 @@ and 64bit architectures. Other choices would be ppc, sparc, power, etc.</li>
 <li>"$release" refers to the version of Kontrollbase, like 2.0.1</li>
 </ul>
 
+<strong>Directories</strong>
+The following directories within your installation location have special permissions requirements. 
+The installer will check for the webserver permissions requirements but since it does not know
+what user you will have running the server scripts, it will not check for that - so please be aware
+of this when you are setting up the user that will run the scripts as they write out their debug/error
+information to the /system/logs directory.
+<ul>
+ <li>system/logs -> this needs to be writeable by both the webserver and the kontrollbase script user.</li>
+ <li>system/application/config -> this needs to be writeable by the webserver process user</li>
+ <li>includes/ -> this needs to be writeable by the webserver process user</li> 
+</ul>
+
 <strong>Files</strong>
 <ul>
  <li>Webapp files
