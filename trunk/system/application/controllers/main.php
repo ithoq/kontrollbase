@@ -28,6 +28,7 @@ class Main extends Controller {
     auth(); // check user authentication, if not authenticated, redirect to login controller
     //    version_check(); // check to see if a newer version is available
     log_message('debug', "main_index init checks finished, continuing...");
+    set_session_vars(); // set session variables [ variables_helper.php ]
 
     $server_list_id = "0"; //we do this to get get_grahs_default to display overall environment data    
     $prevWeek = time() - (7 * 24 * 60 * 60);

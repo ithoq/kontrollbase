@@ -12,6 +12,17 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
    * @link http://kontrollbase.com
    */
 
+// SET SESSION VARIABLES THAT ARE NEEDED FOR SOME CONTROLLERS/MODELS
+function set_session_vars() {
+  $CI = get_instance();
+  $CI->load->model('Model_system', 'system');
+  $settings = $this->system->get_settings();
+  $system_graph_animation_enable = $settings[0]['system_graph_animation_enable'];
+  $CI->phpsession->save('sess_system_graph_animation_enable',"$system_graph_animation_enable");
+  log_message('debug', "set_session_vars function: sess_system_graph_animation_enable session var = $system_graph_animation_enable");
+}
+
+// ENSURE THAT VARIOUS config.php VALUES ARE SET TO THE NECESSARY VALUES FOR PROPER OPERATION
 function check_variables() {
   $CI = get_instance();
   $base = $CI->config->item('base_dir'); 

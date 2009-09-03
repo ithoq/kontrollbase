@@ -88,22 +88,28 @@ class System extends Controller {
 	  check();
 	  $this->load->model('Model_system', 'system');
 	  $this->load->library('form_validation');  
-
+	  
 	  $this->form_validation->set_rules('system_alerts_email', 'system_alerts_email', 'trim|required|valid_email');
 	  $this->form_validation->set_rules('system_hostname', 'system_hostname', 'trim|required');
-
+	  //$this->form_validation->set_rules('system_graph_animation_enable', 'system_graph_animation_enable', 'trim|required');
+	  
 	  $system_alerts_email = $this->input->post('system_alerts_email');
 	  $system_hostname = $this->input->post('system_hostname');
-	    
-	  $g['root'] = $this->config->item('base_url');
-
+	  $system_graph_animation_enable = $this->input->post('system_graph_animation_enable');
+	  
+	  if($system_graph_animation_enable == "on") { $system_graph_animation_enable = '1'; }
+	  if(!$system_graph_animation_enable) { $system_graph_animation_enable = '0'; }
+	  log_message('debug', "system_graph_animation_enable:$system_graph_animation_enable");
+	  
 	  if ($this->form_validation->run() == FALSE) {    
-	    log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Update failed. Please retry.' }}");
-	    echo "{success: false, errors: { reason: 'Update failed. Please retry.' }}";
+	    log_message('debug', "System:subedit system_alerts_email:$system_alerts_email, system_hostname:$system_hostname, system_graph_animation_enable:$system_graph_animation_enable");
+	    log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Form validation failed. Please retry.' }}");
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.' }}";
 	  }
 	  else {
 	    $state = $this->system->edit_settings($system_alerts_email,
-						$system_hostname);
+						  $system_hostname,
+						  $system_graph_animation_enable);
 	    if($state == 0) {
 	      log_message('debug', "Login controller: JSON = {success: true}");
 	      echo "{success: true}"; //JSON wooo!

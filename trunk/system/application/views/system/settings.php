@@ -14,6 +14,7 @@ $g['root'] = $root;
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
 $system_alerts_email = $settings[0]['system_alerts_email'];
 $system_hostname = $settings[0]['system_hostname'];
+$system_graph_animation_enable = $settings[0]['system_graph_animation_enable'];
 $stats_data=byte_format($stat_size[0]["DATA_LENGTH"]);
 $stats_index=byte_format($stat_size[0]["INDEX_LENGTH"]);
 $stats_total = byte_format(($stat_size[0]["DATA_LENGTH"]) + ($stat_size[0]["INDEX_LENGTH"]));
@@ -21,6 +22,8 @@ $report_data=byte_format($report_size[0]["DATA_LENGTH"]);
 $report_index=byte_format($report_size[0]["INDEX_LENGTH"]);
 $report_total= byte_format(($report_size[0]["DATA_LENGTH"]) + ($report_size[0]["INDEX_LENGTH"]));
 if($revision != "") { $revision = "revision $revision"; }
+if($system_graph_animation_enable == 0) { $system_graph_animation_enable = "false";} 
+elseif($system_graph_animation_enable == 1) { $system_graph_animation_enable = "true";}
 
 print<<<HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -138,6 +141,13 @@ print<<<HEAD
                                  value: '$report_total',
                                  disabled: true,
                                  allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Graph animation',
+                                 name:'system_graph_animation_enable',
+				 xtype: 'checkbox',
+                                 checked: $system_graph_animation_enable,
+				 boxLabel: ' check to enable'
                                  },
 			     { 
 			     fieldLabel:'Alert Email', 
