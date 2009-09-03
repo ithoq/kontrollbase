@@ -71,6 +71,7 @@ class Main extends Controller {
     log_message('debug', "main_host function called");
     auth();
     log_message('debug', "main_host auth check finished, continuing...");
+    set_session_vars(); // set session variables [ variables_helper.php ]
 
     memcache_start(); // start memcache if enabled in config
     $this->load->model('Model_main', 'main');

@@ -14,9 +14,10 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 // SET SESSION VARIABLES THAT ARE NEEDED FOR SOME CONTROLLERS/MODELS
 function set_session_vars() {
+  log_message('debug', "variables_helper: set_session_vars starting.");
   $CI = get_instance();
   $CI->load->model('Model_system', 'system');
-  $settings = $this->system->get_settings();
+  $settings = $CI->system->get_settings();
   $system_graph_animation_enable = $settings[0]['system_graph_animation_enable'];
   $CI->phpsession->save('sess_system_graph_animation_enable',"$system_graph_animation_enable");
   log_message('debug', "set_session_vars function: sess_system_graph_animation_enable session var = $system_graph_animation_enable");
