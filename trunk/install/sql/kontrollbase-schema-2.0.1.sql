@@ -1,6 +1,6 @@
 -- MySQL dump 10.11
 --
--- Host: localhost    Database: kontrollbase
+-- Host: localhost    Database: kontrollbase_demo02
 -- ------------------------------------------------------
 -- Server version	5.0.45-log
 
@@ -795,6 +795,7 @@ CREATE TABLE `system_main` (
   `system_owner_name` varchar(255) NOT NULL default 'Kontrollsoft',
   `system_alerts_email` varchar(255) NOT NULL default 'null@kontrollsoft.com',
   `system_hostname` varchar(255) NOT NULL default 'kontrollbase.null.com',
+  `system_graph_animation_enable` tinyint(1) NOT NULL default '0' COMMENT '0 disable, 1 enabled',
   PRIMARY KEY  (`system_version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -804,7 +805,7 @@ CREATE TABLE `system_main` (
 
 LOCK TABLES `system_main` WRITE;
 /*!40000 ALTER TABLE `system_main` DISABLE KEYS */;
-INSERT INTO `system_main` VALUES ('2.0.1-GA','For help please go to http://kontrollsoft.com/kontrollbase/userguide/toc.php','============================================\r\n This is a Kontrollbase alert notiofication \r\n============================================\r\nState:       $alert_state\r\nCustomer:    $server_client_name\r\nCheck:       Kontrollbase -> MySQL Alert -> $hostname\r\nBegin Time:  $date\r\nMessage:\r\n$alert_name\r\n$alert_category\r\n$alert_description\r\n$alert_solution\r\n\r\nFor more information please read the following documentation\r\n$alert_links\r\n','Kontrollsoft','email@null.com','localhost.localdomain');
+INSERT INTO `system_main` VALUES ('2.0.1-GA','For help please go to http://kontrollsoft.com/kontrollbase/userguide/toc.php','============================================\r\n This is a Kontrollbase alert notiofication \r\n============================================\r\nState:       $alert_state\r\nCustomer:    $server_client_name\r\nCheck:       Kontrollbase -> MySQL Alert -> $hostname\r\nBegin Time:  $date\r\nMessage:\r\n$alert_name\r\n$alert_category\r\n$alert_description\r\n$alert_solution\r\n\r\nFor more information please read the following documentation\r\n$alert_links\r\n','Kontrollsoft','email@null.com','localhost.localdomain',1);
 /*!40000 ALTER TABLE `system_main` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -869,7 +870,7 @@ CREATE TABLE `system_users` (
   UNIQUE KEY `system_user_name_uix` (`system_user_name`),
   UNIQUE KEY `system_user_email_uix` (`system_user_email`),
   KEY `server_client_id_ix` (`server_client_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `system_users`
@@ -877,7 +878,7 @@ CREATE TABLE `system_users` (
 
 LOCK TABLES `system_users` WRITE;
 /*!40000 ALTER TABLE `system_users` DISABLE KEYS */;
-INSERT INTO `system_users` VALUES (9,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@null.com',0,0,'2009-03-03 11:16:22',NULL);
+INSERT INTO `system_users` VALUES (9,'admin','5f4dcc3b5aa765d61d8327deb882cf99','admin@null.com',0,0,'2009-03-03 11:16:22','2009-09-03 13:54:00');
 /*!40000 ALTER TABLE `system_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -893,7 +894,7 @@ CREATE TABLE `system_users_audit` (
   `system_pages_attribute` bigint(32) NOT NULL COMMENT 'this would be the server_list_id if visiting a host specific page',
   `Creation_time` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `system_users_audit`
@@ -913,4 +914,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-09-02 16:52:54
+-- Dump completed on 2009-09-03 23:21:17
