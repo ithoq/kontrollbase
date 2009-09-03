@@ -24,7 +24,6 @@ $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root 
 
 <link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
-<link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/layout/layout-browser.css">
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/tasks.css" />

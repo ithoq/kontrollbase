@@ -111,8 +111,9 @@ class System extends Controller {
 						  $system_hostname,
 						  $system_graph_animation_enable);
 	    if($state == 0) {
+	      set_session_vars(); // set session variables [ variables_helper.php ]
 	      log_message('debug', "Login controller: JSON = {success: true}");
-	      echo "{success: true}"; //JSON wooo!
+	      echo "{success: true}";
 	    }
 	    elseif($state == 1) {
 	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Update failed. Please retry.' }}");
