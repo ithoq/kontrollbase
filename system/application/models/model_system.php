@@ -60,7 +60,7 @@ class Model_system extends Model
 
   function get_settings() {
     $dbr = $this->load->database('read', TRUE);
-    $sql="select system_alerts_email,system_hostname from system_main";
+    $sql="select system_graph_animation_enable,system_alerts_email,system_hostname from system_main";
 
     $query = $dbr->query($sql);
     if($query->num_rows() > 0) {
@@ -145,21 +145,24 @@ NULL , '$system_users_id', '$type', NOW( ))";
   }
 
   function edit_settings($system_alerts_email,
-			 $system_hostname) {
+			 $system_hostname,
+			 $system_graph_animation_enable) {
     
     $system_alerts_email = $this->db->escape_str($system_alerts_email);
     $system_hostname = $this->db->escape_str($system_hostname);
-    
+    $system_graph_animation_enable = $this->db->escape_str($system_graph_animation_enable);
+
     $dbr = $this->load->database('write', TRUE);
     $sql0="UPDATE `system_main` SET 
 `system_alerts_email` = '$system_alerts_email',
-`system_hostname` = '$system_hostname'";
+`system_hostname` = '$system_hostname',
+`system_graph_animation_enable` = '$system_graph_animation_enable'";
 
     $this->db->trans_start();
     $this->db->query($sql0);
     $this->db->trans_complete();
     if ($this->db->trans_status() === FALSE) {
-      log_message('debug', "Edit failed. Please check database.");
+      log_message('debug', "System settings edit failed. Please check database.");
       $this->db->trans_off();
       return 1;
     } 

@@ -2057,6 +2057,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
   function get_graphs_default($xval,$yaxis,$name,$server_list_id,$sday,$eday) {
     log_message('debug', "Starting get_graphs_default");
     $dbr = $this->load->database('read', TRUE);
+    $sess_system_graph_animation_enable = $this->phpsession->get('sess_system_graph_animation_enable');
     $yval = "Date";
     $xaxis = "";
   
@@ -2073,7 +2074,7 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     if($count <= 64) {
       log_message('debug', "count < 64");
       $strXML = "<graph caption='$name' xAxisName='$xaxis' yAxisName='$yaxis' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='$sess_system_graph_animation_enable'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
@@ -2082,7 +2083,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
     elseif($count <= 128) {
       log_message('debug', "count < 128");
       $strXML = "<graph caption='$name' xAxisName='$xaxis' yAxisName='$yaxis' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='$sess_system_graph_animation_enable'
 showgridbg='1' showhovercap='1' showColumnShadow='1' 
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10' 
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
@@ -2091,7 +2092,7 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
     else {
       log_message('debug', "count > 128");
       $strXML = "<graph caption='$name' xAxisName='$xaxis' yAxisName='$yaxis' 
-showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='1'
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='$sess_system_graph_animation_enable'
 showgridbg='1' showhovercap='1' showColumnShadow='1'
 shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='10'
 showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5'
