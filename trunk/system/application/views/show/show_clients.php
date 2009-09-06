@@ -60,7 +60,7 @@ foreach($client_list as $key => $value) {
   $r++;
   if($r<$u) { print ",\n";} 
   else { 
-    print ",['','','','','Add','<a href=\"$nroot/index.php/add/client/\" target=\"_self\"><img src=\"$nroot/includes/images/add-16x16.png\" width=\"12px\" height=\"12px\"></a>']];\n\n";
+    print "];\n\n";
   }
  }
 
@@ -71,6 +71,16 @@ foreach($client_list as $key => $value) {
     xtype: 'grid',
     layout: 'fit',
     region:'center',
+    tbar: [
+    {
+      text: 'Add Client',
+      icon: '$nroot/includes/images/useradd.gif',
+      cls: 'x-btn-text-icon',
+      scope: this,
+      handler: function() {
+	var redirect = '$nroot/index.php/add/client/';
+	window.location = redirect;
+      }}],
     store: new Ext.data.SimpleStore({
       fields: [
 	       {name: 'server_client_name'},

@@ -149,6 +149,13 @@ Ext.apply(Ext.form.VTypes, {
 				 }
 			     ],      
 		      buttons:[
+			       {
+                               text:'Cancel',
+                                   handler:function(){
+                                   var redirect = '$nroot/index.php/show/users/';
+                                   window.location = redirect;
+				 }
+			       },
 			       { 
 			       text:'Add User',
 				   formBind: true, 
@@ -160,8 +167,8 @@ Ext.apply(Ext.form.VTypes, {
 					 setTimeout:10,
 					 
 					 success:function(){
-                                           var redirect = '$nroot/index.php/show/users/';
-                                           window.location = redirect;
+					 var redirect = '$nroot/index.php/show/users/';
+					 window.location = redirect;
 				       },
 					 
 					 failure:function(form, action){ 
@@ -174,7 +181,7 @@ Ext.apply(Ext.form.VTypes, {
 					 host.getForm().reset(); 
 				       } 
 				     }); 
-				 } 
+				 }
 			       }
 			       ] 
 		      });

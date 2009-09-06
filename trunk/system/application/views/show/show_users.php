@@ -65,11 +65,11 @@ var serverList = [";
    elseif($role_tier == 1) { $role_tier="standard";}
    elseif($role_tier == 2) { $role_tier="client";}
    
-   print "['$system_user_name','$system_user_email','$server_client_name','$role_tier','$creation_time','<a href=\"$nroot/index.php/edit/user/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\"></a>','<a href=\"$nroot/index.php/delete/check/user/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']";
+   print "['$system_user_name','$system_user_email','$server_client_name','$role_tier','$creation_time','<a href=\"$nroot/index.php/edit/user/$id\" target=\"_self\"><img src=\"$nroot/includes/images/edit.gif\" width=\"14px\" height=\"14px\"></a>','<a href=\"$nroot/index.php/delete/check/user/$id\" target=\"_self\"><img src=\"$nroot/includes/images/delete.gif\" width=\"12px\" height=\"12px\">']\n";
    $r++;
    if($r<$u) { print ",\n";} 
    else { 
-     print ",['','','','','','Add','<a href=\"$nroot/index.php/add/user/\" target=\"_self\"><img src=\"$nroot/includes/images/add-16x16.png\" width=\"12px\" height=\"12px\"></a>']];\n\n";
+     print "];\n\n";
      
    }
  }
@@ -80,6 +80,16 @@ var serverList = [";
    xtype: 'grid',
    layout: 'fit',
    region:'center',
+   tbar: [
+   {
+     text: 'Add User',
+     icon: '$nroot/includes/images/useradd.gif',
+     cls: 'x-btn-text-icon',
+     scope: this,
+     handler: function() {
+       var redirect = '$nroot/index.php/add/user/';
+       window.location = redirect;
+     }}],
    store: new Ext.data.SimpleStore({
      fields: [
 	      {name: 'system_user_name'},
