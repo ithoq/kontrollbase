@@ -24,7 +24,7 @@ include("doc_header-nofluff.php");
 
 <h3>Support</h3>
 <ul>
-<li><a href="flowchart_serverloop-and-webapp_process.htm">Flowchart for server-loop and webapp</a></li>
+<li><a href="images/flowchart_webapp-serverloop-process.gif">Flowchart for server-loop and webapp</a></li>
 <li><a href="support-contact.php">Contacting Support</a></li>
 <li><a href="support-submit.php">Submitting Bugs</a></li>
 <li><a href="support-contributing.php">Contributing</a></li>
