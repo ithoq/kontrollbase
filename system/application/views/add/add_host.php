@@ -273,6 +273,13 @@ Ext.apply(Ext.form.VTypes, {
 				 }
 			     ],      
 		      buttons:[
+			       {
+                               text:'Cancel',
+                                   handler:function(){
+                                   var redirect = '$nroot/index.php/show/hosts/';
+                                   window.location = redirect;
+                                 }
+                               },
 			       { 
 			       text:'Submit Host',
 				   formBind: true, 
