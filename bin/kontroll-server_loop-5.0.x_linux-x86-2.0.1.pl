@@ -92,7 +92,7 @@ sub get_list {
         }
     ) or error_report("$DBI::errstr");
 
-    my $sql0 = "select t1.*,t2.id as server_client_id ,t2.server_client_name from server_list as t1, server_client as t2 where t1.active >='1' and t1.server_client_id = t2.id order by id;";
+    my $sql0 = "select t1.*,t2.id as server_client_id ,t2.server_client_name, t3.system_server_loop_timeout from server_list as t1, server_client as t2, system_main as t3 where t1.active >='1' and t1.server_client_id = t2.id order by id;";
     my $sth = $dbh->prepare($sql0) or error_report("$DBI::errstr");
     $sth->execute or error_report("$DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
@@ -114,6 +114,7 @@ sub get_list {
 	my $server_snmp_rocommunity = $row->{'server_snmp_rocommunity'};
 	my $server_snmp_version = $row->{'server_snmp_version'};
 	my $server_client_name = $row->{'server_client_name'};
+	my $system_server_loop_timeout = $row->{'system_server_loop_timeout'};
 	
 	my $xmlfile = "xml/$server_id-$server_client_name-$server_hostname-$server_ipaddress.xml";
 
@@ -122,7 +123,7 @@ sub get_list {
 
 	 eval {
 		local $SIG{ALRM} = sub {die "ssh connection timeout reached\n"};
-                alarm 5; 
+                alarm $system_server_loop_timeout; 
 #		debug_report("Connecting to server: --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_socket --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host");
 		system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_socket --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
 		alarm 0;
