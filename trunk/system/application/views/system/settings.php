@@ -15,6 +15,7 @@ $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root 
 $system_alerts_email = $settings[0]['system_alerts_email'];
 $system_hostname = $settings[0]['system_hostname'];
 $system_graph_animation_enable = $settings[0]['system_graph_animation_enable'];
+$system_server_loop_timeout = $settings[0]['system_server_loop_timeout'];
 $stats_data=byte_format($stat_size[0]["DATA_LENGTH"]);
 $stats_index=byte_format($stat_size[0]["INDEX_LENGTH"]);
 $stats_total = byte_format(($stat_size[0]["DATA_LENGTH"]) + ($stat_size[0]["INDEX_LENGTH"]));
@@ -52,11 +53,11 @@ print<<<HEAD
 		var login = new Ext.FormPanel({ 
 		  renderTo: document.body,
 		      buttonAlign: 'left',
-		      width:380,
-		      labelWidth:135,
+		      width:420,
+		      labelWidth:165,
 		      url:'$nroot/index.php/system/subedit/', 
 		      frame:true, 
-		      title:'Information & Statistics', 
+		      title:'Information, Statistics, Settings', 
 		      defaultType:'textfield',
 		      monitorValid:true,
 		      items:[
@@ -148,6 +149,16 @@ print<<<HEAD
                                  checked: $system_graph_animation_enable,
 				 boxLabel: ' check to enable'
                                  },
+			     {
+                             fieldLabel:'SSH connection timeout(sec)',
+                                 name:'system_server_loop_timeout',
+                                 inputType: 'text',
+                                 width:250,
+				 minLength: 1,
+				 maxLength: 2,
+                                 value: '$system_server_loop_timeout',
+                                 allowBlank:false
+                                 },
 			     { 
 			     fieldLabel:'Alert Email', 
 				 name:'system_alerts_email', 
@@ -166,7 +177,7 @@ print<<<HEAD
 				 allowBlank:false 
 				 }],		      
 		      buttons:[{ 
-		    text:'Update Email / Hostname',
+		    text:'Update System Settings',
 			formBind: true, 
 			handler:function(){ 
 			login.getForm().submit({ 

@@ -91,25 +91,28 @@ class System extends Controller {
 	  
 	  $this->form_validation->set_rules('system_alerts_email', 'system_alerts_email', 'trim|required|valid_email');
 	  $this->form_validation->set_rules('system_hostname', 'system_hostname', 'trim|required');
-	  //$this->form_validation->set_rules('system_graph_animation_enable', 'system_graph_animation_enable', 'trim|required');
+	  //$this->form_validation->set_rules('system_graph_animation_enable', 'system_graph_animation_enable', 'trim|required'); //we don't check this because the value only gets posted if it changes, so sometimes checking fails for not reason and it sucks. 
+	  $this->form_validation->set_rules('system_server_loop_timeout', 'system_server_loop_timeout', 'trim|numeric|min_length[1]|max_length[2]|required');
 	  
 	  $system_alerts_email = $this->input->post('system_alerts_email');
 	  $system_hostname = $this->input->post('system_hostname');
 	  $system_graph_animation_enable = $this->input->post('system_graph_animation_enable');
+	  $system_server_loop_timeout = $this->input->post('system_server_loop_timeout');
 	  
 	  if($system_graph_animation_enable == "on") { $system_graph_animation_enable = '1'; }
 	  if(!$system_graph_animation_enable) { $system_graph_animation_enable = '0'; }
 	  log_message('debug', "system_graph_animation_enable:$system_graph_animation_enable");
 	  
 	  if ($this->form_validation->run() == FALSE) {    
-	    log_message('debug', "System:subedit system_alerts_email:$system_alerts_email, system_hostname:$system_hostname, system_graph_animation_enable:$system_graph_animation_enable");
+	    log_message('debug', "System:subedit system_alerts_email:$system_alerts_email, system_hostname:$system_hostname, system_graph_animation_enable:$system_graph_animation_enable, system_server_loop_timeout:$system_server_loop_timeout");
 	    log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Form validation failed. Please retry.' }}");
 	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.' }}";
 	  }
 	  else {
 	    $state = $this->system->edit_settings($system_alerts_email,
 						  $system_hostname,
-						  $system_graph_animation_enable);
+						  $system_graph_animation_enable,
+						  $system_server_loop_timeout);
 	    if($state == 0) {
 	      set_session_vars(); // set session variables [ variables_helper.php ]
 	      log_message('debug', "Login controller: JSON = {success: true}");
