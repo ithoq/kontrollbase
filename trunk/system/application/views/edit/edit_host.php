@@ -327,7 +327,14 @@ Ext.apply(Ext.form.VTypes, {
 				 triggerAction: 'all'
 				 }
 			     ],      
-		      buttons:[
+		      buttons:[ 
+			       {
+			       text:'Cancel',
+				   handler:function(){
+				   var redirect = '$nroot/index.php/show/hosts/';
+				   window.location = redirect;
+				 }
+			       },
 			       { 
 			       text:'Update Settings',
 				   formBind: true, 

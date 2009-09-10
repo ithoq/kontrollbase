@@ -16,6 +16,8 @@ $system_alerts_email = $settings[0]['system_alerts_email'];
 $system_hostname = $settings[0]['system_hostname'];
 $system_graph_animation_enable = $settings[0]['system_graph_animation_enable'];
 $system_server_loop_timeout = $settings[0]['system_server_loop_timeout'];
+// ext doesn't like the email format now so I'll come back to this: unterminated string literal
+//$system_alerts_email_template = htmlentities($settings[0]['system_alerts_email_template']);
 $stats_data=byte_format($stat_size[0]["DATA_LENGTH"]);
 $stats_index=byte_format($stat_size[0]["INDEX_LENGTH"]);
 $stats_total = byte_format(($stat_size[0]["DATA_LENGTH"]) + ($stat_size[0]["INDEX_LENGTH"]));
@@ -175,7 +177,8 @@ print<<<HEAD
 				 width:250,
 				 value: '$system_hostname',
 				 allowBlank:false 
-				 }],		      
+				 }
+			     ],		      
 		      buttons:[{ 
 		    text:'Update System Settings',
 			formBind: true, 

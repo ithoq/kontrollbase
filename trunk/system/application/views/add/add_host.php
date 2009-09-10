@@ -242,7 +242,7 @@ Ext.apply(Ext.form.VTypes, {
 			     {
 			     xtype: 'combo',
 				 name: 'server_is_slave',
-				 fieldLabel: 'Slave',
+				 fieldLabel: 'Replication',
 				 valueField:'id',
 				 hiddenName: 'server_is_slave',
 				 hiddenValue: 'server_is_slave',

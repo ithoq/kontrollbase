@@ -174,6 +174,13 @@ Ext.onReady(function(){
 			       }
 			   ],      
 		    buttons:[
+			     {
+			     text:'Cancel',
+				 handler:function(){
+				 var redirect = '$nroot/index.php/show/users/';
+				 window.location = redirect;
+			       }
+			     },
 			     { 
 			     text:'Edit User',
 				 formBind: true, 
