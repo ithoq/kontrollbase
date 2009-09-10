@@ -92,6 +92,13 @@ print<<<HEAD
 				 }
 			     ],      
 		      buttons:[
+			       {
+                               text:'Cancel',
+                                   handler:function(){
+                                   var redirect = '$nroot/index.php/show/clients/';
+                                   window.location = redirect;
+                                 }
+                               },
 			       { 
 			       text:'Edit Client',
 				   formBind: true, 

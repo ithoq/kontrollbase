@@ -67,7 +67,7 @@ class Model_add extends Model
     $threshold_seconds_behind_master = $this->db->escape_str($threshold_seconds_behind_master);
     
     $dbr = $this->load->database('write', TRUE);
-    $sql0="INSERT DELAYED INTO server_list (
+    $sql0="INSERT INTO server_list (
 `id` ,
 `active` ,
 `server_client_id` ,
@@ -136,7 +136,7 @@ NOW())";
     $server_client_phone = $this->db->escape_str($server_client_phone);
     
     $dbr = $this->load->database('write', TRUE);
-    $sql0="INSERT DELAYED INTO `server_client` (
+    $sql0="INSERT INTO `server_client` (
 `id` ,
 `server_client_name` ,
 `server_client_email` ,
@@ -174,7 +174,7 @@ NULL , '$server_client_name', '$server_client_email', '$server_client_phone', NO
     $role_tier = $this->db->escape_str($role_tier);
     
     $dbr = $this->load->database('write', TRUE);
-    $sql0="INSERT DELAYED INTO `system_users` (
+    $sql0="INSERT INTO `system_users` (
 `id` ,
 `system_user_name` ,
 `system_user_pass` ,

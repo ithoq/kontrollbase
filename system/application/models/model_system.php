@@ -60,7 +60,7 @@ class Model_system extends Model
 
   function get_settings() {
     $dbr = $this->load->database('read', TRUE);
-    $sql="select system_server_loop_timeout,system_graph_animation_enable,system_alerts_email,system_hostname from system_main";
+    $sql="select * from system_main";
 
     $query = $dbr->query($sql);
     if($query->num_rows() > 0) {
