@@ -11,18 +11,9 @@
    * @link http://kontrollbase.com
    */
 
-$nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
-
-print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
-
-<link rel="stylesheet" type="text/css" href="'.$nroot.'/includes/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="'.$nroot.'/userguide/css/userguide-nofluff.css" />
-</head>
-<body>';
+$g['root'] = $root;
+$this->load->view('header_nojs',$g);
+$nroot = substr_replace($root,"",-1);
 
 if($statistics) {
   $Aborted_clients = $statistics[0]['Aborted_clients'];
@@ -598,118 +589,133 @@ $_indexJoinsFullTableScan = $Select_full_join;
 
 
 print<<<HEAD
+<div id='content'>
 <table>
-<td colspan="2"><h2>Query Analysis</h2></td></tr>
-<td>total queries</td><td>$Questions</td></tr>
-<td>total read type queries</td><td>$_reads</td></tr>
-<td>total writes type queries</td><td>$_writes</td></tr>
-<td>percentage of reads to total queries</td><td>$_readsP%</td></tr>
-<td>percentage of writes to total queries</td><td>$_writesP%</td></tr>
-<td>ratio of reads to writes</td><td>$_readVSwrite:1</td></tr>
-<td>ratio of writes to reads</td><td>$_writeVSread:1</td></tr>
-<td>reads queries per seccond</td><td>$_readsS</td></tr>
-<td>writes per second</td><td>$_writesS</td></tr>
-<td>transactions commits</td><td>$Com_commit</td></tr>
-<td>transactions commits per sec</td><td>$_txS</td></tr>
+<tr><td colspan="2"><h2>Query Analysis</h2></td></tr>
+<tr><td>total queries</td><td>$Questions</td></tr>
+<tr><td>total read type queries</td><td>$_reads</td></tr>
+<tr><td>total writes type queries</td><td>$_writes</td></tr>
+<tr><td>percentage of reads to total queries</td><td>$_readsP%</td></tr>
+<tr><td>percentage of writes to total queries</td><td>$_writesP%</td></tr>
+<tr><td>ratio of reads to writes</td><td>$_readVSwrite:1</td></tr>
+<tr><td>ratio of writes to reads</td><td>$_writeVSread:1</td></tr>
+<tr><td>reads queries per seccond</td><td>$_readsS</td></tr>
+<tr><td>writes per second</td><td>$_writesS</td></tr>
+<tr><td>transactions commits</td><td>$Com_commit</td></tr>
+<tr><td>transactions commits per sec</td><td>$_txS</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Connections</h2></td></tr>
-<td>total connections made</td><td>$Connections</td></tr>
-<td>successful connections</td><td>$_connSuc</td></tr>
-<td>successful connections</td><td>$_connSucP%</td></tr>
-<td>aborted connections</td><td>$Aborted_connects</td></tr>
-<td>aborted connections</td><td>$_connAbortP%</td></tr>
-<td>average connections per second</td><td>$_connAvgConSec</td></tr>
-<td>max allowed connections</td><td>$max_connections</td></tr>
-<td>current open connections</td><td>$Threads_connected</td></tr>
-<td>current connections usage</td><td>$_connU%</td></tr>
-<td>max connection usage</td><td>$_connMaxUsage%</td></tr>
-<td>max connection errors allowable</td><td>$max_connect_errors</td></tr>
-<td>connection timeout value</td><td>$connect_timeout</td></tr>
+<tr><td colspan="2"><h2>Connections</h2></td></tr>
+<tr><td>total connections made</td><td>$Connections</td></tr>
+<tr><td>successful connections</td><td>$_connSuc</td></tr>
+<tr><td>successful connections</td><td>$_connSucP%</td></tr>
+<tr><td>aborted connections</td><td>$Aborted_connects</td></tr>
+<tr><td>aborted connections</td><td>$_connAbortP%</td></tr>
+<tr><td>average connections per second</td><td>$_connAvgConSec</td></tr>
+<tr><td>max allowed connections</td><td>$max_connections</td></tr>
+<tr><td>current open connections</td><td>$Threads_connected</td></tr>
+<tr><td>current connections usage</td><td>$_connU%</td></tr>
+<tr><td>max connection usage</td><td>$_connMaxUsage%</td></tr>
+<tr><td>max connection errors allowable</td><td>$max_connect_errors</td></tr>
+<tr><td>connection timeout value</td><td>$connect_timeout</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Thread Cache</h2></td></tr>
-<td>cache limit</td><td>$thread_cache_size</td></tr>
-<td>connected</td><td>$Threads_connected</td></tr>
-<td>created</td><td>$Threads_created</td></tr>
-<td>running</td><td>$Threads_running</td></tr>
-<td>cached</td><td>$Threads_cached</td></tr>
-<td>delayed insert threads</td><td>$Delayed_insert_threads</td></tr>
-<td>slow launches</td><td>$Slow_launch_threads</td></tr>
+<tr><td colspan="2"><h2>Thread Cache</h2></td></tr>
+<tr><td>cache limit</td><td>$thread_cache_size</td></tr>
+<tr><td>connected</td><td>$Threads_connected</td></tr>
+<tr><td>created</td><td>$Threads_created</td></tr>
+<tr><td>running</td><td>$Threads_running</td></tr>
+<tr><td>cached</td><td>$Threads_cached</td></tr>
+<tr><td>delayed insert threads</td><td>$Delayed_insert_threads</td></tr>
+<tr><td>slow launches</td><td>$Slow_launch_threads</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>MyISAM Cache</h2></td></tr>
-<td>allocated cache memory</td><td>$_myisamAllocatedMem</td></tr>
-<td>block size</td><td>$_myisamBlockSize</td></tr>
-<td>current blocks</td><td>$_myisamCurrentBlocks</td></tr>
-<td>used blocks</td><td>$_myisamUsedBlocks</td></tr>
-<td>used blocks</td><td>$_myisamUsedBlocksP%</td></tr>
-<td>cache hit rate</td><td>$_myisamCacheHitRate</td></tr>
-<td>blocks written to disk</td><td>$_myisamBlocksToDisk</td></tr>
-<td>cache writes disk</td><td>$_myisamCacheWritesDisk</td></tr>
-<td>cache writes to disks</td><td>$_myisamCacheWritesDiskP%</td></tr>
-<td>index delay update</td><td>$_myisamIndexDelayUpdate</td></tr>
+<tr><td colspan="2"><h2>MyISAM Cache</h2></td></tr>
+<tr><td>allocated cache memory</td><td>$_myisamAllocatedMem</td></tr>
+<tr><td>block size</td><td>$_myisamBlockSize</td></tr>
+<tr><td>current blocks</td><td>$_myisamCurrentBlocks</td></tr>
+<tr><td>used blocks</td><td>$_myisamUsedBlocks</td></tr>
+<tr><td>used blocks</td><td>$_myisamUsedBlocksP%</td></tr>
+<tr><td>cache hit rate</td><td>$_myisamCacheHitRate</td></tr>
+<tr><td>blocks written to disk</td><td>$_myisamBlocksToDisk</td></tr>
+<tr><td>cache writes disk</td><td>$_myisamCacheWritesDisk</td></tr>
+<tr><td>cache writes to disks</td><td>$_myisamCacheWritesDiskP%</td></tr>
+<tr><td>index delay update</td><td>$_myisamIndexDelayUpdate</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>InnoDB Cache</h2></td></tr>
-<td>allocated mem</td><td>$_innodbAllocatedMem</td></tr>
-<td>allocated mem to OS</td><td>$_innodballocatedMemP%</td></tr>
-<td>free innodb memory</td><td>$_innodbFreeMem</td></tr>
-<td>blocks served from cache</td><td>$_innodbBlocksFromCache</td></tr>
-<td>blocks served from disk</td><td>$_innodbBlocksFromDisk</td></tr>
-<td>cache hit rate</td><td>$_innodbCacheHitRate</td></tr>
-<td>cache write wait required</td><td>$_innodbCacheWriteWaitRequired</td></tr>
-<td>additional memory allowed</td><td>$_innodbAdditionalMemoryAllowed</td></tr>
-<td>free page waits</td><td>$_innodbFreePageWaits</td></tr>
-<td>log buffer size</td><td>$_innodbLogBufferSize</td></tr>
-<td>log waits required</td><td>$_innodbLogWaitsRequired%</td></tr>
-<td>number of free page waits</td><td>$_innodbFreePageWaits</td></tr>
+<tr><td colspan="2"><h2>InnoDB Cache</h2></td></tr>
+<tr><td>allocated mem</td><td>$_innodbAllocatedMem</td></tr>
+<tr><td>allocated mem to OS</td><td>$_innodballocatedMemP%</td></tr>
+<tr><td>free innodb memory</td><td>$_innodbFreeMem</td></tr>
+<tr><td>blocks served from cache</td><td>$_innodbBlocksFromCache</td></tr>
+<tr><td>blocks served from disk</td><td>$_innodbBlocksFromDisk</td></tr>
+<tr><td>cache hit rate</td><td>$_innodbCacheHitRate</td></tr>
+<tr><td>cache write wait required</td><td>$_innodbCacheWriteWaitRequired</td></tr>
+<tr><td>additional memory allowed</td><td>$_innodbAdditionalMemoryAllowed</td></tr>
+<tr><td>free page waits</td><td>$_innodbFreePageWaits</td></tr>
+<tr><td>log buffer size</td><td>$_innodbLogBufferSize</td></tr>
+<tr><td>log waits required</td><td>$_innodbLogWaitsRequired%</td></tr>
+<tr><td>number of free page waits</td><td>$_innodbFreePageWaits</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Table cache</h2></td></tr>
-<td>table cache size</td><td>$_tableCacheAllowable</td></tr>
-<td>current open tables</td><td>$_tableCacheOpen</td></tr>
-<td>table cache utilization</td><td>$_tableCacheOpenP%</td></tr>
-<td>average tables open per second</td><td>$_tableCacheAvgSec</td></tr>
-<td>percentage cache misses</td><td>$_tableCacheMissesP%</td></tr>
+<tr><td colspan="2"><h2>Table cache</h2></td></tr>
+<tr><td>table cache size</td><td>$_tableCacheAllowable</td></tr>
+<tr><td>current open tables</td><td>$_tableCacheOpen</td></tr>
+<tr><td>table cache utilization</td><td>$_tableCacheOpenP%</td></tr>
+<tr><td>average tables open per second</td><td>$_tableCacheAvgSec</td></tr>
+<tr><td>percentage cache misses</td><td>$_tableCacheMissesP%</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Query cache</h2></td></tr>
-<td>Enabled</td><td>$_qcacheEnabled</td></tr>
-<td>cache size</td><td>$_qcacheSize</td></tr>
-<td>block size</td><td>$_qcacheBlockSize</td></tr>
-<td>total blocks</td><td>$_qcacheTotalBlocks</td></tr>
-<td>max query size in cache</td><td>$_qcacheMaxQuerySize</td></tr>
-<td>Free mem</td><td>$_qcacheMaxQuerySize</td></tr>
-<td>cache utilized</td><td>$_qcacheUtilized% </td></tr>
-<td>cache total hits</td><td>$_qcacheHitsTotal</td></tr>
-<td>cache hit rate</td><td>$_qcacheHitRate%</td></tr>
-<td>parsing buffer</td><td>$_qcacheParsingBuffer</td></tr>
-<td>fragmentation</td><td>$_qcacheFragmentation%</td></tr>
-<td>questions in cache</td><td>$_qcacheQuestionsInCache</td></tr>
-<td>questions able to be cached</td><td>$_qcacheQuestionsAbleToBeCached</td></tr>
-<td>questions not cached</td><td>$_qcacheQuestionsNotCached</td></tr>
-<td>questions served from cache</td><td>$_qcacheQuestionsServedFromCacheP%</td></tr>
-<td>questions purged from cache</td><td>$_qcacheQuestionsRemoved</td></tr>
-<td>percentage purged from cache</td><td>$_qcacheQuestionsRemovedP%</td></tr>
+<tr><td colspan="2"><h2>Query cache</h2></td></tr>
+<tr><td>Enabled</td><td>$_qcacheEnabled</td></tr>
+<tr><td>cache size</td><td>$_qcacheSize</td></tr>
+<tr><td>block size</td><td>$_qcacheBlockSize</td></tr>
+<tr><td>total blocks</td><td>$_qcacheTotalBlocks</td></tr>
+<tr><td>max query size in cache</td><td>$_qcacheMaxQuerySize</td></tr>
+<tr><td>Free mem</td><td>$_qcacheMaxQuerySize</td></tr>
+<tr><td>cache utilized</td><td>$_qcacheUtilized% </td></tr>
+<tr><td>cache total hits</td><td>$_qcacheHitsTotal</td></tr>
+<tr><td>cache hit rate</td><td>$_qcacheHitRate%</td></tr>
+<tr><td>parsing buffer</td><td>$_qcacheParsingBuffer</td></tr>
+<tr><td>fragmentation</td><td>$_qcacheFragmentation%</td></tr>
+<tr><td>questions in cache</td><td>$_qcacheQuestionsInCache</td></tr>
+<tr><td>questions able to be cached</td><td>$_qcacheQuestionsAbleToBeCached</td></tr>
+<tr><td>questions not cached</td><td>$_qcacheQuestionsNotCached</td></tr>
+<tr><td>questions served from cache</td><td>$_qcacheQuestionsServedFromCacheP%</td></tr>
+<tr><td>questions purged from cache</td><td>$_qcacheQuestionsRemoved</td></tr>
+<tr><td>percentage purged from cache</td><td>$_qcacheQuestionsRemovedP%</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Sort Buffer Stats</h2></td></tr>
-<td>sort buffer size</td><td>$_sortSize</td></tr>
-<td>percentage of select range</td><td>$_sortSelectRange%</td></tr>
-<td>percentage of sort scan</td><td>$_sortScanP%</td></tr>
+<tr><td colspan="2"><h2>Sort Buffer Stats</h2></td></tr>
+<tr><td>sort buffer size</td><td>$_sortSize</td></tr>
+<tr><td>percentage of select range</td><td>$_sortSelectRange%</td></tr>
+<tr><td>percentage of sort scan</td><td>$_sortScanP%</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Table Locking Stats</h2></td></tr>
-<td>tables with non-waiting locks</td><td>$_tableLocksNonWaiting</td></tr>
-<td>tables waiting for locks</td><td>$_tableLocksWaiting</td></tr>
-<td>tables that suffered locking contention</td><td>$_tableLocksContention</td></tr>
+<tr><td colspan="2"><h2>Table Locking Stats</h2></td></tr>
+<tr><td>tables with non-waiting locks</td><td>$_tableLocksNonWaiting</td></tr>
+<tr><td>tables waiting for locks</td><td>$_tableLocksWaiting</td></tr>
+<tr><td>tables that suffered locking contention</td><td>$_tableLocksContention</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Temporary Table Stats</h2></td></tr>
-<td>size of client based tmp table</td><td>$_tmpTableSize</td></tr>
-<td>size of memory based tmp table</td><td>$_tmpTableHeapSize</td></tr>
-<td>temp tables created</td><td>$_tmpTableCreated</td></tr>
-<td>temp tables created on disk</td><td>$_tmpTablecreatedOnDisk</td></tr>
-<td>percent of temp tables created on disk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$_tmpTablecreatedOnDiskP%</td></tr>
+<tr><td colspan="2"><h2>Temporary Table Stats</h2></td></tr>
+<tr><td>size of client based tmp table</td><td>$_tmpTableSize</td></tr>
+<tr><td>size of memory based tmp table</td><td>$_tmpTableHeapSize</td></tr>
+<tr><td>temp tables created</td><td>$_tmpTableCreated</td></tr>
+<tr><td>temp tables created on disk</td><td>$_tmpTablecreatedOnDisk</td></tr>
+<tr><td>percent of temp tables created on disk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$_tmpTablecreatedOnDiskP%</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 
-<td colspan="2"><h2>Index Utilization</h2></td></tr>
-<td>percentage of queries utilizing indexes</td><td>$_indexUsageP%</td></tr>
-<td>select queries using full table scan</td><td>$_indexSelectsFullTableScan</td></tr>
-<td>joins queries using full table scan</td><td>$_indexJoinsFullTableScan</td></tr>
+<tr><td colspan="2"><h2>Index Utilization</h2></td></tr>
+<tr><td>percentage of queries utilizing indexes</td><td>$_indexUsageP%</td></tr>
+<tr><td>select queries using full table scan</td><td>$_indexSelectsFullTableScan</td></tr>
+<tr><td>joins queries using full table scan</td><td>$_indexJoinsFullTableScan</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
 </table>
-
+</div>
+</body>
+</html>
 HEAD;
 
 
