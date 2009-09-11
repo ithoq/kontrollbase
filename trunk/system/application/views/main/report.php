@@ -45,8 +45,8 @@ foreach($xml->report as $report) {
 	$solution = $alert->solution;
 	if($solution) {
 	  $solset.="$solnum. ".$solution;
-	  print "<h2>Check for: $name</h2>\n";
-	  $html .= "<h2>Check for: $name</h2>";
+	  print "<h2>Alert: $name</h2>\n";
+	  $html .= "<h2>Alert: $name</h2>";
 	  
 	  print "<em>Category: $category</em>\n";
 	  $html .= "<em>Category: $category</em>";
@@ -59,16 +59,20 @@ foreach($xml->report as $report) {
 	    }
 	    print "</code>";
 	  }
+	  else {
+	    print "<br>";
+	    $html .= "<br>";
+	  }
 	  
 	  if($links) {
-          print "<br><strong>For more information</strong>:<br>
+          print "<strong>Reference</strong>:&nbsp;
                 <a href='$links' target='_blank'>$links</a><br>\n";
-	  $html .= "<br>For more information:<br><a href='$links' target='_blank'>$links</a><br>";
+	  $html .= "<b>Reference</b>:&nbsp;<a href='$links' target='_blank'>$links</a><br>";
 	  }
 	  if($solution) {
-	    print "<br><strong>Solution</strong>:<br>
-                 $solution<br>\n";
-	    $html .= "<br>Solution:<br>$solution<br>";	    
+	    print "<strong>Solution</strong>:&nbsp;
+                 $solution<br><br>\n";
+	    $html .= "<b>Solution</b>:&nbsp;$solution<br>";	    
 	  }
 	  $solset.="<br>";
 	  $solnum++;
