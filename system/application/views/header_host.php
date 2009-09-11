@@ -258,6 +258,22 @@ print "
    autoScroll:true
    },
    {
+     title: 'Analytics',
+     deferredRender: true,
+     width:440,
+     height:480,
+     layout : 'fit',
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/main/server_statistics/$server_list_id'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+   autoScroll:true
+   },
+   {
    title: 'Perf Report',
    deferredRender: true,
    width:440,
