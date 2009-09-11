@@ -1,0 +1,54 @@
+<?php
+  /**
+   * Kontrollbase
+   *
+   * An open source MySQL monitoring and analytics application
+   *
+   * @package Kontrollbase
+   * @author Matt Reid
+   * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+   * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+   * @link http://kontrollbase.com
+   */
+
+class News extends Controller {
+
+	function News()
+	{
+		parent::Controller();	
+	}
+
+	function index() {
+	  $xmlfile = "http://kontrollsoft.com/feed/rss";
+	  $xml = new SimpleXMLElement($xmlstr);
+
+	  $feed = "";
+	  foreach ($xml->item as $item) {
+	    $feed .= $item->title;
+	  }
+
+	  $this->parser->parse('news/current', $data);
+        }
+
+	function _getXML($xmlfile)
+	{
+	  $xmlRaw = file_get_contents($xmlfile);
+	  $this->load->library('simplexml');
+	  $xmlData = $this->simplexml->xml_parse($xmlRaw);
+
+	  foreach($xmlData['channel'] as $channel) {
+	    foreach($xmlData['item'] as $row) {
+	      $result .= '<tr>';
+	      $result .= '<td>'.$row['title'].'</td>';
+	      $result .= '<td>'.$row['description'].'</td>';
+	      $result .= '<td>'.$row['link'].'</td>';
+	      $result .= '</tr>';
+	      
+	    }
+	  }
+	  return $result;
+        }
+
+  }
+
+?>
