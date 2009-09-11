@@ -66,7 +66,7 @@ $overview.="<tr><td class='td'><strong>Uptime</strong>: $uptime days</td><td cla
 $overview.="<tr><td class='td'><strong>Avg Load</strong>: $os_load_15</td><td class='td'><strong>InnoDB Size</strong>: ".byte_format($engine_innodb_size_total)."</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Used</strong>: $mem_perc %</td><td class='td'><strong>MyISAM Tables</strong>: $engine_count_myisam</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Size</strong>: ".byte_format($mem_total)."</td><td class='td'><strong>MyISAM Size</strong>: ".byte_format($engine_myisam_size_total)."</td></tr>";
-$overview.="<tr><td class='td'><strong>QPS</strong>: $queries_per_second</td><td class='td'><strong>Collection Date</strong>: $date</td></tr>";
+$overview.="<tr><td class='td'><strong>Queries/sec</strong>: $queries_per_second</td><td class='td'><strong>Collection Date</strong>: $date</td></tr>";
 $overview.="<tr><td class='td'><strong>Connections</strong>: $num_connections</td><td class='td'><strong>Polling time</strong>: $collection_time_elapse</td></tr>";
 $overview.="</div></table></td></tr>";
 //$overview.=renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g32, "kontrollbase", $width, $height)."<br></div></td></tr></table>";

@@ -1,4 +1,4 @@
-<?php 
+ <?php 
   /**
    * Kontrollbase
    *
@@ -1756,21 +1756,6 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 		    "Threads_running" => "0",
 		    "Uptime" => "0",
 		    "Creation_time" => "0000-00-00"));
-    }
-    return $data;
-  }
-
-
-  function get_data($server_statistics_id) {
-    log_message('debug', "Starting get_data");
-    $dbr = $this->load->database('read', TRUE);
-    $sql = "select * from server_statistics where id='$server_statistics_id' order by id limit 1";
-    $query = $dbr->query($sql);
-    if($query->num_rows() > 0) {
-      return $query->result_array();
-    }
-    else {
-      $data = "0";
     }
     return $data;
   }

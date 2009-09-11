@@ -208,6 +208,7 @@ class Main extends Controller {
   }
   
   function graphs() {
+    auth();
     log_message('debug', "main-graphs function called");
     $this->load->model('Model_main', 'main');
     $this->load->library('form_validation');
@@ -317,25 +318,8 @@ class Main extends Controller {
     $this->load->view('main/graphs',$g);
   }
   
-  function data() {
-    log_message('debug', "main-data function called");
-    $this->load->model('Model_main', 'main');
-    $server_statistics_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
-    if(!$server_statistics_id) { 
-      show_error("Request has failed."); 
-    }
-    $g['data'] = $this->main->get_data($server_statistics_id);
-    $g['root'] = $this->config->item('base_url');
-    
-    if($g['data'] == '0') {
-      show_error("Failed to show the requested data.");
-    }
-    else {
-      $this->load->view('main/data',$g);
-    }
-  }
-
   function cnf() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_cnf($server_list_id);
@@ -345,6 +329,7 @@ class Main extends Controller {
   }
 
   function server_variables() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_server_variables($server_list_id);
@@ -354,6 +339,7 @@ class Main extends Controller {
   }
 
   function server_status() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_server_status($server_list_id);
@@ -362,7 +348,19 @@ class Main extends Controller {
     $this->load->view('main/server_status',$g);
   }
 
+  function server_statistics() {
+    auth();
+    $this->load->model('Model_main', 'main');
+    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $g['statistics'] = $this->main->get_server_status($server_list_id);
+    $g['variables'] = $this->main->get_server_variables($server_list_id);
+    $g['server_list_id'] = $server_list_id;
+    $g['root'] = $this->config->item('base_url');
+    $this->load->view('main/server_statistics',$g);
+  }
+
   function summary() {
+    auth();
     log_message('debug', "main-summary function called");
     $this->load->model('Model_main', 'main');
     $g['data'] = $this->main->get_summary_data();
@@ -371,6 +369,7 @@ class Main extends Controller {
   }
   
   function report() {
+    auth();
     log_message('debug', "main-report function called");
     $this->load->model('Model_main', 'main');
     $server_statistics_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
@@ -395,6 +394,7 @@ class Main extends Controller {
   }
   
   function report_pdf() {
+    auth();
     log_message('debug', "main-report_pdf function called");
     $this->load->library('form_validation');  
     
