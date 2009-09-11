@@ -40,8 +40,8 @@ print<<<HEAD
 		  win = new Ext.Window({
 		    applyTo:'news-window',
 			layout:'fit',
-			width:580,
-			height:400,
+			width:500,
+			height:300,
 			closeAction:'hide',
 			plain: true,
 			
@@ -74,10 +74,25 @@ print<<<HEAD
     <div id="news-tabs">
 HEAD;
 
+$j = 0;
+while($j < $total) {
+  $title = $news[$j]['title'];
+  $date = $news[$j]['date'];
+  $desc = $news[$j]['desc'];
+  $link = $news[$j]['link'];
+
+  print "<div class=\"x-tab\" title=\"$date\">
+            <p>$title</p>
+            <p>$desc</p>
+            <p>$link</p>
+        </div>\n\n";
+  $j = ($j + 1);
+ }
 print "
-$news
 </div>
-</div>
+</div>";
+print_r($news);
+print "
 </body>
 </html>";
 
