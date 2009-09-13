@@ -200,15 +200,6 @@ print "
    },
    {
      xtype: 'tbbutton',
-     text: 'Goto Environment',
-     handler: function() {
-       window.location = '$nroot/index.php';}
-   },
-   {
-     xtype: 'tbseparator'
-   },
-   {
-     xtype: 'tbbutton',
      id: this.id + 'AuditButton',
      cls: 'x-btn-icon audit-button',
      tooltip: 'Contact Support',
