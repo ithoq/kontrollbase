@@ -75,10 +75,11 @@ $g['server_list'] = $server_list;
 $g['dir'] = $dir;
 $g['overview'] = $overviewpage;
 $g['data'] = $data;
-$g['alerts'] = $alerts;
+//$g['alerts'] = $alerts; //getting rid of bottom alert panel since we already have alerts at top and we want news&announcements at bottom
 $g['user_system_user_name'] = $user_system_user_name;
 $g['user_server_client_name'] = $user_server_client_name;
 $g['sess_tier'] = $sess_tier;
+$g['news'] = $news;
 
 if ( ! write_file("$dir/includes/pages/$overviewpage", $overview)){echo 'Unable to write the overview file'; }
 $g['summary'] = "summary";

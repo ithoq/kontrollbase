@@ -68,7 +68,7 @@ print<<<HEAD
 			      waitMsg:'Authenticating...',
  
 			      success:function(){
-			      var redirect = '$nroot/index.php/news/';
+			      var redirect = '$nroot/index.php/main/';
 			      window.location = redirect;
 			    },
  

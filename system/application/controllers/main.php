@@ -51,11 +51,12 @@ class Main extends Controller {
     $g['size_index'] = byte_format($size_index);
     $g['size_data']= byte_format($size_data);
     $g['size'] = byte_format($size_data + $size_index);
-    $g['alerts'] = $this->main->get_current_alerts($server_list_id);
+    //$g['alerts'] = $this->main->get_current_alerts($server_list_id); //not using this anymore
     $g['clients'] = $this->main->get_client_list();
     $g['root'] = $this->config->item('base_url');
     $g['dir'] = $this->config->item('base_dir');
     $g['data'] = $this->main->get_summary_data();
+    $g['news'] = news(); // we get the RSS feeds from the news_helper
     $_SESSION['example'] = $g['root'];	  // we set this for the header files that don't use CI sessions
 
     $g['client_id'] = $this->phpsession->get('server_client_id');
