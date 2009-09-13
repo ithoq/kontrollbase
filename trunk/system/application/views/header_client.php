@@ -15,14 +15,13 @@ function head(
 	      $root,
 	      $server_list,
 	      $servers,
-	      $footer,
 	      $overview,
 	      $summary,
 	      $data_size,
 	      $index_size,
 	      $total_size,
 	      $data,
-	      $alerts) {
+	      $news) {
 
   $nroot = substr_replace($root,"",-1);
   print<<<HEAD
@@ -59,30 +58,20 @@ function head(
 HEAD;
 
  print "    
-var alertData = [";
+var newsData = [";
  $r=0;
- $u=count($alerts);
- foreach($alerts as $key => $value) {
+ $u=count($news);
+ foreach($news as $key => $value) {
    foreach($value as $vKey => $vValue) {
-     if($vKey == 'alert_name') { $alert_name=$vValue; }
-     if($vKey == 'alerts_current_id') { $alerts_current_id=$vValue; }
-     if($vKey == 'alert_desc') { $alert_desc=$vValue; }
-     if($vKey == 'alert_links') { $alert_links=$vValue; }
-     if($vKey == 'alert_solution') { $alert_solution=$vValue; }
-     if($vKey == 'server_list_id') { $server_list_id=$vValue; }
-     if($vKey == 'server_hostname') { $server_hostname=$vValue; }
-     if($vKey == 'alert_level') { $alert_level=$vValue; }
+     if($vKey == 'date') { $news_date=$vValue; }
+     if($vKey == 'title') { $news_title=$vValue; }
+     if($vKey == 'desc') { $news_desc=$vValue; }
+     if($vKey == 'link') { $news_link=$vValue; }
    }
 
-   if($alert_level == 0) { $alert_level = 'crit';}
-   elseif($alert_level == 1) { $alert_level= 'warn';}
-   elseif($alert_level == 2) { $alert_level= 'info';}
-
-   // here we need hover pop up thing for the $alerts_current_id column: we need to display $alert_desc, $alert_links, $alert_solution
-   print "['$alerts_current_id','$server_hostname','$alert_level','$alert_name']
-";
+   print "['$news_date','$news_title','$news_desc','$news_link']";
    $r++;
-   if($r<$u) { print ",";} else { print "];";}
+   if($r<$u) { print ",\n";} else { print "\n];\n";}
  }
 
  print "    
@@ -219,26 +208,54 @@ print "
    }
        ]},
    {
-   title: 'Critical Environment Alerts',
-   region: 'south',
-   height: 200,
-   xtype: 'grid',
-   store: new Ext.data.SimpleStore({
+     title: 'News and Announcements',
+     region: 'south',
+     height: 140,
+     xtype: 'grid',
+     store: new Ext.data.SimpleStore({
      fields: [
-	      {name: 'id'},
-	      {name: 'server'},
-	      {name: 'state'},
-	      {name: 'name'}
-	      ]}),	 
+              {name: 'date'},
+              {name: 'title'},
+              {name: 'desc'},
+              {name: 'link'}
+              ]}),       
    columns: [
-   {header: "id", width: 60, sortable: true, dataIndex: 'id'},
-   {header: "server", width: 160, sortable: true, dataIndex: 'server'},
-   {header: "state", width: 35, sortable: true, dataIndex: 'state'},
-   {id: 'name', header: "name", width: 200, sortable: true, dataIndex: 'name'}
-	     ],
-   stripeRows: true,
-   autoExpandColumn: 'name',
-   listeners: { render: function(){this.store.loadData(alertData);}}
+   {
+     id: 'date', 
+     header: "date", 
+     width: 100, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'date'
+   },
+   {
+     id: 'title', 
+     header: "title", 
+     width: 160, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'title'
+   },
+   {
+     id: 'desc', 
+     header: "desc", 
+     width: 200, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'desc'
+   },
+   {
+     id: 'link', 
+     header: "link", 
+     width: 100, 
+     sortable: true, 
+     renderer: 'undef', 
+     dataIndex: 'link'
+   }
+   ],
+     stripeRows: true,
+     autoExpandColumn: 'desc',
+     listeners: { render: function(){this.store.loadData(newsData);}}
    },
    {
      region:'west',
@@ -383,19 +400,17 @@ foreach($server_list as $key => $value) {
   $servers .= "<td>$active <a href='$nroot/index.php/main/host/$id' target='_self'>$list_hostname</a></td></tr>";
 }
 $servers .= "</table>";
-$footer=$alerts;
 
 head(
      $root,
      $server_list,
      $servers,
-     $footer,
      $overview,
      $summary,
      $data_size,
      $index_size,
      $total_size,
      $data,
-     $alerts);
+     $news);
 
 ?>

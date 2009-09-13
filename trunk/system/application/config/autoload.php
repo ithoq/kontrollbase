@@ -14,7 +14,8 @@ $autoload['helper'] = array('url',
 			    'variables',
 			    'memcache',
 			    'googleanalytics',
-			    'versioncheck');
+			    'versioncheck',
+			    'news');
 
 $autoload['plugin'] = array();
 $autoload['config'] = array();
