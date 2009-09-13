@@ -571,13 +571,9 @@ print "
        });
    });
   
-  </script>
-      
-      
+  </script>           
 </head>
 HEAD;
-    print "<body>";
-    print_r($news);
 }
 
 $nroot = substr_replace($root,"",-1);
