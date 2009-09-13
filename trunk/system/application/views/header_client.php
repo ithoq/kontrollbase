@@ -190,6 +190,15 @@ print "
    },
    {
      xtype: 'tbbutton',
+     text: 'Forums',
+     handler: function() {
+       window.location = 'http://kontrollsoft.com/forum';}
+   },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
      id: this.id + 'AuditButton',
      cls: 'x-btn-icon audit-button',
      tooltip: 'Contact Support',

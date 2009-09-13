@@ -201,6 +201,15 @@ print "
    },
    {
      xtype: 'tbbutton',
+     text: 'Forums',
+     handler: function() {
+       window.location = 'http://kontrollsoft.com/forum';}
+   },
+   {
+     xtype: 'tbseparator'
+   },
+   {
+     xtype: 'tbbutton',
      id: this.id + 'AuditButton',
      cls: 'x-btn-icon audit-button',
      tooltip: 'Contact Support',
@@ -359,25 +368,7 @@ print "
    animCollapse:false,
    enableTabScroll:true,
    autoScroll:true
-   },
-   {
-     title: 'Forums',
-     deferredRender: true,
-     height: 600,
-     width: 600,
-     layout : 'fit',
-     listeners: {activate: refreshTab},
-     items: {
-       xtype          : 'iframepanel',
-       defaultSrc  : 'http://kontrollsoft.com/forum#anchor'
-     },
-     shim:false,
-     frame:true,
-     animCollapse:false,
-     enableTabScroll:true,
-     autoScroll:true
    }
-	   
    ]}]};
 
  
