@@ -504,43 +504,59 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$_Questions = substr(byte_format($Questions),0, -1);
 $_reads = $Com_select;
+$_readsR = substr(byte_format($Com_select),0, -1);
 $_readsP = ((round(($Com_select / $Questions),4)) * 100);
 $_readsS = round(($Com_select / $Uptime),4);
 $_writes = ($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi);
+$_writesR = substr(byte_format(($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi)),0, -1);
 $_writesP = ((round(($_writes / $Questions),4)) * 100);
 $_writesS = round(($_writes / $Uptime),4);
 $_readVSwrite = round(($_readsP / $_writesP),1);
 $_writeVSread = round(($_writesP / $_readsP),1);
 $_txS = round(($Com_commit / $Uptime),4);
 
+$_ConnectionsR = substr(byte_format($Connections),0, -1);
+$_connSucR = substr(byte_format(($Connections - $Aborted_connects)),0, -1);
 $_connSuc = ($Connections - $Aborted_connects);
 $_connSucP = round((($Connections - $Aborted_connects) / $Connections),4);
 $_connU = round(($Threads_connected / $max_connections),4);
+$_connAbortR = substr(byte_format($Aborted_connects),0, -1);
 $_connAbortP = round(($Aborted_connects / $Connections),4);
 $_connMaxUsage = round(($Max_used_connections / $max_connections),4);
 $_connAvgConSec = round(($Threads_connected / $Uptime),4);
 
+$_myisamAllocatedMemR = substr(byte_format($key_buffer_size),0, -1);
 $_myisamAllocatedMem = $key_buffer_size;
+$_myisamBlockSizeR = substr(byte_format($key_cache_block_size),0, -1);
 $_myisamBlockSize = $key_cache_block_size;
+$_myisamCurrentBlocksR = substr(byte_format(round(($key_buffer_size / $key_cache_block_size),4)),0, -1);
 $_myisamCurrentBlocks = round(($key_buffer_size / $key_cache_block_size),4);
+$_myisamUsedBlocksR = substr(byte_format(round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4)),0, -1);
 $_myisamUsedBlocks = round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4);
 $_myisamUsedBlocksP = round(($Key_blocks_unused / ($key_buffer_size / $key_cache_block_size)),4);
 $_myisamCacheHitRate = round(($Key_reads / $Key_read_requests),4);
+$_myisamBlocksToDiskR = substr(byte_format($Key_writes),0, -1);
 $_myisamBlocksToDisk = $Key_writes;
 $_myisamCacheWritesDisk = round(($Key_writes / $Key_write_requests),4);
 $_myisamCacheWritesDiskP = round((($Key_writes / $Key_write_requests) / ($Key_writes + $Key_write_requests)),4);
 $_myisamIndexDelayUpdate= $delay_key_write; // (0/1) 1=enable, sometimes mysql has it set as ON/OFF 
 
+$_innodbAllocatedMemR = substr(byte_format($innodb_buffer_pool_size),0, -1);
 $_innodbAllocatedMem = $innodb_buffer_pool_size;
 $_innodballocatedMemP = round(($innodb_buffer_pool_size / $os_mem_total),4);
 $_innodbFreeMem = $Innodb_buffer_pool_pages_free;
+$_innodbBlocksFromCacheR = substr(byte_format($Innodb_buffer_pool_read_requests),0, -1);
 $_innodbBlocksFromCache = $Innodb_buffer_pool_read_requests;
+$_innodbBlocksFromDiskR = substr(byte_format($Innodb_buffer_pool_reads),0, -1);
 $_innodbBlocksFromDisk = $Innodb_buffer_pool_reads;
 $_innodbCacheHitRate = round(($Innodb_buffer_pool_reads / $Innodb_buffer_pool_read_requests),4);
 $_innodbCacheWriteWaitRequired = round(($Innodb_buffer_pool_wait_free / $Innodb_buffer_pool_write_requests),4);
+$_innodbAdditionalMemoryAllowedR = substr(byte_format($innodb_additional_mem_pool_size),0, -1);
 $_innodbAdditionalMemoryAllowed = $innodb_additional_mem_pool_size;
 $_innodbFreePageWaits = $Innodb_buffer_pool_wait_free;
+$_innodbLogBufferSizeR = substr(byte_format($innodb_log_buffer_size),0, -1);
 $_innodbLogBufferSize = $innodb_log_buffer_size;
 $_innodbLogWaitsRequired = round(($Innodb_log_waits / $Innodb_log_writes),4);
 $_innodbFreePageWaits = $Innodb_log_waits;
@@ -552,39 +568,58 @@ $_tableCacheAvgSec = round(($Opened_tables / $Uptime),1);
 $_tableCacheMissesP = round(($Open_tables / $Opened_tables),4);
 
 $_qcacheEnabled = $have_query_cache;
+$_qcacheSizeR = substr(byte_format($query_cache_size),0, -1);
 $_qcacheSize = $query_cache_size;
 $_qcacheBlockSize = $query_cache_min_res_unit;
 $_qcacheTotalBlocks = $Qcache_total_blocks;
+$_qcacheMaxQuerySizeR = substr(byte_format($query_cache_limit),0, -1);
 $_qcacheMaxQuerySize = $query_cache_limit;
+$_qcacheFreeMemR = substr(byte_format($Qcache_free_memory),0, -1);
 $_qcacheFreeMem = $Qcache_free_memory;
 $_qcacheUtilized = round(($Qcache_free_memory / $query_cache_size),4);
 $_qcacheHitRate = round(($Qcache_hits / ($Qcache_inserts + $Qcache_hits)),4);
+$_qcacheParsingBufferR = substr(byte_format($query_prealloc_size),0, -1);
 $_qcacheParsingBuffer = $query_prealloc_size;
 $_qcacheFragmentation = round(($Qcache_free_blocks / ceil($Qcache_total_blocks / 2)),4);
+$_qcacheQuestionsInCacheR = substr(byte_format($Qcache_queries_in_cache),0, -1);
 $_qcacheQuestionsInCache = $Qcache_queries_in_cache;
+$_qcacheQuestionsAbleToBeCachedR = substr(byte_format($Qcache_inserts),0, -1);
 $_qcacheQuestionsAbleToBeCached = $Qcache_inserts;
+$_qcacheQuestionsNotCachedR = substr(byte_format($Qcache_not_cached),0, -1);
 $_qcacheQuestionsNotCached = $Qcache_not_cached;
+$_qcacheHitsTotalR = substr(byte_format($Qcache_hits),0, -1);
 $_qcacheHitsTotal = $Qcache_hits;
 $_qcacheQuestionsServedFromCacheP = round(($Qcache_hits / $Qcache_queries_in_cache),4);
+$_qcacheQuestionsRemovedR = substr(byte_format($Qcache_lowmem_prunes),0, -1);
 $_qcacheQuestionsRemoved = $Qcache_lowmem_prunes;
 $_qcacheQuestionsRemovedP = round(($Qcache_lowmem_prunes / $Qcache_inserts),4);
 
+$_sortSizeR = substr(byte_format($sort_buffer_size),0, -1);
 $_sortSize = $sort_buffer_size;
 $_sortSelectRange = round(($Sort_range / $Questions),4);
 $_sortScanP = round(($Sort_scan / $Questions),4);
 
+
+$_tableLocksNonWaitingR = substr(byte_format($Table_locks_immediate),0, -1);
 $_tableLocksNonWaiting = $Table_locks_immediate;
+$_tableLocksWaitingR =  substr(byte_format($Table_locks_waited),0, -1);
 $_tableLocksWaiting =  $Table_locks_waited;
 $_tableLocksContention = round(($Table_locks_waited / ($Table_locks_waited + $Table_locks_immediate)),4);
 
+$_tmpTableSizeR = substr(byte_format($tmp_table_size),0, -1);
 $_tmpTableSize = $tmp_table_size;
+$_tmpTableHeapSizeR = substr(byte_format($max_heap_table_size),0, -1);
 $_tmpTableHeapSize = $max_heap_table_size;
+$_tmpTableCreatedR = substr(byte_format($Created_tmp_tables),0, -1);
 $_tmpTableCreated = $Created_tmp_tables;
+$_tmpTablecreatedOnDiskR = substr(byte_format($Created_tmp_disk_tables),0, -1);
 $_tmpTablecreatedOnDisk = $Created_tmp_disk_tables;
 $_tmpTablecreatedOnDiskP = round(($Created_tmp_disk_tables / $Created_tmp_tables),4);
 
 $_indexUsageP = round((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev)),4);
+$_indexSelectsFullTableScanR = substr(byte_format($Select_scan),0, -1);
 $_indexSelectsFullTableScan = $Select_scan;
+$_indexJoinsFullTableScanR = substr(byte_format($Select_full_join),0, -1);
 $_indexJoinsFullTableScan = $Select_full_join;
 
 
@@ -592,9 +627,9 @@ print<<<HEAD
 <div id='content'>
 <table>
 <tr><td colspan="2"><h2>Query Analysis</h2></td></tr>
-<tr><td>total queries</td><td>$Questions</td></tr>
-<tr><td>total read type queries</td><td>$_reads</td></tr>
-<tr><td>total writes type queries</td><td>$_writes</td></tr>
+<tr><td>total queries</td><td>$_Questions</td></tr>
+<tr><td>total read type queries</td><td>$_readsR</td></tr>
+<tr><td>total writes type queries</td><td>$_writesR</td></tr>
 <tr><td>percentage of reads to total queries</td><td>$_readsP%</td></tr>
 <tr><td>percentage of writes to total queries</td><td>$_writesP%</td></tr>
 <tr><td>ratio of reads to writes</td><td>$_readVSwrite:1</td></tr>
@@ -606,12 +641,12 @@ print<<<HEAD
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>Connections</h2></td></tr>
-<tr><td>total connections made</td><td>$Connections</td></tr>
-<tr><td>successful connections</td><td>$_connSuc</td></tr>
+<tr><td>total connections made</td><td>$_ConnectionsR</td></tr>
+<tr><td>successful connections</td><td>$_connSucR</td></tr>
 <tr><td>successful connections</td><td>$_connSucP%</td></tr>
-<tr><td>aborted connections</td><td>$Aborted_connects</td></tr>
+<tr><td>aborted connections</td><td>$_connAbortR</td></tr>
 <tr><td>aborted connections</td><td>$_connAbortP%</td></tr>
-<tr><td>average connections per second</td><td>$_connAvgConSec</td></tr>
+<tr><td>average connections per second</td><td>$_connAvgConSec/sec</td></tr>
 <tr><td>max allowed connections</td><td>$max_connections</td></tr>
 <tr><td>current open connections</td><td>$Threads_connected</td></tr>
 <tr><td>current connections usage</td><td>$_connU%</td></tr>
@@ -631,29 +666,29 @@ print<<<HEAD
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>MyISAM Cache</h2></td></tr>
-<tr><td>allocated cache memory</td><td>$_myisamAllocatedMem</td></tr>
-<tr><td>block size</td><td>$_myisamBlockSize</td></tr>
-<tr><td>current blocks</td><td>$_myisamCurrentBlocks</td></tr>
-<tr><td>used blocks</td><td>$_myisamUsedBlocks</td></tr>
+<tr><td>allocated cache memory</td><td>$_myisamAllocatedMemR</td></tr>
+<tr><td>block size</td><td>$_myisamBlockSizeR</td></tr>
+<tr><td>current blocks</td><td>$_myisamCurrentBlocksR</td></tr>
+<tr><td>used blocks</td><td>$_myisamUsedBlocksR</td></tr>
 <tr><td>used blocks</td><td>$_myisamUsedBlocksP%</td></tr>
 <tr><td>cache hit rate</td><td>$_myisamCacheHitRate</td></tr>
-<tr><td>blocks written to disk</td><td>$_myisamBlocksToDisk</td></tr>
+<tr><td>blocks written to disk</td><td>$_myisamBlocksToDiskR</td></tr>
 <tr><td>cache writes disk</td><td>$_myisamCacheWritesDisk</td></tr>
 <tr><td>cache writes to disks</td><td>$_myisamCacheWritesDiskP%</td></tr>
 <tr><td>index delay update</td><td>$_myisamIndexDelayUpdate</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>InnoDB Cache</h2></td></tr>
-<tr><td>allocated mem</td><td>$_innodbAllocatedMem</td></tr>
-<tr><td>allocated mem to OS</td><td>$_innodballocatedMemP%</td></tr>
+<tr><td>allocated mem</td><td>$_innodbAllocatedMemR</td></tr>
+<tr><td>allocated innodb-mem to os-mem</td><td>$_innodballocatedMemP%</td></tr>
 <tr><td>free innodb memory</td><td>$_innodbFreeMem</td></tr>
-<tr><td>blocks served from cache</td><td>$_innodbBlocksFromCache</td></tr>
-<tr><td>blocks served from disk</td><td>$_innodbBlocksFromDisk</td></tr>
+<tr><td>blocks served from cache</td><td>$_innodbBlocksFromCacheR</td></tr>
+<tr><td>blocks served from disk</td><td>$_innodbBlocksFromDiskR</td></tr>
 <tr><td>cache hit rate</td><td>$_innodbCacheHitRate</td></tr>
 <tr><td>cache write wait required</td><td>$_innodbCacheWriteWaitRequired</td></tr>
-<tr><td>additional memory allowed</td><td>$_innodbAdditionalMemoryAllowed</td></tr>
+<tr><td>additional memory allowed</td><td>$_innodbAdditionalMemoryAllowedR</td></tr>
 <tr><td>free page waits</td><td>$_innodbFreePageWaits</td></tr>
-<tr><td>log buffer size</td><td>$_innodbLogBufferSize</td></tr>
+<tr><td>log buffer size</td><td>$_innodbLogBufferSizeR</td></tr>
 <tr><td>log waits required</td><td>$_innodbLogWaitsRequired%</td></tr>
 <tr><td>number of free page waits</td><td>$_innodbFreePageWaits</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
@@ -668,48 +703,48 @@ print<<<HEAD
 
 <tr><td colspan="2"><h2>Query cache</h2></td></tr>
 <tr><td>Enabled</td><td>$_qcacheEnabled</td></tr>
-<tr><td>cache size</td><td>$_qcacheSize</td></tr>
+<tr><td>cache size</td><td>$_qcacheSizeR</td></tr>
 <tr><td>block size</td><td>$_qcacheBlockSize</td></tr>
 <tr><td>total blocks</td><td>$_qcacheTotalBlocks</td></tr>
-<tr><td>max query size in cache</td><td>$_qcacheMaxQuerySize</td></tr>
-<tr><td>Free mem</td><td>$_qcacheMaxQuerySize</td></tr>
+<tr><td>max query size in cache</td><td>$_qcacheMaxQuerySizeR</td></tr>
+<tr><td>Free mem</td><td>$_qcacheMaxQuerySizeR</td></tr>
 <tr><td>cache utilized</td><td>$_qcacheUtilized% </td></tr>
-<tr><td>cache total hits</td><td>$_qcacheHitsTotal</td></tr>
+<tr><td>cache total hits</td><td>$_qcacheHitsTotalR</td></tr>
 <tr><td>cache hit rate</td><td>$_qcacheHitRate%</td></tr>
-<tr><td>parsing buffer</td><td>$_qcacheParsingBuffer</td></tr>
+<tr><td>parsing buffer</td><td>$_qcacheParsingBufferR</td></tr>
 <tr><td>fragmentation</td><td>$_qcacheFragmentation%</td></tr>
-<tr><td>questions in cache</td><td>$_qcacheQuestionsInCache</td></tr>
-<tr><td>questions able to be cached</td><td>$_qcacheQuestionsAbleToBeCached</td></tr>
-<tr><td>questions not cached</td><td>$_qcacheQuestionsNotCached</td></tr>
+<tr><td>questions in cache</td><td>$_qcacheQuestionsInCacheR</td></tr>
+<tr><td>questions able to be cached</td><td>$_qcacheQuestionsAbleToBeCachedR</td></tr>
+<tr><td>questions not cached</td><td>$_qcacheQuestionsNotCachedR</td></tr>
 <tr><td>questions served from cache</td><td>$_qcacheQuestionsServedFromCacheP%</td></tr>
-<tr><td>questions purged from cache</td><td>$_qcacheQuestionsRemoved</td></tr>
+<tr><td>questions purged from cache</td><td>$_qcacheQuestionsRemovedR</td></tr>
 <tr><td>percentage purged from cache</td><td>$_qcacheQuestionsRemovedP%</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>Sort Buffer Stats</h2></td></tr>
-<tr><td>sort buffer size</td><td>$_sortSize</td></tr>
+<tr><td>sort buffer size</td><td>$_sortSizeR</td></tr>
 <tr><td>percentage of select range</td><td>$_sortSelectRange%</td></tr>
 <tr><td>percentage of sort scan</td><td>$_sortScanP%</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>Table Locking Stats</h2></td></tr>
-<tr><td>tables with non-waiting locks</td><td>$_tableLocksNonWaiting</td></tr>
-<tr><td>tables waiting for locks</td><td>$_tableLocksWaiting</td></tr>
+<tr><td>tables with non-waiting locks</td><td>$_tableLocksNonWaitingR</td></tr>
+<tr><td>tables waiting for locks</td><td>$_tableLocksWaitingR</td></tr>
 <tr><td>tables that suffered locking contention</td><td>$_tableLocksContention</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>Temporary Table Stats</h2></td></tr>
-<tr><td>size of client based tmp table</td><td>$_tmpTableSize</td></tr>
-<tr><td>size of memory based tmp table</td><td>$_tmpTableHeapSize</td></tr>
-<tr><td>temp tables created</td><td>$_tmpTableCreated</td></tr>
-<tr><td>temp tables created on disk</td><td>$_tmpTablecreatedOnDisk</td></tr>
+<tr><td>size of client based tmp table</td><td>$_tmpTableSizeR</td></tr>
+<tr><td>size of memory based tmp table</td><td>$_tmpTableHeapSizeR</td></tr>
+<tr><td>temp tables created</td><td>$_tmpTableCreatedR</td></tr>
+<tr><td>temp tables created on disk</td><td>$_tmpTablecreatedOnDiskR</td></tr>
 <tr><td>percent of temp tables created on disk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$_tmpTablecreatedOnDiskP%</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 
 <tr><td colspan="2"><h2>Index Utilization</h2></td></tr>
 <tr><td>percentage of queries utilizing indexes</td><td>$_indexUsageP%</td></tr>
-<tr><td>select queries using full table scan</td><td>$_indexSelectsFullTableScan</td></tr>
-<tr><td>joins queries using full table scan</td><td>$_indexJoinsFullTableScan</td></tr>
+<tr><td>select queries using full table scan</td><td>$_indexSelectsFullTableScanR</td></tr>
+<tr><td>joins queries using full table scan</td><td>$_indexJoinsFullTableScanR</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 </table>
