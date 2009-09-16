@@ -49,7 +49,7 @@ var type = new Ext.data.SimpleStore({
       });
 HEAD;
 
-$server_client_name = 0;
+//$server_client_name = 0;
 foreach($user as $key => $value) {
   foreach($value as $vKey => $vValue) {
     if($vKey == 'id') { $system_user_id=$vValue; }

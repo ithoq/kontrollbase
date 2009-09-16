@@ -169,13 +169,20 @@ UPDATE `server_list` SET
 
   function get_user($system_user_id) {
     $dbr = $this->load->database('read', TRUE);
-    $user_server_client_id = $this->phpsession->get('user_server_client_id');
-    if($user_server_client_id == 0) {
+    $sql1 = "select server_client_id from system_users where id='$system_user_id'";
+    $query1 = $dbr->query($sql1);
+    if($query1->num_rows() > 0) {
+      foreach ($query1->result() as $row1) {
+        $server_client_id = $row1->server_client_id;
+      }
+    }
+    if($server_client_id == 0) {
       $sql0 = "select t1.* from system_users as t1 where t1.id = '$system_user_id' limit 1";
     }
     else {
       $sql0 = "select t1.*,t2.server_client_name from system_users as t1, server_client as t2 where t1.server_client_id = t2.id and t1.id = '$system_user_id' limit 1";
     }
+    log_message('debug', "model_edit: get_user: $sql0");
     $query = $dbr->query($sql0);
     if($query->num_rows() > 0) {      
       return $query->result_array();
