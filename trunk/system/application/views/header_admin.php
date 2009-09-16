@@ -218,7 +218,7 @@ print "
    }
        ]},
   {
-   title: 'News and Announcements',
+   title: 'News and Announcements - This is a BETA product - there may be bugs to fix. Please contact support if you need help.',
    region: 'south',
    height: 140,
    xtype: 'grid',
