@@ -206,37 +206,46 @@ class Add extends Controller {
 	  $server_client_id = $this->input->post('server_client_id');
 	  $role_tier = $this->input->post('role_tier');
 
-	  $system_user_name = strtolower($system_user_name);
-          $system_user_email = strtolower($system_user_email);
-
-	  $g['username'] = $system_user_name;
-	  $g['root'] = $this->config->item('base_url');
-
-	  if ($this->form_validation->run() == FALSE) {    
-	    log_message('debug', "Add controller: form validation failed.");
-	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
-	  }
-	  else {
-	    $state = $this->add->add_user(
-					  $system_user_name,
-					  $system_user_pass,
-					  $system_user_email,
-					  $server_client_id,
-					  $role_tier);
-	    if($state == 0) {
-	      log_message('debug', "Login controller: JSON = {success: true}");
-              echo "{success: true}"; //JSON wooo!
-	    }
-	    elseif($state == 1) {
-	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
-              echo "{success: false, errors: { reason: 'Add failed due to failed transaction - possibly a duplicate key.' }}";
+	  log_message('debug', "Add user: role_tier:$role_tier, server_client_id:$server_client_id");
+          //check to ensure that client user can only be associated with a !0 $server_client_id
+          //check to ensure that admin user can only be a role_tier=1, standard can only be role_tier=1, client can only be =2
+          if(($role_tier == 0) || ($role_tier == 1) && ($server_client_id != 0)) {
+	    log_message('debug', "Add user: user is system or admin but trying to be set as client");
+	    echo "{success: false, errors: { reason: 'Users set to \'Admin\' or \'System\' cannot be associated with client type other than \'System User\'. Please retry your settings.' }}";
+          }               
+          else {
+	    
+	    $system_user_name = strtolower($system_user_name);
+	    $system_user_email = strtolower($system_user_email);
+	    
+	    $g['username'] = $system_user_name;
+	    $g['root'] = $this->config->item('base_url');
+	    
+	    if ($this->form_validation->run() == FALSE) {    
+	      log_message('debug', "Add controller: form validation failed.");
+	      echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
 	    }
 	    else {
-	      show_error("This is a general failure message.");
+	      $state = $this->add->add_user(
+					    $system_user_name,
+					    $system_user_pass,
+					    $system_user_email,
+					    $server_client_id,
+					    $role_tier);
+	      if($state == 0) {
+		log_message('debug', "Login controller: JSON = {success: true}");
+		echo "{success: true}"; //JSON wooo!
+	      }
+	      elseif($state == 1) {
+		log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
+		echo "{success: false, errors: { reason: 'Add failed due to failed transaction - possibly a duplicate key.' }}";
+	      }
+	      else {
+		show_error("This is a general failure message.");
+	      }
 	    }
 	  }
 	}
-	
-  }
+}
 
 ?>
