@@ -552,6 +552,10 @@ $_innodbBlocksFromCache = $Innodb_buffer_pool_read_requests;
 $_innodbBlocksFromDiskR = substr(byte_format($Innodb_buffer_pool_reads),0, -1);
 $_innodbBlocksFromDisk = $Innodb_buffer_pool_reads;
 $_innodbCacheHitRate = round(($Innodb_buffer_pool_reads / $Innodb_buffer_pool_read_requests),4);
+
+if($Innodb_buffer_pool_wait_free == 0) { $Innodb_buffer_pool_wait_free = 1;}
+if($Innodb_buffer_pool_write_requests == 0) { $Innodb_buffer_pool_write_requests = 1;}
+
 $_innodbCacheWriteWaitRequired = round(($Innodb_buffer_pool_wait_free / $Innodb_buffer_pool_write_requests),4);
 $_innodbAdditionalMemoryAllowedR = substr(byte_format($innodb_additional_mem_pool_size),0, -1);
 $_innodbAdditionalMemoryAllowed = $innodb_additional_mem_pool_size;
