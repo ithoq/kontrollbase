@@ -349,17 +349,6 @@ class Main extends Controller {
     $this->load->view('main/server_status',$g);
   }
 
-  function server_statistics() {
-    auth();
-    $this->load->model('Model_main', 'main');
-    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
-    $g['statistics'] = $this->main->get_server_status($server_list_id);
-    $g['variables'] = $this->main->get_server_variables($server_list_id);
-    $g['server_list_id'] = $server_list_id;
-    $g['root'] = $this->config->item('base_url');
-    $this->load->view('main/server_statistics',$g);
-  }
-
   function summary() {
     auth();
     log_message('debug', "main-summary function called");

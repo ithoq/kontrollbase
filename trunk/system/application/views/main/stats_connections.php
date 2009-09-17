@@ -504,6 +504,19 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$_Questions = substr(byte_format($Questions),0, -1);
+$_reads = $Com_select;
+$_readsR = substr(byte_format($Com_select),0, -1);
+$_readsP = ((round(($Com_select / $Questions),4)) * 100);
+$_readsS = round(($Com_select / $Uptime),4);
+$_writes = ($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi);
+$_writesR = substr(byte_format(($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi)),0, -1);
+$_writesP = ((round(($_writes / $Questions),4)) * 100);
+$_writesS = round(($_writes / $Uptime),4);
+$_readVSwrite = round(($_readsP / $_writesP),1);
+$_writeVSread = round(($_writesP / $_readsP),1);
+$_txS = round(($Com_commit / $Uptime),4);
+
 $_ConnectionsR = substr(byte_format($Connections),0, -1);
 $_connSucR = substr(byte_format(($Connections - $Aborted_connects)),0, -1);
 $_connSuc = ($Connections - $Aborted_connects);
@@ -513,6 +526,106 @@ $_connAbortR = substr(byte_format($Aborted_connects),0, -1);
 $_connAbortP = round(($Aborted_connects / $Connections),4);
 $_connMaxUsage = round(($Max_used_connections / $max_connections),4);
 $_connAvgConSec = round(($Threads_connected / $Uptime),4);
+
+$_myisamAllocatedMemR = substr(byte_format($key_buffer_size),0, -1);
+$_myisamAllocatedMem = $key_buffer_size;
+$_myisamBlockSizeR = substr(byte_format($key_cache_block_size),0, -1);
+$_myisamBlockSize = $key_cache_block_size;
+$_myisamCurrentBlocksR = substr(byte_format(round(($key_buffer_size / $key_cache_block_size),4)),0, -1);
+$_myisamCurrentBlocks = round(($key_buffer_size / $key_cache_block_size),4);
+$_myisamUsedBlocksR = substr(byte_format(round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4)),0, -1);
+$_myisamUsedBlocks = round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4);
+$_myisamUsedBlocksP = round(($Key_blocks_unused / ($key_buffer_size / $key_cache_block_size)),4);
+$_myisamCacheHitRate = round(($Key_reads / $Key_read_requests),4);
+$_myisamBlocksToDiskR = substr(byte_format($Key_writes),0, -1);
+$_myisamBlocksToDisk = $Key_writes;
+$_myisamCacheWritesDisk = round(($Key_writes / $Key_write_requests),4);
+$_myisamCacheWritesDiskP = round((($Key_writes / $Key_write_requests) / ($Key_writes + $Key_write_requests)),4);
+$_myisamIndexDelayUpdate= $delay_key_write; // (0/1) 1=enable, sometimes mysql has it set as ON/OFF 
+
+$_innodbAllocatedMemR = substr(byte_format($innodb_buffer_pool_size),0, -1);
+$_innodbAllocatedMem = $innodb_buffer_pool_size;
+$_innodballocatedMemP = round(($innodb_buffer_pool_size / $os_mem_total),4);
+$_innodbFreeMem = $Innodb_buffer_pool_pages_free;
+$_innodbBlocksFromCacheR = substr(byte_format($Innodb_buffer_pool_read_requests),0, -1);
+$_innodbBlocksFromCache = $Innodb_buffer_pool_read_requests;
+$_innodbBlocksFromDiskR = substr(byte_format($Innodb_buffer_pool_reads),0, -1);
+$_innodbBlocksFromDisk = $Innodb_buffer_pool_reads;
+$_innodbCacheHitRate = round(($Innodb_buffer_pool_reads / $Innodb_buffer_pool_read_requests),4);
+
+if($Innodb_buffer_pool_wait_free == 0) { $Innodb_buffer_pool_wait_free = 1;}
+if($Innodb_buffer_pool_write_requests == 0) { $Innodb_buffer_pool_write_requests = 1;}
+
+$_innodbCacheWriteWaitRequired = round(($Innodb_buffer_pool_wait_free / $Innodb_buffer_pool_write_requests),4);
+$_innodbAdditionalMemoryAllowedR = substr(byte_format($innodb_additional_mem_pool_size),0, -1);
+$_innodbAdditionalMemoryAllowed = $innodb_additional_mem_pool_size;
+$_innodbFreePageWaits = $Innodb_buffer_pool_wait_free;
+$_innodbLogBufferSizeR = substr(byte_format($innodb_log_buffer_size),0, -1);
+$_innodbLogBufferSize = $innodb_log_buffer_size;
+$_innodbLogWaitsRequired = round(($Innodb_log_waits / $Innodb_log_writes),4);
+$_innodbFreePageWaits = $Innodb_log_waits;
+
+$_tableCacheAllowable = $table_cache;
+$_tableCacheOpen = $Open_tables;
+$_tableCacheOpenP = round(($table_cache / $Open_tables),4);
+$_tableCacheAvgSec = round(($Opened_tables / $Uptime),1);
+$_tableCacheMissesP = round(($Open_tables / $Opened_tables),4);
+
+$_qcacheEnabled = $have_query_cache;
+$_qcacheSizeR = substr(byte_format($query_cache_size),0, -1);
+$_qcacheSize = $query_cache_size;
+$_qcacheBlockSize = $query_cache_min_res_unit;
+$_qcacheTotalBlocks = $Qcache_total_blocks;
+$_qcacheMaxQuerySizeR = substr(byte_format($query_cache_limit),0, -1);
+$_qcacheMaxQuerySize = $query_cache_limit;
+$_qcacheFreeMemR = substr(byte_format($Qcache_free_memory),0, -1);
+$_qcacheFreeMem = $Qcache_free_memory;
+$_qcacheUtilized = round(($Qcache_free_memory / $query_cache_size),4);
+$_qcacheHitRate = round(($Qcache_hits / ($Qcache_inserts + $Qcache_hits)),4);
+$_qcacheParsingBufferR = substr(byte_format($query_prealloc_size),0, -1);
+$_qcacheParsingBuffer = $query_prealloc_size;
+$_qcacheFragmentation = round(($Qcache_free_blocks / ceil($Qcache_total_blocks / 2)),4);
+$_qcacheQuestionsInCacheR = substr(byte_format($Qcache_queries_in_cache),0, -1);
+$_qcacheQuestionsInCache = $Qcache_queries_in_cache;
+$_qcacheQuestionsAbleToBeCachedR = substr(byte_format($Qcache_inserts),0, -1);
+$_qcacheQuestionsAbleToBeCached = $Qcache_inserts;
+$_qcacheQuestionsNotCachedR = substr(byte_format($Qcache_not_cached),0, -1);
+$_qcacheQuestionsNotCached = $Qcache_not_cached;
+$_qcacheHitsTotalR = substr(byte_format($Qcache_hits),0, -1);
+$_qcacheHitsTotal = $Qcache_hits;
+$_qcacheQuestionsServedFromCacheP = round(($Qcache_hits / $Qcache_queries_in_cache),4);
+$_qcacheQuestionsRemovedR = substr(byte_format($Qcache_lowmem_prunes),0, -1);
+$_qcacheQuestionsRemoved = $Qcache_lowmem_prunes;
+$_qcacheQuestionsRemovedP = round(($Qcache_lowmem_prunes / $Qcache_inserts),4);
+
+$_sortSizeR = substr(byte_format($sort_buffer_size),0, -1);
+$_sortSize = $sort_buffer_size;
+$_sortSelectRange = round(($Sort_range / $Questions),4);
+$_sortScanP = round(($Sort_scan / $Questions),4);
+
+
+$_tableLocksNonWaitingR = substr(byte_format($Table_locks_immediate),0, -1);
+$_tableLocksNonWaiting = $Table_locks_immediate;
+$_tableLocksWaitingR =  substr(byte_format($Table_locks_waited),0, -1);
+$_tableLocksWaiting =  $Table_locks_waited;
+$_tableLocksContention = round(($Table_locks_waited / ($Table_locks_waited + $Table_locks_immediate)),4);
+
+$_tmpTableSizeR = substr(byte_format($tmp_table_size),0, -1);
+$_tmpTableSize = $tmp_table_size;
+$_tmpTableHeapSizeR = substr(byte_format($max_heap_table_size),0, -1);
+$_tmpTableHeapSize = $max_heap_table_size;
+$_tmpTableCreatedR = substr(byte_format($Created_tmp_tables),0, -1);
+$_tmpTableCreated = $Created_tmp_tables;
+$_tmpTablecreatedOnDiskR = substr(byte_format($Created_tmp_disk_tables),0, -1);
+$_tmpTablecreatedOnDisk = $Created_tmp_disk_tables;
+$_tmpTablecreatedOnDiskP = round(($Created_tmp_disk_tables / $Created_tmp_tables),4);
+
+$_indexUsageP = round((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev)),4);
+$_indexSelectsFullTableScanR = substr(byte_format($Select_scan),0, -1);
+$_indexSelectsFullTableScan = $Select_scan;
+$_indexJoinsFullTableScanR = substr(byte_format($Select_full_join),0, -1);
+$_indexJoinsFullTableScan = $Select_full_join;
+
 
 print<<<HEAD
 <div id='content'>
