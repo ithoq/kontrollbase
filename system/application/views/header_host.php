@@ -303,7 +303,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_query_analysis'
+     defaultSrc  : '$nroot/index.php/analytics/stats_query_analysis/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -320,7 +320,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_query_cache'
+     defaultSrc  : '$nroot/index.php/analytics/stats_query_cache/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -337,7 +337,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_connections'
+     defaultSrc  : '$nroot/index.php/analytics/stats_connections/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -354,7 +354,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_threads'
+     defaultSrc  : '$nroot/index.php/analytics/stats_threads/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -363,7 +363,7 @@ print "
        autoScroll:true
    },
    {
-     title: 'indexe usage',
+     title: 'index usage',
      deferredRender: true,
      height: 480,
      width:440,
@@ -371,7 +371,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_indexes'
+     defaultSrc  : '$nroot/index.php/analytics/stats_indexes/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -388,7 +388,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_table_locking'
+     defaultSrc  : '$nroot/index.php/analytics/stats_table_locking/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -405,7 +405,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_table_cache'
+     defaultSrc  : '$nroot/index.php/analytics/stats_table_cache/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -422,7 +422,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_temp_table'
+     defaultSrc  : '$nroot/index.php/analytics/stats_temp_table/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -439,7 +439,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_sort_buffer'
+     defaultSrc  : '$nroot/index.php/analytics/stats_sort_buffer/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -456,7 +456,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_myisam'
+     defaultSrc  : '$nroot/index.php/analytics/stats_myisam/$server_list_id'
      },
      shim:false,
      frame:true,
@@ -473,7 +473,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_innodb'
+     defaultSrc  : '$nroot/index.php/analytics/stats_innodb/$server_list_id'
      },
      shim:false,
      frame:true,
