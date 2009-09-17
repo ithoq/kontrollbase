@@ -281,19 +281,207 @@ print "
    {
      title: 'Analytics',
      deferredRender: true,
+     height: 480,
      width:440,
-     height:480,
      layout : 'fit',
+   items: [
+   {
+     xtype: 'tabpanel',
+     plain: true,
+     region: 'center',
+     margins: '0 5 5 5',
+     activeTab: 0,
+     autoScroll: true,
+     animScroll: true,
+   items: [
+   {
+     title: 'query analysis',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/main/server_statistics/$server_list_id'
+     defaultSrc  : '$nroot/index.php/analytics/stats_query_analysis'
      },
      shim:false,
      frame:true,
      animCollapse:false,
      enableTabScroll:true,
-   autoScroll:true
+       autoScroll:true
    },
+   {
+     title: 'query cache',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_query_cache'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'connections',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_connections'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'threads',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_threads'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'indexe usage',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_indexes'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'table locking',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_table_locking'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'table cache',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_table_cache'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'temp tables',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_temp_table'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'sort buffer',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_sort_buffer'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'myisam',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_myisam'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'innodb',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_innodb'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   }
+   ]}]},
    {
    title: 'Perf Report',
    deferredRender: true,
