@@ -271,7 +271,7 @@ class Edit extends Controller {
 	  log_message('debug', "Add user: role_tier:$role_tier, server_client_id:$server_client_id");
           //check to ensure that client user can only be associated with a !0 $server_client_id
           //check to ensure that admin user can only be a role_tier=1, standard can only be role_tier=1, client can only be =2
-          if(($role_tier == 0) || ($role_tier == 1) && ($server_client_id != 0)) {
+          if((($role_tier == 0) || ($role_tier == 1)) && ($server_client_id != 0)) {
             log_message('debug', "Add user: user is system or admin but trying to be set as client");
             echo "{success: false, errors: { reason: 'Users set to \'Admin\' or \'System\' cannot be associated with client type other than \'System User\'. Please retry your settings.' }}";
           }               
