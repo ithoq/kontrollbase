@@ -504,6 +504,9 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$Table_locks_immediate = check_var($Table_locks_immediate);
+$Table_locks_waited = check_var($Table_locks_waited);
+
 $_tableLocksNonWaitingR = substr(byte_format($Table_locks_immediate),0, -1);
 $_tableLocksNonWaiting = $Table_locks_immediate;
 $_tableLocksWaitingR =  substr(byte_format($Table_locks_waited),0, -1);

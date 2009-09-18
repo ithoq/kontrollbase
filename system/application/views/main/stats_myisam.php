@@ -504,6 +504,15 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$key_buffer_size = check_var($key_buffer_size);
+$key_cache_block_size = check_var($key_cache_block_size);
+$Key_blocks_unused = check_var($Key_blocks_unused);
+$Key_read_requests = check_var($Key_read_requests);
+$Key_writes = check_var($Key_writes);
+$Key_reads = check_var($Key_reads);
+$Key_write_requests = check_var($Key_write_requests);
+$delay_key_write = check_var($delay_key_write);
+
 $_myisamAllocatedMemR = substr(byte_format($key_buffer_size),0, -1);
 $_myisamAllocatedMem = $key_buffer_size;
 $_myisamBlockSizeR = substr(byte_format($key_cache_block_size),0, -1);

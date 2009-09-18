@@ -504,6 +504,11 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$tmp_table_size = check_var($tmp_table_size);
+$max_heap_table_size = check_var($max_heap_table_size);
+$Created_tmp_tables = check_var($Created_tmp_tables);
+$Created_tmp_disk_tables = check_var($Created_tmp_disk_tables);
+
 $_tmpTableSizeR = substr(byte_format($tmp_table_size),0, -1);
 $_tmpTableSize = $tmp_table_size;
 $_tmpTableHeapSizeR = substr(byte_format($max_heap_table_size),0, -1);

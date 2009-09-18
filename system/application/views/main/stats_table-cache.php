@@ -504,6 +504,11 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$table_cache = check_var($table_cache);
+$Open_tables = check_var($Open_tables);
+$Opened_tables = check_var($Opened_tables);
+$Uptime = check_var($Uptime);
+
 $_tableCacheAllowable = $table_cache;
 $_tableCacheOpen = $Open_tables;
 $_tableCacheOpenP = round(($table_cache / $Open_tables),4);

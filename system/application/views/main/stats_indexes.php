@@ -504,6 +504,13 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$Handler_read_rnd_next = check_var($Handler_read_rnd_next);
+$Handler_read_rnd = check_var($Handler_read_rnd);
+$Handler_read_first = check_var($Handler_read_first);
+$Handler_read_next = check_var($Handler_read_next);
+$Handler_read_key = check_var($Handler_read_key);
+$Handler_read_prev = check_var($Handler_read_prev);
+
 $_indexUsageP = round((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev)),4);
 $_indexSelectsFullTableScanR = substr(byte_format($Select_scan),0, -1);
 $_indexSelectsFullTableScan = $Select_scan;

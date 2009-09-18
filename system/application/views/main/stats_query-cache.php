@@ -504,6 +504,21 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$have_query_cache = check_var($have_query_cache);
+$query_cache_size = check_var($query_cache_size);
+$query_cache_min_res_unit = check_var($query_cache_min_res_unit);
+$Qcache_total_blocks = check_var($Qcache_total_blocks);
+$query_cache_limit = check_var($query_cache_limit);
+$Qcache_free_memory = check_var($Qcache_free_memory);
+$Qcache_hits = check_var($Qcache_hits);
+$Qcache_inserts = check_var($Qcache_inserts);
+$query_prealloc_size = check_var($query_prealloc_size);
+$Qcache_free_blocks = check_var($Qcache_free_blocks);
+$Qcache_total_blocks = check_var($Qcache_total_blocks);
+$Qcache_queries_in_cache = check_var($Qcache_queries_in_cache);
+$Qcache_not_cached = check_var($Qcache_not_cached);
+$Qcache_lowmem_prunes = check_var($Qcache_lowmem_prunes);
+
 $_qcacheEnabled = $have_query_cache;
 $_qcacheSizeR = substr(byte_format($query_cache_size),0, -1);
 $_qcacheSize = $query_cache_size;
