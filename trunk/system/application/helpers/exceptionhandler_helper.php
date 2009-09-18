@@ -14,10 +14,15 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 // Check variables to see if they are 0 so that we do not get division by zero errors
 function check_var($var) {
-  log_message('debug', "exceptionhandler helper starting: check_var($var)");
-  if($var == 0) { 
-    log_message('debug', "exceptionhandler: var:$var, changing to '.00000001'");
-    $var = .00000001; 
+  $var = trim($var);
+  log_message('debug', "exceptionhandler: check_var($var)");
+  if($var == "YES") { return $var; }
+  elseif($var == "NO") { return $var; }
+  elseif($var == "ON") { return $var; }
+  elseif($var == "OFF") { return $var; }
+  elseif($var == 0) { 
+    log_message('debug', "exceptionhandler: var:$var, changing to '.1'");
+    $var = .01; 
     return $var;
   }
   else {

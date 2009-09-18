@@ -504,6 +504,11 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$sort_buffer_size = check_var($sort_buffer_size);
+$Sort_range = check_var($Sort_range);
+$Questions = check_var($Questions);
+$Sort_scan = check_var($Sort_scan);
+
 $_sortSizeR = substr(byte_format($sort_buffer_size),0, -1);
 $_sortSize = $sort_buffer_size;
 $_sortSelectRange = round(($Sort_range / $Questions),4);

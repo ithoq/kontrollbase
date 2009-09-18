@@ -504,6 +504,16 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$Questions = check_var($Questions);
+$Com_select = check_var($Com_select);
+$Uptime = check_var($Uptime);
+$Com_delete = check_var($Com_delete);
+$Com_insert = check_var($Com_insert);
+$Com_insert_select = check_var($Com_insert_select);
+$Com_update = check_var($Com_update);
+$Com_update_multi = check_var($Com_update_multi);
+$Com_commit = check_var($Com_commit);
+
 $_Questions = substr(byte_format($Questions),0, -1);
 $_reads = $Com_select;
 $_readsR = substr(byte_format($Com_select),0, -1);

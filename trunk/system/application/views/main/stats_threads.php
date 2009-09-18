@@ -504,6 +504,14 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$thread_cache_size = check_var($thread_cache_size);
+$Threads_connected = check_var($Threads_connected);
+$Threads_created = check_var($Threads_created);
+$Threads_running = check_var($Threads_running);
+$Threads_cached = check_var($Threads_cached);
+$Delayed_insert_threads = check_var($Delayed_insert_threads);
+$Slow_launch_threads = check_var($Slow_launch_threads);
+
 print<<<HEAD
 <div id='content'>
 <table>

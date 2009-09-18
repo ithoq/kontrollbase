@@ -504,6 +504,18 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+$innodb_buffer_pool_size = check_var($innodb_buffer_pool_size);
+$os_mem_total = check_var($os_mem_total);
+$Innodb_buffer_pool_pages_free = check_var($Innodb_buffer_pool_pages_free);
+$Innodb_buffer_pool_read_requests = check_var($Innodb_buffer_pool_read_requests);
+$Innodb_buffer_pool_reads = check_var($Innodb_buffer_pool_reads);
+$Innodb_buffer_pool_wait_free = check_var($Innodb_buffer_pool_wait_free);
+$Innodb_buffer_pool_write_requests = check_var($Innodb_buffer_pool_write_requests);
+$innodb_additional_mem_pool_size = check_var($innodb_additional_mem_pool_size);
+$innodb_log_buffer_size = check_var($innodb_log_buffer_size);
+$Innodb_log_waits = check_var($Innodb_log_waits);
+$Innodb_log_writes = check_var($Innodb_log_writes);
+
 $_innodbAllocatedMemR = substr(byte_format($innodb_buffer_pool_size),0, -1);
 $_innodbAllocatedMem = $innodb_buffer_pool_size;
 $_innodballocatedMemP = round(($innodb_buffer_pool_size / $os_mem_total),4);
