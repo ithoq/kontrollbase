@@ -504,6 +504,15 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
+//Exception handling for all vars that will be using division
+$Connections = check_var($Connections);
+$Aborted_connects = check_var($Aborted_connects);
+$Threads_connected = check_var($Threads_connected);
+$max_connections = check_var($max_connections);
+$Max_used_connections = check_var($Max_used_connections);
+$Uptime = check_var($Uptime);
+
+// the general equations 
 $_ConnectionsR = substr(byte_format($Connections),0, -1);
 $_connSucR = substr(byte_format(($Connections - $Aborted_connects)),0, -1);
 $_connSuc = ($Connections - $Aborted_connects);
