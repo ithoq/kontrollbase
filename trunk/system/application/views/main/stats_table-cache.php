@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -511,21 +511,81 @@ $Uptime = check_var($Uptime);
 
 $_tableCacheAllowable = $table_cache;
 $_tableCacheOpen = $Open_tables;
-$_tableCacheOpenP = round(($table_cache / $Open_tables),4);
+$_tableCacheOpenP = round((($table_cache / $Open_tables)*100),2);
 $_tableCacheAvgSec = round(($Opened_tables / $Uptime),1);
-$_tableCacheMissesP = round(($Open_tables / $Opened_tables),4);
+$_tableCacheMissesP = round((($Open_tables / $Opened_tables)*100),2);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Table cache</h2></td></tr>
-<tr><td>table cache size</td><td>$_tableCacheAllowable</td></tr>
-<tr><td>current open tables</td><td>$_tableCacheOpen</td></tr>
-<tr><td>table cache utilization</td><td>$_tableCacheOpenP%</td></tr>
-<tr><td>average tables open per second</td><td>$_tableCacheAvgSec</td></tr>
-<tr><td>percentage cache misses</td><td>$_tableCacheMissesP%</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Table Cache Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'Table cache size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableCacheAllowable',
+				 disabled: true,
+				 allowBlank:true
+				 },
+			     
+			     {
+			     fieldLabel:'Current open tables',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableCacheOpen',
+				 disabled: true,
+				 allowBlank:true
+				 },
+			     
+			     {
+			     fieldLabel:'Table cache utilization',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableCacheOpenP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+			     
+			     {
+			     fieldLabel:'Average tables open per/sec',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableCacheAvgSec',
+				 disabled: true,
+				 allowBlank:true
+				 },
+			     
+			     {
+			     fieldLabel:'Percentage cache misses',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableCacheMissesP%',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

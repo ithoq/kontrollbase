@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -511,18 +511,60 @@ $Sort_scan = check_var($Sort_scan);
 
 $_sortSizeR = substr(byte_format($sort_buffer_size),0, -1);
 $_sortSize = $sort_buffer_size;
-$_sortSelectRange = round(($Sort_range / $Questions),4);
-$_sortScanP = round(($Sort_scan / $Questions),4);
+$_sortSelectRange = round((($Sort_range / $Questions)*100),2);
+$_sortScanP = round((($Sort_scan / $Questions)*100),2);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Sort Buffer Stats</h2></td></tr>
-<tr><td>sort buffer size</td><td>$_sortSizeR</td></tr>
-<tr><td>percentage of select range</td><td>$_sortSelectRange%</td></tr>
-<tr><td>percentage of sort scan</td><td>$_sortScanP%</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Connection Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'Sort buffer size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_sortSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Percentage of select scan',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_sortSelectRange%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Percentage of sort scan',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_sortScanP%',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

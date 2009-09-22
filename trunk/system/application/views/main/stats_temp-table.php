@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -517,19 +517,80 @@ $_tmpTableCreatedR = substr(byte_format($Created_tmp_tables),0, -1);
 $_tmpTableCreated = $Created_tmp_tables;
 $_tmpTablecreatedOnDiskR = substr(byte_format($Created_tmp_disk_tables),0, -1);
 $_tmpTablecreatedOnDisk = $Created_tmp_disk_tables;
-$_tmpTablecreatedOnDiskP = round(($Created_tmp_disk_tables / $Created_tmp_tables),4);
+$_tmpTablecreatedOnDiskP = round((($Created_tmp_disk_tables / $Created_tmp_tables)*100),2);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Temporary Table Stats</h2></td></tr>
-<tr><td>size of client based tmp table</td><td>$_tmpTableSizeR</td></tr>
-<tr><td>size of memory based tmp table</td><td>$_tmpTableHeapSizeR</td></tr>
-<tr><td>temp tables created</td><td>$_tmpTableCreatedR</td></tr>
-<tr><td>temp tables created on disk</td><td>$_tmpTablecreatedOnDiskR</td></tr>
-<tr><td>percent of temp tables created on disk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>$_tmpTablecreatedOnDiskP%</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Temporary Table Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     
+			     {
+			     fieldLabel:'Size of connection based tmp table',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tmpTableSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Size of memory based tmp table',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tmpTableHeapSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Temp tables created total',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tmpTableCreatedR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Temp tables created on disk',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tmpTablecreatedOnDiskR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Percent of temp tables created on disk',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tmpTablecreatedOnDiskP%',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

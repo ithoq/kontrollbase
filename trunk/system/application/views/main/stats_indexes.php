@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -511,7 +511,7 @@ $Handler_read_next = check_var($Handler_read_next);
 $Handler_read_key = check_var($Handler_read_key);
 $Handler_read_prev = check_var($Handler_read_prev);
 
-$_indexUsageP = round((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev)),4);
+$_indexUsageP = round(((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev))*100),2);
 $_indexSelectsFullTableScanR = substr(byte_format($Select_scan),0, -1);
 $_indexSelectsFullTableScan = $Select_scan;
 $_indexJoinsFullTableScanR = substr(byte_format($Select_full_join),0, -1);
@@ -519,15 +519,56 @@ $_indexJoinsFullTableScan = $Select_full_join;
 
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Index Utilization</h2></td></tr>
-<tr><td>percentage of queries utilizing indexes</td><td>$_indexUsageP%</td></tr>
-<tr><td>select queries using full table scan</td><td>$_indexSelectsFullTableScanR</td></tr>
-<tr><td>joins queries using full table scan</td><td>$_indexJoinsFullTableScanR</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Index Usage Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'queries utilizing indexes',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_indexUsageP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'select queries using full table scan',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_indexSelectsFullTableScanR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'joins queries using full table scan',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_indexJoinsFullTableScanR',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]})
+		  });
+</script>
+
 </div>
 </body>
 </html>

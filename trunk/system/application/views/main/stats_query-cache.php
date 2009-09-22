@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -541,34 +541,202 @@ $_qcacheQuestionsNotCachedR = substr(byte_format($Qcache_not_cached),0, -1);
 $_qcacheQuestionsNotCached = $Qcache_not_cached;
 $_qcacheHitsTotalR = substr(byte_format($Qcache_hits),0, -1);
 $_qcacheHitsTotal = $Qcache_hits;
-$_qcacheQuestionsServedFromCacheP = round(($Qcache_hits / $Qcache_queries_in_cache),4);
+$_qcacheQuestionsServedFromCacheP = round((($Qcache_hits / $Qcache_queries_in_cache)/100),4);
 $_qcacheQuestionsRemovedR = substr(byte_format($Qcache_lowmem_prunes),0, -1);
 $_qcacheQuestionsRemoved = $Qcache_lowmem_prunes;
 $_qcacheQuestionsRemovedP = round(($Qcache_lowmem_prunes / $Qcache_inserts),4);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Query cache</h2></td></tr>
-<tr><td>Enabled</td><td>$_qcacheEnabled</td></tr>
-<tr><td>cache size</td><td>$_qcacheSizeR</td></tr>
-<tr><td>block size</td><td>$_qcacheBlockSize</td></tr>
-<tr><td>total blocks</td><td>$_qcacheTotalBlocks</td></tr>
-<tr><td>max query size in cache</td><td>$_qcacheMaxQuerySizeR</td></tr>
-<tr><td>Free mem</td><td>$_qcacheMaxQuerySizeR</td></tr>
-<tr><td>cache utilized</td><td>$_qcacheUtilized% </td></tr>
-<tr><td>cache total hits</td><td>$_qcacheHitsTotalR</td></tr>
-<tr><td>cache hit rate</td><td>$_qcacheHitRate%</td></tr>
-<tr><td>parsing buffer</td><td>$_qcacheParsingBufferR</td></tr>
-<tr><td>fragmentation</td><td>$_qcacheFragmentation%</td></tr>
-<tr><td>questions in cache</td><td>$_qcacheQuestionsInCacheR</td></tr>
-<tr><td>questions able to be cached</td><td>$_qcacheQuestionsAbleToBeCachedR</td></tr>
-<tr><td>questions not cached</td><td>$_qcacheQuestionsNotCachedR</td></tr>
-<tr><td>questions served from cache</td><td>$_qcacheQuestionsServedFromCacheP%</td></tr>
-<tr><td>questions purged from cache</td><td>$_qcacheQuestionsRemovedR</td></tr>
-<tr><td>percentage purged from cache</td><td>$_qcacheQuestionsRemovedP%</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Query Cache Usage Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'Enabled',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheEnabled',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Cache size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Block Size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheBlockSize',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Total Blocks',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheTotalBlocks',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Max query size in cache',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheMaxQuerySizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Free cache memory',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheFreeMemR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Cache utilization',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheUtilized%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Cache total hits',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheHitsTotalR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Cache hit rate',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheHitRate%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Parsing buffer',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheParsingBufferR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Cache Fragmentation',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheFragmentation%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Questions in cache',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsInCacheR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Questions able to be cached',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsAbleToBeCachedR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Questions not able to be cached',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsNotCachedR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Questions served from cache percentage',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsServedFromCacheP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Questions pruned from cache',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsRemovedR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Percentage questions purged from cache',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_qcacheQuestionsRemovedP%',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

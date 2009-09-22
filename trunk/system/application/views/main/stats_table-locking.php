@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -514,14 +514,56 @@ $_tableLocksWaiting =  $Table_locks_waited;
 $_tableLocksContention = round(($Table_locks_waited / ($Table_locks_waited + $Table_locks_immediate)),4);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Table Locking Stats</h2></td></tr>
-<tr><td>tables with non-waiting locks</td><td>$_tableLocksNonWaitingR</td></tr>
-<tr><td>tables waiting for locks</td><td>$_tableLocksWaitingR</td></tr>
-<tr><td>tables that suffered locking contention</td><td>$_tableLocksContention</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Table Locking Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'Tables with non-waiting locks',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableLocksNonWaitingR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Tables waiting for locks',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableLocksWaitingR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Tables that had locking contention',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_tableLocksContention',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>
