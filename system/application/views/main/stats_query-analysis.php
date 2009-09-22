@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -528,22 +528,136 @@ $_writeVSread = round(($_writesP / $_readsP),1);
 $_txS = round(($Com_commit / $Uptime),4);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Query Analysis</h2></td></tr>
-<tr><td>total queries</td><td>$_Questions</td></tr>
-<tr><td>total read type queries</td><td>$_readsR</td></tr>
-<tr><td>total writes type queries</td><td>$_writesR</td></tr>
-<tr><td>percentage of reads to total queries</td><td>$_readsP%</td></tr>
-<tr><td>percentage of writes to total queries</td><td>$_writesP%</td></tr>
-<tr><td>ratio of reads to writes</td><td>$_readVSwrite:1</td></tr>
-<tr><td>ratio of writes to reads</td><td>$_writeVSread:1</td></tr>
-<tr><td>reads queries per seccond</td><td>$_readsS</td></tr>
-<tr><td>writes per second</td><td>$_writesS</td></tr>
-<tr><td>transactions commits</td><td>$Com_commit</td></tr>
-<tr><td>transactions commits per sec</td><td>$_txS</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Query Analysis Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'total queries',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_Questions',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'total read queries',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_readsR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'total write queries',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_writesR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'percentage or reads to total',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_readsP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'percentage of writes to total',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_writesP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'ratio of reads to writes',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_readVSwrite:1',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'ratio of writes to reads',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_writeVSread:1',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'read queries per/sec',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_readsS',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'write queries per/sec',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_writesS',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'transaction commits',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Com_commit',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'transaction commits per/sec',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_txS',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

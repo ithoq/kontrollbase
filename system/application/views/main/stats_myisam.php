@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -521,30 +521,135 @@ $_myisamCurrentBlocksR = substr(byte_format(round(($key_buffer_size / $key_cache
 $_myisamCurrentBlocks = round(($key_buffer_size / $key_cache_block_size),4);
 $_myisamUsedBlocksR = substr(byte_format(round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4)),0, -1);
 $_myisamUsedBlocks = round((($key_buffer_size / $key_cache_block_size) - $Key_blocks_unused),4);
-$_myisamUsedBlocksP = round(($Key_blocks_unused / ($key_buffer_size / $key_cache_block_size)),4);
+$_myisamUsedBlocksP = round((($_myisamUsedBlocks / $_myisamCurrentBlocks)*100),2);
 $_myisamCacheHitRate = round(($Key_reads / $Key_read_requests),4);
 $_myisamBlocksToDiskR = substr(byte_format($Key_writes),0, -1);
 $_myisamBlocksToDisk = $Key_writes;
-$_myisamCacheWritesDisk = round(($Key_writes / $Key_write_requests),4);
-$_myisamCacheWritesDiskP = round((($Key_writes / $Key_write_requests) / ($Key_writes + $Key_write_requests)),4);
+$_myisamCacheWritesDisk = round(($Key_write_requests / $Key_writes),1);
+$_myisamCacheWritesDiskP = round(((($Key_write_requests / $Key_writes) / ($Key_writes + $Key_write_requests))*100),2);
 $_myisamIndexDelayUpdate= $delay_key_write; // (0/1) 1=enable, sometimes mysql has it set as ON/OFF 
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>MyISAM Cache</h2></td></tr>
-<tr><td>allocated cache memory</td><td>$_myisamAllocatedMemR</td></tr>
-<tr><td>block size</td><td>$_myisamBlockSizeR</td></tr>
-<tr><td>current blocks</td><td>$_myisamCurrentBlocksR</td></tr>
-<tr><td>used blocks</td><td>$_myisamUsedBlocksR</td></tr>
-<tr><td>used blocks</td><td>$_myisamUsedBlocksP%</td></tr>
-<tr><td>cache hit rate</td><td>$_myisamCacheHitRate</td></tr>
-<tr><td>blocks written to disk</td><td>$_myisamBlocksToDiskR</td></tr>
-<tr><td>cache writes disk</td><td>$_myisamCacheWritesDisk</td></tr>
-<tr><td>cache writes to disks</td><td>$_myisamCacheWritesDiskP%</td></tr>
-<tr><td>index delay update</td><td>$_myisamIndexDelayUpdate</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'MyISAM Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'allocated cache memory',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamAllocatedMemR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'block size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamBlockSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'current blocks',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamCurrentBlocksR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'used blocks',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamUsedBlocksR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'used blocks percent',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamUsedBlocksP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'cache hit rate',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamCacheHitRate',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'blocks written to disk',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamBlocksToDiskR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'cache writes to disk',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamCacheWritesDisk',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'cache writes to disks percent',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamCacheWritesDiskP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'index delay update',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_myisamIndexDelayUpdate',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

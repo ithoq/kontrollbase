@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -516,31 +516,155 @@ $Uptime = check_var($Uptime);
 $_ConnectionsR = substr(byte_format($Connections),0, -1);
 $_connSucR = substr(byte_format(($Connections - $Aborted_connects)),0, -1);
 $_connSuc = ($Connections - $Aborted_connects);
-$_connSucP = round(((($Connections - $Aborted_connects) / $Connections)*100),4);
-$_connU = round(($Threads_connected / $max_connections),4);
+$_connSucP = round(((($Connections - $Aborted_connects) / $Connections)*100),2);
+$_connU = round((($Threads_connected / $max_connections)*100),2);
 $_connAbortR = substr(byte_format($Aborted_connects),0, -1);
-$_connAbortP = round(($Aborted_connects / $Connections),4);
-$_connMaxUsage = round(($Max_used_connections / $max_connections),4);
-$_connAvgConSec = round(($Threads_connected / $Uptime),4);
+$_connAbortP = round((($Aborted_connects / $Connections)*100),2);
+$_connMaxUsage = round((($Max_used_connections / $max_connections)*100),2);
+$_connAvgConSec = round(($Threads_connected / $Uptime),2);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Connections</h2></td></tr>
-<tr><td>total connections made</td><td>$_ConnectionsR</td></tr>
-<tr><td>successful connections</td><td>$_connSucR</td></tr>
-<tr><td>successful connections</td><td>$_connSucP%</td></tr>
-<tr><td>aborted connections</td><td>$_connAbortR</td></tr>
-<tr><td>aborted connections</td><td>$_connAbortP%</td></tr>
-<tr><td>average connections per second</td><td>$_connAvgConSec/sec</td></tr>
-<tr><td>max allowed connections</td><td>$max_connections</td></tr>
-<tr><td>current open connections</td><td>$Threads_connected</td></tr>
-<tr><td>current connections usage</td><td>$_connU%</td></tr>
-<tr><td>max connection usage</td><td>$_connMaxUsage%</td></tr>
-<tr><td>max connection errors allowable</td><td>$max_connect_errors</td></tr>
-<tr><td>connection timeout value</td><td>$connect_timeout</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+		Ext.QuickTips.init();
+		Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Connection Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+                             {
+                             fieldLabel:'total connections made',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_ConnectionsR',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+
+			     {
+			     fieldLabel:'successful connections total',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connSucR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'successful connections',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connSucP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'aborted connections total',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connAbortR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'aborted connections',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connAbortP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'average connections per second',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connAvgConSec/sec',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'max allowed connections',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$max_connections',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'current open connections',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Threads_connected',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'current connections usage',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connU%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'max connection usage',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_connMaxUsage%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'max connection errors allowable',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$max_connect_errors',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'connection timeout value',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$connect_timeout',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     ]
+		      });
+	      });
+</script>
 </div>
 </body>
 </html>

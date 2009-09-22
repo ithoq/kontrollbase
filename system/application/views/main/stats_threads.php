@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -513,18 +513,96 @@ $Delayed_insert_threads = check_var($Delayed_insert_threads);
 $Slow_launch_threads = check_var($Slow_launch_threads);
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>Thread Cache</h2></td></tr>
-<tr><td>cache limit</td><td>$thread_cache_size</td></tr>
-<tr><td>connected</td><td>$Threads_connected</td></tr>
-<tr><td>created</td><td>$Threads_created</td></tr>
-<tr><td>running</td><td>$Threads_running</td></tr>
-<tr><td>cached</td><td>$Threads_cached</td></tr>
-<tr><td>delayed insert threads</td><td>$Delayed_insert_threads</td></tr>
-<tr><td>slow launches</td><td>$Slow_launch_threads</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'Thread Usage Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'Thread cache size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$thread_cache_size',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Threads connected',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Threads_connected',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Threads created',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Threads_created',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Threads running',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Threads_running',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Threads cached',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Threads_cached',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Delayed insert threads',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Delayed_insert_threads',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'Slow launch threads',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$Slow_launch_threads',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     ]
+		      })
+		  });
+</script>
 </div>
 </body>
 </html>

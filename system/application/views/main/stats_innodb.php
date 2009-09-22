@@ -12,7 +12,7 @@
    */
 
 $g['root'] = $root;
-$this->load->view('header_nojs',$g);
+$this->load->view('header_js',$g);
 $nroot = substr_replace($root,"",-1);
 
 if($statistics) {
@@ -518,44 +518,167 @@ $Innodb_log_writes = check_var($Innodb_log_writes);
 
 $_innodbAllocatedMemR = substr(byte_format($innodb_buffer_pool_size),0, -1);
 $_innodbAllocatedMem = $innodb_buffer_pool_size;
-$_innodballocatedMemP = round(($innodb_buffer_pool_size / $os_mem_total),4);
+$_innodballocatedMemP = round((($innodb_buffer_pool_size / $os_mem_total)*100),2);
 $_innodbFreeMem = $Innodb_buffer_pool_pages_free;
 $_innodbBlocksFromCacheR = substr(byte_format($Innodb_buffer_pool_read_requests),0, -1);
 $_innodbBlocksFromCache = $Innodb_buffer_pool_read_requests;
 $_innodbBlocksFromDiskR = substr(byte_format($Innodb_buffer_pool_reads),0, -1);
 $_innodbBlocksFromDisk = $Innodb_buffer_pool_reads;
-$_innodbCacheHitRate = round(($Innodb_buffer_pool_reads / $Innodb_buffer_pool_read_requests),4);
+$_innodbCacheHitRate = round(($Innodb_buffer_pool_reads / $Innodb_buffer_pool_read_requests),2);
 
 if($Innodb_buffer_pool_wait_free == 0) { $Innodb_buffer_pool_wait_free = 1;}
 if($Innodb_buffer_pool_write_requests == 0) { $Innodb_buffer_pool_write_requests = 1;}
 
-$_innodbCacheWriteWaitRequired = round(($Innodb_buffer_pool_wait_free / $Innodb_buffer_pool_write_requests),4);
+$_innodbCacheWriteWaitRequired = round(($Innodb_buffer_pool_wait_free / $Innodb_buffer_pool_write_requests),2);
 $_innodbAdditionalMemoryAllowedR = substr(byte_format($innodb_additional_mem_pool_size),0, -1);
 $_innodbAdditionalMemoryAllowed = $innodb_additional_mem_pool_size;
 $_innodbFreePageWaits = $Innodb_buffer_pool_wait_free;
 $_innodbLogBufferSizeR = substr(byte_format($innodb_log_buffer_size),0, -1);
 $_innodbLogBufferSize = $innodb_log_buffer_size;
-$_innodbLogWaitsRequired = round(($Innodb_log_waits / $Innodb_log_writes),4);
+$_innodbLogWaitsRequired = round(($Innodb_log_waits / $Innodb_log_writes),2);
 $_innodbFreePageWaits = $Innodb_log_waits;
 
 print<<<HEAD
-<div id='content'>
-<table>
-<tr><td colspan="2"><h2>InnoDB Cache</h2></td></tr>
-<tr><td>allocated mem</td><td>$_innodbAllocatedMemR</td></tr>
-<tr><td>allocated innodb-mem to os-mem</td><td>$_innodballocatedMemP%</td></tr>
-<tr><td>free innodb memory</td><td>$_innodbFreeMem</td></tr>
-<tr><td>blocks served from cache</td><td>$_innodbBlocksFromCacheR</td></tr>
-<tr><td>blocks served from disk</td><td>$_innodbBlocksFromDiskR</td></tr>
-<tr><td>cache hit rate</td><td>$_innodbCacheHitRate</td></tr>
-<tr><td>cache write wait required</td><td>$_innodbCacheWriteWaitRequired</td></tr>
-<tr><td>additional memory allowed</td><td>$_innodbAdditionalMemoryAllowedR</td></tr>
-<tr><td>free page waits</td><td>$_innodbFreePageWaits</td></tr>
-<tr><td>log buffer size</td><td>$_innodbLogBufferSizeR</td></tr>
-<tr><td>log waits required</td><td>$_innodbLogWaitsRequired%</td></tr>
-<tr><td>number of free page waits</td><td>$_innodbFreePageWaits</td></tr>
-<tr><td colspan="2">&nbsp;</td></tr>
-</table>
+</head>
+<div>
+<script type="text/javascript">
+  Ext.onReady(function(){
+                Ext.QuickTips.init();
+                Ext.form.Field.prototype.msgTarget = 'side';
+
+                var login = new Ext.FormPanel({ 
+                  renderTo: document.body,
+                      buttonAlign: 'left',
+                      width:320,
+                      labelWidth:200,
+                      frame:true, 
+                      title:'InnoDB Information', 
+                      defaultType:'textfield',
+                      monitorValid:true,
+                      items:[
+			     {
+			     fieldLabel:'allocated memory buffer pool size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbAllocatedMemR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'allocated innodb-mem to os-mem',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodballocatedMemP%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'free innodb memory',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbFreeMem',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'blocks served from cache',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbBlocksFromCacheR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'blocks served from disk',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbBlocksFromDiskR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'cache hit rate',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbCacheHitRate',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'cache write wait required',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbCacheWriteWaitRequired',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'additional memory allowed',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbAdditionalMemoryAllowedR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'free page waits',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbFreePageWaits',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'log buffer size',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbLogBufferSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'log waits required',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbLogWaitsRequired%',
+				 disabled: true,
+				 allowBlank:true
+				 },
+
+			     {
+			     fieldLabel:'number of free page waits',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_innodbFreePageWaits',
+				 disabled: true,
+				 allowBlank:true
+				 }
+			     
+			     ]});
+	      });
+</script>
 </div>
 </body>
 </html>
