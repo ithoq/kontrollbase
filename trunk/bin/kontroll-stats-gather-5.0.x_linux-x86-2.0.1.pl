@@ -1683,6 +1683,7 @@ sub modify_active_status {
      my $server_id = $_[0];
      my $active_status = $_[1];
      my $updated_status = $_[2];
+     my $server_hostname = $_[3];
      my $sql1;
 
      my $dbh = DBI->connect(
@@ -1697,15 +1698,15 @@ sub modify_active_status {
 
     if (($active_status == 1) && ($updated_status == 2)) {
     $sql1 = "UPDATE server_list set active = '2' where id = $server_id;"; 
-    debug_report("connection with server_list_id: $server_id resulted in 0 byte XML file - check client script. Updating database, setting active = '2'") 
+    debug_report("connection with $server_hostname server_list_id: $server_id resulted in 0 byte XML file - check client script. Updating database, setting active = '2'") 
    }
     elsif (($active_status == 2) && ($updated_status == 1)) {
     $sql1 = "UPDATE server_list set active = '1' where id = $server_id;";
-    debug_report("connection with server_list_id: $server_id reestablished, updating database, setting active = '1'") 
+    debug_report("connection with $server_hostname server_list_id: $server_id reestablished, updating database, setting active = '1'") 
     }
     elsif ($active_status == $updated_status) {
     $dbh->disconnect;
-    error_report("connection status of server_list_id: $server_id remains unchanged, no need to update database");
+    error_report("connection status of $server_hostname server_list_id: $server_id remains unchanged, no need to update database");
     }
 
     my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
@@ -1719,6 +1720,7 @@ config_connect();
 my $xml_file = $ARGV[0];
 my $server_id = $ARGV[1];
 my $active_status = $ARGV[2];
+my $server_hostname = $ARGV[3];
 my $updated_status = 1;
 
 $varlist{'server_list_id'} = $ARGV[1];
@@ -1728,7 +1730,7 @@ if(-e $xml_file) {
     }
     if(-z $xml_file) { 
 	debug_report("XML File is 0 size.");
-	modify_active_status($server_id,$active_status,"2");
+	modify_active_status($server_id,$active_status,"2",$server_hostname);
     }
 
     debug_report("## process start");
@@ -1736,7 +1738,7 @@ if(-e $xml_file) {
     insert_data() or error_report("$h [fail]");
 
     if ($active_status == 2) { 
-	modify_active_status( $server_id,$active_status,$updated_status);
+	modify_active_status( $server_id,$active_status,$updated_status,$server_hostname);
     }
 }
 else {
