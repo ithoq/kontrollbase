@@ -129,7 +129,7 @@ sub get_alerts {
 sub email_alert {
     my ($alert_name,$alert_desc,$alert_links,$alert_solution,$renew_time,$response_time,$server_hostname,$creation_time,$server_client_name) = @_;
     
-    my $subject = "$alert_name";
+    my $subject = "$server_hostname - $alert_name";
     my $message = "===================================
 This is a kontrollbase alert notification
 ===================================
