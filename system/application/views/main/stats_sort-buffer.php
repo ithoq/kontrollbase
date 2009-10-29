@@ -528,7 +528,7 @@ print<<<HEAD
                       width:320,
                       labelWidth:200,
                       frame:true, 
-                      title:'Connection Information', 
+                      title:'Sort Buffer Information', 
                       defaultType:'textfield',
                       monitorValid:true,
                       items:[

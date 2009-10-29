@@ -448,6 +448,23 @@ print "
        autoScroll:true
    },
    {
+     title: 'join buffer',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_join_buffer/$server_list_id'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
      title: 'myisam',
      deferredRender: true,
      height: 480,
@@ -466,6 +483,23 @@ print "
    },
    {
      title: 'innodb',
+     deferredRender: true,
+     height: 480,
+     width:440,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     items: {
+       xtype          : 'iframepanel',
+     defaultSrc  : '$nroot/index.php/analytics/stats_innodb/$server_list_id'
+     },
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+       autoScroll:true
+   },
+   {
+     title: 'export',
      deferredRender: true,
      height: 480,
      width:440,

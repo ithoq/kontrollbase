@@ -124,7 +124,7 @@ sub get_list {
 	 eval {
 		local $SIG{ALRM} = sub {die "ssh connection timeout reached\n"};
                 alarm $system_server_loop_timeout; 
-#		debug_report("Connecting to server: --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_socket --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host");
+		#debug_report("Connecting to server: --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_socket --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host");
 		system("ssh $server_ssh_user\@$server_ipaddress \"./$perlclient --snmp-host=$server_snmp_local_address --snmp-port=$server_snmp_port --snmp-rocommunity=$server_snmp_rocommunity --snmp-version=$server_snmp_version --mysql-user=$server_mysql_user --mysql-pass=$server_mysql_pass --mysql-port=$server_mysql_port --mysql-socket=$server_mysql_socket --mysql-db=$server_mysql_db --mysql-host=$server_mysql_host\" > $xmlfile");
 		alarm 0;
 		};
