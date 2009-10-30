@@ -51,6 +51,14 @@ a fast, low latency network, and high CPU clock speed with a big cache. The scri
 mult-threaded (yet) so the faster one CPU can work on processing the incoming XML from the clients,
 the faster you will be able to finish the client host polling process.
 
+
+<h2>Improving the speed of login</h2>
+Added in 2.0.1-revision 205 is a script called "kontroll-query_cache_preload.pl". This script runs the nine queries that generate the overview graphs during the login process. The purpose of this is to preload the query cache with the data that is generally requested from the database during the login process. This proves useful once the Kontrollbase schema gets larger over time. On a 8GB dataset it has been tested to decrease page-load time during login by 50%. You can optionally set this script to run via /etc/crontab with the other servers scripts with the following line:
+<br>
+<code>#Kontrollbase query-cache preload script to speed up logins
+*/30 * * * * root cd /var/www/html/kontrollbase/bin/ && /var/www/html/kontrollbase/bin/kontroll-query_cache_preload.pl > /dev/null 2>&1
+</code>
+
 </div>
 <!-- END CONTENT -->
 
