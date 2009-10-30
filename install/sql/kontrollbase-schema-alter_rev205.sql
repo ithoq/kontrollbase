@@ -1,0 +1,2 @@
+UPDATE `kontrollbase`.`alerts_def` SET `alert_solution` = 'This alert has found a large number of aborted connections to the database. A common cause of this is improperly closed connections from the application or locked tables causing subsequent connections to abort due to the connection timeout being reached. This alert recommends auditing your code for connections being properly closed or queries being tested in a staging environment to watch for locked tables.',
+`alert_function` = '$Aborted_connects > 999' WHERE `alerts_def`.`id` =1 LIMIT 1 ;
