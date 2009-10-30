@@ -2107,7 +2107,10 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
     
     if($server_list_id== '0') {
       log_message('debug', "overview type");
-    $sql = "select $xval,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
+      //We're not using $sday and $eday for the overview so I changed it to INTERVAL instead. 
+      //Might remove the commented out query at some point later.
+      //$sql = "select $xval,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
+    $sql = "select $xval,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE() GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     }
     else {
       log_message('debug', "host type");
