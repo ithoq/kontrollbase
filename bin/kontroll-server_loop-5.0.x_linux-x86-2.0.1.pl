@@ -158,7 +158,7 @@ sub get_list {
 	}
 	else {	    
 	    print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress active: $active\n";
-	    system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl $xmlfile $server_id $active $server_hostname");	
+	    system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl \"$xmlfile\" \"$server_id\" \"$active\" \"$server_hostname\"");	
 	}
     }   
     $sth->finish;
