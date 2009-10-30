@@ -213,7 +213,7 @@ sub alert_01 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    if($Aborted_connects > 99) {
+    if($Aborted_connects > 999) {
 	$ALERT01=1; 
 	writer("<description>$alert_desc</description>");
 	writer("<links>$alert_links</links>");
