@@ -53,7 +53,7 @@ echo google_analytics();
 print<<<HEAD
 <script type="text/javascript" src="$nroot/includes/browser_detect.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="$nroot/includes/extjs/ext-all-debug.js"></script>
+<script type="text/javascript" src="$nroot/includes/extjs/ext-all.js"></script>
 <script type="text/javascript" src="$nroot/includes/extjs/miframe.js"></script>
 
 <script type="text/javascript">
