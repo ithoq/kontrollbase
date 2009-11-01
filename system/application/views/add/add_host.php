@@ -233,10 +233,10 @@ Ext.apply(Ext.form.VTypes, {
 				 mode: 'local',
 				 store: clients,
 				 displayField: 'state',
-				 width: 120,
+				 width: 140,
                                  emptyText:'Select Client',
                                  typeAhead: true,
-                                 value: 'client_name',
+                                 value: 'server client name?',
                                  triggerAction: 'all'
 				 },
 			     {
@@ -249,10 +249,10 @@ Ext.apply(Ext.form.VTypes, {
 				 mode: 'local',
 				 store: slave,
 				 displayField: 'state',
-				 width: 120,
+				 width: 140,
 				 emptyText:'Replication',
 				 typeAhead: true,
-				 value: 'slave',
+				 value: 'server is a slave?',
 				 triggerAction: 'all'
 				 },
 			     {
@@ -265,10 +265,10 @@ Ext.apply(Ext.form.VTypes, {
 				 mode: 'local',
 				 store: type,
 				 displayField: 'state',
-				 width: 120,
+				 width: 140,
 				 emptyText:'Server Type',
 				 typeAhead: true,
-				 value: 'server_type',
+				 value: 'server role type?',
 				 triggerAction: 'all'
 				 }
 			     ],      

@@ -88,9 +88,14 @@ class Add extends Controller {
 	  $g['hostname'] = $server_hostname;
 	  $g['root'] = $this->config->item('base_url');
 
-	  if ($this->form_validation->run() == FALSE) {	    
+	  if(!is_numeric($server_client_id)) {
+            log_message('debug', "Add controller: form validation failed. No client selected");
+	    echo "{success: false, errors: { reason: 'Failed to add host. No client selected.'}}";
+	  }	       
+
+	  elseif($this->form_validation->run() == FALSE) {	    
 	    log_message('debug', "Add controller: form validation failed.");
-	    echo "{success: false, errors: { reason: 'Form validation failed. Please retry.'}}";
+	    echo "{success: false, errors: { reason: 'Form validation failed. Please ensure all fields are filled out.'}}";
 	    //echo "{success: false, errors: { reason: 'Form validation failed. Please retry. server_client_id: $server_client_id server_is_slave: $server_is_slave server_type: $server_type server_ipaddress: $server_ipaddress server_hostname: $server_hostname server_ssh_user: $server_ssh_user server_mysql_port: $server_mysql_port server_mysql_db: $server_mysql_db server_mysql_host: $server_mysql_host server_mysql_user: $server_mysql_user server_mysql_pass: $server_mysql_pass server_snmp_local_address: $server_snmp_local_address server_snmp_port: $server_snmp_port server_snmp_rocommunity: $server_snmp_rocommunity server_snmp_version: $server_snmp_version threshold_queries_per_second: $threshold_queries_per_second threshold_seconds_behind_master: $threshold_seconds_behind_master server_mysql_socket: $server_mysql_socket' }}";
 	  }
 	  else {
@@ -115,7 +120,7 @@ class Add extends Controller {
 					  $threshold_seconds_behind_master);
 	    if($state == 0) {
 	      log_message('debug', "Login controller: JSON = {success: true}");
-              echo "{success: true}"; //JSON wooo!
+              echo "{success: true}";
 	    }
 	    elseif($state == 1) {
 	      log_message('debug', "Login failed: JSON = success: false, errors: { reason: 'Add failed. Probably a duplicate entry.' }}");
