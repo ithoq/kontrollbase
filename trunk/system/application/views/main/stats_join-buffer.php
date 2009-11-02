@@ -504,20 +504,18 @@ if($variables) {
   $wait_timeout = $variables[0]['wait_timeout'];
  }
 
-$sort_buffer_size = check_var($sort_buffer_size);
+$join_buffer_size = check_var($join_buffer_size);
 $Sort_range = check_var($Sort_range);
 $Questions = check_var($Questions);
 $Sort_scan = check_var($Sort_scan);
-$Sort_rows = check_var($Sort_rows);
-$Sort_merge_passes = check_var($Sort_merge_passes);
 
-$_sortSizeR = substr(byte_format($sort_buffer_size),0, -1);
-$_sortSize = $sort_buffer_size;
-$_sortRange = round((($Sort_range / $Questions)*100),2);
-$_sortScanP = round((($Sort_scan / $Questions)*100),2);
-$_SortMergePassesP = round((($Sort_merge_passes / $Questions)*100),2);
-$_SortRows = $Sort_rows;
-$_sortMaxRamAllowedR = substr(byte_format(($sort_buffer_size * $max_connections)),0, -1);
+$_joinSizeR = substr(byte_format($join_buffer_size),0, -1);
+$_joinSize = $join_buffer_size;
+$_joinSelectRange = round((($Sort_range / $Questions)*100),2);
+$_joinScanP = round((($Sort_scan / $Questions)*100),2);
+$_SelectFullJoin = $Select_full_join;
+$_SelectFullRangeJoin = $Select_full_range_join;
+
 
 print<<<HEAD
 </head>
@@ -533,66 +531,56 @@ print<<<HEAD
                       width:320,
                       labelWidth:200,
                       frame:true, 
-                      title:'Sort Buffer Information', 
+                      title:'Join Buffer Information', 
                       defaultType:'textfield',
                       monitorValid:true,
                       items:[
 			     {
-			     fieldLabel:'Sort buffer size',
+			     fieldLabel:'Join buffer size',
 				 name:'',
 				 inputType: 'text',
 				 width:100,
-				 value: '$_sortSizeR',
+				 value: '$_joinSizeR',
+				 disabled: true,
+				 allowBlank:true
+				 },
+			     {
+                             fieldLabel:'Select Full Join Usage',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_SelectFullJoin',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Select Full Range Join Usage',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_SelectFullRangeJoin',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+			     fieldLabel:'Percentage of select scan',
+				 name:'',
+				 inputType: 'text',
+				 width:100,
+				 value: '$_joinSelectRange%',
 				 disabled: true,
 				 allowBlank:true
 				 },
 
 			     {
-			     fieldLabel:'Percentage of sort range scan',
+			     fieldLabel:'Percentage of join scan',
 				 name:'',
 				 inputType: 'text',
 				 width:100,
-				 value: '$_sortRange%',
+				 value: '$_joinScanP%',
 				 disabled: true,
 				 allowBlank:true
-				 },
-
-			     {
-			     fieldLabel:'Percentage of sort scan',
-				 name:'',
-				 inputType: 'text',
-				 width:100,
-				 value: '$_sortScanP%',
-				 disabled: true,
-				 allowBlank:true
-				 },
-			     {
-                             fieldLabel:'Percentage of sort merge passes',
-                                 name:'',
-                                 inputType: 'text',
-                                 width:100,
-                                 value: '$_SortMergePassesP%',
-                                 disabled: true,
-                                 allowBlank:true
-                                 },
-			     {
-                             fieldLabel:'Rows sorted',
-                                 name:'',
-                                 inputType: 'text',
-                                 width:100,
-                                 value: '$_SortRows',
-                                 disabled: true,
-                                 allowBlank:true
-                                 },
-			     {
-                             fieldLabel:'Maximum RAM consumable by sort buffer',
-                                 name:'',
-                                 inputType: 'text',
-                                 width:100,
-                                 value: '$_sortMaxRamAllowedR',
-                                 disabled: true,
-                                 allowBlank:true
-                                 },
+				 }
 			     ]
 		      })
 		  });
