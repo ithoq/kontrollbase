@@ -519,10 +519,22 @@ $_reads = $Com_select;
 $_readsR = substr(byte_format($Com_select),0, -1);
 $_readsP = ((round(($Com_select / $Questions),4)) * 100);
 $_readsS = round(($Com_select / $Uptime),4);
-$_writes = ($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi);
-$_writesR = substr(byte_format(($Com_delete + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi)),0, -1);
+$_writes = ($Com_delete + $Com_delete_multi + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi);
+$_writesR = substr(byte_format(($_writes)),0, -1);
 $_writesP = ((round(($_writes / $Questions),4)) * 100);
 $_writesS = round(($_writes / $Uptime),4);
+$_inserts = ($Com_insert + $Com_insert_select);
+$_insertsR = substr(byte_format(($_inserts)),0, -1);
+$_insertsP = ((round(($_inserts / $Questions),4)) * 100);
+$_updates = ($Com_update + $Com_update_multi);
+$_updatesR = substr(byte_format(($_updates)),0, -1);
+$_updatesP = ((round(($_updates / $Questions),4)) * 100);
+$_deletes = ($Com_delete + $Com_delete_multi);
+$_deletesR = substr(byte_format(($_deletes)),0, -1);
+$_deletesP = ((round(($_deletes / $Questions),4)) * 100);
+$_selects = ($Com_select + $Com_insert_select);
+$_selectsR = substr(byte_format(($_selects)),0, -1);
+$_selectsP = ((round(($_selects / $Questions),4)) * 100);
 $_readVSwrite = round(($_readsP / $_writesP),1);
 $_writeVSread = round(($_writesP / $_readsP),1);
 $_txS = round(($Com_commit / $Uptime),4);
@@ -574,7 +586,78 @@ print<<<HEAD
 				 disabled: true,
 				 allowBlank:true
 				 },
-
+			     {
+                             fieldLabel:'total insert queries',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_insertsR',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'insert queries to total',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_insertsP%',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'total select queries',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_selectsR',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+                             {
+                             fieldLabel:'select queries to total',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_selectsP%',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'total update queries',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_updatesR',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+                             {
+                             fieldLabel:'update queries to total',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_updatesP%',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'total delete queries',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_deletesR',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+                             {
+                             fieldLabel:'delete queries to total',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_deletesP%',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
 			     {
 			     fieldLabel:'percentage or reads to total',
 				 name:'',
