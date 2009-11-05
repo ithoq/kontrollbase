@@ -1,27 +1,77 @@
-2009-08-30T22:51:21-07:00 - setup.php - IP:208.77.100.60
-2009-08-30T22:51:21-07:00 - setup.php - syspath:/var/www/html/kontrollbase-demo02
-2009-08-30T22:51:21-07:00 - setup.php - nroot:
-2009-08-30T22:51:34-07:00 - process.php - BaseDir: /var/www/html/kontrollbase-demo02
-2009-08-30T22:51:34-07:00 - process.php - WebRoot: http://demo02.kontrollbase.com/
-2009-08-30T22:51:34-07:00 - process.php - Starting get_revision function
-2009-08-30T22:51:34-07:00 - process.php - version_file:/var/www/html/kontrollbase-demo02/version.txt
-2009-08-30T22:51:34-07:00 - process.php - revid:147
-2009-08-30T22:51:34-07:00 - process.php - Installation beginning
-2009-08-30T22:51:34-07:00 - process.php - Beggining PHP prerequisite checks
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite dom located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite mbstring located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite mysql located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite xml located
-2009-08-30T22:51:34-07:00 - process.php - Beggining Perl prerequisite checks
-2009-08-30T22:51:34-07:00 - process.php - Beggining Perl prerequisite checks
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite XML/Parser.pm located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite XML/SimpleObject.pm located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite DBI.pm located
-2009-08-30T22:51:34-07:00 - process.php - Prerequisite /Math/Calc/Units.pm located
-2009-08-30T22:51:34-07:00 - process.php - starting db install for localhost,kb_admin,kontrollbase
-2009-08-30T22:51:34-07:00 - process.php - Selecting database kontrollbase
-2009-08-30T22:51:34-07:00 - process.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/config.php
-2009-08-30T22:51:34-07:00 - process.php - /var/www/html/kontrollbase-demo02/system/application/config/config.php created successfully
-2009-08-30T22:51:34-07:00 - process.php - Starting makefile for /var/www/html/kontrollbase-demo02/system/application/config/database.php
-2009-08-30T22:51:34-07:00 - process.php - /var/www/html/kontrollbase-demo02/system/application/config/database.php created successfully
-2009-08-30T22:51:34-07:00 - process.php - success, end.
+2009-11-01T18:53:03-05:00 - setup.php - IP:10.211.159.63
+2009-11-01T18:53:03-05:00 - setup.php - syspath:/var/www/html/kontrollbase-testing
+2009-11-01T18:53:03-05:00 - setup.php - nroot:
+2009-11-01T18:54:04-05:00 - process.php - BaseDir: /var/www/html/kontrollbase-testing
+2009-11-01T18:54:04-05:00 - process.php - WebRoot: http://10.211.159.63/kontrollbase/
+2009-11-01T18:54:04-05:00 - process.php - Starting get_revision function
+2009-11-01T18:54:04-05:00 - process.php - version_file:/var/www/html/kontrollbase-testing/version.txt
+2009-11-01T18:54:04-05:00 - process.php - revid:208
+2009-11-01T18:54:04-05:00 - process.php - Installation beginning
+2009-11-01T18:54:04-05:00 - process.php - Beggining PHP prerequisite checks
+2009-11-01T18:54:04-05:00 - process.php - Prerequisite dom located
+2009-11-01T18:54:04-05:00 - process.php - Prerequisite mbstring located
+2009-11-01T18:54:04-05:00 - process.php - Prerequisite mysql located
+2009-11-01T18:54:04-05:00 - process.php - Prerequisite xml located
+2009-11-01T18:54:04-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T18:54:04-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T18:54:04-05:00 - process.php - Unable to locate XML/Parser.pm prerequisite
+2009-11-01T19:00:59-05:00 - process.php - BaseDir: /var/www/html/kontrollbase-testing
+2009-11-01T19:00:59-05:00 - process.php - WebRoot: http://10.211.159.63/kontrollbase/
+2009-11-01T19:00:59-05:00 - process.php - Starting get_revision function
+2009-11-01T19:00:59-05:00 - process.php - version_file:/var/www/html/kontrollbase-testing/version.txt
+2009-11-01T19:00:59-05:00 - process.php - revid:208
+2009-11-01T19:00:59-05:00 - process.php - Installation beginning
+2009-11-01T19:00:59-05:00 - process.php - Beggining PHP prerequisite checks
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite dom located
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite mbstring located
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite mysql located
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite xml located
+2009-11-01T19:00:59-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:00:59-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite XML/Parser.pm located
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite XML/SimpleObject.pm located
+2009-11-01T19:00:59-05:00 - process.php - Prerequisite DBI.pm located
+2009-11-01T19:00:59-05:00 - process.php - Unable to locate /Math/Calc/Units.pm prerequisite
+2009-11-01T19:01:25-05:00 - process.php - BaseDir: /var/www/html/kontrollbase-testing
+2009-11-01T19:01:25-05:00 - process.php - WebRoot: http://10.211.159.63/kontrollbase/
+2009-11-01T19:01:25-05:00 - process.php - Starting get_revision function
+2009-11-01T19:01:25-05:00 - process.php - version_file:/var/www/html/kontrollbase-testing/version.txt
+2009-11-01T19:01:25-05:00 - process.php - revid:208
+2009-11-01T19:01:25-05:00 - process.php - Installation beginning
+2009-11-01T19:01:25-05:00 - process.php - Beggining PHP prerequisite checks
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite dom located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite mbstring located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite mysql located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite xml located
+2009-11-01T19:01:25-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:01:25-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite XML/Parser.pm located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite XML/SimpleObject.pm located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite DBI.pm located
+2009-11-01T19:01:25-05:00 - process.php - Prerequisite /Math/Calc/Units.pm located
+2009-11-01T19:01:25-05:00 - process.php - starting db install for localhost,kb_admin,kontrollbase
+2009-11-01T19:01:25-05:00 - process.php - Database error: Can"t connect to local MySQL server through socket "/var/lib/mysql/mysql.sock" (2).
+2009-11-01T19:01:57-05:00 - process.php - BaseDir: /var/www/html/kontrollbase-testing
+2009-11-01T19:01:57-05:00 - process.php - WebRoot: http://10.211.159.63/kontrollbase/
+2009-11-01T19:01:57-05:00 - process.php - Starting get_revision function
+2009-11-01T19:01:57-05:00 - process.php - version_file:/var/www/html/kontrollbase-testing/version.txt
+2009-11-01T19:01:57-05:00 - process.php - revid:208
+2009-11-01T19:01:57-05:00 - process.php - Installation beginning
+2009-11-01T19:01:57-05:00 - process.php - Beggining PHP prerequisite checks
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite dom located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite mbstring located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite mysql located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite xml located
+2009-11-01T19:01:57-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:01:57-05:00 - process.php - Beggining Perl prerequisite checks
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite XML/Parser.pm located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite XML/SimpleObject.pm located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite DBI.pm located
+2009-11-01T19:01:57-05:00 - process.php - Prerequisite /Math/Calc/Units.pm located
+2009-11-01T19:01:57-05:00 - process.php - starting db install for 10.217.15.231,kb_admin,kontrollbase
+2009-11-01T19:01:57-05:00 - process.php - Selecting database kontrollbase
+2009-11-01T19:01:57-05:00 - process.php - Starting makefile for /var/www/html/kontrollbase-testing/system/application/config/config.php
+2009-11-01T19:01:57-05:00 - process.php - /var/www/html/kontrollbase-testing/system/application/config/config.php created successfully
+2009-11-01T19:01:57-05:00 - process.php - Starting makefile for /var/www/html/kontrollbase-testing/system/application/config/database.php
+2009-11-01T19:01:57-05:00 - process.php - /var/www/html/kontrollbase-testing/system/application/config/database.php created successfully
+2009-11-01T19:01:57-05:00 - process.php - success, end.

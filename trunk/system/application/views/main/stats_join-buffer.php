@@ -511,11 +511,10 @@ $Sort_scan = check_var($Sort_scan);
 
 $_joinSizeR = substr(byte_format($join_buffer_size),0, -1);
 $_joinSize = $join_buffer_size;
-$_joinSelectRange = round((($Sort_range / $Questions)*100),2);
-$_joinScanP = round((($Sort_scan / $Questions)*100),2);
+$_joinScanP = round(((($Select_full_join + $Select_full_range_join) / $Questions)*100),2);
 $_SelectFullJoin = $Select_full_join;
 $_SelectFullRangeJoin = $Select_full_range_join;
-
+$_joinMaxMemUsage = substr(byte_format($join_buffer_size * $max_connections),0, -1);
 
 print<<<HEAD
 </head>
@@ -545,7 +544,16 @@ print<<<HEAD
 				 allowBlank:true
 				 },
 			     {
-                             fieldLabel:'Select Full Join Usage',
+                             fieldLabel:'Max memory available to JOINs',
+                                 name:'',
+                                 inputType: 'text',
+                                 width:100,
+                                 value: '$_joinMaxMemUsage',
+                                 disabled: true,
+                                 allowBlank:true
+                                 },
+			     {
+                             fieldLabel:'Select Full Joins',
                                  name:'',
                                  inputType: 'text',
                                  width:100,
@@ -554,7 +562,7 @@ print<<<HEAD
                                  allowBlank:true
                                  },
 			     {
-                             fieldLabel:'Select Full Range Join Usage',
+                             fieldLabel:'Select Full Range Joins',
                                  name:'',
                                  inputType: 'text',
                                  width:100,
@@ -562,16 +570,6 @@ print<<<HEAD
                                  disabled: true,
                                  allowBlank:true
                                  },
-			     {
-			     fieldLabel:'Percentage of select scan',
-				 name:'',
-				 inputType: 'text',
-				 width:100,
-				 value: '$_joinSelectRange%',
-				 disabled: true,
-				 allowBlank:true
-				 },
-
 			     {
 			     fieldLabel:'Percentage of join scan',
 				 name:'',
