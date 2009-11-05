@@ -378,7 +378,7 @@ class Main extends Controller {
     }
     else {
       $hostname = $this->main->get_host_info($server_list_id,"server_hostname");
-      $l['hostname'] = $hostname
+      $l['hostname'] = $hostname;
       $l['data'] = $this->main->get_report($last_report);
       $l['root'] = $this->config->item('base_url');
       $this->load->view('main/report',$l); 
