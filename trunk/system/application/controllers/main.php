@@ -377,6 +377,7 @@ class Main extends Controller {
       show_error("Failed to load report for hostname $hostname");
     }
     else {
+      $l['hostname'] = $hostname
       $l['data'] = $this->main->get_report($last_report);
       $l['root'] = $this->config->item('base_url');
       $this->load->view('main/report',$l); 
