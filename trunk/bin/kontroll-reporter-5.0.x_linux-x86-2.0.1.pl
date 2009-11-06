@@ -1235,19 +1235,16 @@ sub alert_23 {
 	writerx("Thread_hit_ratio: $Thread_hit_ratio%");
 	my $warn=0;
 	if($Historic_threads_per_second >= 2) {
-	    my $thread_cache_R = ($Threads_created +1);
+	    my $thread_cache_R = ($Max_used_connections * 1.1);
 	    writerx("Threads created per second are overrunning threads_cached.");
-	    writerx("You need to increase the thread_cache_size.");
-	    writerx("# Increase the thread_cache_size, recommend $thread_cache_R");
+	    writerx("# Recommend $thread_cache_R");
 	    $warn=1;
 	    $ALERT23=1;
 	}
-	if($Thread_hit_ratio > 99.9) {
-	    
-	    writerx("Thread_hit_ratio is more than 99%.");
+	if($Threads_created > $Threads_cached) {	    
 	    writerx("You need to change the thread_cache_size.");	
 	    my $thread_cache_R = ($Threads_created +1);
-	    writerx("# Increase the thread_cache_size, recommend thread_cache_size $thread_cache_R");
+	    writerx("# Recommend thread_cache_size $thread_cache_R");
 	    $warn=1;
 	    $ALERT23=1;
 	}
