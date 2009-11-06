@@ -45,6 +45,13 @@ foreach($client as $key => $value) {
 }
 
 print<<<HEAD
+Ext.form.VTypes.nameVal  = /^[a-zA-Z0-9_\-]+$/;
+Ext.form.VTypes.nameMask = /[A-Za-z0-9\- ]/;
+Ext.form.VTypes.nameText = 'Invalid client name.';
+Ext.form.VTypes.name    = function(v){
+  return Ext.form.VTypes.nameVal.test(v);
+};
+
   Ext.onReady(function(){
 		Ext.QuickTips.init();
 		
@@ -70,6 +77,7 @@ print<<<HEAD
                                  name:'server_client_name',
                                  inputType: 'text',
                                  width:250,
+				 vtype: 'name',
                                  value: '$server_client_name',
                                  allowBlank:false
                                  },
