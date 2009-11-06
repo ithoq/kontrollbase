@@ -1215,10 +1215,8 @@ sub alert_23 {
     my $Conn_global = $num_connections;
     my $Historic_threads_per_second=round($Threads_created/$Uptime);
     if($Threads_cached == 0 ) {
-	writerx("Threads_cached = 0. Please enable thread caching.");
-	writer("<description>$alert_desc</description>");
+        writerx("Thread_cache disabled. Please enable thread caching..");
 	writer("<links>$alert_links</links>");
-	writer("<solution>$alert_solution</solution>");
 	writer("</alert>");
 	$ALERT23 = 1;
 	return $ALERT23;
@@ -1273,7 +1271,7 @@ sub alert_24 {
     my $Conn_global = $num_connections;
     my $Historic_threads_per_second=round($Threads_created/$Uptime);
     if($Threads_cached == 0 ) {
-        writerx("Threads_cached = 0. Please enable thread caching.");
+        writerx("Threads_cached = 0 or not enabled. Please enable thread caching.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
