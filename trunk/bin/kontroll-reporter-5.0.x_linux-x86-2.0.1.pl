@@ -692,9 +692,9 @@ sub alert_13 {
 	    $key_buffer_ratioRND=round($key_buffer_ratio);
         }
         else {
-	    $key_buffer_fill = 0;
+	    $key_buffer_fill = ($key_blocks_used / $key_blocks_total);
 	    $key_blocks_total=($Key_blocks_used+$Key_blocks_unused);
-	    $key_buffer_ratio = 0;
+	    $key_buffer_ratio = (100 * ($key_blocks_used / $key_blocks_total));
 	    $key_buffer_ratioRND = 75;
 	}
     }
