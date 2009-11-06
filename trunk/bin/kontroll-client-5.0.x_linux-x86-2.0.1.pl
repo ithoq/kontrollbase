@@ -396,8 +396,9 @@ sub get_mysql_stats {
 }
 
 sub get_cnf {
-    my $cnf = "/etc/my.cnf";
-    open(DAT, $cnf) || print "<error type=\"mysql\"><![CDATA[Could not open cnf file $cnf]]></error>\n";
+    my $cnf = "/etc/my.cnf";    
+    my $debcnf = "/etc/mysql/my.cnf";
+    open(DAT, $cnf) || open(DAT, $debcnf) || print "<error type=\"mysql\"><![CDATA[Could not open cnf file $cnf]]></error>\n";
     my @data=<DAT>;
     close(DAT);
     print "   <item name=\"cnf_file\"><![CDATA[";    

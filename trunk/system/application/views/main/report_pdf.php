@@ -16,5 +16,5 @@ require_once("includes/dompdf/dompdf_config.inc.php");
 $dompdf = new DOMPDF();
 $dompdf->load_html($report);
 $dompdf->render();
-$dompdf->stream("Kontrollbase_$hostname-performance_report-$date.pdf");
+$dompdf->stream("Kontrollbase_$hostname-perfReport-$date.pdf");
 ?>
