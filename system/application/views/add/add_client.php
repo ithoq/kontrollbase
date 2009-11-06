@@ -55,7 +55,7 @@ print<<<HEAD
 				 inputType: 'text',
 				 width:250,
 				 value: 'name',
-				 allowBlank:false
+				 allowBlank:false,
 				 },
 			     {
 			     fieldLabel:'Email',
