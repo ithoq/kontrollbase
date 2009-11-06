@@ -902,7 +902,7 @@ sub alert_16 {
         writer("<solution>$alert_solution</solution>");
 
         writerx("# Decrease sort_buffer_size, Current size is $sort_buffer_sizeHR");
-	writerx("# Recommend: soft_buffer_size = $sort_buffer_size_R");
+	writerx("# Recommend: sort_buffer_size = $sort_buffer_size_R");
         writerx("# Decrease read_rnd_buffer_size, Current size is $read_rnd_buffer_sizeHR");
 	writerx("# Recommend: read_rnd_buffer_size = $read_rnd_buffer_size_R");
 	$ALERT16=1;
