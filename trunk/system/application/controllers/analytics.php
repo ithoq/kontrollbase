@@ -22,6 +22,17 @@ class Analytics extends Controller {
     $this->load->view('main/index');
   }
 
+  function stats_export() {
+    auth();
+    $this->load->model('Model_main', 'main');
+    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+    $g['statistics'] = $this->main->get_server_status($server_list_id);
+    $g['variables'] = $this->main->get_server_variables($server_list_id);
+    $g['server_list_id'] = $server_list_id;
+    $g['root'] = $this->config->item('base_url');
+    $this->load->view('main/stats_all',$g);
+  }
+
   function stats_connections() {
     auth();
     $this->load->model('Model_main', 'main');

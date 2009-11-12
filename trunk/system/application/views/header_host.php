@@ -507,7 +507,7 @@ print "
      listeners: {activate: refreshTab},
      items: {
        xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/index.php/analytics/stats_innodb/$server_list_id'
+     defaultSrc  : '$nroot/index.php/analytics/stats_export/$server_list_id'
      },
      shim:false,
      frame:true,
