@@ -16,7 +16,8 @@ $autoload['helper'] = array('url',
 			    'googleanalytics',
 			    'versioncheck',
 			    'news',
-			    'exceptionhandler');
+			    'exceptionhandler',
+			    'exportfile');
 
 $autoload['plugin'] = array();
 $autoload['config'] = array();
