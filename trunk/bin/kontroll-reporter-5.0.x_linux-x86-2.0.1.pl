@@ -672,6 +672,9 @@ sub alert_13 {
     my $key_buffer_fill = undef;
     my $key_blocks_total = undef;
 
+#    if($Key_blocks_used == 0)
+
+
     if($Key_reads == 0) {
         writerx("No Key_reads. Use some indexes please.");
 	writer("<description>$alert_desc</description>");
@@ -692,9 +695,9 @@ sub alert_13 {
 	    $key_buffer_ratioRND=round($key_buffer_ratio);
         }
         else {
-	    $key_buffer_fill = ($key_blocks_used / $key_blocks_total);
+	    $key_buffer_fill = ($Key_blocks_used / $key_blocks_total);
 	    $key_blocks_total=($Key_blocks_used+$Key_blocks_unused);
-	    $key_buffer_ratio = (100 * ($key_blocks_used / $key_blocks_total));
+	    $key_buffer_ratio = (100 * ($Key_blocks_used / $key_blocks_total));
 	    $key_buffer_ratioRND = round($key_buffer_ratio);
 	}
     }
