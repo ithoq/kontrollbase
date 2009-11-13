@@ -772,7 +772,7 @@ sub alert_14 {
 	}
 	else {
             $key_blocks_total=($Key_blocks_used+$Key_blocks_unused);
-            $key_buffer_ratio = 0;
+            $key_buffer_ratio = 100;
             $key_buffer_ratioRND = 75;
         }
     }
@@ -794,7 +794,8 @@ sub alert_14 {
     writerx("Current key_buffer_size = $key_buffer_sizeHR");
     writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
 
-    if(($key_cache_miss_rate <= 100) && ($key_cache_miss_rate >= 0) && ($key_buffer_ratioRND >= 80)) {
+#    if(($key_cache_miss_rate <= 100) && ($key_cache_miss_rate >= 0) && ($key_buffer_ratioRND >= 80)) {
+    if(($Key_blocks_unused == 0) || ($key_buffer_ratioRND >= 85)) {
         my $key_buffer_sizeC = human($key_buffer_size * 2);
 	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
