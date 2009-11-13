@@ -695,7 +695,7 @@ sub alert_13 {
 	    $key_buffer_fill = ($key_blocks_used / $key_blocks_total);
 	    $key_blocks_total=($Key_blocks_used+$Key_blocks_unused);
 	    $key_buffer_ratio = (100 * ($key_blocks_used / $key_blocks_total));
-	    $key_buffer_ratioRND = 75;
+	    $key_buffer_ratioRND = round($key_buffer_ratio);
 	}
     }
 
@@ -723,7 +723,8 @@ sub alert_13 {
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
 
-        writerx("Your key_buffer_size is too high. (Less than 50% utilized)");
+        writerx("Your key_buffer_size is too large, less than 50% utilized,");
+	writerx("Or your key_buffer_size miss rate is higher than 1:1000");
         writerx("You can use these resources elsewhere.");
 	writerx("Recommended key_buffer_size = $key_recommend");
 #	writerx("Recommend incremental decrease: change to $key_buffer_sizeC");
