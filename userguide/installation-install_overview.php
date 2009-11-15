@@ -59,6 +59,11 @@ information to the /system/logs directory.
 
 <strong>Files</strong>
 <ul>
+ <li>Pre-requisite check script
+ <ul>
+   <li>$root/bin/kontroll-check_reqs.php</li>
+ </ul>
+ </li>
  <li>Webapp files
  <ul>
    <li>MVC database config: $root/system/application/config/database.php</li>
@@ -78,10 +83,27 @@ information to the /system/logs directory.
    <li>host polling looper (cron 5 minutes): $root/bin/kontroll-server_loop-5.0.x_linux-x86-$release.pl</li> 
    <li>alert processor (cron 5 minutes): $root/bin/kontroll-alerter-5.0.x_linux-x86-$release.pl</li>
    <li>XML statistics processor (called by looper): $root/bin/kontroll-stats-gather-5.0.x_linux-x86-$release.pl</li>
-   <li>Config file: $root/config.cfg</li>
   </ul>
  </li>
 </ul>
+<h2>Checking requirements</h2>
+Before you do anything you will want to run the pre-requisite check script that looks for various PHP and Perl
+modules to see if they are installed. You need all of the required modules to be found by this script or the
+application will fail to run. You can find the script in the $root/bin/ directory and it is run as follows:
+<code>shell> php kontroll-check_reqs.php
+Starting...
+Beggining PHP prerequisite checks
+Prerequisite dom located
+Prerequisite mbstring located
+Prerequisite mysql located
+Prerequisite xml located
+All required PHP modules are available.
+Beginning Perl prerequisite checks
+Prerequisite XML/Parser.pm located
+Prerequisite XML/SimpleObject.pm located
+Prerequisite DBI.pm located
+Prerequisite /Math/Calc/Units.pm located
+All required Perl modules are available.</code>
 
 <h2>Webapp Installation</h2>
     The webapp is simply the visual interaction with the application. 

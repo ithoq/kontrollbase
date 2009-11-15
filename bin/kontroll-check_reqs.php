@@ -2,8 +2,6 @@
 
 function check_prerequisites_perl() {
   
-  print "Beggining Perl prerequisite checks";
-  
   $lm_perl = "find `perl -e 'print \"@INC\"'` -name *.pm";
   exec($lm_perl,$output);
   $mm_perl = array();

@@ -17,7 +17,7 @@ This is the simplest part of the process. If you are connected to the internet t
 <h2>Download options</h2>
 <ul>
     <li>Supported releases -> the GA download page: <a href="http://kontrollsoft.com/downloads" target="_blank">http://kontrollsoft.com/downloads</a></li>
-    <li>Unsupported bleeding edge release -> subversion releases: <a href="http://code.google.com/p/kontrollbase/" target="_blank">http://code.google.com/p/kontrollbase/</a></li>
+    <li>Unsupported bleeding edge release -> subversion releases: <a href="http://code.google.com/p/kontrollbase/source/checkout">http://code.google.com/p/kontrollbase/source/checkout</a>
 </ul>
 
 </div>
