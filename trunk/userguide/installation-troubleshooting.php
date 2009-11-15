@@ -61,16 +61,17 @@ run the following commands. Replace "/var/www/html/kontrollbase" with the direct
 webapp to if it is different.
 <code>ROOT-(0)> chmod 1775 /var/www/html/kontrollbase/includes/pages
 ROOT-(0)> chmod 1775 /var/www/html/kontrollbase/includes/graphs
+ROOT-(0)> chmod 1775 /var/www/html/kontrollbase/system/logs
+ROOT-(0)> chmod 1775 /var/www/html/kontrollbase/system/cache
 </code>
 <br>
 <br>
 <a name="debug"></a>
 <h2>Reading the debug logs</h2>
 <h3>Server scripts debug log</h3>
-This file is set in the config.cfg file. Simply, it is named 
-<code>DEBUG_LOG=/var/log/kontroll-debug.log</code>
+<code>$root/system/logs/sys_debug.log</code>
 This is the default location for that file. To read it just open that file up in a text editor,
-or you can `tail -f /var/log/kontroll-debug.log` it in a console and watch what the server scripts
+or you can `tail -f <file>` it in a console and watch what the server scripts
 are doing in realtime. It contains a vast amount of useful information for troubleshooting.
 <br><br>
 <h3>Webapp debug log file</h3>
@@ -113,6 +114,8 @@ total 5784
     -rw-rw-rw- 1 apache apache  178350 2009-03-15 23:46 log-2009-03-15.php
     -rw-rw-rw- 1 apache apache  344716 2009-03-16 23:53 log-2009-03-16.php
     -rw-rw-rw- 1 apache apache  858934 2009-03-17 16:13 log-2009-03-17.php
+    -rw-rw-rw- 1 apache apache    8934 2009-03-02 15:14 sys_debug.log
+    -rw-rw-rw- 1 apache apache     934 2009-03-02 15:15 sys_error.log
     ROOT-(root@node1)-(/var/www/html/kontrollbase/system/logs)-ROOT
     ROOT-(0)>
 </code>
