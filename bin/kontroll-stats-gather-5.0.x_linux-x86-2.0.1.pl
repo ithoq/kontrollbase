@@ -1615,10 +1615,12 @@ sub parse_data {
 		    $updated_status = 2;
                     modify_active_status($server_id,$active_status,$updated_status);
 	            error_report("mysql connection error occured, setting status of $h to inactive");	
-	    }
+		}
 	    }
 	}
-
+	else {
+	    debug_report("$h OS SNMP status [OK]");
+	}
 	# we assign values to hash
 	while (my($key,$value) = each(%varlist)) {
 	    foreach my $item($server->child('item')) {
@@ -1642,8 +1644,7 @@ sub parse_data {
 	my $qsec = ($Questions/$Uptime);
 	$varlist{'queries_per_second'}=$qsec;
 	my $os_mem_total = $varlist{'os_mem_total'};
-	debug_report("$h queries/sec=$qsec");
-	debug_report("total ram=$os_mem_total");
+	debug_report("$h MySQL Connection status [OK]");
 
 	#print compute time from xml
 	my $time = $varlist{'collection_time_elapse'};
