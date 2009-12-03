@@ -51,11 +51,12 @@ class Main extends Controller {
     $g['size_index'] = byte_format($size_index);
     $g['size_data']= byte_format($size_data);
     $g['size'] = byte_format($size_data + $size_index);
-    $g['alerts'] = $this->main->get_current_alerts($server_list_id);
+    //$g['alerts'] = $this->main->get_current_alerts($server_list_id); //not using this anymore
     $g['clients'] = $this->main->get_client_list();
     $g['root'] = $this->config->item('base_url');
     $g['dir'] = $this->config->item('base_dir');
     $g['data'] = $this->main->get_summary_data();
+    $g['news'] = news(); // we get the RSS feeds from the news_helper
     $_SESSION['example'] = $g['root'];	  // we set this for the header files that don't use CI sessions
 
     $g['client_id'] = $this->phpsession->get('server_client_id');
@@ -208,6 +209,7 @@ class Main extends Controller {
   }
   
   function graphs() {
+    auth();
     log_message('debug', "main-graphs function called");
     $this->load->model('Model_main', 'main');
     $this->load->library('form_validation');
@@ -317,25 +319,8 @@ class Main extends Controller {
     $this->load->view('main/graphs',$g);
   }
   
-  function data() {
-    log_message('debug', "main-data function called");
-    $this->load->model('Model_main', 'main');
-    $server_statistics_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
-    if(!$server_statistics_id) { 
-      show_error("Request has failed."); 
-    }
-    $g['data'] = $this->main->get_data($server_statistics_id);
-    $g['root'] = $this->config->item('base_url');
-    
-    if($g['data'] == '0') {
-      show_error("Failed to show the requested data.");
-    }
-    else {
-      $this->load->view('main/data',$g);
-    }
-  }
-
   function cnf() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_cnf($server_list_id);
@@ -345,6 +330,7 @@ class Main extends Controller {
   }
 
   function server_variables() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_server_variables($server_list_id);
@@ -354,6 +340,7 @@ class Main extends Controller {
   }
 
   function server_status() {
+    auth();
     $this->load->model('Model_main', 'main');
     $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
     $g['data'] = $this->main->get_server_status($server_list_id);
@@ -362,17 +349,8 @@ class Main extends Controller {
     $this->load->view('main/server_status',$g);
   }
 
-  function server_statistics() {
-    $this->load->model('Model_main', 'main');
-    $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
-    $g['statistics'] = $this->main->get_server_status($server_list_id);
-    $g['variables'] = $this->main->get_server_variables($server_list_id);
-    $g['server_list_id'] = $server_list_id;
-    $g['root'] = $this->config->item('base_url');
-    $this->load->view('main/server_statistics',$g);
-  }
-
   function summary() {
+    auth();
     log_message('debug', "main-summary function called");
     $this->load->model('Model_main', 'main');
     $g['data'] = $this->main->get_summary_data();
@@ -381,6 +359,7 @@ class Main extends Controller {
   }
   
   function report() {
+    auth();
     log_message('debug', "main-report function called");
     $this->load->model('Model_main', 'main');
     $server_statistics_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
@@ -398,6 +377,8 @@ class Main extends Controller {
       show_error("Failed to load report for hostname $hostname");
     }
     else {
+      $hostname = $this->main->get_host_info($server_list_id,"server_hostname");
+      $l['hostname'] = $hostname;
       $l['data'] = $this->main->get_report($last_report);
       $l['root'] = $this->config->item('base_url');
       $this->load->view('main/report',$l); 
@@ -405,6 +386,7 @@ class Main extends Controller {
   }
   
   function report_pdf() {
+    auth();
     log_message('debug', "main-report_pdf function called");
     $this->load->library('form_validation');  
     
