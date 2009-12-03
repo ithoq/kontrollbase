@@ -564,7 +564,7 @@ sub alert_11 {
     if($Innodb_buffer_pool_pages_total == 0) {
         $Innodb_buffer_pool_pages_total = 1;
     }
-    my $Innodb_buffer_pool_pages_ratio = ($Innodb_buffer_pool_pages_free/$Innodb_buffer_pool_pages_total);
+    my $Innodb_buffer_pool_pages_ratio = round($Innodb_buffer_pool_pages_free/$Innodb_buffer_pool_pages_total);
 
     writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
     writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
@@ -706,7 +706,7 @@ sub alert_13 {
 	    $key_buffer_ratio = (100 * ($Key_blocks_used / $key_blocks_total));
 	    $key_buffer_ratioRND = round($key_buffer_ratio);
 	}
-    }
+    }    
 
     my $key_buffer_sizeHR = human($key_buffer_size);
     my $key_blocks_totalHR = human($key_blocks_total);
@@ -715,6 +715,8 @@ sub alert_13 {
     if($key_blocks_total == 0) { $key_blocks_total = 1;}
     #print "kbu: $Key_blocks_used mul kbs: $key_buffer_size div by kbt: $key_blocks_total mul 100 div 95";
     my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
+
+    
 
     writerx("Current Key_reads = $Key_reads");
     writerx("Current Key_read_requests = $Key_read_requests");
@@ -732,11 +734,14 @@ sub alert_13 {
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
 
-        writerx("Your key_buffer_size is too large, less than 50% utilized,");
-	writerx("Or your key_buffer_size miss rate is higher than 1:1000");
-        writerx("You can use these resources elsewhere.");
-	writerx("Recommended key_buffer_size = $key_recommend");
-#	writerx("Recommend incremental decrease: change to $key_buffer_sizeC");
+	if($key_buffer_ratio <= 50) {
+	    writerx("Your key_buffer_size is too large, less than 50% utilized,");
+	    writerx("Recommended key_buffer_size = $key_recommend");
+	}
+	if($key_cache_miss_rate >= 1000) {
+	    writerx("Your key_buffer_size miss rate is higher than 1:1000");
+	    writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
+	}
 	$ALERT13=1;
     }
     else {
@@ -1233,14 +1238,14 @@ sub alert_23 {
     my $Conn_global = $num_connections;
     my $Historic_threads_per_second=round($Threads_created/$Uptime);
     if($Threads_cached == 0 ) {
-        writerx("Thread_cache disabled. Please enable thread caching..");
+        writerx("Thread_cache disabled. Please enable thread caching.");
 	writer("<links>$alert_links</links>");
 	writer("</alert>");
 	$ALERT23 = 1;
 	return $ALERT23;
     }
     else {
-	my $Thread_hit_ratio = (100 - ($Threads_created/$Threads_cached));
+	my $Thread_hit_ratio = round((100 - ($Threads_created/$Threads_cached)),2);
 	writerx("Current thread_cache_size: $thread_cache_size");
 	writerx("Current Threads_cached: $Threads_cached");
 	writerx("Current Threads_connected: $Threads_connected");
@@ -1298,7 +1303,7 @@ sub alert_24 {
 	return $ALERT24;
     }
     else {
-	my $Thread_hit_ratio = (100 - ($Threads_created/$Threads_cached));
+	my $Thread_hit_ratio = round((100 - ($Threads_created/$Threads_cached)),2);
 	writerx("Current thread_cache_size: $thread_cache_size");
 	writerx("Current Threads_cached: $Threads_cached");
 	writerx("Current Threads_connected: $Threads_connected");
@@ -1308,7 +1313,7 @@ sub alert_24 {
 	writerx("Historic_threads_per_second: $Historic_threads_per_second");
 	writerx("Thread_hit_ratio: $Thread_hit_ratio%");
 	
-	if($Thread_hit_ratio < 99.0) {
+	if($Thread_hit_ratio > 99.0) {
 	    writer("<description>$alert_desc</description>");
 	    writer("<links>$alert_links</links>");
 	    writer("<solution>$alert_solution</solution>");
