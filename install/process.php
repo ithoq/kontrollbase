@@ -224,6 +224,7 @@ $config[\'global_xss_filtering\'] = TRUE;
 $config[\'compress_output\'] = FALSE; // This can never be set to TRUE or the app will certainly break
 $config[\'time_reference\'] = \'local\';
 $config[\'rewrite_short_tags\'] = FALSE;
+$config[\'news_enable\'] = TRUE; // Enable or disable News&Announcements part of main page.
 $config[\'ci_version\'] = \'1.7.0\'; // CodeIgniter Framework Version
 $config[\'extjs_version\'] = \'3.0.0\'; // ExtJS Framework Version
 $config[\'kb_version\'] = \'2.0.1\'; // Kontrollbase major version
