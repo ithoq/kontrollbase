@@ -52,7 +52,7 @@ To actually prune the data you need to use a GUI tool like <a href="http://www.p
 or, if you aren't a lazy mouse clicker, use the MySQL CLI. I'll give instructions for the CLI because if you can't figure out
 a GUI client then you need to leave the data alone and not attempt to prune anything. There used to be a button in the
 System Management tab to prune the data but it proved too tempting for users to click and thus removing the data without 
-understanding the process. It is actually a rather rare process to need to prune the data so we now use the manual pruning methods.<br><br>
+    understanding the process. It is actually a rather rare process to need to prune the data so we now use the manual pruning methods. You can prune the whole table or prune by date range. In the example below we show the whole table (via truncate) and then the by-date range method. You can only use one so don't just paste all four commands into the CLI. <br><br>
  <code>Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 244
  Server version: 5.0.84-log Source distribution
@@ -60,6 +60,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
 mysql> use kontrollbase;
 mysql> truncate table server_statistics;
 mysql> truncate table server_report;
+mysql> delete from server_statistics where Creation_time between 'YYYY-MM-DD' and 'YYYY-MM-DD'; 
+mysql> delete from server_report where creation_time between 'YYYY-MM-DD' and 'YYYY-MM-DD';
 </code>
 </div>
 <!-- END CONTENT -->

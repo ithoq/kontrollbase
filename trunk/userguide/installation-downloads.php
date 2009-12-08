@@ -12,12 +12,12 @@ include("doc_header.php");
 <div id="content">
 
 <h1>Downloading Kontrollbase</h1>
-This is the simplest part of the process. If you are connected to the internet then you can download Kontrollbase.
+This is the simplest part of the process. If you are connected to the internet then you can download Kontrollbase. If you are familiar with using Subversion we recommend using that method to download as it makes the upgrade and bug-fix process much easier. 
 
 <h2>Download options</h2>
 <ul>
-    <li>Supported releases -> the GA download page: <a href="http://kontrollsoft.com/downloads" target="_blank">http://kontrollsoft.com/downloads</a></li>
-    <li>Unsupported bleeding edge release -> subversion releases: <a href="http://code.google.com/p/kontrollbase/source/checkout">http://code.google.com/p/kontrollbase/source/checkout</a>
+<li>Packaged releases -> the GA download page: <a href="http://kontrollsoft.com/software-downloads" target="_blank">http://kontrollsoft.com/software-downloads</a></li>
+    <li>Most currnt development release -> subversion releases: <a href="http://code.google.com/p/kontrollbase/source/checkout">http://code.google.com/p/kontrollbase/source/checkout</a>
 </ul>
 
 </div>
