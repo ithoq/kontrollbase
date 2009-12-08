@@ -18,7 +18,7 @@ ALTER TABLE `server_statistics` CHANGE `bulk_insert_buffer_size` `bulk_insert_bu
 ALTER TABLE `server_statistics` CHANGE `completion_type` `completion_type` BIGINT(128) UNSIGNED NOT NULL;
 ALTER TABLE `server_statistics` CHANGE `concurrent_insert` `concurrent_insert` BIGINT(128) UNSIGNED NOT NULL;
 ALTER TABLE `server_statistics` CHANGE `connect_timeout` `connect_timeout` BIGINT(128) UNSIGNED NOT NULL;
-ALTER TABLE `server_statistics` CHANGE `datetime_format` `datetime_format` BIGINT(128) UNSIGNED NOT NULL;
+ALTER TABLE `server_statistics` CHANGE `datetime_format` `datetime_format` VARCHAR(128);
 ALTER TABLE `server_statistics` CHANGE `default_week_format` `default_week_format` BIGINT(128) UNSIGNED NOT NULL;
 ALTER TABLE `server_statistics` CHANGE `delayed_insert_limit` `delayed_insert_limit` BIGINT(128) UNSIGNED NOT NULL;
 ALTER TABLE `server_statistics` CHANGE `delayed_insert_timeout` `delayed_insert_timeout` BIGINT(128) UNSIGNED NOT NULL;
