@@ -36,7 +36,7 @@ You'll see these once you download the application tar.gz file and then unpack i
 <ul>
 <li>$root is the main directory of the unpacked application. ex: <em>kontrollbase-2.0.1</em></li>
 <li>"5.0.x" references that the script is intended for the various MySQL versions 5.0. 
-Other options include 5.1 and 4.1 if those scripts are included with the software distribution.</li>
+Other options include 5.1 and 4.1 if those scripts are included with the software distribution. Currently the 5.0 script works with 5.1 versions and 4.x is not supported.</li>
 <li>"linux" refers to the operating system the script supports, in this case Linux. 
 Other options would be solaris, windows, aix, etc. You would need to choose the correct 
 client script based on the operating system your client server runs.</li> 
@@ -52,14 +52,16 @@ what user you will have running the server scripts, it will not check for that -
 of this when you are setting up the user that will run the scripts as they write out their debug/error
 information to the /system/logs directory.
 <ul>
+ <li>system/cache -> this needs to be writeable by the webserver process user.</li>
  <li>system/logs -> this needs to be writeable by both the webserver and the kontrollbase script user.</li>
- <li>system/application/config -> this needs to be writeable by the webserver process user</li>
- <li>includes/ -> this needs to be writeable by the webserver process user</li> 
+ <li>system/application/config -> this needs to be writeable by the webserver process user.</li>
+ <li>includes/ -> this needs to be writeable by the webserver process user.</li> 
+ <li>includes/pages -> this needs to be writeable by the webserver process user.</li>
 </ul>
 
 <strong>Files</strong>
 <ul>
- <li>Pre-requisite check script
+ <li>Pre-requisite check script. Run this prior to installing anything to ensure you have the required modules for perl and php installed.
  <ul>
    <li>$root/bin/kontroll-check_reqs.php</li>
  </ul>
