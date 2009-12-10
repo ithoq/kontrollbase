@@ -756,6 +756,7 @@ $Slow_launch_threads = check_var($Slow_launch_threads);
 $date = date('c');
 $file = "$hostname-$date";
 wfile($file,"$hostname, $date");
+wfile($file,"Query Traffic Stats");
 wfile($file,"total queries, $_Questions");
 wfile($file,"total read queries, $_readsR");
 wfile($file,"total write queries, $_writesR");
@@ -775,6 +776,7 @@ wfile($file,"read queries per/sec, $_readsS");
 wfile($file,"write queries per/sec, $_writesS");
 wfile($file,"transaction commits, $Com_commit");
 wfile($file,"transaction commits per/sec, $_txS");
+wfile($file,"Query Cache Stats");
 wfile($file,"Enabled, $_qcacheEnabled");
 wfile($file,"Cache size, $_qcacheSizeR");
 wfile($file,"Block Size, $_qcacheBlockSize");
@@ -793,6 +795,7 @@ wfile($file,"Questions served from cache percentage, $_qcacheQuestionsServedFrom
 wfile($file,"Questions pruned from cache, $_qcacheQuestionsRemovedR");
 wfile($file,"Percentage questions purged from cache, $_qcacheQuestionsRemovedP%");
 wfile($file,"total connections made, $_ConnectionsR");
+wfile($file,"Connection Stats");
 wfile($file,"successful connections total, $_connSucR");
 wfile($file,"successful connections, $_connSucP%");
 wfile($file,"aborted connections total, $_connAbortR");
@@ -804,6 +807,7 @@ wfile($file,"current connections usage, $_connU%");
 wfile($file,"max connection usage, $_connMaxUsage%");
 wfile($file,"max connection errors allowable, $max_connect_errors");
 wfile($file,"connection timeout value, $connect_timeout");
+wfile($file,"Thread Stats");
 wfile($file,"Thread cache size, $thread_cache_size");
 wfile($file,"Threads connected, $Threads_connected");
 wfile($file,"Threads created, $Threads_created");
@@ -811,33 +815,40 @@ wfile($file,"Threads running, $Threads_running");
 wfile($file,"Threads cached, $Threads_cached");
 wfile($file,"Delayed insert threads, $Delayed_insert_threads");
 wfile($file,"Slow launch threads, $Slow_launch_threads");
+wfile($file,"Index Usage Stats");
 wfile($file,"queries utilizing indexes, $_indexUsageP%");
 wfile($file,"select queries using full table scan, $_indexSelectsFullTableScanR");
 wfile($file,"joins queries using full table scan, $_indexJoinsFullTableScanR");
+wfile($file,"Table Locking Stats");
 wfile($file,"Tables with non-waiting locks, $_tableLocksNonWaitingR");
 wfile($file,"Tables waiting for locks, $_tableLocksWaitingR");
 wfile($file,"Tables that had locking contention, $_tableLocksContention");
+wfile($file,"Table Cache Stats");
 wfile($file,"Table cache size, $_tableCacheAllowable");
 wfile($file,"Current open tables, $_tableCacheOpen");
 wfile($file,"Table cache utilization, $_tableCacheOpenP%");
 wfile($file,"Average tables open per/sec, $_tableCacheAvgSec");
 wfile($file,"Percentage cache misses, $_tableCacheMissesP%");
+wfile($file,"Temp Table Stats");
 wfile($file,"Size of connection based tmp table, $_tmpTableSizeR");
 wfile($file,"Size of memory based tmp table, $_tmpTableHeapSizeR");
 wfile($file,"Temp tables created total, $_tmpTableCreatedR");
 wfile($file,"Temp tables created on disk, $_tmpTablecreatedOnDiskR");
 wfile($file,"Percent of temp tables created on disk, $_tmpTablecreatedOnDiskP%");
+wfile($file,"Sort Buffer Stats");
 wfile($file,"Sort buffer size, $_sortSizeR");
 wfile($file,"Percentage of sort range scan, $_sortRange%");
 wfile($file,"Percentage of sort scan, $_sortScanP%");
 wfile($file,"Percentage of sort merge passes, $_SortMergePassesP%");
 wfile($file,"Rows sorted, $_SortRows");
 wfile($file,"Maximum RAM consumable by sort buffer, $_sortMaxRamAllowedR");
+wfile($file,"Join Buffer Stats");
 wfile($file,"Join buffer size, $_joinSizeR");
 wfile($file,"Max memory available to JOINs, $_joinMaxMemUsage");
 wfile($file,"Select Full Joins, $_SelectFullJoin");
 wfile($file,"Select Full Range Joins, $_SelectFullRangeJoin");
 wfile($file,"Percentage of join scan, $_joinScanP%");
+wfile($file,"MyISAM Stats");
 wfile($file,"allocated cache memory, $_myisamAllocatedMemR");
 wfile($file,"block size, $_myisamBlockSizeR");
 wfile($file,"current blocks, $_myisamCurrentBlocksR");
@@ -848,6 +859,7 @@ wfile($file,"blocks written to disk, $_myisamBlocksToDiskR");
 wfile($file,"cache writes to disk, $_myisamCacheWritesDisk");
 wfile($file,"cache writes to disks percent, $_myisamCacheWritesDiskP%");
 wfile($file,"index delay update, $_myisamIndexDelayUpdate");
+wfile($file,"InnoDB Stats");
 wfile($file,"allocated memory buffer pool size, $_innodbAllocatedMemR");
 wfile($file,"allocated innodb-mem to os-mem, $_innodballocatedMemP%");
 wfile($file,"free innodb memory, $_innodbFreeMem");
@@ -862,18 +874,16 @@ wfile($file,"log waits required, $_innodbLogWaitsRequired%");
 wfile($file,"number of free page waits, $_innodbFreePageWaits");
 
 print "</head><body>";
-$html = '';
-echo form_open('main/report_pdf');
-echo form_hidden('report', "$html");
-echo form_hidden('hostname', "$hostname");
+//$html = '';
+//echo form_open('main/report_pdf');
+//echo form_hidden('report', "$html");
+//echo form_hidden('hostname', "$hostname");
+//echo "\n";
+//echo form_hidden('date', "$date");
 echo "\n";
-echo form_hidden('date', "$date");
-echo "\n";
-//print '<h1>Download Report as PDF</h1>
-//<INPUT TYPE="IMAGE" SRC="'.$nroot.'/includes/images/icon_application_pdf_large.png" ALT="Download PDF Report"></div></td></tr>
-//<tr><td>';
+// The filename used here is controlled by the helper function "wfile" in system/application/helpers/exportfile_helper.php
 print '<h1>Download analytics data in CSV format</h1>
-<a href="'.$nroot.'/includes/pages/analytics-'.$hostname.'-'.$date.'.csv" target="_blank">
+<a href="'.$nroot.'/includes/pages/Kontrollbase-analytics-'.$hostname.'-'.$date.'.csv" target="_blank">
 <img src="'.$nroot.'/includes/images/csv_file.png"></a></td></tr>
 </table>
 </body></html>
