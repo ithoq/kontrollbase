@@ -1,0 +1,20 @@
+  /**
+   * Kontrollbase
+   *
+   * An open source MySQL monitoring and analytics application
+   *
+   * @package Kontrollbase
+   * @author Matt Reid
+   * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+   * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+   * @link http://kontrollbase.com
+   */
+===========================================================================================
+These are the release notes. This document contains information relevant to the changes in
+each revision. If there is something you need to change/add/etc to the files for proper 
+functionality it will be mentioned here. This will help you with upgrading from one release
+to the next. 
+===========================================================================================
+
+-revision 231
+	  added "$config['news_enable'] = TRUE;" to config.php file
