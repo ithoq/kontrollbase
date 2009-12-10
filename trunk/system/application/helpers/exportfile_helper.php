@@ -17,7 +17,7 @@ function wfile($file,$data) {
   $CI = get_instance();
   $path = $CI->config->item('base_dir');
   $path = "$path/includes/pages";
-  $file = "analytics-$file.csv";
+  $file = "Kontrollbase-analytics-$file.csv";
   $data = "$data\n";
   log_message('debug', "Writing data to $path/$file.");
   if ( ! write_file("$path/$file", $data,'a'))
