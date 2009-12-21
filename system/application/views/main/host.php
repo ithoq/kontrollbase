@@ -58,11 +58,17 @@ foreach($data as $key => $value) {
     if($k == 'engine_innodb_size_total') { $engine_innodb_size_total=$v;};
   }
 }
+
+$zero_growth_30 = $growth_30[0]['0_day_size_mb'];
+$thirty_growth_30 = $growth_30[0]['30_day_size_mb'];
+$growth_30 = round((($zero_growth_30 / $thirty_growth_30) * 100),2)."%";
+
 $overview.="<tr><th>Host Info</th><th>Data Info</th></tr>";
 $overview.="<tr><td class='td'><strong>IP Address</strong>: $ip_address</td><td class='td'><strong>Data size</strong>: ".byte_format($total_size)."</td></tr>\n";
 $overview.="<tr><td class='td'><strong>MySQL version</strong>: $version</td><td class='td'><strong>Index size</strong>: $size_index</td></tr>\n";
 $overview.="<tr><td class='td'><strong>Default engine</strong>: $engine</td><td class='td'><strong>Total size</strong>: $size</td></tr>\n" ;
 $overview.="<tr><td class='td'><strong>Uptime</strong>: $uptime days</td><td class='td'><strong>InnoDB Tables</strong>: $engine_count_innodb</td></tr>\n";
+$overview.="<tr><td class='td'><strong>30 day % Growth </strong>: $growth_30</td><td class='td'>&nbsp;</td></tr>";
 $overview.="<tr><td class='td'><strong>Avg Load</strong>: $os_load_15</td><td class='td'><strong>InnoDB Size</strong>: ".byte_format($engine_innodb_size_total)."</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Used</strong>: $mem_perc %</td><td class='td'><strong>MyISAM Tables</strong>: $engine_count_myisam</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Size</strong>: ".byte_format($mem_total)."</td><td class='td'><strong>MyISAM Size</strong>: ".byte_format($engine_myisam_size_total)."</td></tr>";
