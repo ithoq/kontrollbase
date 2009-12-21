@@ -268,6 +268,37 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     return $data;
   }
 
+  function get_overview_stats() {
+    log_message('debug', "Starting model_main -> get_overview_stats");
+    $dbr = $this->load->database('read', TRUE);
+    $sql = "select ((((MAX(os_mem_used)) / 1024 ) / 1024) / 1024) max_os_mem_used, ((((MIN(os_mem_used)) / 1024 ) / 1024) / 1024) min_os_mem_used, ((((AVG(os_mem_used)) / 1024 ) / 1024) / 1024) avg_os_mem_used, ((((STDDEV_POP(os_mem_used)) / 1024 ) / 1024) / 1024) stdev_os_mem_used, ((((MAX(length_data + length_index)) / 1024 ) / 1024) / 1024) max_size, ((((MIN(length_data + length_index)) / 1024 ) / 1024) / 1024) min_size, ((((AVG(length_data + length_index)) / 1024 ) / 1024) / 1024) avg_size, ((((STDDEV_POP(length_data + length_index)) / 1024 ) / 1024) / 1024) stdev_size, MAX(num_connections) max_connections,  MIN(num_connections) min_connections, AVG(num_connections) avg_connections, STDDEV_POP(num_connections) stdev_connections, MAX(queries_per_second) max_qps, MIN(queries_per_second) min_qps, AVG(queries_per_second) avg_qps, STDDEV_POP(queries_per_second) stdev_qps from server_statistics";
+    log_message('debug', "$sql");
+    $query = $dbr->query($sql);
+    if($query->num_rows() > 0) {
+      return $query->result_array();
+    }
+    else {
+      $data = array(  "max_os_mem_used" => "0",
+		      "min_os_mem_used" => "0",
+		      "avg_os_mem_used" => "0",
+		      "stdev_os_mem_used" => "0",
+		      "max_size" => "0",
+		      "min_size" => "0",
+		      "avg_size" => "0",
+		      "stdev_size" => "0",
+		      "max_connections" => "0",
+		      "min_connections" => "0",
+		      "avg_connections" => "0",
+		      "stdev_connections" => "0",
+		      "stdev_os_mem_used" => "0",
+		      "max_qps" => "0",
+		      "min_qps" => "0",
+		      "avg_qps" => "0",
+		      "stdev_qps" => "0");
+    }
+    return $data;
+  }
+
   function get_server_variables($server_list_id) {
     log_message('debug', "Starting model_main -> get_cnf");
     $dbr = $this->load->database('read', TRUE);

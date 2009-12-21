@@ -384,7 +384,7 @@ class Main extends Controller {
       $this->load->view('main/report',$l); 
     }
   }
-  
+
   function report_pdf() {
     auth();
     log_message('debug', "main-report_pdf function called");
