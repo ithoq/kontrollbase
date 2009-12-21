@@ -299,6 +299,27 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     return $data;
   }
 
+  function get_host_growth_30($server_list_id) {
+    log_message('debug', "Starting model_main -> get_host_growth_30");
+    $dbr = $this->load->database('read', TRUE);
+    $sql = "select (select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and CURDATE() <= Creation_time order by Creation_time asc limit 1) as 0_day_size_mb, 
+
+(select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= Creation_time order by Creation_time asc limit 1) as 30_day_size_mb,
+
+ ( (select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and CURDATE() <= Creation_time order by Creation_time asc limit 1) - (select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= Creation_time order by Creation_time asc limit 1)) as difference";
+    log_message('debug', "$sql");
+    $query = $dbr->query($sql);
+    if($query->num_rows() > 0) {
+      return $query->result_array();
+    }
+    else {
+      $data = array("0_day_size_mb" => "0",
+		    "30_day_size_mb" => "0",
+		    "difference" => "0");
+    }
+    return $data;
+  }
+
   function get_server_variables($server_list_id) {
     log_message('debug', "Starting model_main -> get_cnf");
     $dbr = $this->load->database('read', TRUE);

@@ -45,7 +45,7 @@ class Main extends Controller {
     $g['g7'] = $this->main->get_graphs_default("length_index","size","Total Index Size",$server_list_id,$sday,$eday);
     $g['g8'] = $this->main->get_graphs_sec("Bytes_received","bytes/sec","Bytes_received",$server_list_id,$sday,$eday);
     $g['g9'] = $this->main->get_graphs_sec("Bytes_sent","bytes/sec","Bytes_sent",$server_list_id,$sday,$eday);	  
-    $g['overview_stats'] = $this->main->get_overview_stats();
+    $g['overview_stats'] = $this->main->get_overview_stats();  
     $g['server_list_id'] = $server_list_id;
     $size_data = $this->main->get_stats($server_list_id,"length_data");
     $size_index = $this->main->get_stats($server_list_id,"length_index");
@@ -171,6 +171,8 @@ class Main extends Controller {
     $g['g53'] = $this->main->get_graphs_sec("Bytes_received","bytes/sec","Bytes_received",$server_list_id,$sday,$eday);
     $g['g54'] = $this->main->get_graphs_sec("Bytes_sent","bytes/sec","Bytes_sent",$server_list_id,$sday,$eday);    
     
+    $g['growth_30'] = $this->main->get_host_growth_30($server_list_id);
+
     $g['slave'] = $this->main->get_slave($server_list_id);
     $g['hostname'] = $this->main->get_host_info($server_list_id,"server_hostname");
     $g['ip_address'] = $this->main->get_host_info($server_list_id,"server_ipaddress");
