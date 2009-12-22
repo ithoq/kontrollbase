@@ -31,7 +31,9 @@ class Model_login extends Model
     $dbr = $this->load->database('write', TRUE);
     $sql = "update system_users set system_user_last_login = NOW() where id = '$system_user_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if(!$query) { return 1; } //we return state "2" because the write access database account is incorrectly setup
     else { return 0; }
   }
@@ -41,7 +43,9 @@ class Model_login extends Model
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from system_users where system_user_name = '$system_user_name' and system_user_pass = md5('$system_user_pass')";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if(!$query) { return 2; } //we return state "2" because the read access database account is incorrectly setup
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {

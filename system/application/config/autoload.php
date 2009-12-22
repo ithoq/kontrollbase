@@ -17,7 +17,8 @@ $autoload['helper'] = array('url',
 			    'versioncheck',
 			    'news',
 			    'exceptionhandler',
-			    'exportfile');
+			    'exportfile',
+			    'querystats');
 
 $autoload['plugin'] = array();
 $autoload['config'] = array();

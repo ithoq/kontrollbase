@@ -48,7 +48,9 @@ class Model_system extends Model
       $sql="select id from server_statistics";
     }
 
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       $data = $query->num_rows();
     }
@@ -62,7 +64,9 @@ class Model_system extends Model
     $dbr = $this->load->database('read', TRUE);
     $sql="select * from system_main";
 
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -77,7 +81,9 @@ class Model_system extends Model
     $dbr = $this->load->database('read', TRUE);
     $sql="select DATA_LENGTH,INDEX_LENGTH from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='$schema' and TABLE_NAME='server_statistics' LIMIT 1";
 
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -91,7 +97,9 @@ class Model_system extends Model
     $dbr = $this->load->database('read', TRUE);
     $sql="select DATA_LENGTH,INDEX_LENGTH from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='$schema' and TABLE_NAME='server_report' LIMIT 1";
 
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -130,9 +138,11 @@ VALUES (
 NULL , '$system_users_id', '$type', NOW( ))";
 
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->query($sql1);
     $this->db->trans_complete();
+    qend();
     if ($this->db->trans_status() === FALSE) {
       show_error('Could not prune table data for $table. Transaction failed.');
       $this->db->trans_off();
@@ -162,8 +172,10 @@ NULL , '$system_users_id', '$type', NOW( ))";
 `system_server_loop_timeout` = '$system_server_loop_timeout'";
 
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->trans_complete();
+    qend();
     if ($this->db->trans_status() === FALSE) {
       log_message('debug', "System settings edit failed. Please check database.");
       $this->db->trans_off();

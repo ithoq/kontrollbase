@@ -33,7 +33,9 @@ class Model_show extends Model
             server_client as t2 
             where t1.server_client_id = t2.id 
             order by t2.server_client_name,server_type,server_hostname";
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -71,7 +73,9 @@ class Model_show extends Model
             or t1.server_client_id = '0' 
             group by t1.system_user_name 
             order by system_user_name";
+    qstart();
     $query = $dbr->query($sql0);
+    qend();
     if($query->num_rows() > 0) {      
       return $query->result_array();
     }
@@ -92,7 +96,9 @@ class Model_show extends Model
   function get_client_list() {
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from server_client order by server_client_name";
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
