@@ -44,8 +44,10 @@ VALUES (
 NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 );";
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->trans_complete();
+    qend();
     if ($this->db->trans_status() === FALSE) {
       log_message('debug', "Audit log insert FAILED");
       $this->db->trans_off();
@@ -62,7 +64,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $this->load->helper('number');
     $sql1="select t1.id as server_list_id,t1.server_hostname,t2.id,t2.server_list_id,t2.os_load_15,t2.os_mem_total,round((t2.os_mem_total / t2.os_mem_used)) as mem_perc,round(t2.queries_per_second,2) as queries_per_second,t2.num_schema,t2.num_tables,t2.num_connections,t2.length_data,t2.length_index,(t2.length_data + t2.length_index) as total_size,t2.engine_count_innodb,t2.engine_count_myisam,t2.engine_myisam_size_data,t2.engine_myisam_size_index,(t2.engine_myisam_size_data + t2.engine_myisam_size_index) as engine_myisam_size_total, t2.engine_innodb_size_data,t2.engine_innodb_size_index,(t2.engine_innodb_size_data + t2.engine_innodb_size_index) as engine_innodb_size_total from server_list as t1, server_statistics as t2 where t1.id = t2.server_list_id and t2.server_list_id = '$server_list_id' order by t2.id desc limit 1";
+    qstart();
     $query1 = $dbr->query($sql1);
+    qend();
     if($query1->num_rows() > 0) {
       log_message('debug', "results greater than zero for host: $server_list_id, sql: $sql1");
       foreach ($query1->result() as $row1) {    
@@ -147,12 +151,16 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
       $sql0 = "select id,server_hostname from server_list where active >='1' and server_client_id = '$user_server_client_id' order by server_hostname";
     }
     $i=0;
+    qstart();
     $query = $dbr->query($sql0);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	$id=$row->id;
 	$sql1="select t1.id as server_list_id,t1.server_hostname,t2.id,t2.server_list_id,t2.os_load_15,t2.os_mem_total,round((t2.os_mem_total / t2.os_mem_used)) as mem_perc,round(t2.queries_per_second,2) as queries_per_second,t2.num_schema,t2.num_tables,t2.num_connections,t2.length_data,t2.length_index,(t2.length_data + t2.length_index) as total_size,t2.engine_count_innodb,t2.engine_count_myisam,t2.engine_myisam_size_data,t2.engine_myisam_size_index,(t2.engine_myisam_size_data + t2.engine_myisam_size_index) as engine_myisam_size_total, t2.engine_innodb_size_data,t2.engine_innodb_size_index,(t2.engine_innodb_size_data + t2.engine_innodb_size_index) as engine_innodb_size_total from server_list as t1, server_statistics as t2 where t1.id = t2.server_list_id and t2.server_list_id = '$id' order by t2.id desc limit 1";
+	qstart();
 	$query1 = $dbr->query($sql1);
+	qend();
 	if($query1->num_rows() > 0) {
 	  log_message('debug', "results greater than zero for host: $id, sql: $sql1");
 	  foreach ($query1->result() as $row1) {	    
@@ -258,7 +266,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select cnf_file,creation_time from server_statistics where server_list_id='$server_list_id' order by id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -273,7 +283,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select ((MAX(os_mem_used)) / POWER(1024,3)) max_os_mem_used, ((MIN(os_mem_used)) / POWER(1024,3)) min_os_mem_used, ((AVG(os_mem_used)) / POWER(1024,3)) avg_os_mem_used, ((STDDEV_POP(os_mem_used)) / POWER(1024,3))stdev_os_mem_used, ((MAX(length_data + length_index)) / POWER(1024,3)) max_size, ((MIN(length_data + length_index)) / POWER(1024,3)) min_size, ((AVG(length_data + length_index)) / POWER(1024,3)) avg_size, ((STDDEV_POP(length_data + length_index)) / POWER(1024,3)) stdev_size, MAX(num_connections) max_connections,  MIN(num_connections) min_connections, AVG(num_connections) avg_connections, STDDEV_POP(num_connections) stdev_connections, MAX(queries_per_second) max_qps, MIN(queries_per_second) min_qps, AVG(queries_per_second) avg_qps, STDDEV_POP(queries_per_second) stdev_qps from server_statistics where DATE_SUB(CURDATE(), INTERVAL 7 DAY)";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -308,7 +320,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
 
  ( (select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and CURDATE() <= Creation_time order by Creation_time asc limit 1) - (select (((length_data + length_index) / 1024) / 1024) as curr_size from server_statistics where server_list_id='12' and DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= Creation_time order by Creation_time asc limit 1)) as difference";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -325,7 +339,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from server_statistics where server_list_id='$server_list_id' order by id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	$os_load_1 = $row->os_load_1;
@@ -1123,7 +1139,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from server_statistics where server_list_id='$server_list_id' order by id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
       $Aborted_clients = $row->Aborted_clients;
@@ -1831,7 +1849,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
       $sql = "select t1.id, t1.alert_name, t1.alert_desc, t1.alert_links, t1.alert_solution, t1.alert_level, t2.id as alerts_current_id, t2.alerts_ign, t2.alerts_ack, t2.system_users_id, t2.renew_time, t2.response_time, t2.alerts_def_id, t2.server_list_id, t3.server_hostname from alerts_def as t1, alerts_current as t2, server_list as t3 where t3.active >= '1' and t2.server_list_id='$server_list_id' and t2.alert_state = '1' and t2.alerts_def_id = t1.id and t3.id = t2.server_list_id and t2.alerts_ign ='0' and t2.alerts_ack='0' order by server_hostname,t1.alert_level";
     }
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -1860,7 +1880,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select id from server_statistics where server_list_id='$server_list_id' order by id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	$data = $row->id;
@@ -1878,7 +1900,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     if($server_client_id != 0) {
       $sql = "select id,server_hostname from server_list where server_client_id = '$server_client_id' and id = '$server_list_id'";
       log_message('debug', "$sql");
+      qstart();
       $query = $dbr->query($sql);
+      qend();
       if($query->num_rows() > 0) {
 	$data = "1";
       }
@@ -1898,7 +1922,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select t1.id, t1.server_list_id ,t2.server_statistics_id from server_statistics as t1, server_report as t2 where t1.id = t2.server_statistics_id and t1.server_list_id = '$server_list_id' order by t2.id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $server_statistics_id = $row->server_statistics_id;
@@ -1916,7 +1942,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select server_report_document from server_report where server_statistics_id='$server_statistics_id' order by id desc limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	$data = $row->server_report_document;
@@ -1943,7 +1971,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
             order by t2.server_client_name,server_type,server_hostname";
     }
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -1962,7 +1992,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
       }
 
       log_message('debug', "$sql");
+      qstart();
       $query = $dbr->query($sql);
+      qend();
       $vcount = 0;
       $vals = array(0);
       if($query->num_rows() > 0) {
@@ -1988,7 +2020,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
       $sql = "select $x from server_statistics where server_list_id='$server_list_id' order by id desc limit 1";
     }
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $data = $row->$x;	
@@ -2005,7 +2039,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select $x from server_list where id='$server_list_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $data = $row->$x;
@@ -2025,7 +2061,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select $x from server_client where id='$server_client_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $data = $row->$x;
@@ -2039,7 +2077,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select id,server_client_name from server_client order by server_client_name";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -2054,7 +2094,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select $x from system_users where id='$system_user_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $data = $row->$x;
@@ -2068,7 +2110,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select alert_name from alerts_def where id='$alerts_def_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
         $data = $row->alert_name;
@@ -2082,7 +2126,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
     $dbr = $this->load->database('read', TRUE);
     $sql = "select server_is_slave from server_list where id='$server_list_id' limit 1";
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       foreach ($query->result() as $row) {
 	$slave = $row->server_is_slave;
@@ -2105,7 +2151,9 @@ NULL , '$system_user_id', '$page_id', '$host_id', NOW( )
       $sql = "select $xval,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE server_list_id = '$server_list_id' AND Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     }
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     $count = $query->num_rows();
 
     if($count <= 64) {
@@ -2169,7 +2217,9 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
       $sql = "select $xval,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE server_list_id = '$server_list_id' AND Creation_time BETWEEN '$sday' AND '$eday' GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     }
     log_message('debug', "$sql");
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     $count = $query->num_rows();
     
     if($count <= 64) {

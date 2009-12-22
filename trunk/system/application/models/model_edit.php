@@ -29,7 +29,9 @@ class Model_edit extends Model
   function get_server($server_list_id) {
     $dbr = $this->load->database('read', TRUE);
     $sql = "select t1.*,t2.server_client_name from server_list as t1, server_client as t2 where t1.server_client_id = t2.id and t1.id = '$server_list_id' order by server_hostname limit 1";
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -152,10 +154,12 @@ UPDATE `server_list` SET
  WHERE `id` = '$server_list_id' LIMIT 1";
 }
 
-
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->trans_complete();
+    qend();
+
     if ($this->db->trans_status() === FALSE) {
       show_error('Could not edit the desired host. Transaction failed.');
       $this->db->trans_off();
@@ -170,7 +174,9 @@ UPDATE `server_list` SET
   function get_user($system_user_id) {
     $dbr = $this->load->database('read', TRUE);
     $sql1 = "select server_client_id from system_users where id='$system_user_id'";
+    qstart();
     $query1 = $dbr->query($sql1);
+    qend();
     if($query1->num_rows() > 0) {
       foreach ($query1->result() as $row1) {
         $server_client_id = $row1->server_client_id;
@@ -183,7 +189,9 @@ UPDATE `server_list` SET
       $sql0 = "select t1.*,t2.server_client_name from system_users as t1, server_client as t2 where t1.server_client_id = t2.id and t1.id = '$system_user_id' limit 1";
     }
     log_message('debug', "model_edit: get_user: $sql0");
+    qstart();
     $query = $dbr->query($sql0);
+    qend();
     if($query->num_rows() > 0) {      
       return $query->result_array();
     }
@@ -226,8 +234,10 @@ UPDATE `server_list` SET
 WHERE `system_users`.`id` = '$system_user_id' LIMIT 1";
 
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->trans_complete();
+    qend();
     if ($this->db->trans_status() === FALSE) {
       show_error('Could not edit the desired user. Transaction failed.');
       $this->db->trans_off();
@@ -242,7 +252,9 @@ WHERE `system_users`.`id` = '$system_user_id' LIMIT 1";
   function get_client($server_client_id) {
     $dbr = $this->load->database('read', TRUE);
     $sql = "select * from server_client where id='$server_client_id' limit 1";
+    qstart();
     $query = $dbr->query($sql);
+    qend();
     if($query->num_rows() > 0) {
       return $query->result_array();
     }
@@ -275,8 +287,10 @@ WHERE `system_users`.`id` = '$system_user_id' LIMIT 1";
 WHERE `server_client`.`id` = '$server_client_id' LIMIT 1";
 
     $this->db->trans_start();
+    qstart();
     $this->db->query($sql0);
     $this->db->trans_complete();
+    qend();
     if ($this->db->trans_status() === FALSE) {
       show_error('Could not edit the desired client. Transaction failed.');
       $this->db->trans_off();
