@@ -92,7 +92,7 @@ sub qcache_preload {
     my $sql6 = "select max(length_index) as length_index,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE() GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     my $sql7 = "select Bytes_received,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE() GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
     my $sql8 = "select Bytes_sent,Uptime,DATE_FORMAT(Creation_time,'%m-%d %H:%i') as Date from server_statistics WHERE Creation_time BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND CURDATE() GROUP BY DAY(Creation_time),HOUR(Creation_time) ORDER BY Creation_time";
-
+    my $sql9 = "select ((((MAX(os_mem_used)) / 1024 ) / 1024) / 1024) max_os_mem_used, ((((MIN(os_mem_used)) / 1024 ) / 1024) / 1024) min_os_mem_used, ((((AVG(os_mem_used)) / 1024 ) / 1024) / 1024) avg_os_mem_used, ((((STDDEV_POP(os_mem_used)) / 1024 ) / 1024) / 1024) stdev_os_mem_used, ((((MAX(length_data + length_index)) / 1024 ) / 1024) / 1024) max_size, ((((MIN(length_data + length_index)) / 1024 ) / 1024) / 1024) min_size, ((((AVG(length_data + length_index)) / 1024 ) / 1024) / 1024) avg_size, ((((STDDEV_POP(length_data + length_index)) / 1024 ) / 1024) / 1024) stdev_size, MAX(num_connections) max_connections,  MIN(num_connections) min_connections, AVG(num_connections) avg_connections, STDDEV_POP(num_connections) stdev_connections, MAX(queries_per_second) max_qps, MIN(queries_per_second) min_qps, AVG(queries_per_second) avg_qps, STDDEV_POP(queries_per_second) stdev_qps from server_statistics";
     my $sth0 = $dbh->prepare($sql0) or error_report("$DBI::errstr");
     my $sth1 = $dbh->prepare($sql1) or error_report("$DBI::errstr");
     my $sth2 = $dbh->prepare($sql2) or error_report("$DBI::errstr");
@@ -102,6 +102,8 @@ sub qcache_preload {
     my $sth6 = $dbh->prepare($sql6) or error_report("$DBI::errstr");
     my $sth7 = $dbh->prepare($sql7) or error_report("$DBI::errstr");
     my $sth8 = $dbh->prepare($sql8) or error_report("$DBI::errstr");
+    my $sth9 = $dbh->prepare($sql9) or error_report("$DBI::errstr");
+
     debug_report("#### query_cache_preload queries prepared.");
     $sth0->execute or error_report("$DBI::errstr");
     $sth1->execute or error_report("$DBI::errstr");
@@ -112,6 +114,8 @@ sub qcache_preload {
     $sth6->execute or error_report("$DBI::errstr");
     $sth7->execute or error_report("$DBI::errstr");
     $sth8->execute or error_report("$DBI::errstr");
+    $sth9->execute or error_report("$DBI::errstr");
+
     debug_report("#### query_cache_preload queries executed.");
     $sth0->finish;
     $sth1->finish;
@@ -122,6 +126,8 @@ sub qcache_preload {
     $sth6->finish;
     $sth7->finish;
     $sth8->finish;
+    $sth9->finish;
+
     debug_report("#### query_cache_preload statement handlers finished.");
     $dbh->disconnect;
     debug_report("#### query_cache_preload database handler disconnected.");
