@@ -61,7 +61,12 @@ foreach($data as $key => $value) {
 
 $zero_growth_30 = $growth_30[0]['0_day_size_mb'];
 $thirty_growth_30 = $growth_30[0]['30_day_size_mb'];
-$growth_30 = round((($zero_growth_30 / $thirty_growth_30) * 100),2)."%";
+if($zero_growth_30 == 0 || $thirty_growth_30 == 0) {
+  $growth_30 = "0%";
+ }
+ else {
+   $growth_30 = round((($zero_growth_30 / $thirty_growth_30) * 100),2)."%";
+ }
 
 $overview.="<tr><th>Host Info</th><th>Data Info</th></tr>";
 $overview.="<tr><td class='td'><strong>IP Address</strong>: $ip_address</td><td class='td'><strong>Data size</strong>: ".byte_format($total_size)."</td></tr>\n";
