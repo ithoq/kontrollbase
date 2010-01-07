@@ -102,7 +102,7 @@ sub qcache_preload {
     my $sth6 = $dbh->prepare($sql6) or error_report("$DBI::errstr");
     my $sth7 = $dbh->prepare($sql7) or error_report("$DBI::errstr");
     my $sth8 = $dbh->prepare($sql8) or error_report("$DBI::errstr");
-    my $sth9 = $dbh->prepare($sql9) or error_report("$DBI::errstr");
+#    my $sth9 = $dbh->prepare($sql9) or error_report("$DBI::errstr");
 
     debug_report("#### query_cache_preload queries prepared.");
     $sth0->execute or error_report("$DBI::errstr");
@@ -114,7 +114,7 @@ sub qcache_preload {
     $sth6->execute or error_report("$DBI::errstr");
     $sth7->execute or error_report("$DBI::errstr");
     $sth8->execute or error_report("$DBI::errstr");
-    $sth9->execute or error_report("$DBI::errstr");
+#    $sth9->execute or error_report("$DBI::errstr");
 
     debug_report("#### query_cache_preload queries executed.");
     $sth0->finish;
@@ -126,7 +126,7 @@ sub qcache_preload {
     $sth6->finish;
     $sth7->finish;
     $sth8->finish;
-    $sth9->finish;
+#    $sth9->finish;
 
     debug_report("#### query_cache_preload statement handlers finished.");
     $dbh->disconnect;
