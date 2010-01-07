@@ -120,6 +120,10 @@ HOME=/
 
 #Kontrollbase alerting processing and notification script
 15 08 * * * kontrollbase cd /var/www/html/kontrollbase/bin/ && /var/www/html/kontrollbase/bin/kontroll-alerter-5.0.x_linux-x86-2.0.1.pl > /dev/null 2>&1
+
+#Kontrollbase query-cache preload script to speed up logins
+*/30 * * * * root cd /var/www/html/kontrollbase/bin/ && /var/www/html/kontrollbase/bin/kontroll-query_cache_preload.pl > /dev/null 2>&1
+25 01 * * * root cd /var/www/html/kontrollbase/bin/ && /var/www/html/kontrollbase/bin/kontroll-overview_daily.pl > /dev/null 2>&1
 </code>
 <li>Notice that we are running those two scripts as the user "kontrollbase".
 You will want to change that if you decided to call the user something else,
