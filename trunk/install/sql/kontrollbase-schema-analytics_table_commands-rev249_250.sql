@@ -20,4 +20,4 @@ CREATE TABLE  `kontrollbase`.`analytics_overview_data` (
 `stdev_qps` DOUBLE NOT NULL ,
 `Creation_time` DATETIME NOT NULL ,
 INDEX (  `Creation_time` )
-) ENGINE = INNODB CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT =  'data updated daily by kontroll-overview_daily.pl script'
+) ENGINE = INNODB CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT =  'data updated daily by kontroll-overview_daily.pl script';
