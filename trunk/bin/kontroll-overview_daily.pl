@@ -83,7 +83,27 @@ sub overview_daily {
         }
     ) or error_report("$DBI::errstr");
 
-    my $sql9 = "select ((MAX(os_mem_used)) / POWER(1024,3)) max_os_mem_used, ((MIN(os_mem_used)) / POWER(1024,3)) min_os_mem_used, ((AVG(os_mem_used)) / POWER(1024,3)) avg_os_mem_used, ((STDDEV_POP(os_mem_used)) / POWER(1024,3))stdev_os_mem_used, ((MAX(length_data + length_index)) / POWER(1024,3)) max_size, ((MIN(length_data + length_index)) / POWER(1024,3)) min_size, ((AVG(length_data + length_index)) / POWER(1024,3)) avg_size, ((STDDEV_POP(length_data + length_index)) / POWER(1024,3)) stdev_size, MAX(num_connections) max_connections,  MIN(num_connections) min_connections, AVG(num_connections) avg_connections, STDDEV_POP(num_connections) stdev_connections, MAX(queries_per_second) max_qps, MIN(queries_per_second) min_qps, AVG(queries_per_second) avg_qps, STDDEV_POP(queries_per_second) stdev_qps from server_statistics where DATE_SUB(CURDATE(), INTERVAL 7 DAY)";
+    #grab most recent data from the view table, inset it into the historical overview table for analytics
+    my $sql9 = "INSERT INTO  `analytics_overview_data` (
+`max_os_mem_used` ,
+`min_os_mem_used` ,
+`avg_os_mem_used` ,
+`stdev_os_mem_used` ,
+`max_size` ,
+`min_size` ,
+`avg_size` ,
+`stdev_size` ,
+`max_connections` ,
+`min_connections` ,
+`avg_connections` ,
+`stdev_connections` ,
+`max_qps` ,
+`min_qps` ,
+`avg_qps` ,
+`stdev_qps` ,
+`Creation_time`
+)
+SELECT *, NOW() FROM view_analytics_overview";
 
     my $sth9 = $dbh->prepare($sql9) or error_report("$DBI::errstr");
 
