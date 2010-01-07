@@ -67,11 +67,11 @@ class Model_login extends Model
 
 	//let us know what the session values are in debug mode - THIS IS WHY YOU DISABLE DEBUG MODE FOR PRODUCTION
 	log_message('debug', "_SESSION server_client_id: $server_client_id");
-	log_message('debug', "_SESSION user_server_client_id: $user_server_client_id");
-	log_message('debug', "_SESSION user_role_tier: $user_role_tier");
-	log_message('debug', "_SESSION user_system_user_id: $user_system_user_id");
-	log_message('debug', "_SESSION user_system_user_name: $user_system_user_name");
-	log_message('debug', "_SESSION user_system_user_email: $user_system_user_email");
+	log_message('debug', "_SESSION user_server_client_id: server_client_id");
+	log_message('debug', "_SESSION user_role_tier: $role_tier");
+	log_message('debug', "_SESSION user_system_user_id: $system_user_id");
+	log_message('debug', "_SESSION user_system_user_name: $system_user_name");
+	log_message('debug', "_SESSION user_system_user_email: $system_user_email");
 	log_message('debug', "_SESSION logged_in: $logged_in");
 
 	log_message('debug', "logged_in state == TRUE");
