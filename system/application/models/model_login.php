@@ -72,7 +72,6 @@ class Model_login extends Model
 	log_message('debug', "_SESSION user_system_user_id: $system_user_id");
 	log_message('debug', "_SESSION user_system_user_name: $system_user_name");
 	log_message('debug', "_SESSION user_system_user_email: $system_user_email");
-	log_message('debug', "_SESSION logged_in: $logged_in");
 
 	log_message('debug', "logged_in state == TRUE");
 	
