@@ -23,7 +23,8 @@ $height = 130;
 if($slave == '1') { $slv_state = "yes"; }
 elseif($slave == '0') { $slv_state = "no"; }
 
-$overview='<html>
+$overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -57,15 +58,21 @@ foreach($data as $key => $value) {
     if($k == 'engine_innodb_size_total') { $engine_innodb_size_total=$v;};
   }
 }
+
+$zero_growth_30 = $growth_30[0]['0_day_size_mb'];
+$thirty_growth_30 = $growth_30[0]['30_day_size_mb'];
+$growth_30 = round((($zero_growth_30 / $thirty_growth_30) * 100),2)."%";
+
 $overview.="<tr><th>Host Info</th><th>Data Info</th></tr>";
 $overview.="<tr><td class='td'><strong>IP Address</strong>: $ip_address</td><td class='td'><strong>Data size</strong>: ".byte_format($total_size)."</td></tr>\n";
 $overview.="<tr><td class='td'><strong>MySQL version</strong>: $version</td><td class='td'><strong>Index size</strong>: $size_index</td></tr>\n";
 $overview.="<tr><td class='td'><strong>Default engine</strong>: $engine</td><td class='td'><strong>Total size</strong>: $size</td></tr>\n" ;
 $overview.="<tr><td class='td'><strong>Uptime</strong>: $uptime days</td><td class='td'><strong>InnoDB Tables</strong>: $engine_count_innodb</td></tr>\n";
+$overview.="<tr><td class='td'><strong>30 day % Growth </strong>: $growth_30</td><td class='td'>&nbsp;</td></tr>";
 $overview.="<tr><td class='td'><strong>Avg Load</strong>: $os_load_15</td><td class='td'><strong>InnoDB Size</strong>: ".byte_format($engine_innodb_size_total)."</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Used</strong>: $mem_perc %</td><td class='td'><strong>MyISAM Tables</strong>: $engine_count_myisam</td></tr>";
 $overview.="<tr><td class='td'><strong>Memory Size</strong>: ".byte_format($mem_total)."</td><td class='td'><strong>MyISAM Size</strong>: ".byte_format($engine_myisam_size_total)."</td></tr>";
-$overview.="<tr><td class='td'><strong>QPS</strong>: $queries_per_second</td><td class='td'><strong>Collection Date</strong>: $date</td></tr>";
+$overview.="<tr><td class='td'><strong>Queries/sec</strong>: $queries_per_second</td><td class='td'><strong>Collection Date</strong>: $date</td></tr>";
 $overview.="<tr><td class='td'><strong>Connections</strong>: $num_connections</td><td class='td'><strong>Polling time</strong>: $collection_time_elapse</td></tr>";
 $overview.="</div></table></td></tr>";
 //$overview.=renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g32, "kontrollbase", $width, $height)."<br></div></td></tr></table>";
@@ -75,7 +82,8 @@ if($slave == '1') {
   if($slave_sql == '0') { $slave_sql = "YES"; } else { $slave_sql = "NO"; }
   if($slave_io == '0') { $slave_io = "YES"; }else {$slave_io = "NO"; }
 
-  $slavepagedata='<html>
+  $slavepagedata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -92,7 +100,8 @@ if($slave == '1') {
   $slavepagedata.="</table></body></html>";
  }
  else {
-   $slavepagedata='<html>
+   $slavepagedata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -124,7 +133,8 @@ if($user_role_tier == 0) {$sess_tier = "Admin";}
 elseif($user_role_tier == 1) {$sess_tier ="Standard";}
 elseif($user_role_tier == 2) {$sess_tier ="Client";}
 
-$sessiondata='<html>
+$sessiondata='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
@@ -162,7 +172,8 @@ $data01 = array(
 		);
 
 
-$graphs='<html>
+$graphs='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">                  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
