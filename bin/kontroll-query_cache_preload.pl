@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 ################################################################################
-## NAME: kontroll-server_loop-5.0.x_linux-x86.pl
+## NAME: kontroll-query_cache_preload.pl
 ## VERSION: 2.0.1
 ## DATE: 2008-12-01
 ## AUTHOR: Matt Reid
