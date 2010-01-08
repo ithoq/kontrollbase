@@ -37,6 +37,513 @@ my $error_log = "/tmp/kbase-$datetimefile-sys_error.log";
 my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log";
 my $xml_log = "/tmp/kbase-$datetimefile-xml.log";
 
+# database connection vars
+my $server_mysql_user = undef;
+my $server_mysql_pass = undef;
+my $server_mysql_port = undef;
+my $server_mysql_socket = undef;
+my $server_mysql_db = undef;
+my $server_mysql_host = undef;
+
+# begin long list of variable definitions used in XML processing
+my %varlist = (
+    'server_list_id' => '0',
+    'cnf_file' => '0',
+    'os_load_1' => '0',
+    'os_load_5' => '0',
+    'os_load_15' => '0',
+    'os_mem_total' => '0',
+    'os_mem_used' => '0',
+    'os_swap_total' => '0',
+    'os_swap_free' => '0',
+    'os_cpu_user' => '0',
+    'os_cpu_system' => '0',
+    'os_cpu_idle' => '0',
+    'queries_per_second' => '0',
+    'num_schema' => '0',
+    'num_tables' => '0',
+    'num_connections' => '0',
+    'length_data' => '0',
+    'length_index' => '0',
+    'engine_count_innodb' => '0',
+    'engine_count_myisam' => '0',
+    'engine_myisam_size_data' => '0',
+    'engine_myisam_size_index' => '0',
+    'engine_innodb_size_data' => '0',
+    'engine_innodb_size_index' => '0',
+    'auto_increment_increment' => '0',
+    'auto_increment_offset' => '0',
+    'automatic_sp_privileges' => '0',
+    'back_log' => '0',
+    'basedir' => '0',
+    'binlog_cache_size' => '0',
+    'bulk_insert_buffer_size' => '0',
+    'character_set_client' => '0',
+    'character_set_connection' => '0',
+    'character_set_database' => '0',
+    'character_set_filesystem' => '0',
+    'character_set_results' => '0',
+    'character_set_server' => '0',
+    'character_set_system' => '0',
+    'character_sets_dir' => '0',
+    'collation_connection' => '0',
+    'collation_database' => '0',
+    'collation_server' => '0',
+    'completion_type' => '0',
+    'concurrent_insert' => '0',
+    'connect_timeout' => '0',
+    'datadir' => '0',
+    'date_format' => '0',
+    'datetime_format' => '0',
+    'default_week_format' => '0',
+    'delay_key_write' => '0',
+    'delayed_insert_limit' => '0',
+    'delayed_insert_timeout' => '0',
+    'delayed_queue_size' => '0',
+    'div_precision_increment' => '0',
+    'keep_files_on_create' => '0',
+    'engine_condition_pushdown' => '0',
+    'expire_logs_days' => '0',
+    'flush' => '0',
+    'flush_time' => '0',
+    'ft_boolean_syntax' => '0',
+    'ft_max_word_len' => '0',
+    'ft_min_word_len' => '0',
+    'ft_query_expansion_limit' => '0',
+    'ft_stopword_file' => '0',
+    'group_concat_max_len' => '0',
+    'have_archive' => '0',
+    'have_bdb' => '0',
+    'have_blackhole_engine' => '0',
+    'have_compress' => '0',
+    'have_crypt' => '0',
+    'have_csv' => '0',
+    'have_dynamic_loading' => '0',
+    'have_example_engine' => '0',
+    'have_federated_engine' => '0',
+    'have_geometry' => '0',
+    'have_innodb' => '0',
+    'have_isam' => '0',
+    'have_merge_engine' => '0',
+    'have_ndbcluster' => '0',
+    'have_openssl' => '0',
+    'have_ssl' => '0',
+    'have_query_cache' => '0',
+    'have_raid' => '0',
+    'have_rtree_keys' => '0',
+    'have_symlink' => '0',
+    'hostname' => '0',
+    'init_connect' => '0',
+    'init_file' => '0',
+    'init_slave' => '0',
+    'innodb_additional_mem_pool_size' => '0',
+    'innodb_autoextend_increment' => '0',
+    'innodb_buffer_pool_awe_mem_mb' => '0',
+    'innodb_buffer_pool_size' => '0',
+    'innodb_checksums' => '0',
+    'innodb_commit_concurrency' => '0',
+    'innodb_concurrency_tickets' => '0',
+    'innodb_data_file_path' => '0',
+    'innodb_data_home_dir' => '0',
+    'innodb_adaptive_hash_index' => '0',
+    'innodb_doublewrite' => '0',
+    'innodb_fast_shutdown' => '0',
+    'innodb_file_io_threads' => '0',
+    'innodb_file_per_table' => '0',
+    'innodb_flush_log_at_trx_commit' => '0',
+    'innodb_flush_method' => '0',
+    'innodb_force_recovery' => '0',
+    'innodb_lock_wait_timeout' => '0',
+    'innodb_locks_unsafe_for_binlog' => '0',
+    'innodb_log_arch_dir' => '0',
+    'innodb_log_archive' => '0',
+    'innodb_log_buffer_size' => '0',
+    'innodb_log_file_size' => '0',
+    'innodb_log_files_in_group' => '0',
+    'innodb_log_group_home_dir' => '0',
+    'innodb_max_dirty_pages_pct' => '0',
+    'innodb_max_purge_lag' => '0',
+    'innodb_mirrored_log_groups' => '0',
+    'innodb_open_files' => '0',
+    'innodb_rollback_on_timeout' => '0',
+    'innodb_support_xa' => '0',
+    'innodb_sync_spin_loops' => '0',
+    'innodb_table_locks' => '0',
+    'innodb_thread_concurrency' => '0',
+    'innodb_thread_sleep_delay' => '0',
+    'innodb_read_ahead' => '0',
+    'innodb_ibuf_contract_const' => '0',
+    'innodb_ibuf_contract_burst' => '0',
+    'innodb_buf_flush_const' => '0',
+    'innodb_buf_flush_burst' => '0',
+    'interactive_timeout' => '0',
+    'join_buffer_size' => '0',
+    'key_buffer_size' => '0',
+    'key_cache_age_threshold' => '0',
+    'key_cache_block_size' => '0',
+    'key_cache_division_limit' => '0',
+    'language' => '0',
+    'large_files_support' => '0',
+    'large_page_size' => '0',
+    'large_pages' => '0',
+    'lc_time_names' => '0',
+    'license' => '0',
+    'local_infile' => '0',
+    'locked_in_memory' => '0',
+    'log' => '0',
+    'log_bin' => '0',
+    'log_bin_trust_function_creators' => '0',
+    'log_error' => '0',
+    'log_queries_not_using_indexes' => '0',
+    'log_slave_updates' => '0',
+    'log_slow_queries' => '0',
+    'log_slow_filter' => '0',
+    'log_slow_verbosity' => '0',
+    'log_warnings' => '0',
+    'long_query_time' => '0',
+    'low_priority_updates' => '0',
+    'lower_case_file_system' => '0',
+    'lower_case_table_names' => '0',
+    'max_allowed_packet' => '0',
+    'max_binlog_cache_size' => '0',
+    'max_binlog_size' => '0',
+    'max_connect_errors' => '0',
+    'max_connections' => '0',
+    'max_delayed_threads' => '0',
+    'max_error_count' => '0',
+    'max_heap_table_size' => '0',
+    'max_insert_delayed_threads' => '0',
+    'max_join_size' => '0',
+    'max_length_for_sort_data' => '0',
+    'max_prepared_stmt_count' => '0',
+    'max_relay_log_size' => '0',
+    'max_seeks_for_key' => '0',
+    'max_sort_length' => '0',
+    'max_sp_recursion_depth' => '0',
+    'max_tmp_tables' => '0',
+    'max_user_connections' => '0',
+    'max_write_lock_count' => '0',
+    'min_examined_row_limit' => '0',
+    'multi_range_count' => '0',
+    'myisam_data_pointer_size' => '0',
+    'myisam_max_sort_file_size' => '0',
+    'myisam_recover_options' => '0',
+    'myisam_repair_threads' => '0',
+    'myisam_sort_buffer_size' => '0',
+    'myisam_stats_method' => '0',
+    'net_buffer_length' => '0',
+    'net_read_timeout' => '0',
+    'net_retry_count' => '0',
+    'net_write_timeout' => '0',
+    'new' => '0',
+    'old_passwords' => '0',
+    'open_files_limit' => '0',
+    'optimizer_prune_level' => '0',
+    'optimizer_search_depth' => '0',
+    'pid_file' => '0',
+    'port' => '0',
+    'preload_buffer_size' => '0',
+    'protocol_version' => '0',
+    'query_alloc_block_size' => '0',
+    'query_cache_limit' => '0',
+    'query_cache_min_res_unit' => '0',
+    'query_cache_size' => '0',
+    'query_cache_type' => '0',
+    'query_cache_wlock_invalidate' => '0',
+    'query_prealloc_size' => '0',
+    'range_alloc_block_size' => '0',
+    'log_slow_rate_limit' => '0',
+    'read_buffer_size' => '0',
+    'read_only' => '0',
+    'read_rnd_buffer_size' => '0',
+    'relay_log' => '0',
+    'relay_log_index' => '0',
+    'relay_log_info_file' => '0',
+    'relay_log_purge' => '0',
+    'relay_log_space_limit' => '0',
+    'rpl_recovery_rank' => '0',
+    'secure_auth' => '0',
+    'secure_file_priv' => '0',
+    'server_id' => '0',
+    'skip_external_locking' => '0',
+    'skip_networking' => '0',
+    'skip_show_database' => '0',
+    'slave_compressed_protocol' => '0',
+    'slave_load_tmpdir' => '0',
+    'slave_net_timeout' => '0',
+    'slave_skip_errors' => '0',
+    'slave_transaction_retries' => '0',
+    'slow_launch_time' => '0',
+    'socket' => '0',
+    'sort_buffer_size' => '0',
+    'sql_big_selects' => '0',
+    'sql_mode' => '0',
+    'sql_notes' => '0',
+    'sql_warnings' => '0',
+    'ssl_ca' => '0',
+    'ssl_capath' => '0',
+    'ssl_cert' => '0',
+    'ssl_cipher' => '0',
+    'ssl_key' => '0',
+    'storage_engine' => '0',
+    'sync_binlog' => '0',
+    'sync_frm' => '0',
+    'system_time_zone' => '0',
+    'table_cache' => '0',
+    'table_lock_wait_timeout' => '0',
+    'table_type' => '0',
+    'thread_cache_size' => '0',
+    'thread_stack' => '0',
+    'time_format' => '0',
+    'time_zone' => '0',
+    'timed_mutexes' => '0',
+    'tmp_table_size' => '0',
+    'tmpdir' => '0',
+    'transaction_alloc_block_size' => '0',
+    'transaction_prealloc_size' => '0',
+    'tx_isolation' => '0',
+    'updatable_views_with_limit' => '0',
+    'version' => '0',
+    'version_comment' => '0',
+    'version_compile_machine' => '0',
+    'version_compile_os' => '0',
+    'wait_timeout' => '0',
+    'Aborted_clients' => '0',
+    'Aborted_connects' => '0',
+    'Binlog_cache_disk_use' => '0',
+    'Binlog_cache_use' => '0',
+    'Bytes_received' => '0',
+    'Bytes_sent' => '0',
+    'Com_admin_commands' => '0',
+    'Com_alter_db' => '0',
+    'Com_alter_table' => '0',
+    'Com_analyze' => '0',
+    'Com_backup_table' => '0',
+    'Com_begin' => '0',
+    'Com_call_procedure' => '0',
+    'Com_change_db' => '0',
+    'Com_change_master' => '0',
+    'Com_check' => '0',
+    'Com_checksum' => '0',
+    'Com_commit' => '0',
+    'Com_create_db' => '0',
+    'Com_create_function' => '0',
+    'Com_create_index' => '0',
+    'Com_create_table' => '0',
+    'Com_create_user' => '0',
+    'Com_dealloc_sql' => '0',
+    'Com_delete' => '0',
+    'Com_delete_multi' => '0',
+    'Com_do' => '0',
+    'Com_drop_db' => '0',
+    'Com_drop_function' => '0',
+    'Com_drop_index' => '0',
+    'Com_drop_table' => '0',
+    'Com_drop_user' => '0',
+    'Com_execute_sql' => '0',
+    'Com_flush' => '0',
+    'Com_grant' => '0',
+    'Com_ha_close' => '0',
+    'Com_ha_open' => '0',
+    'Com_ha_read' => '0',
+    'Com_help' => '0',
+    'Com_insert' => '0',
+    'Com_insert_select' => '0',
+    'Com_kill' => '0',
+    'Com_load' => '0',
+    'Com_load_master_data' => '0',
+    'Com_load_master_table' => '0',
+    'Com_lock_tables' => '0',
+    'Com_optimize' => '0',
+    'Com_preload_keys' => '0',
+    'Com_prepare_sql' => '0',
+    'Com_purge' => '0',
+    'Com_purge_before_date' => '0',
+    'Com_rename_table' => '0',
+    'Com_repair' => '0',
+    'Com_replace' => '0',
+    'Com_replace_select' => '0',
+    'Com_reset' => '0',
+    'Com_restore_table' => '0',
+    'Com_revoke' => '0',
+    'Com_revoke_all' => '0',
+    'Com_rollback' => '0',
+    'Com_savepoint' => '0',
+    'Com_select' => '0',
+    'Com_set_option' => '0',
+    'Com_show_binlog_events' => '0',
+    'Com_show_binlogs' => '0',
+    'Com_show_charsets' => '0',
+    'Com_show_collations' => '0',
+    'Com_show_column_types' => '0',
+    'Com_show_create_db' => '0',
+    'Com_show_create_table' => '0',
+    'Com_show_databases' => '0',
+    'Com_show_errors' => '0',
+    'Com_show_fields' => '0',
+    'Com_show_grants' => '0',
+    'Com_show_innodb_status' => '0',
+    'Com_show_keys' => '0',
+    'Com_show_logs' => '0',
+    'Com_show_master_status' => '0',
+    'Com_show_ndb_status' => '0',
+    'Com_show_new_master' => '0',
+    'Com_show_open_tables' => '0',
+    'Com_show_privileges' => '0',
+    'Com_show_processlist' => '0',
+    'Com_show_slave_hosts' => '0',
+    'Com_show_slave_status' => '0',
+    'Com_show_status' => '0',
+    'Com_show_storage_engines' => '0',
+    'Com_show_tables' => '0',
+    'Com_show_triggers' => '0',
+    'Com_show_variables' => '0',
+    'Com_show_warnings' => '0',
+    'Com_slave_start' => '0',
+    'Com_slave_stop' => '0',
+    'Com_stmt_close' => '0',
+    'Com_stmt_execute' => '0',
+    'Com_stmt_fetch' => '0',
+    'Com_stmt_prepare' => '0',
+    'Com_stmt_reset' => '0',
+    'Com_stmt_send_long_data' => '0',
+    'Com_truncate' => '0',
+    'Com_unlock_tables' => '0',
+    'Com_update' => '0',
+    'Com_update_multi' => '0',
+    'Com_xa_commit' => '0',
+    'Com_xa_end' => '0',
+    'Com_xa_prepare' => '0',
+    'Com_xa_recover' => '0',
+    'Com_xa_rollback' => '0',
+    'Com_xa_start' => '0',
+    'Compression' => '0',
+    'Connections' => '0',
+    'Created_tmp_disk_tables' => '0',
+    'Created_tmp_files' => '0',
+    'Created_tmp_tables' => '0',
+    'Delayed_errors' => '0',
+    'Delayed_insert_threads' => '0',
+    'Delayed_writes' => '0',
+    'Flush_commands' => '0',
+    'Handler_commit' => '0',
+    'Handler_delete' => '0',
+    'Handler_discover' => '0',
+    'Handler_prepare' => '0',
+    'Handler_read_first' => '0',
+    'Handler_read_key' => '0',
+    'Handler_read_next' => '0',
+    'Handler_read_prev' => '0',
+    'Handler_read_rnd' => '0',
+    'Handler_read_rnd_next' => '0',
+    'Handler_rollback' => '0',
+    'Handler_savepoint' => '0',
+    'Handler_savepoint_rollback' => '0',
+    'Handler_update' => '0',
+    'Handler_write' => '0',
+    'Innodb_buffer_pool_pages_data' => '0',
+    'Innodb_buffer_pool_pages_dirty' => '0',
+    'Innodb_buffer_pool_pages_flushed' => '0',
+    'Innodb_buffer_pool_pages_free' => '0',
+    'Innodb_buffer_pool_pages_misc' => '0',
+    'Innodb_buffer_pool_pages_total' => '0',
+    'Innodb_buffer_pool_read_ahead_rnd' => '0',
+    'Innodb_buffer_pool_read_ahead_seq' => '0',
+    'Innodb_buffer_pool_read_requests' => '0',
+    'Innodb_buffer_pool_reads' => '0',
+    'Innodb_buffer_pool_wait_free' => '0',
+    'Innodb_buffer_pool_write_requests' => '0',
+    'Innodb_data_fsyncs' => '0',
+    'Innodb_data_pending_fsyncs' => '0',
+    'Innodb_data_pending_reads' => '0',
+    'Innodb_data_pending_writes' => '0',
+    'Innodb_data_read' => '0',
+    'Innodb_data_reads' => '0',
+    'Innodb_data_writes' => '0',
+    'Innodb_data_written' => '0',
+    'Innodb_dblwr_pages_written' => '0',
+    'Innodb_dblwr_writes' => '0',
+    'Innodb_log_waits' => '0',
+    'Innodb_log_write_requests' => '0',
+    'Innodb_log_writes' => '0',
+    'Innodb_os_log_fsyncs' => '0',
+    'Innodb_os_log_pending_fsyncs' => '0',
+    'Innodb_os_log_pending_writes' => '0',
+    'Innodb_os_log_written' => '0',
+    'Innodb_page_size' => '0',
+    'Innodb_pages_created' => '0',
+    'Innodb_pages_read' => '0',
+    'Innodb_pages_written' => '0',
+    'Innodb_row_lock_current_waits' => '0',
+    'Innodb_row_lock_time' => '0',
+    'Innodb_row_lock_time_avg' => '0',
+    'Innodb_row_lock_time_max' => '0',
+    'Innodb_row_lock_waits' => '0',
+    'Innodb_rows_deleted' => '0',
+    'Innodb_rows_inserted' => '0',
+    'Innodb_rows_read' => '0',
+    'Innodb_rows_updated' => '0',
+    'Key_blocks_not_flushed' => '0',
+    'Key_blocks_unused' => '0',
+    'Key_blocks_used' => '0',
+    'Key_read_requests' => '0',
+    'Key_reads' => '0',
+    'Key_write_requests' => '0',
+    'Key_writes' => '0',
+    'Last_query_cost' => '0',
+    'Max_used_connections' => '0',
+    'Not_flushed_delayed_rows' => '0',
+    'Open_files' => '0',
+    'Open_streams' => '0',
+    'Open_tables' => '0',
+    'Opened_tables' => '0',
+    'Prepared_stmt_count' => '0',
+    'Qcache_free_blocks' => '0',
+    'Qcache_free_memory' => '0',
+    'Qcache_hits' => '0',
+    'Qcache_inserts' => '0',
+    'Qcache_lowmem_prunes' => '0',
+    'Qcache_not_cached' => '0',
+    'Qcache_queries_in_cache' => '0',
+    'Qcache_total_blocks' => '0',
+    'Questions' => '0',
+    'Rpl_status' => '0',
+    'Select_full_join' => '0',
+    'Select_full_range_join' => '0',
+    'Select_range' => '0',
+    'Select_range_check' => '0',
+    'Select_scan' => '0',
+    'Slave_open_temp_tables' => '0',
+    'Slave_retried_transactions' => '0',
+    'Slave_running' => '0',
+    'Slow_launch_threads' => '0',
+    'Slow_queries' => '0',
+    'Sort_merge_passes' => '0',
+    'Sort_range' => '0',
+    'Sort_rows' => '0',
+    'Sort_scan' => '0',
+    'Table_locks_immediate' => '0',
+    'Table_locks_waited' => '0',
+    'Tc_log_max_pages_used' => '0',
+    'Tc_log_page_size' => '0',
+    'Tc_log_page_waits' => '0',
+    'Threads_cached' => '0',
+    'Threads_connected' => '0',
+    'Threads_created' => '0',
+    'Threads_running' => '0',
+    'Uptime' => '0',
+    'server_snmp_error_code' => '0',
+    'server_mysql_error_code' => '0',
+    'Slave_SQL_Running' => '0',
+    'Slave_IO_Running' => '0',
+    'Seconds_Behind_Master' => '0',
+    'illegal_global_user' => '0',
+    'illegal_grant_user' => '0',
+    'illegal_remote_root' => '0',
+    'illegal_user_nopass' => '0',
+    'illegal_user_noname' => '0',
+    'collection_time_elapse' => '0');	       
+
 sub log_clear {
     if (-e "$error_log") { system("rm -f $error_log"); }
     if (-e "$debug_log") { system("rm -f $debug_log"); }
@@ -251,10 +758,10 @@ sub get_mysql_stats {
             PrintError => 0,
             RaiseError => 0
 	    })
-        or error_report("<error type=\"mysql-connection-error\"><![CDATA[$DBI::errstr ]]></error>\n");
+        or error_report("mysql connection error: $DBI::errstr");
     
-    my $sth = $dbh->prepare($sql0) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    my $sth = $dbh->prepare($sql0) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'Variable_name'};
         my $varvalue = $row->{'Value'};
@@ -262,85 +769,85 @@ sub get_mysql_stats {
     }
 
     $sth = $dbh->prepare($sql1) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'Variable_name'};
         my $varvalue = $row->{'Value'};
         writexml('   <item name="'.$varname.'"><![CDATA['.$varvalue."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql2) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql2) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'count(SCHEMA_NAME)'};
         writexml('   <item name="num_schema"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql3) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql3) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'count(TABLE_NAME)'};
         writexml('   <item name="num_tables"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql4) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql4) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(DATA_LENGTH)'};
         writexml('   <item name="length_data"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql5) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql5) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(INDEX_LENGTH)'};
         writexml('   <item name="length_index"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql6) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql6) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'count(ENGINE)'};
         writexml('   <item name="engine_count_innodb"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql7) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql7) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'count(ENGINE)'};
         writexml('   <item name="engine_count_myisam"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql8) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql8) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     my $proc_count = 0;
     while(my $row = $sth->fetchrow_hashref) {
         $proc_count++;
     }
 
-    $sth = $dbh->prepare($sql9) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql9) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(INDEX_LENGTH)'};
         writexml('   <item name="engine_innodb_size_index"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql10) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql10) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(INDEX_LENGTH)'};
         writexml('   <item name="engine_myisam_size_index"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql11) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql11) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(DATA_LENGTH)'};
         writexml('   <item name="engine_innodb_size_data"><![CDATA['.$varname."]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql12) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql12) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     while(my $row = $sth->fetchrow_hashref) {
         my $varname = $row->{'sum(DATA_LENGTH)'};
         writexml('   <item name="engine_myisam_size_data"><![CDATA['.$varname."]]></item>\n");
@@ -351,8 +858,8 @@ sub get_mysql_stats {
     my $Slave_SQL_Running = "NULL";
     my $Seconds_Behind_Master = "NULL";
 
-    $sth = $dbh->prepare($sql13) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql13) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) { #if slave is configured/started we get numbers
         while(my $row = $sth->fetchrow_hashref) {
             $Slave_IO_Running = $row->{'Slave_IO_Running'};
@@ -368,8 +875,8 @@ sub get_mysql_stats {
         writexml('   <item name="Slave_SQL_Running"><![CDATA['.$Slave_SQL_Running."]]></item>\n");
         writexml('   <item name="Seconds_Behind_Master"><![CDATA['.$Seconds_Behind_Master."]]></item>\n");
     }
-    $sth = $dbh->prepare($sql14) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql14) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) { 
         writexml('   <item name="illegal_global_user"><![CDATA[');
         while(my $row = $sth->fetchrow_hashref) {
@@ -383,8 +890,8 @@ sub get_mysql_stats {
         writexml('   <item name="illegal_global_user"><![CDATA[0]]></item>\n');
     }
     
-    $sth = $dbh->prepare($sql15) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql15) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) {
         writexml('   <item name="illegal_grant_user"><![CDATA[');
         while(my $row = $sth->fetchrow_hashref) {
@@ -398,8 +905,8 @@ sub get_mysql_stats {
         writexml("   <item name=\"illegal_grant_user\"><![CDATA[0]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql16) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql16) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) {
         writexml('   <item name="illegal_remote_root"><![CDATA[');
         while(my $row = $sth->fetchrow_hashref) {
@@ -412,8 +919,8 @@ sub get_mysql_stats {
     else {
         writexml("   <item name=\"illegal_remote_root\"><![CDATA[0]]></item>\n");
     }
-    $sth = $dbh->prepare($sql17) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql17) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) {
 	writexml('   <item name="illegal_user_nopass"><![CDATA[');
         while(my $row = $sth->fetchrow_hashref) {
@@ -427,8 +934,8 @@ sub get_mysql_stats {
         writexml("   <item name=\"illegal_user_nopass\"><![CDATA[0]]></item>\n");
     }
 
-    $sth = $dbh->prepare($sql18) or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
-    $sth->execute or error_report("<error type=\"mysql\"><![CDATA[$DBI::errstr ]]></error>\n");
+    $sth = $dbh->prepare($sql18) or error_report("mysql connection error: $DBI::errstr");
+    $sth->execute or error_report("mysql connection error: $DBI::errstr");
     if($sth->fetchrow_hashref) {
         writexml('   <item name="illegal_user_noname"><![CDATA[');
         while(my $row = $sth->fetchrow_hashref) {
@@ -445,6 +952,111 @@ sub get_mysql_stats {
     writexml('   <item name="num_connections"><![CDATA['.$proc_count."]]></item>\n");    
     $sth->finish;
     $dbh->disconnect;
+}
+
+#populate all of the variables in the query list with their values from the xml file processing below
+sub parse_data {    
+    # we connect to mysql so that we can use the perl database function variable quotations (like mysql_real_escape_string in PHP)
+    my $dbh = DBI->connect(
+			   "DBI:mysql:mysql:$server_mysql_host",
+			   $server_mysql_user,
+			   $server_mysql_pass,
+			   { PrintError => 0, RaiseError => 0 }
+			   ) or error_report("$DBI::errstr");
+    
+    my $parser = XML::Parser->new(ErrorContext => 2, Style => "Tree");
+    my $xso = XML::SimpleObject->new( $parser->parsefile($xml_log));
+    my $h = $server_host;
+    
+    foreach my $server ($xso->child('kontrollbase')->children('server')) {    
+        $h = $server->attribute('hostname');
+        debug_report("$h XML data processing: [starting]");
+	
+        # we get the time of the dataset 
+        foreach my $datetime($server->child('datetime')) {
+            my $dt = $datetime->value;
+            debug_report("$h XML datetime = $dt");
+            $varlist{'datetime'} = $datetime->value;
+        }
+	
+        # we find errors!
+        if($server->child('error')) {
+            foreach my $error($server->child('error')) {
+                my $error_type = $error->attribute('type');
+                my $error_value = $dbh->quote($error->value);
+		
+                debug_report("error = $error_value");
+                debug_report("error type = $error_type");
+		
+                if($error_type eq "snmp") {
+                    $varlist{'server_snmp_error_code'} = $error_value;
+		    return 1;
+                }
+                if($error_type eq "mysql") {
+                    $varlist{'server_mysql_error_code'} = $error_value;
+		    return 1;
+                }
+                if($error_type eq "mysql-connection-error") {
+                    $varlist{'server_mysql_error_code'} = $error_value;
+		    error_report("mysql connection error occured - please check connection settings.");
+		    return 1;
+                }
+            }
+        }
+        else {
+            debug_report("$h OS SNMP status: [OK]");
+        }
+        # we assign values to hash
+        while (my($key,$value) = each(%varlist)) {
+            foreach my $item($server->child('item')) {
+                my $item_name = $item->attribute('name');
+                my $item_value = '0';
+                if($item->value) { $item_value = $item->value; }
+                if($item_name eq $key) {
+                    $value = $dbh->quote($item_value);
+                    #print "$key => $value: ";
+                    $varlist{$key} = $value;
+                    #print $varlist{$key}."\n";
+                }
+            }
+        }
+	
+        #do some variable cleaning and math for queries/sec
+        my $Questions = $varlist{'Questions'};
+        my $Uptime = $varlist{'Uptime'};
+        $Questions =~ s/'//g;
+        $Uptime =~ s/'//g;
+        my $qsec = ($Questions/$Uptime);
+        $varlist{'queries_per_second'}=$qsec;
+        my $os_mem_total = $varlist{'os_mem_total'};
+        debug_report("$h MySQL Connection status: [OK]");
+	
+        #print compute time from xml
+        my $time = $varlist{'collection_time_elapse'};
+        $time =~ s/'//g; ##' just need to complete the single quote - take it out and see what happens 
+        debug_report("$h Collection time: $time seconds");
+    }
+    debug_report("$h XML data processing: [success]");
+    return 0;
+}
+
+# parse XML data items and assign to variables
+sub xml_data_process {
+    if(-e $xml_log) {
+	if(-z $xml_log) { 
+	    debug_report("XML File is 0 size.");
+	    exit 1;
+	}	
+	debug_report("XML data processing: [start]");
+	my $state = parse_data();
+	if($state == 1) { error_report("XML data processing: [failed]"); }
+	else {
+	    ## start reporting on the data
+	}
+    }
+    else {
+	debug_report("XML data processing: [failed]");
+    }
 }
 
 # we have more pre-reqs to add... but these are from the client script as of now
@@ -511,12 +1123,12 @@ my $server_snmp_local_address = 'localhost';
 my $server_snmp_port = '161';
 my $server_snmp_rocommunity = 'public';
 my $server_snmp_version = '1';
-my $server_mysql_port = '3306';
-my $server_mysql_socket = '/var/lib/mysql/mysql.sock';
-my $server_mysql_db = 'mysql';
-my $server_mysql_user = 'root';
-my $server_mysql_pass = '';
-my $server_mysql_host = 'localhost';
+$server_mysql_port = '3306';
+$server_mysql_socket = '/var/lib/mysql/mysql.sock';
+$server_mysql_db = 'mysql';
+$server_mysql_user = 'root';
+$server_mysql_pass = '';
+$server_mysql_host = 'localhost';
 my $snmp_timeout = 5;
 my $snmp_retries = 2;
 my $help = undef;
@@ -637,8 +1249,9 @@ GO
     my $t1 = [gettimeofday]; #end timer
     my $elapse = tv_interval $t0, $t1; #calculate time
     writexml("   <item name=\"collection_time_elapse\"><![CDATA[$elapse]]></item>\n");
-    debug_report("collection_time_elapse: $elapse seconds");
+    debug_report("data collection_time_elapse: $elapse seconds");    
     end_xml();
+    xml_data_process(); # stats-gather process
     debug_report("process end");
 }
 
