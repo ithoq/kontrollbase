@@ -1027,6 +1027,37 @@ sub get_mysql_stats {
     $dbh->disconnect;
 }
 
+sub get_info {
+    my $id = $_[0];
+    my $dbfile = './kontroll-reporter-cli_sqlite3-alerts_def.db';
+my $dbh = DBI->connect( 
+    "dbi:SQLite:dbname=$dbfile", # DSN: dbi, driver, database file
+    "",                          # no user
+    "",                          # no password
+			{ RaiseError => 1 },
+			) or die $DBI::errstr;
+    
+    my $alert_name = undef;
+    my $alert_desc = undef;
+    my $alert_links = undef;
+    my $alert_solution = undef;
+    my $alert_function = undef;
+    my $alert_category = undef;
+    
+    my $sql0 = "select * from alerts_def where id = '$id';";
+    my $sth = $dbh->prepare($sql0) or error_report("$DBI::errstr");
+    $sth->execute or error_report("$DBI::errstr");
+    while(my $row = $sth->fetchrow_hashref) {
+	$alert_name = $row->{'alert_name'};
+	$alert_desc = $row->{'alert_desc'};
+	$alert_links = $row->{'alert_links'};
+	$alert_solution = $row->{'alert_solution'};
+	$alert_function = $row->{'alert_function'};
+	$alert_category = $row->{'alert_category'};
+    }
+    return($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category);
+}
+
 #populate all of the variables in the query list with their values from the xml file processing below
 sub parse_data {    
     # we connect to mysql so that we can use the perl database function variable quotations (like mysql_real_escape_string in PHP)
@@ -1633,6 +1664,12 @@ sub analyze_data {
     my $illegal_user_noname = $varlist{'illegal_user_noname'};
     my $collection_time_elapse = $varlist{'collection_time_elapse'};
 
+    #added because they are from the kbase server_type table but we're working without that db
+    my $threshold_queries_per_second = '0';
+    my $server_type = '0'; #0=production
+    my $server_statistics_id = '0'; #Null
+    my $Creation_time = $datetime;    
+
     $os_mem_total = ($os_mem_total); # fix for bytes
     #If we're generating an XML report for some reason then we would work with the sub call below but..
     #    xml_head($hostname,$Creation_time);
@@ -1702,10 +1739,7 @@ sub analyze_data {
 	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
 	xml_end();
 	insert_report($server_list_id,$server_statistics_id,$Creation_time);
-    }
-    
-    $sth->finish;
-    $dbh->disconnect;
+    }    
 }
 
 # we have more pre-reqs to add... but these are from the client script as of now
