@@ -1044,19 +1044,162 @@ sub parse_data {
 sub xml_data_process {
     if(-e $xml_log) {
 	if(-z $xml_log) { 
-	    debug_report("XML File is 0 size.");
-	    exit 1;
+	    error_report("XML File is 0 size.");
+	    return 1;
 	}	
-	debug_report("XML data processing: [start]");
 	my $state = parse_data();
-	if($state == 1) { error_report("XML data processing: [failed]"); }
+	if($state == 1) { 
+	    error_report("XML data processing: [failed]"); 
+	    return 1;
+	}
 	else {
-	    ## start reporting on the data
+	    return 0;	    
 	}
     }
     else {
-	debug_report("XML data processing: [failed]");
+	debug_report("XML data file does not exist, processing: [failed]");
+	return 1;
     }
+}
+
+sub analyze_data {
+    $os_mem_total = ($os_mem_total); # fix for bytes
+
+    xml_head($hostname,$Creation_time);
+
+        #loop through alerts ordered by category... enable this once we finish all of the alerts.
+#       $sql1="select id from alerts_def order by alert_category asc;";
+#
+    $ALERT00 = alert_00($Uptime);
+    if($ALERT00 == 0) { 
+	$ALERT01 = alert_01($Aborted_connects);
+	$ALERT03 = alert_03($log_bin);
+	$ALERT04 = alert_04($sync_binlog);
+	$ALERT05 = alert_05($Max_used_connections,$max_connections,$Threads_connected);
+	$ALERT06 = alert_06($Qcache_lowmem_prunes,$query_cache_size,$Qcache_free_memory);
+	$ALERT07 = alert_07($query_cache_size,$Qcache_free_memory,$Qcache_lowmem_prunes);
+	$ALERT08 = alert_08($os_mem_total,$max_heap_table_size,$tmp_table_size,$read_buffer_size,$read_rnd_buffer_size,$sort_buffer_size,$thread_stack,$join_buffer_size,$binlog_cache_size,$max_connections,$Max_used_connections,$innodb_buffer_pool_size,$innodb_additional_mem_pool_size,$innodb_log_buffer_size,$key_buffer_size,$query_cache_size);
+	$ALERT09 = alert_09($read_buffer_size,$Handler_read_rnd_next,$Com_select);
+	$ALERT10 = alert_10($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size);
+	$ALERT11 = alert_11($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data);
+	$ALERT12 = alert_12($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data);
+	$ALERT13 = alert_13($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size);
+	$ALERT14 = alert_14($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size);
+	$ALERT15 = alert_15($Sort_scan,$Sort_range,$sort_buffer_size,$read_rnd_buffer_size,$Sort_merge_passes);
+	$ALERT16 = alert_16($Sort_scan,$Sort_range,$sort_buffer_size,$read_rnd_buffer_size,$Sort_merge_passes);
+	$ALERT17 = alert_17($join_buffer_size,$Select_range_check,$Select_full_join);
+	$ALERT18 = alert_18($join_buffer_size,$Select_range_check,$Select_full_join,$log_queries_not_using_indexes);
+	$ALERT19 = alert_19($Open_files,$open_files_limit);
+	$ALERT20 = alert_20($Table_locks_waited,$Table_locks_immediate,$concurrent_insert,$num_tables,$engine_count_innodb,$Questions);
+	$ALERT21 = alert_21($Opened_tables,$table_cache,$Open_tables);
+	$ALERT22 = alert_22($Opened_tables,$table_cache,$Open_tables);
+	$ALERT23 = alert_23($Threads_created,$Uptime,$num_connections,$thread_cache_size,$Threads_connected,$Threads_cached,$Max_used_connections);
+	$ALERT24 = alert_24($Threads_created,$Uptime,$num_connections,$thread_cache_size,$Threads_connected,$Threads_cached,$Max_used_connections);
+	$ALERT25 = alert_25($Binlog_cache_disk_use,$Binlog_cache_use,$binlog_cache_size);
+	$ALERT26 = alert_26($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size,$max_tmp_tables,$Uptime);
+	$ALERT27 = alert_27($flush_time);
+	$ALERT29 = alert_29($innodb_doublewrite);
+	$ALERT30 = alert_30($innodb_flush_method,$version_compile_os);
+	$ALERT31 = alert_31($tx_isolation);
+	$ALERT32 = alert_32($innodb_lock_wait_timeout);
+	$ALERT33 = alert_33($concurrent_insert);
+	$ALERT34 = alert_34($query_cache_type,$query_cache_size);
+	$ALERT37 = alert_37($thread_cache_size);
+	$ALERT38 = alert_38($queries_per_second,$threshold_queries_per_second);
+	$ALERT39 = alert_39($expire_logs_days);
+	$ALERT56 = alert_56($log,$server_type);
+	$ALERT57 = alert_57($log_warnings,$server_type);
+	$ALERT100 = alert_100($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size,$max_tmp_tables,$Uptime);
+            
+# user account alerts
+	my $ALERT47 = alert_47($illegal_global_user);
+	my $ALERT48 = alert_48($old_passwords);
+	my $ALERT50 = alert_50($illegal_grant_user);
+	my $ALERT51 = alert_51($illegal_remote_root);
+	my $ALERT52 = alert_52($illegal_user_nopass);
+	my $ALERT53 = alert_53($illegal_user_noname);
+
+# insert alert states to alerts_current table, 
+# this would propbably be better served by some hash function but I'm lazy right now
+## we're not running alert_clean since we added the ON DUPLICATE KEY UPDATE to the INSERT query on alert_insert
+#alert_clean($server_list_id);
+	alert_insert(99,$ALERT00,$server_list_id);
+	alert_insert(1,$ALERT01,$server_list_id);
+	alert_insert(3,$ALERT03,$server_list_id);
+	alert_insert(4,$ALERT04,$server_list_id);
+	alert_insert(5,$ALERT05,$server_list_id);
+	alert_insert(6,$ALERT06,$server_list_id);
+	alert_insert(7,$ALERT07,$server_list_id);
+	alert_insert(8,$ALERT08,$server_list_id);
+	alert_insert(9,$ALERT09,$server_list_id);
+	alert_insert(10,$ALERT10,$server_list_id);
+	alert_insert(11,$ALERT11,$server_list_id);
+	alert_insert(12,$ALERT12,$server_list_id);
+	alert_insert(13,$ALERT13,$server_list_id);
+	alert_insert(14,$ALERT14,$server_list_id);
+	alert_insert(15,$ALERT15,$server_list_id);
+	alert_insert(16,$ALERT16,$server_list_id);
+	alert_insert(17,$ALERT17,$server_list_id);
+	alert_insert(18,$ALERT18,$server_list_id);
+	alert_insert(19,$ALERT19,$server_list_id);
+	alert_insert(20,$ALERT20,$server_list_id);
+	alert_insert(21,$ALERT21,$server_list_id);
+	alert_insert(22,$ALERT22,$server_list_id);
+	alert_insert(23,$ALERT23,$server_list_id);
+	alert_insert(24,$ALERT24,$server_list_id);
+	alert_insert(25,$ALERT25,$server_list_id);
+	alert_insert(26,$ALERT26,$server_list_id);
+	alert_insert(27,$ALERT27,$server_list_id);
+	alert_insert(29,$ALERT29,$server_list_id);
+	alert_insert(30,$ALERT30,$server_list_id);
+	alert_insert(31,$ALERT31,$server_list_id);
+	alert_insert(32,$ALERT32,$server_list_id);
+	alert_insert(33,$ALERT33,$server_list_id);
+	alert_insert(34,$ALERT34,$server_list_id);
+	alert_insert(37,$ALERT37,$server_list_id);
+	alert_insert(38,$ALERT38,$server_list_id);
+	alert_insert(39,$ALERT39,$server_list_id);
+	alert_insert(56,$ALERT56,$server_list_id);
+	alert_insert(57,$ALERT57,$server_list_id);
+	alert_insert(100,$ALERT100,$server_list_id);
+	alert_insert(47,$ALERT47,$server_list_id);
+	alert_insert(48,$ALERT48,$server_list_id);
+	alert_insert(50,$ALERT50,$server_list_id);
+	alert_insert(51,$ALERT51,$server_list_id);
+	alert_insert(52,$ALERT52,$server_list_id);
+	alert_insert(53,$ALERT53,$server_list_id);
+            
+# slave/replication alerts
+	if($server_is_slave == 1) {
+	    my $ALERT42 = alert_42($Slave_SQL_Running);
+	    my $ALERT43 = alert_43($Slave_IO_Running);
+	    my $ALERT44 = alert_44($Seconds_Behind_Master,$threshold_seconds_behind_master);
+	    alert_insert(42,$ALERT42,$server_list_id);
+	    alert_insert(43,$ALERT43,$server_list_id);
+	    alert_insert(44,$ALERT44,$server_list_id);
+	}
+            
+	$ALERTSNMP = alert_snmp($server_snmp_error_code);
+	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
+            
+            # Insert report data into database
+	xml_end();
+	insert_report($server_list_id,$server_statistics_id,$Creation_time);
+    }
+    else {
+            ## we're not running alert_clean since we added the ON DUPLICATE KEY UPDATE to the INSERT query on alert_insert
+            #alert_clean($server_list_id);
+	alert_insert(99,$ALERT00,$server_list_id);
+
+	$ALERTSNMP = alert_snmp($server_snmp_error_code);
+	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
+
+	xml_end();
+	insert_report($server_list_id,$server_statistics_id,$Creation_time);
+    }
+}
+$sth->finish;
+$dbh->disconnect;
 }
 
 # we have more pre-reqs to add... but these are from the client script as of now
@@ -1214,7 +1357,7 @@ snmp retries:     $snmp_retries
 mysql user:       $server_mysql_user
 mysql pass:       $server_mysql_pass
 mysql port:       $server_mysql_port
-mysql socket:       $server_mysql_socket
+mysql socket:     $server_mysql_socket
 mysql db:         $server_mysql_db
 mysql host:       $server_mysql_host
 
@@ -1226,7 +1369,7 @@ GO
 	    exit;
 	}
     }
-    debug_report("process start");
+    debug_report("reporter-cli process start");
     my $t0 = [gettimeofday]; #start timer
     start_xml();
     get_snmp_os_stats(
@@ -1245,17 +1388,23 @@ GO
         $server_mysql_db,
         $server_mysql_host
 		    );
-#    get_cnf();
+    get_cnf();
     my $t1 = [gettimeofday]; #end timer
     my $elapse = tv_interval $t0, $t1; #calculate time
     writexml("   <item name=\"collection_time_elapse\"><![CDATA[$elapse]]></item>\n");
-    debug_report("data collection_time_elapse: $elapse seconds");    
     end_xml();
-    xml_data_process(); # stats-gather process
-    debug_report("process end");
+    my $xml_state = xml_data_process(); # stats-gather process
+    if($xml_state == 0) {
+	analyze_data(); #reporting code, where we actually generate results.
+    }
+    else {
+	exit 1;
+	debug_report("reporter-cli process end: [failure]");
+    }
+    debug_report("reporter-cli process end: [success]");
+#    system("rm -f $debug_log");
+#    system("rm -f $error_log");
+#    system("rm -f $xml_log");
 }
 
-#here's where we pass the XML data to stats-gather routines
-#print "EXEC stats gather script for host: $server_hostname $server_ssh_user\@$server_ipaddress active: $active\n";
-#system("./kontroll-stats-gather-5.0.x_linux-x86-2.0.1.pl \"$xmlfile\" \"$server_id\" \"$active\" \"$server_hostname\"");
 
