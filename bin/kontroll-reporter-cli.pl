@@ -11,7 +11,6 @@
 ## Copyright 2008 Kontrollsoft LLC
 ## All rights reserved.
 ################################################################################
-
 use strict;
 use warnings;
 use DBI;
@@ -26,6 +25,23 @@ use XML::Parser;
 use XML::SimpleObject;
 use Math::Calc::Units qw(convert readable);
 
+###################################################################
+## ONLY EDIT THE FOLLOWING VARIABLES IF NECESSARY FOR HARDCODING ##
+my $server_snmp_local_address = 'localhost';
+my $server_snmp_port = '161';
+my $server_snmp_rocommunity = 'public';
+my $server_snmp_version = '1';
+my $server_mysql_port = '3306';
+my $server_mysql_socket = '/var/lib/mysql/mysql.sock';
+my $server_mysql_db = 'mysql';
+my $server_mysql_user = 'root';
+my $server_mysql_pass = '';
+my $server_mysql_host = 'localhost';
+my $snmp_timeout = 5;
+my $snmp_retries = 2;
+## END HARDCODED VARIABLES - DO NOT EDIT BELOW HERE ###############
+################################################################### 
+
 my $server_host = hostname; #using Sys::Hostname
 my $name = "kontroll-reporter-cli.pl";
 my $website = "http://kontrollsoft.com";
@@ -38,14 +54,6 @@ my $commit_report = "tmp/kontrollbase-reporter-$tmpfiletime.log";
 my $error_log = "/tmp/kbase-$datetimefile-sys_error.log";
 my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log";
 my $xml_log = "/tmp/kbase-$datetimefile-xml.log";
-
-# database connection vars
-my $server_mysql_user = undef;
-my $server_mysql_pass = undef;
-my $server_mysql_port = undef;
-my $server_mysql_socket = undef;
-my $server_mysql_db = undef;
-my $server_mysql_host = undef;
 
 # this is really dirty
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
@@ -3685,26 +3693,12 @@ my @match = grep(m/\/Net\/SNMP.pm/is, @lm);
 	print "Time/HiRes.pm           FOUND.\n";
     }
     else {print "Time/HiRes.pm            NOT FOUND.\n";}
-
 }
 
 #### BEGIN OPERATIONS 
 log_clear();
-
-my $server_snmp_local_address = 'localhost';
-my $server_snmp_port = '161';
-my $server_snmp_rocommunity = 'public';
-my $server_snmp_version = '1';
-$server_mysql_port = '3306';
-$server_mysql_socket = '/var/lib/mysql/mysql.sock';
-$server_mysql_db = 'mysql';
-$server_mysql_user = 'root';
-$server_mysql_pass = '';
-$server_mysql_host = 'localhost';
-my $snmp_timeout = 5;
-my $snmp_retries = 2;
 my $help = undef;
-my $prereq = undef;
+my  $prereq = undef;
 my $verbose = undef;
 
 GetOptions (
@@ -3734,7 +3728,8 @@ Kontrollbase Reporter CLI version
 $website
 package version: $package_version
 
-!! Requires SQLite database file !!
+!! Requires SQLite database application !!
+!! Requires SQLite database file to run !!
 kontroll-reporter-cli_sqlite3-alerts_def.db
 ############################################
 --help        = this message
@@ -3752,7 +3747,12 @@ kontroll-reporter-cli_sqlite3-alerts_def.db
 --mysql-socket     = mysql socket
 --mysql-db         = mysql database
 --mysql-host       = mysql host
-                
+
+--xml              = XML report output
+--html             = HTML report output
+--pdf              = PDF report output
+--txt              = TXT report output (default)                
+
 defaults if variables not specified
 snmp-host:        localhost
 snmp-port:        161
@@ -3833,10 +3833,13 @@ GO
 	exit 1;
 	debug_report("reporter-cli process end: [failure]");
     }
+    debug_report("removing temporary files: [start]");
+    ## let's test the following system calls to make sure they complete and do a success/failure if needed
+    system("rm -f $debug_log");
+    system("rm -f $error_log");
+    system("rm -f $xml_log");
+    debug_report("temporary files removed: [success]");
     debug_report("reporter-cli process end: [success]");
-#    system("rm -f $debug_log");
-#    system("rm -f $error_log");
-#    system("rm -f $xml_log");
 }
 
 
