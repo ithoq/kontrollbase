@@ -31,16 +31,19 @@ my $server_snmp_local_address = 'localhost';
 my $server_snmp_port = '161';
 my $server_snmp_rocommunity = 'public';
 my $server_snmp_version = '1';
+my $snmp_timeout = 5;
+my $snmp_retries = 2;
 my $server_mysql_port = '3306';
 my $server_mysql_socket = '/var/lib/mysql/mysql.sock';
 my $server_mysql_db = 'mysql';
 my $server_mysql_user = 'root';
 my $server_mysql_pass = '';
 my $server_mysql_host = 'localhost';
-my $snmp_timeout = 5;
-my $snmp_retries = 2;
+my $sqlite_file = './kontroll-reporter-cli_sqlite3-alerts_def.db';
+my $output = 'TXT';
 ## END HARDCODED VARIABLES - DO NOT EDIT BELOW HERE ###############
 ################################################################### 
+############################# DO NOT EDIT BELOW HERE ##############
 
 my $server_host = hostname; #using Sys::Hostname
 my $name = "kontroll-reporter-cli.pl";
@@ -1038,9 +1041,8 @@ sub get_mysql_stats {
 
 sub get_info {
     my $id = $_[0];
-    my $dbfile = './kontroll-reporter-cli_sqlite3-alerts_def.db';
-my $dbh = DBI->connect( 
-    "dbi:SQLite:dbname=$dbfile", # DSN: dbi, driver, database file
+    my $dbh = DBI->connect( 
+    "dbi:SQLite:dbname=$sqlite_file", # DSN: dbi, driver, database file
     "",                          # no user
     "",                          # no password
 			{ RaiseError => 1 },
@@ -3714,6 +3716,8 @@ GetOptions (
     'mysql-socket=s' => \$server_mysql_socket,
     'mysql-db=s' => \$server_mysql_db,
     'mysql-host=s' => \$server_mysql_host,
+    'sqlite-file=s' => \$sqlite_file,
+    'output=s' => \$output,
     'verbose' => \$verbose,
     'help' => \$help,
     'prereq' => \$prereq
@@ -3747,11 +3751,10 @@ kontroll-reporter-cli_sqlite3-alerts_def.db
 --mysql-socket     = mysql socket
 --mysql-db         = mysql database
 --mysql-host       = mysql host
+--sqlite-file      = SQLite DB file
 
---xml              = XML report output
---html             = HTML report output
---pdf              = PDF report output
---txt              = TXT report output (default)                
+--output           = output style for report
+                     [XML,HTML,PDF,TXT]
 
 defaults if variables not specified
 snmp-host:        localhost
@@ -3766,6 +3769,8 @@ mysql-port:       3306
 mysql-socket:     /var/lib/mysql/mysql.sock
 mysql-db:         mysql
 mysql-host:       localhost
+sqlite-file:      kontroll-reporter-cli_sqlite3-alerts_def.db
+output:           TXT report output 
 
 HELP
 }
@@ -3792,6 +3797,8 @@ mysql port:       $server_mysql_port
 mysql socket:     $server_mysql_socket
 mysql db:         $server_mysql_db
 mysql host:       $server_mysql_host
+sqlite-file:      $sqlite_file
+output:           $output
 
 GO
 }
@@ -3803,6 +3810,17 @@ GO
     }
     debug_report("reporter-cli process start");
     my $t0 = [gettimeofday]; #start timer
+
+    if(-e $sqlite_file) {
+        if(-z $sqlite_file) {
+            error_report("SQLite file ($sqlite_file) specified is 0 bytes. Exiting.");
+            exit 1;
+        }
+    }
+    else {
+	error_report("SQLite file ($sqlite_file) specified does not exist. Exiting.");
+    }
+
     start_xml();
     get_snmp_os_stats(
         $server_snmp_local_address,
