@@ -58,7 +58,7 @@ my $error_log = "/tmp/kbase-$datetimefile-sys_error.log";
 my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log";
 my $xml_log = "/tmp/kbase-$datetimefile-xml.log";
 
-# this is really dirty
+# this is really dirty but there are other things to fix first
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
 
 # begin long list of variable definitions used in XML processing
@@ -3702,6 +3702,7 @@ log_clear();
 my $help = undef;
 my  $prereq = undef;
 my $verbose = undef;
+my $sqlite_file_argv = undef;
 
 GetOptions (
     'snmp-host=s' => \$server_snmp_local_address, 
@@ -3716,7 +3717,7 @@ GetOptions (
     'mysql-socket=s' => \$server_mysql_socket,
     'mysql-db=s' => \$server_mysql_db,
     'mysql-host=s' => \$server_mysql_host,
-    'sqlite-file=s' => \$sqlite_file,
+    'sqlite-file=s' => \$sqlite_file_argv,
     'output=s' => \$output,
     'verbose' => \$verbose,
     'help' => \$help,
@@ -3724,18 +3725,18 @@ GetOptions (
 	    );
 
 if(!$ARGV[0]) { $ARGV[0] = '';}
-if($help || $ARGV[0] eq "help" || $ARGV[0] eq "?") {
+if($help || $ARGV[0] eq "help" || $ARGV[0] eq "?" || $ARGV[0] eq "h") {
     print<<HELP;
-############################################
-$name
+#########################################################
+Filename: $name
 Kontrollbase Reporter CLI version
-$website
-package version: $package_version
-
+Copyright 2010-present Matt Reid - $website
+Kontrollbase package version: $package_version
+#########################################################
 !! Requires SQLite database application !!
 !! Requires SQLite database file to run !!
-kontroll-reporter-cli_sqlite3-alerts_def.db
-############################################
+SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
+#########################################################
 --help        = this message
 --prereq      = prerequisite checks
 
@@ -3778,12 +3779,16 @@ HELP
 else {
     if($verbose) {
 	print<<GO;
-####################################
-$name
+#########################################################
+Filename: $name
 Kontrollbase Reporter CLI version
-$website
-package version: $package_version
-####################################
+Copyright 2010-present Matt Reid - $website
+Kontrollbase package version: $package_version
+#########################################################
+!! Requires SQLite database application !!
+!! Requires SQLite database file to run !!
+SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
+#########################################################
 Current Settings
 snmp address:     $server_snmp_local_address
 snmp port:        $server_snmp_port
@@ -3808,8 +3813,31 @@ GO
 	    exit;
 	}
     }
+    print<<GO;
+#########################################################
+Filename: $name
+Kontrollbase Reporter CLI version
+Copyright 2010-present Matt Reid - $website
+Kontrollbase package version: $package_version
+#########################################################
+!! Requires SQLite database application !!
+!! Requires SQLite database file to run !!
+SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
+#########################################################
+GO
     debug_report("reporter-cli process start");
     my $t0 = [gettimeofday]; #start timer
+
+    if(!$sqlite_file_argv) { 
+        # we require the sqlite_file variable set as an ARGV so that we don't start processing
+        # without it existing, cuts down on errors and makes the user aware that the file exists
+        error_report("SQLite file not specified as argument. Please set --sqlite-file to continue.");
+	exit 1;
+    }
+    else {
+	debug_report("--sqlite-file specified as $sqlite_file_argv");
+        $sqlite_file = $sqlite_file_argv;
+    }
 
     if(-e $sqlite_file) {
         if(-z $sqlite_file) {
@@ -3819,7 +3847,7 @@ GO
     }
     else {
 	error_report("SQLite file ($sqlite_file) specified does not exist. Exiting.");
-    }
+    }    
 
     start_xml();
     get_snmp_os_stats(
