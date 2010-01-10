@@ -12,7 +12,7 @@
 ## All rights reserved.
 ################################################################################
 use strict;
-use warnings;
+use warnings; 
 use DBI;
 use Fcntl; 
 use POSIX qw(strftime);
@@ -27,6 +27,7 @@ use Math::Calc::Units qw(convert readable);
 
 ###################################################################
 ## ONLY EDIT THE FOLLOWING VARIABLES IF NECESSARY FOR HARDCODING ##
+## IF YOU DON'T KNOW WHAT THEY DO OR WHAT THEY MEAN, DON'T TOUCH ##
 my $server_snmp_local_address = 'localhost';
 my $server_snmp_port = '161';
 my $server_snmp_rocommunity = 'public';
@@ -40,23 +41,28 @@ my $server_mysql_user = 'root';
 my $server_mysql_pass = '';
 my $server_mysql_host = 'localhost';
 my $sqlite_file = './kontroll-reporter-cli_sqlite3-alerts_def.db';
-my $output = 'TXT';
+my $output = 'XML';
+my $server_host = hostname; #using Sys::Hostname
+
+# Date formats for filenames and processing, best to not chage them
+my $datetime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
+my $tmpfiletime = strftime "%Y-%m-%d%H%M%S", localtime;
+my $datetimefile =  strftime "%Y-%m-%d_%H%M%S", localtime;
+
+# Output and log files - needs to be writeable by script user
+my $report_file = "/tmp/kontrollbase-reporter-$server_host-$tmpfiletime.log"; 
+my $error_log = "/tmp/kbase-$datetimefile-sys_error.log"; 
+my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log"; 
+my $xml_log = "/tmp/kbase-$datetimefile-xml.log"; # 
+
 ## END HARDCODED VARIABLES - DO NOT EDIT BELOW HERE ###############
 ################################################################### 
-############################# DO NOT EDIT BELOW HERE ##############
 
-my $server_host = hostname; #using Sys::Hostname
 my $name = "kontroll-reporter-cli.pl";
 my $website = "http://kontrollsoft.com";
 my $package_version = "2.1";
-
-my $datetime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
-my $datetimefile =  strftime "%Y-%m-%d_%H%M%S", localtime;
-my $tmpfiletime = strftime "%Y-%m-%d%H%M%S", localtime;
-my $commit_report = "tmp/kontrollbase-reporter-$tmpfiletime.log";
-my $error_log = "/tmp/kbase-$datetimefile-sys_error.log";
-my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log";
-my $xml_log = "/tmp/kbase-$datetimefile-xml.log";
+my $commit_report = $report_file;
+my $verbose = undef;
 
 # this is really dirty but there are other things to fix first
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
@@ -608,11 +614,14 @@ sub log_clear {
 sub writer {
     my $note = $_[0];
     $note = $note."\n";
-    print $note;
     sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
-    print FILE $note;
+    if($verbose) {
+	print $note;
+    }
+    print FILE $note;    
     close FILE;
+    #return 0;
 }
 
 sub writerx {
@@ -621,8 +630,12 @@ sub writerx {
 #    $note = "<detail>".$note."</detail>\n";
 #    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
 #    open FILE, ">>$commit_report" or die $!;
+#    if($verbose == 1) {
+#        print $note;
+#    }
 #    print FILE $note;
 #    close FILE;
+#    return 0;
 }
 
 sub flush_writer {
@@ -632,18 +645,21 @@ sub flush_writer {
     open FILE, ">$commit_report" or die $!;
     print FILE $note;
     close FILE;
-    return;
+    return 0;
 }
 
 sub debug_report {
     my $note = $_[0];
     my $debugtime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
     $note = $debugtime." | DEBUG | reporter-cli: ".$note."\n";
-    print $note;
     sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$debug_log" or die $!;
     print FILE $note;
+    if($verbose) {
+        print $note;
+    }
     close FILE;
+    return 0;
 }
 
 sub error_report {
@@ -664,6 +680,7 @@ sub writexml {
     open FILE, ">>$xml_log" or die $!;
     print FILE $note;
     close FILE;
+    return 0;
 }
 
 sub get_cnf {
@@ -3638,7 +3655,49 @@ sub analyze_data {
     }    
 }
 
-# we have more pre-reqs to add... but these are from the client script as of now
+sub export_txt {
+    my $export_file = $commit_report.".$output";
+
+    debug_report("Final report available in file: $export_file");
+}
+
+sub export_html {
+    my $export_file = $commit_report.".$output";
+
+    debug_report("Final report available in file: $export_file");
+}
+
+sub export_xml {
+    my $export_file = $commit_report.".$output";
+
+    debug_report("Final report available in file: $export_file");
+}
+
+sub export_pdf{
+    my $export_file = $commit_report.".$output";
+
+    debug_report("Final report available in file: $export_file");
+}
+
+sub export_report {
+    #defaults to XML    
+    $output = lc($output); #make string lowercase
+    if($output) {
+	print "export_report starting for $output method.";
+	debug_report("Report export in $output format: [starting]");
+	if($output eq "xml") { export_xml(); }
+	elsif($output eq "html") { export_html(); }
+	elsif($output eq "txt") { export_txt(); }
+	elsif($output eq "pdf") { export_pdf(); }
+	else { error_report("Unsupported report type. Exiting."); }	
+    }
+    else { #else it's XML by default
+	print "export_report starting for default method.";
+	export_xml();
+    }    
+}
+
+#something is odd and not working here - needs to be debugged
 sub check_perl_prerequisites {
     no warnings 'File::Find';
     my @lm;
@@ -3695,13 +3754,37 @@ my @match = grep(m/\/Net\/SNMP.pm/is, @lm);
 	print "Time/HiRes.pm           FOUND.\n";
     }
     else {print "Time/HiRes.pm            NOT FOUND.\n";}
+
+#    @match = grep(m/\/Fcntl/is, @lm);
+#    if (@match) {
+#        print "Fcntl.pm           FOUND.\n";
+#    }
+#    else {print "Fcntl.pm            NOT FOUND.\n";}
+
+#    @match = grep(m/\/XML\/Parser.pm/is, @lm);
+#    if (@match) {
+#        print "XML/Parser.pm           FOUND.\n";
+#    }
+#    else {print "XML/Parser.pm            NOT FOUND.\n";}
+
+#    @match = grep(m/\/XML\/SimpleObject.pm/is, @lm);
+#    if (@match) {
+#        print "XML/SimpleObject.pm           FOUND.\n";
+#    }
+#    else {print "XML/SimpleObject.pm            NOT FOUND.\n";}
+
+#    @match = grep(m/\/Math\/Calc\/Units.pm/is, @lm);
+#    if (@match) {
+#        print "Math/Calc/Units.pm           FOUND.\n";
+#    }
+#    else {print "Math/Calc/Units.pm            NOT FOUND.\n";}
+
 }
 
 #### BEGIN OPERATIONS 
 log_clear();
 my $help = undef;
-my  $prereq = undef;
-my $verbose = undef;
+my $prereq = undef;
 my $sqlite_file_argv = undef;
 
 GetOptions (
@@ -3770,15 +3853,19 @@ mysql-port:       3306
 mysql-socket:     /var/lib/mysql/mysql.sock
 mysql-db:         mysql
 mysql-host:       localhost
-sqlite-file:      kontroll-reporter-cli_sqlite3-alerts_def.db
-output:           TXT report output 
+sqlite-file:      ./kontroll-reporter-cli_sqlite3-alerts_def.db
+output:           XML report output 
 
 HELP
 }
 
 else {
-    if($verbose) {
-	print<<GO;
+    if($prereq) {
+	check_perl_prerequisites();
+	exit;
+    }
+
+    print<<GO;
 #########################################################
 Filename: $name
 Kontrollbase Reporter CLI version
@@ -3789,7 +3876,7 @@ Kontrollbase package version: $package_version
 !! Requires SQLite database file to run !!
 SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
 #########################################################
-Current Settings
+Current Variable Settings - Verbose Mode
 snmp address:     $server_snmp_local_address
 snmp port:        $server_snmp_port
 snmp rocommunity: $server_snmp_rocommunity
@@ -3804,27 +3891,9 @@ mysql db:         $server_mysql_db
 mysql host:       $server_mysql_host
 sqlite-file:      $sqlite_file
 output:           $output
+######################################################### 
+GO
 
-GO
-}
-    else {
-	if($prereq) {
-	    check_perl_prerequisites();
-	    exit;
-	}
-    }
-    print<<GO;
-#########################################################
-Filename: $name
-Kontrollbase Reporter CLI version
-Copyright 2010-present Matt Reid - $website
-Kontrollbase package version: $package_version
-#########################################################
-!! Requires SQLite database application !!
-!! Requires SQLite database file to run !!
-SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
-#########################################################
-GO
     debug_report("reporter-cli process start");
     my $t0 = [gettimeofday]; #start timer
 
@@ -3879,11 +3948,9 @@ GO
 	exit 1;
 	debug_report("reporter-cli process end: [failure]");
     }
+    export_report(); #export report in required format
     debug_report("removing temporary files: [start]");
-    ## let's test the following system calls to make sure they complete and do a success/failure if needed
-    system("rm -f $debug_log");
-    system("rm -f $error_log");
-    system("rm -f $xml_log");
+    log_clear(); #delete debug, error, xml_log files 
     debug_report("temporary files removed: [success]");
     debug_report("reporter-cli process end: [success]");
 }
