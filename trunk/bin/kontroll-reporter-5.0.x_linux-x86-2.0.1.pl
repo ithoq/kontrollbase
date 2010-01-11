@@ -2841,7 +2841,7 @@ sub xml_head {
     writer('<!-- generator="kontroll-reporter-5.0_linux-x86.pl" -->');
     writer('<!-- website="http://kontrollsoft.com" -->');
     writer('<!-- package_ver="2.0" -->');
-    writer('<!-- copyright-notice "Copyright 2008, Matt Reid" -->');
+    writer('<!-- copyright-notice "Copyright 2010-present, Matt Reid" -->');
     writer('<!-- license-type "BSD http://www.opensource.org/licenses/bsd-license.php" -->');
     writer(' <kontrollbase version="2.0">');
     writer("  <report date=\"$Creation_time\">");    
