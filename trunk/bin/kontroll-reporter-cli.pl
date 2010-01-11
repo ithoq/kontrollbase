@@ -62,7 +62,7 @@ my $name = "kontroll-reporter-cli.pl";
 my $website = "http://kontrollsoft.com";
 my $package_version = "2.1";
 my $commit_report = $report_file;
-my $verbose = undef;
+my $verbose;
 
 # this is really dirty but there are other things to fix first
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
@@ -616,7 +616,7 @@ sub writer {
     $note = $note."\n";
     sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
-    if($verbose) {
+    if($verbose = 1) {
 	print $note;
     }
     print FILE $note;    
@@ -626,16 +626,15 @@ sub writer {
 
 sub writerx {
     my $note = $_[0];
-    writer($note);
-#    $note = "<detail>".$note."</detail>\n";
-#    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
-#    open FILE, ">>$commit_report" or die $!;
-#    if($verbose == 1) {
-#        print $note;
-#    }
-#    print FILE $note;
-#    close FILE;
-#    return 0;
+    $note = "<detail>".$note."</detail>\n";
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">>$commit_report" or die $!;
+    if($verbose = 1) {
+        print $note;
+    }
+    print FILE $note;
+    close FILE;
+    return 0;
 }
 
 sub flush_writer {
@@ -655,7 +654,7 @@ sub debug_report {
     sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$debug_log" or die $!;
     print FILE $note;
-    if($verbose) {
+    if($verbose = 1) {
         print $note;
     }
     close FILE;
@@ -1196,113 +1195,114 @@ sub xml_data_process {
 }
 
 sub alert_01 {
-    writer("");
     my $Aborted_connects = $_[0];
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("1");
-    writer("<alert id=\"1\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($Aborted_connects > 999) {
         $ALERT01=1; 
-        writer("<description>$alert_desc</description>");
+	writer("<alert id=\"1\">");
+	writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
     } 
     else {
-        writerx("You are not having a problem with aborted connections.");
         $ALERT01 =0;
     }
-    writer("</alert>");
     return $ALERT01;
 }
 
 sub alert_03 {
-    writer("");
     my $log_bin = $_[0];
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("3");
-    writer("<alert id=\"3\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($log_bin eq "OFF") {
-        writer("<description>$alert_desc</description>");
+	writer("<alert id=\"3\">");
+	writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT03=1;
     } 
     else {
-        writerx("Binary log settings are fine.");
         $ALERT03=0;
     }
-    writer("</alert>");
     return $ALERT03;
 }
 
 sub alert_04 {
-    writer("");
     my $sync_binlog = $_[0];
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("4");
-    writer("<alert id=\"4\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($sync_binlog == 0) {
+	writer("<alert id=\"4\">");
+	writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT04=1;
     } 
     else {
-        writerx("The sync_binlog setting is fine.");
         $ALERT04=0;
     }
-    writer("</alert>");
     return $ALERT04;
 }
 sub alert_05 {
-    writer("");
     my($Max_used_connections,$max_connections,$Threads_connected) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("5");
-    writer("<alert id=\"5\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $connections_ratio = round((($Max_used_connections * 100)/$max_connections),2);
-    writerx("Current max_connections = $max_connections");
-    writerx("Current Threads_connected = $Threads_connected");
-    writerx("Historic Max_used_connections = $Max_used_connections");
-    writerx("The number of used connections is: $connections_ratio% of the maximum configured.");
 
     if($connections_ratio > 85) { 
+	writer("<alert id=\"5\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writerx("Current max_connections = $max_connections");
+	writerx("Current Threads_connected = $Threads_connected");
+	writerx("Historic Max_used_connections = $Max_used_connections");
+	writerx("The number of used connections is: $connections_ratio% of the maximum configured.");
+	writer("</alert>");
         $ALERT05 = 1; 
     } 
     elsif($connections_ratio <= 10) {
+	writer("<alert id=\"5\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writerx("Current max_connections = $max_connections");
+	writerx("Current Threads_connected = $Threads_connected");
+	writerx("Historic Max_used_connections = $Max_used_connections");
+	writerx("The number of used connections is: $connections_ratio% of the maximum configured.");
         writerx("Currently using less than 10% of your max_connections. Lowering your max_connections can help avoid an over allocation of memory resources.");
         writerx("Decrease the max_connections variable - server is using $connections_ratio% of current max");
+	writer("</alert>");
         $ALERT05 = 1;
     }
     
     else {
-        writerx("The connection usage and max_connections variable is ok.");
         $ALERT05 = 0;
     }    
-    writer("</alert>");
     return $ALERT05;
 }
 
 sub alert_06 {
-    writer("");
     my($Qcache_lowmem_prunes,$query_cache_size,$Qcache_free_memory) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("6");
     if($query_cache_size == 0) {
         writer("<alert id=\"6\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Query cache NOT enabled. Please enable.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
@@ -1313,43 +1313,40 @@ sub alert_06 {
     }
     else {
         my $Qratio = round((($query_cache_size - $Qcache_free_memory) * 100) / $query_cache_size);
-        writer("<alert id=\"6\">");
-        writer("<name>$alert_name</name>");
-        writer("<category>$alert_category</category>");
-
         my $query_cache_size_HR = human($query_cache_size);
         my $Qcache_free_memory_HR = human($Qcache_free_memory);
 
-        writerx("Current Qcache_lowmem_prunes = $Qcache_lowmem_prunes");
-        writerx("Current Qcache_free_memory = $Qcache_free_memory_HR");
-        writerx("Current query_cache size = $query_cache_size_HR");
-        writerx("Current query cache usage ratio = $Qratio%");
-
-
         if(($Qcache_lowmem_prunes >= 50) && ((($query_cache_size - $Qcache_free_memory) / $query_cache_size) >= .85)) {
             my $query_cache_size_R = human(($query_cache_size - $Qcache_free_memory) * 1.25);
+	    writer("<alert id=\"6\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current Qcache_lowmem_prunes = $Qcache_lowmem_prunes");
+	    writerx("Current Qcache_free_memory = $Qcache_free_memory_HR");
+	    writerx("Current query_cache size = $query_cache_size_HR");
+	    writerx("Current query cache usage ratio = $Qratio%");
             writerx("query cache size recommended size = $query_cache_size_R");
             
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT06=1;
         } 
         else {
-            writerx("Query cache is not too small.");
             $ALERT06=0;
         }
-        writer("</alert>");
         return $ALERT06;
     }
 }
 
 sub alert_07 {
-    writer("");
     my($query_cache_size,$Qcache_free_memory,$Qcache_lowmem_prunes) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("7");
     if($query_cache_size == 0) {
         writer("<alert id=\"7\">");
+	writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
         writerx("Query cache NOT enabled. Please enable.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
@@ -1360,42 +1357,36 @@ sub alert_07 {
     }
     else {
         my$Qratio = round((($query_cache_size - $Qcache_free_memory) * 100) / $query_cache_size);
-        writer("<alert id=\"7\">");
-        writer("<name>$alert_name</name>");
-        writer("<category>$alert_category</category>");
 
         my $query_cache_size_HR = human($query_cache_size);
         my $Qcache_free_memory_HR = human($Qcache_free_memory);
 
-        writerx("Current Qcache_lowmem_prunes = $Qcache_lowmem_prunes");
-        writerx("Current Qcache_free_memory = $Qcache_free_memory_HR");
-        writerx("Current query_cache size = $query_cache_size_HR");
-        writerx("Current query cache usage ratio = $Qratio%");
-
         if((($query_cache_size - $Qcache_free_memory) / $query_cache_size) <= .25) {
             my $query_cache_size_R = human(($query_cache_size - $Qcache_free_memory) * 1.25);
+	    writer("<alert id=\"7\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current Qcache_lowmem_prunes = $Qcache_lowmem_prunes");
+	    writerx("Current Qcache_free_memory = $Qcache_free_memory_HR");
+	    writerx("Current query_cache size = $query_cache_size_HR");
+	    writerx("Current query cache usage ratio = $Qratio%");
             writerx("query cache size recommended size = $query_cache_size_R");    
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT07=1;
         }
         else {
-            writerx("Query cache is not too large.");
             $ALERT07=0;
         }
-        writer("</alert>");
         return $ALERT07;
     }
 }
 
 sub alert_08 {
-    writer("");
     my($os_mem_total,$max_heap_table_size,$tmp_table_size,$read_buffer_size,$read_rnd_buffer_size,$sort_buffer_size,$thread_stack,$join_buffer_size,$binlog_cache_size,$max_connections,$Max_used_connections,$innodb_buffer_pool_size,$innodb_additional_mem_pool_size,$innodb_log_buffer_size,$key_buffer_size,$query_cache_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("8");
-    writer("<alert id=\"8\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $total_system_memory=$os_mem_total;
     my $effective_tmp_table_size = undef;
@@ -1421,76 +1412,74 @@ sub alert_08 {
     my $total_memory_HR = human($total_memory);
     my $total_system_memory_HR = human($total_system_memory);
 
-    writerx("Per-Thread buffers: $per_thread_buffers_HR");
-    writerx("Per-Thread max allocated: $per_thread_max_buffers_HR");
-    writerx("Global buffers: $global_buffers_HR");
-    writerx("Max memory ever allocated: $max_memory_HR");
-    writerx("Max memory possible by configuration: $total_memory_HR");
-    writerx("Available system memory: $total_system_memory_HR");
-    writerx("Memory allocation ratio to available system memory: $pct_of_sys_mem %");
-
     if($pct_of_sys_mem > 85) {
+	writer("<alert id=\"8\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Per-Thread buffers: $per_thread_buffers_HR");
+	writerx("Per-Thread max allocated: $per_thread_max_buffers_HR");
+	writerx("Global buffers: $global_buffers_HR");
+	writerx("Max memory ever allocated: $max_memory_HR");
+	writerx("Max memory possible by configuration: $total_memory_HR");
+	writerx("Available system memory: $total_system_memory_HR");
+	writerx("Memory allocation ratio to available system memory: $pct_of_sys_mem %");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT08=1;
     }
     else {
-        writerx("Memory usage is fine.");
         $ALERT08=0;
     }
-    writer("</alert>");
     return $ALERT08;
 }
 
 sub alert_09 {
-    writer("");
     my($read_buffer_size,$Handler_read_rnd_next,$Com_select)= @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("9");
-    writer("<alert id=\"9\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $full_table_scans=($Handler_read_rnd_next/$Com_select);
     if($Com_select > 0) {
         if(($full_table_scans >= 4000) && ($read_buffer_size >= 2097152)) {
             $ALERT09=1; 
+	    writer("<alert id=\"9\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
             writerx("You have a high ratio of sequential access requests to SELECTs.");
             writerx("You may benefit from raising the read_buffer_size and/or improving your use of indexes.");
             writerx("Increase read_buffer_size, Current size is $read_buffer_size.");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT09=1;
         }
         elsif($read_buffer_size > 8388608) {
+	    writer("<alert id=\"9\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
             writerx("read_buffer_size is over 8 MB");
             writerx("Decrease read_buffer_size, Current size is $read_buffer_size");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT09=1;
         }
         else {
-            writerx("Your read_buffer_size setting is fine.");
             $ALERT09=0;
         }
     }
     else {
-        writerx("Your read_buffer_size is fine");
         $ALERT09=0;
     }
-    writer("</alert>");
     return $ALERT09;    
 }
 
 sub alert_10 {
-    writer("");
     my($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("10");
-    writer("<alert id=\"10\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $tmp_disk_tables=undef;
     if($Created_tmp_tables == 0) {
@@ -1500,42 +1489,42 @@ sub alert_10 {
         $tmp_disk_tables=round((($Created_tmp_disk_tables*100)/$Created_tmp_tables));
     }
 
-    writerx("Current max_heap_table_size = $max_heap_table_size");
-    writerx("Current tmp_table_size = $tmp_table_size");
-    writerx("Of $Created_tmp_tables temp tables, $tmp_disk_tables % were created on disk");
-
     if($tmp_table_size > $max_heap_table_size) {
+	writer("<alert id=\"10\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current max_heap_table_size = $max_heap_table_size");
+	writerx("Current tmp_table_size = $tmp_table_size");
+	writerx("Of $Created_tmp_tables temp tables, $tmp_disk_tables % were created on disk");
         writerx("Effective in-memory tmp_table_size is limited to max_heap_table_size.");
         writerx("Increase the size of max_heap_table_size.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
+	writer("</alert>");
         $ALERT10=1;
     }
     elsif($tmp_disk_tables >= 25) {
+	writer("<alert id=\"10\">");
+        writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
         writerx("Increase tmp_table_size, Current size is $tmp_table_size");
         writerx("Increase max_heap_table_size, Current size is $max_heap_table_size.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT10=1;
     }
     else {
-        writerx("Created disk tmp tables ratio seems fine.");
         $ALERT10=0;
     }
-    writer("</alert>");
     return $ALERT10;
 }
 
 sub alert_11 {
-    writer("");
     my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("11");
-    writer("<alert id=\"11\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     my $allowed_innodb_buffer_size = ($os_mem_total * .85);
     my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.10);
@@ -1555,46 +1544,56 @@ sub alert_11 {
         $Innodb_buffer_pool_pages_total = 1;
     }
     my $Innodb_buffer_pool_pages_ratio = round($Innodb_buffer_pool_pages_free/$Innodb_buffer_pool_pages_total);
-
-    writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
-    writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
-    writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
-    writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR"); 
-    writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
-    writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
-    writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
-    writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
-    writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
     
     if($innodb_buffer_pool_size < $needed_innodb_buffer_size) {
+	writer("<alert id=\"11\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
+	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
+	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
+	writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
+	writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+	writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
+	writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
+	writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
+	writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT11=1;
     }
     else {
-        writerx("You do not need to increase the size of the innodb_buffer_pool_size based on the data+index sizes.");
         $ALERT11=0;
     }
 
     if($Innodb_buffer_pool_pages_ratio > .995) {
+	writer("<alert id=\"11\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
+	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
+	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
+	writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
+	writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+	writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
+	writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
+	writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
+	writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
         writerx("You may want to consider increasing the innodb_buffer_pool_size based on the Innodb_buffer_pool_pages_ratio.");
+	writer("</alert>");
         $ALERT11=1;
     }
     else  {
         $ALERT11=0;
     }
-    writer("</alert>");
     return $ALERT11;
 }
 
 sub alert_12 {
-    writer("");
     my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("12");
-    writer("<alert id=\"12\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $allowed_innodb_buffer_size = ($os_mem_total * .85);
     my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.10);
@@ -1607,15 +1606,6 @@ sub alert_12 {
     my $os_mem_totalHR = human($os_mem_total);
     my $innodb_recommend = human((($needed_innodb_buffer_size * 100) / 85));
 
-    writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
-    writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
-    writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
-    writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
-    writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
-    writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
-    writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
-    writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
-
     if($Innodb_buffer_pool_pages_free == 0) {
         $Innodb_buffer_pool_pages_free = 1;
     }
@@ -1624,37 +1614,59 @@ sub alert_12 {
     }
 
     my $Innodb_buffer_pool_pages_ratio = ($Innodb_buffer_pool_pages_free/$Innodb_buffer_pool_pages_total);
-    writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
 
     if($innodb_buffer_pool_size > $needed_innodb_buffer_size) {
+	writer("<alert id=\"12\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
+	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
+	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
+	writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
+	writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+	writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
+	writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
+	writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
+	writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT12=1;
     }
     else {
-        writer("You do not need to decrease the size of the innodb_buffer_pool_size based on the data+index sizes.");
         $ALERT12=0;
     }
     
     if($Innodb_buffer_pool_pages_ratio < .995) {
+	writer("<alert id=\"12\">");
+        writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+        writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
+        writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
+        writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
+        writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
+        writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+        writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
+        writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
+        writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
+        writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
+        writer("<description>$alert_desc</description>");
+        writer("<links>$alert_links</links>");
+        writer("<solution>$alert_solution</solution>");
         writerx("You may want to consider decreasing the innodb_buffer_pool_size based on the Innodb_buffer_pool_pages_ratio.");
+	writer("</alert>");
         $ALERT12=1;
     }
     else  {
         $ALERT12=0;
     }
-    writer("</alert>");
     return $ALERT12;
 }
 
 sub alert_13 {
-    writer("");
     my($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("13");
-    writer("<alert id=\"13\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $key_cache_miss_rate = undef;
     my $key_buffer_ratio = undef;
@@ -1671,11 +1683,14 @@ sub alert_13 {
 
 
     if($Key_reads == 0) {
+	writer("<alert id=\"13\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("No Key_reads. Use some indexes please.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
+	writer("</alert>");
         $key_cache_miss_rate = 0;
         $key_buffer_ratio = 0;
         $key_buffer_ratioRND = 0;
@@ -1705,25 +1720,24 @@ sub alert_13 {
     if($key_blocks_total == 0) { $key_blocks_total = 1;}
     #print "kbu: $Key_blocks_used mul kbs: $key_buffer_size div by kbt: $key_blocks_total mul 100 div 95";
     my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
-
-    
-
-    writerx("Current Key_reads = $Key_reads");
-    writerx("Current Key_read_requests = $Key_read_requests");
-    writerx("Current Key_blocks_used = $Key_blocks_used");
-    writerx("Current Key_blocks_unused = $Key_blocks_unused");
-    writerx("Current key_blocks_total: $key_blocks_total");
-    writerx("Current buffer fill ratio = $key_buffer_ratio%");    
-    writerx("Current cache miss rate is 1:$key_cache_miss_rate");
-    writerx("Current key_buffer_size = $key_buffer_sizeHR");
-    writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
-
+   
     if(($key_cache_miss_rate >= 1000) || ($key_buffer_ratio <= 50)) {
         my $key_buffer_sizeC = human($key_buffer_size / 2);
+	writer("<alert id=\"13\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current Key_reads = $Key_reads");
+	writerx("Current Key_read_requests = $Key_read_requests");
+	writerx("Current Key_blocks_used = $Key_blocks_used");
+	writerx("Current Key_blocks_unused = $Key_blocks_unused");
+	writerx("Current key_blocks_total: $key_blocks_total");
+	writerx("Current buffer fill ratio = $key_buffer_ratio%");
+	writerx("Current cache miss rate is 1:$key_cache_miss_rate");
+	writerx("Current key_buffer_size = $key_buffer_sizeHR");
+	writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         if($key_buffer_ratio <= 50) {
             writerx("Your key_buffer_size is too large, less than 50% utilized,");
             writerx("Recommended key_buffer_size = $key_recommend");
@@ -1731,24 +1745,19 @@ sub alert_13 {
         if($key_cache_miss_rate >= 1000) {
             writerx("Your key_buffer_size miss rate is higher than 1:1000");
             writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
+	    writer("</alert>");
         }
         $ALERT13=1;
     }
     else {
-        writerx("Your key_buffer_size is fine.");
         $ALERT13=0;
     }
-    writer("</alert>");
     return $ALERT13;
 }
 
 sub alert_14 {
-    writer("");
     my($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("14");
-    writer("<alert id=\"14\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     my $key_cache_miss_rate = undef;
     my $key_buffer_ratio = undef;
@@ -1764,11 +1773,14 @@ sub alert_14 {
     }
     
     if($Key_reads == 0) {
+	writer("<alert id=\"14\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("No Key_reads. Use some indexes please.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
+	writer("</alert>");
         $key_cache_miss_rate = 0;
         $key_buffer_ratio = 0;
         $key_buffer_ratioRND = 0;
@@ -1796,43 +1808,39 @@ sub alert_14 {
     if($key_blocks_total == 0) { $key_blocks_total = 1;}
     my $key_recommend = human((((($Key_blocks_used * $key_buffer_size) / $key_blocks_total) * 100) / 95));
 
-    writerx("Current Key_reads = $Key_reads");
-    writerx("Current Key_read_requests = $Key_read_requests");
-    writerx("Current Key_blocks_used = $Key_blocks_used");
-    writerx("Current Key_blocks_unused = $Key_blocks_unused");
-    writerx("Current key_blocks_total: $key_blocks_total");
-    writerx("Current buffer fill ratio = $key_buffer_ratio%");
-    writerx("Current cache miss rate is 1:$key_cache_miss_rate");
-    writerx("Current key_buffer_size = $key_buffer_sizeHR");
-    writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
-
 #    if(($key_cache_miss_rate <= 100) && ($key_cache_miss_rate >= 0) && ($key_buffer_ratioRND >= 80)) {
     if(($Key_blocks_unused == 0) || ($key_buffer_ratioRND >= 85)) {
         my $key_buffer_sizeC = human($key_buffer_size * 2);
+	writer("<alert id=\"14\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current Key_reads = $Key_reads");
+	writerx("Current Key_read_requests = $Key_read_requests");
+	writerx("Current Key_blocks_used = $Key_blocks_used");
+	writerx("Current Key_blocks_unused = $Key_blocks_unused");
+	writerx("Current key_blocks_total: $key_blocks_total");
+	writerx("Current buffer fill ratio = $key_buffer_ratio%");
+	writerx("Current cache miss rate is 1:$key_cache_miss_rate");
+	writerx("Current key_buffer_size = $key_buffer_sizeHR");
+	writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         writerx("Increase the key_buffer_size (we want between 75-90% buffer fill ratio)");
         writerx("Recommended key_buffer_size = $key_recommend");
 #        writerx("Recommend incremental increase: change to $key_buffer_sizeC");
+	writer("</alert>");
         $ALERT14=1;
     }
     else {
-        writerx("Your key_buffer_size is fine.");
         $ALERT14=0;
     }
-    writer("</alert>");
     return $ALERT14;
 }
 
 sub alert_15 {
-    writer("");
     my($Sort_scan,$Sort_range,$sort_buffer_size,$read_rnd_buffer_size,$Sort_merge_passes) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("15");
-    writer("<alert id=\"15\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $total_sorts=($Sort_scan+$Sort_range);
     $sort_buffer_size=($sort_buffer_size+8);
@@ -1841,16 +1849,11 @@ sub alert_15 {
     my $read_rnd_buffer_sizeHR = human($read_rnd_buffer_size);
     my $passes_per_sort = undef;
 
-    writerx("Current sort_buffer_size = $sort_buffer_sizeHR");
-    writerx("Current read_rnd_buffer_size = $read_rnd_buffer_sizeHR");
-
     if($total_sorts == 0) {
-        writerx("No sort operations have been performed");
         $passes_per_sort=0;
     }
     if($Sort_merge_passes != 0) {
         $passes_per_sort=($Sort_merge_passes/$total_sorts);
-        writerx("Current passes_per_sort = $passes_per_sort");
     }
     else {
         $passes_per_sort=0;
@@ -1859,6 +1862,12 @@ sub alert_15 {
     if($passes_per_sort >= 2) {
         my $sort_buffer_size_R = human($sort_buffer_size * 2);
         my $read_rnd_buffer_size_R = human($read_rnd_buffer_size * 2);
+	writer("<alert id=\"15\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current passes_per_sort = $passes_per_sort");
+	writerx("Current sort_buffer_size = $sort_buffer_sizeHR");
+	writerx("Current read_rnd_buffer_size = $read_rnd_buffer_sizeHR");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
@@ -1867,23 +1876,18 @@ sub alert_15 {
         writerx("# Recommend: sort_buffer_size = $sort_buffer_size_R");
         writerx("# Increase read_rnd_buffer_size, Current size is $read_rnd_buffer_sizeHR");
         writerx("# Recommend: read_rnd_buffer_size = $read_rnd_buffer_size_R");
+	writer("</alert>");
         $ALERT15=1;
     }
     else {
-        writerx("Sort buffer is not too small.");
         $ALERT15=0;
     }
-    writer("</alert>");
     return $ALERT15;
 }
 
 sub alert_16 {
-    writer("");
     my($Sort_scan,$Sort_range,$sort_buffer_size,$read_rnd_buffer_size,$Sort_merge_passes) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("16");
-    writer("<alert id=\"16\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $total_sorts=($Sort_scan+$Sort_range);
     $sort_buffer_size=($sort_buffer_size+8);
@@ -1892,24 +1896,24 @@ sub alert_16 {
     my $read_rnd_buffer_sizeHR=human($read_rnd_buffer_size);
     my $passes_per_sort = undef;
 
-    writerx("Current sort_buffer_size = $sort_buffer_sizeHR");
-    writerx("Current read_rnd_buffer_size = $read_rnd_buffer_sizeHR");
-
     if($total_sorts == 0) {
-        writerx("No sort operations have been performed.");
         $passes_per_sort=0;
     }
     if($Sort_merge_passes != 0) {
         $passes_per_sort=($Sort_merge_passes/$total_sorts);
-        writerx("Current passes_per_sort = $passes_per_sort");
     }
     else {
         $passes_per_sort=0;
-        writerx("Current passes_per_sort = $passes_per_sort");
     }
     if($passes_per_sort < 2) {
         my $sort_buffer_size_R = human($sort_buffer_size / 2);
         my $read_rnd_buffer_size_R = human($read_rnd_buffer_size / 2);
+	writer("<alert id=\"16\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current passes_per_sort = $passes_per_sort");
+	writerx("Current sort_buffer_size = $sort_buffer_sizeHR");
+	writerx("Current read_rnd_buffer_size = $read_rnd_buffer_sizeHR");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
@@ -1918,39 +1922,29 @@ sub alert_16 {
         writerx("# Recommend: sort_buffer_size = $sort_buffer_size_R");
         writerx("# Decrease read_rnd_buffer_size, Current size is $read_rnd_buffer_sizeHR");
         writerx("# Recommend: read_rnd_buffer_size = $read_rnd_buffer_size_R");
+	writer("</alert>");
         $ALERT16=1;
     }
     else {
-        writerx("Sort buffer is not too large.");
         $ALERT16=0;
     }
-    writer("</alert>");
     return $ALERT16;
 }
 
 sub alert_17 {
-    writer("");
     my($join_buffer_size,$Select_range_check,$Select_full_join) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("17");
-    writer("<alert id=\"17\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     $join_buffer_size=($join_buffer_size+4096);
     my $join_buffer_sizeHR=human($join_buffer_size);
-    writerx("Current join_buffer_size = $join_buffer_sizeHR");
-    writerx("Current Select_full_join = $Select_full_join");
-    writerx("Current Select_range_check = $Select_range_check");
-    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
+
     if(($Select_range_check == 0) && ($Select_full_join == 0)) {
-        writerx("Your joins are using indexes properly.");
         $ALERT17=0;
     }
     if($Select_full_join > 0) {
         $ALERT17=1;
     }
     if($Select_range_check > 0) {
-        writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
         $ALERT17=1;
     }
     if($ALERT17 == 1) {
@@ -1962,90 +1956,78 @@ sub alert_17 {
         }
         my $join_buffer_size_R_HR = human($join_buffer_size_R);
         if($warn == 0) {
+	    writer("<alert id=\"17\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
+	    writerx("Current join_buffer_size = $join_buffer_sizeHR");
+	    writerx("Current Select_full_join = $Select_full_join");
+	    writerx("Current Select_range_check = $Select_range_check");
+	    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
-
             writerx("# Recommend a starting point of $join_buffer_size_R_HR");
         }
         elsif($warn == 1) {
+	    writer("<alert id=\"17\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
+	    writerx("Current join_buffer_size = $join_buffer_sizeHR");
+	    writerx("Current Select_full_join = $Select_full_join");
+	    writerx("Current Select_range_check = $Select_range_check");
+	    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
 
-            writerx("Join buffer is already set to 4M or greater. It is not recommended to set this higher than 4M but experiementally you can try it. If this alert does not go away unless your join_buffer_size is set higher than 4M please contact kontact\@kontrollsoft.com and let us know as we are tuning this alert.");
             $join_buffer_size_R = ($join_buffer_size * 1.5);
             $join_buffer_size_R_HR = human($join_buffer_size_R);
             writerx("# Recommend a starting point of $join_buffer_size_R_HR");      
+	    writer("</alert>");
         }
     }
-    writer("</alert>");
     return $ALERT17;
 }
 
 sub alert_18 {
-    writer("");
     my($join_buffer_size,$Select_range_check,$Select_full_join,$log_queries_not_using_indexes) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("18");
-    writer("<alert id=\"18\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     $join_buffer_size=($join_buffer_size+4096);
     my $join_buffer_sizeHR=human($join_buffer_size);
-    writerx("Current join_buffer_size = $join_buffer_sizeHR");
-    writerx("Current Select_full_join = $Select_full_join");
-    writerx("Current Select_range_check = $Select_range_check");
-    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
     
     if($join_buffer_size > 4194304) {
         $ALERT18 = 1;
         my $join_buffer_size_R = 4194303;
         $join_buffer_size_R = ($join_buffer_size_R - 8192);
         my $join_buffer_size_R_HR = human($join_buffer_size_R);
+	writer("<alert id=\"18\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current join_buffer_size = $join_buffer_sizeHR");
+	writerx("Current Select_full_join = $Select_full_join");
+	writerx("Current Select_range_check = $Select_range_check");
+	writerx("You have had $Select_full_join queries where a join could not use an index properly.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         writerx("# Recommend a starting point of $join_buffer_size_R_HR");
-    }
-    elsif($join_buffer_size == 4194304) {
-        $ALERT18 = 0;
-        writerx("Your join_buffer_size is already at the maximum recommended setting.");
-        if($Select_full_join > 0 || $Select_range_check > 0 || $log_queries_not_using_indexes eq "ON") {
-            writerx("Check your slow queries log to find the joins that are NOT using indexes.");
-        }
-        elsif($Select_full_join >0 || $Select_range_check> 0 || $log_queries_not_using_indexes eq "OFF") {
-            writerx("# Enable log_queries_not_using_indexes in the cnf file so that you can find the join queries that are not using indexes. These queries will show up in the slow log. You may then begin the process of adding the appropriate indexes to your tables.");
-        }
+	writer("</alert>");
     }
     else {
         $ALERT18=0;
-        writerx("Your join_buffer_size is not too large.");
-        if($Select_full_join > 0 || $Select_range_check > 0 || $log_queries_not_using_indexes eq "ON") {
-            writerx("Check your slow queries log to find the joins that are NOT using indexes.");           
-        }
-        elsif($Select_full_join >0 || $Select_range_check> 0 || $log_queries_not_using_indexes eq "OFF") {
-            writerx("# Enable log_queries_not_using_indexes in the cnf file so that you can find the join queries that are not using indexes. These queries will show up in the slow log. You may then begin the process of adding the appropriate indexes to your tables.");
-        }
     }
-    writer("</alert>");
     return $ALERT18;
 }
 
 sub alert_19 {
-    writer("");
     my($Open_files,$open_files_limit,$table_cache) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("19");
-    writer("<alert id=\"19\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     my $thresh = 75;
     my $open_files_ratio = round(($Open_files / $open_files_limit) * 100);
-    writerx("Current open_files_limit = $open_files_limit");
-    writerx("Current Open_files = $Open_files");
-    writerx("Current usage ration = $open_files_ratio %");
 
     if($open_files_ratio >= $thresh) {
         my $open_files_limit_R = undef;
@@ -2057,75 +2039,57 @@ sub alert_19 {
             else {
                 $open_files_limit_R = 65535; #this is the highest we can go
             }
+	    writer("<alert id=\"19\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current open_files_limit = $open_files_limit");
+	    writerx("Current Open_files = $Open_files");
+	    writerx("Current usage ration = $open_files_ratio %");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
-
             writerx("# Recommend a starting point of open_files_limit = $open_files_limit_R");
+	    writer("</alert>");
             $ALERT19=1;
         }
-        else {
-            # It should alert but since we can't set it higher than 65535 we'll not alert 
-            writer("<description>$alert_desc</description>");
-            writer("<links>$alert_links</links>");
-            writer("<solution>$alert_solution</solution>");
-
-            writerx("Your Open_files is over the 75% usage threshold of $open_files_limit.");
-            writerx("However, your open_files_limit cannot be set any higher so we are not alerting.");
-            $ALERT19=0;
-        }
+	else {
+	    $ALERT19=0;
+	}
     }
     else {
         $ALERT19=0;
-        writerx("Your open_files_limit variable setting is within threshold range of 75% usage.");
     }
-    writer("</alert>");
     return $ALERT19;
 }
 
 sub alert_20 {
-    writer("");
     my($Table_locks_waited,$Table_locks_immediate,$concurrent_insert,$num_tables,$engine_count_innodb,$Questions) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("20");
-    writer("<alert id=\"20\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $immediate_locks_miss_rate = undef;
-    if($Table_locks_waited > 0) {
-        $immediate_locks_miss_rate=round($Table_locks_immediate/$Table_locks_waited);
-        writerx("Current table lock wait ratio = $immediate_locks_miss_rate:$Questions");
-    }
-    else {
-        $immediate_locks_miss_rate = 5001;
-        writerx("Current table lock wait ratio = NULL");
-    }
+
     my $innodb_ratio = round(($engine_count_innodb / $num_tables) * 100);
     if(($immediate_locks_miss_rate < 5000) && ($innodb_ratio <= 66)) {
+	writer("<alert id=\"20\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         writerx("You may want to consider migrating your high-use tables to InnoDB as your table lock ratio is too high.");
         writerx("Your ratio of InnoDB tables to total tables = $innodb_ratio%");
+	writer("</alert>");
         $ALERT20 = 1;
     }
     else {
-        writerx("Your ratio of InnoDB tables to total tables = $innodb_ratio%");
-        writerx("Your table lock ratio is fine.");
         $ALERT20=0;
     }
-    writer("</alert>");
     return $ALERT20;
 }
 
 sub alert_21 {
-    writer("");
     my($Opened_tables,$table_cache,$Open_tables) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("21");
-    writer("<alert id=\"21\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $table_cache_hit_rate = undef;
     my $table_cache_fill = undef;
@@ -2139,42 +2103,47 @@ sub alert_21 {
         $table_cache_fill=(($Open_tables*100)/$table_cache);
     }
     if($table_cache !=0) {
-        writerx("Current table_cache value = $table_cache tables");
-        writerx("Current Open_tables = $Open_tables tables.");
-        writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
-        writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
-
         if(($table_cache_hit_rate >= 95) && ($table_cache_fill >= 95)) {
             $ALERT21=1;
             my $table_cache_R = round($Open_tables * 1.6);
+	    writer("<alert id=\"21\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current table_cache value = $table_cache tables");
+	    writerx("Current Open_tables = $Open_tables tables.");
+	    writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
+	    writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
             writerx("# Increase the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
+	    writer("</alert>");
         }
         else {
-            writerx("The table_cache variable setting is not too small.");
             $ALERT21=0;
         }
     }
     else {
         my $table_cache_R = round($Open_tables * 1.6);
+	writer("<alert id=\"21\">");
+        writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+        writerx("Current table_cache value = $table_cache tables");
+        writerx("Current Open_tables = $Open_tables tables.");
+        writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
+        writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
 
         writerx("Table cache is set to 0 size.");
         writerx("# Enable a value for table_cache, Current value is $table_cache. Recommend table_cache=$table_cache_R");
+	writer("</alert>");
         $ALERT21=1;
     }
-    writer("</alert>");
     return $ALERT21;
 }
 
 sub alert_22 {
-    writer("");
     my($Opened_tables,$table_cache,$Open_tables) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("22");
-    writer("<alert id=\"22\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $table_cache_hit_rate = undef;
     my $table_cache_fill = undef;
@@ -2188,6 +2157,9 @@ sub alert_22 {
         $table_cache_fill=(($Open_tables*100)/$table_cache);
     }
     if($table_cache !=0) {
+	writer("<alert id=\"22\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Current table_cache value = $table_cache tables");
         writerx("Current Open_tables = $Open_tables tables.");
         writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
@@ -2197,37 +2169,40 @@ sub alert_22 {
             $ALERT22=1;
             my $table_cache_R = round($Open_tables * 1.6);
             writerx("# Decrease the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
+	    writer("</alert>");
         }
         else {
-            writerx("The table_cache variable setting is not too large.");
             $ALERT22=0;
         }
     }
     else {
         my $table_cache_R = round($Open_tables * 1.6);
+	writer("<alert id=\"22\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
 
         writerx("Table cache is set to 0 size.");
         writerx("# Enable a value for table_cache, Current value is $table_cache. Recommend table_cache=$table_cache_R");
-        $ALERT22=2;
+	writer("</alert>");
+        $ALERT22=1;
     }
-    writer("</alert>");
     return $ALERT22;
 }
 
 sub alert_23 {
-    writer("");
     my($Threads_created,$Uptime,$num_connections,$thread_cache_size,$Threads_connected,$Threads_cached,$Max_used_connections) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("23");
-    writer("<alert id=\"23\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     my $Conn_global = $num_connections;
     my $Historic_threads_per_second=round($Threads_created/$Uptime);
+
     if($Threads_cached == 0 ) {
+	writer("<alert id=\"23\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Thread_cache disabled. Please enable thread caching.");
         writer("<links>$alert_links</links>");
         writer("</alert>");
@@ -2236,54 +2211,66 @@ sub alert_23 {
     }
     else {
         my $Thread_hit_ratio = round((100 - ($Threads_created/$Threads_cached)),2);
-        writerx("Current thread_cache_size: $thread_cache_size");
-        writerx("Current Threads_cached: $Threads_cached");
-        writerx("Current Threads_connected: $Threads_connected");
-        writerx("Current Threads_created: $Threads_created");
-        writerx("Current Global connections: $Conn_global");
-        writerx("Historic Max_used_connections: $Max_used_connections");
-        writerx("Historic_threads_per_second: $Historic_threads_per_second");
-        writerx("Thread_hit_ratio: $Thread_hit_ratio%");
         my $warn=0;
         if($Historic_threads_per_second >= 2) {
             my $thread_cache_R = ($Max_used_connections * 1.1);
-            writerx("Threads created per second are overrunning threads_cached.");
-            writerx("# Recommend $thread_cache_R");
+	    writer("<alert id=\"23\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current thread_cache_size: $thread_cache_size");
+	    writerx("Current Threads_cached: $Threads_cached");
+	    writerx("Current Threads_connected: $Threads_connected");
+	    writerx("Current Threads_created: $Threads_created");
+	    writerx("Current Global connections: $Conn_global");
+	    writerx("Historic Max_used_connections: $Max_used_connections");
+	    writerx("Historic_threads_per_second: $Historic_threads_per_second");
+	    writerx("Thread_hit_ratio: $Thread_hit_ratio%");
+	    writerx("Threads created per second are overrunning threads_cached.");
+            writerx("# Recommend thread_cache_size = $thread_cache_R");
             $warn=1;
             $ALERT23=1;
         }
         if($Threads_created > $Threads_cached) {            
+	    writer("<alert id=\"23\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current thread_cache_size: $thread_cache_size");
+	    writerx("Current Threads_cached: $Threads_cached");
+	    writerx("Current Threads_connected: $Threads_connected");
+	    writerx("Current Threads_created: $Threads_created");
+	    writerx("Current Global connections: $Conn_global");
+	    writerx("Historic Max_used_connections: $Max_used_connections");
+	    writerx("Historic_threads_per_second: $Historic_threads_per_second");
+	    writerx("Thread_hit_ratio: $Thread_hit_ratio%");
             writerx("You need to change the thread_cache_size.");
             my $thread_cache_R = ($Threads_created +1);
-            writerx("# Recommend thread_cache_size $thread_cache_R");
+            writerx("# Recommend thread_cache_size = $thread_cache_R");
             $warn=1;
             $ALERT23=1;
         }
         else { 
-            writerx("Your thread_cache_size is not too small.");
             $ALERT23=0;
         }
         if($warn==1) {
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
         }
-        writer("</alert>");
         return $ALERT23;
     }
 }
 
 sub alert_24 {
-    writer("");
     my($Threads_created,$Uptime,$num_connections,$thread_cache_size,$Threads_connected,$Threads_cached,$Max_used_connections) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("24");
-    writer("<alert id=\"24\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $Conn_global = $num_connections;
     my $Historic_threads_per_second=round($Threads_created/$Uptime);
     if($Threads_cached == 0 ) {
+	writer("<alert id=\"24\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Threads_cached = 0 or not enabled. Please enable thread caching.");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
@@ -2294,16 +2281,19 @@ sub alert_24 {
     }
     else {
         my $Thread_hit_ratio = round((100 - ($Threads_created/$Threads_cached)),2);
-        writerx("Current thread_cache_size: $thread_cache_size");
-        writerx("Current Threads_cached: $Threads_cached");
-        writerx("Current Threads_connected: $Threads_connected");
-        writerx("Current Threads_created: $Threads_created");
-        writerx("Current Global connections: $Conn_global");
-        writerx("Historic Max_used_connections: $Max_used_connections");
-        writerx("Historic_threads_per_second: $Historic_threads_per_second");
-        writerx("Thread_hit_ratio: $Thread_hit_ratio%");
 
         if($Thread_hit_ratio > 99.0) {
+	    writer("<alert id=\"24\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current thread_cache_size: $thread_cache_size");
+	    writerx("Current Threads_cached: $Threads_cached");
+	    writerx("Current Threads_connected: $Threads_connected");
+	    writerx("Current Threads_created: $Threads_created");
+	    writerx("Current Global connections: $Conn_global");
+	    writerx("Historic Max_used_connections: $Max_used_connections");
+	    writerx("Historic_threads_per_second: $Historic_threads_per_second");
+	    writerx("Thread_hit_ratio: $Thread_hit_ratio%");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
@@ -2312,84 +2302,87 @@ sub alert_24 {
             writerx("You need to change the thread_cache_size.");
             my $thread_cache_R = ($Threads_created +1);
             writerx("# Decrease the thread_cache_size, recommend thread_cache_size = $thread_cache_R");
+	    writer("</alert>");
             $ALERT24=1;
         }
         else {
-            writerx("Your thread_cache_size is not too large.");
             $ALERT24=0;
         }
-        writer("</alert>");
         return $ALERT24;
     }
 }
 
 sub alert_25 {
-    writer("");
     my($Binlog_cache_disk_use,$Binlog_cache_use,$binlog_cache_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("25");
-    writer("<alert id=\"25\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     if($Binlog_cache_disk_use == 0 ) { $Binlog_cache_disk_use = 1;}
     if($Binlog_cache_use == 0 ) {$Binlog_cache_use = 1;}
     my $bcache_tmp_ratio = ($Binlog_cache_disk_use / $Binlog_cache_use);
     my $binlog_cache_size_HR = human($binlog_cache_size);
     my $binlog_total_usage = ($Binlog_cache_disk_use + $Binlog_cache_use);
-    writerx("Current binlog_cache_size = $binlog_cache_size_HR");
-    writerx("Current binlog cache usage by transactions: $Binlog_cache_use");
-    writerx("Current tmp files created for binlog usage: $Binlog_cache_disk_use");
-    writerx("Out of $binlog_total_usage writes, $Binlog_cache_disk_use have been to tmp disk files.");
-    writerx("Your binlog_cache utilization ratio: $bcache_tmp_ratio%");
     my $warn=0;
+
     if($bcache_tmp_ratio < 25) {
-        writerx("Your binlog_cache has less than 25% utilization.");
         if($Binlog_cache_disk_use > 1024) {
             my $binlog_cache_size_R = ($binlog_cache_size * 1.5);
+	    writer("<alert id=\"25\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Your binlog_cache has less than 25% utilization.");
+	    writerx("Current binlog_cache_size = $binlog_cache_size_HR");
+	    writerx("Current binlog cache usage by transactions: $Binlog_cache_use");
+	    writerx("Current tmp files created for binlog usage: $Binlog_cache_disk_use");
+	    writerx("Out of $binlog_total_usage writes, $Binlog_cache_disk_use have been to tmp disk files.");
+	    writerx("Your binlog_cache utilization ratio: $bcache_tmp_ratio%");
             writerx("Your binlog_cache has failed to buffer more than 1024 transactions.");
             writerx("# increase binlog_cache_size, recommend binlog_cache_size = $binlog_cache_size_R");
             $warn=1;
             $ALERT25=1;
         }
         else {
-            writerx("Your binlog_cache_size is set to an acceptable value.");
             $ALERT25=0;
         }
     }
     else {
-        writerx("Your binlog_cache utilization exceeds 25% utilization.");
         if($Binlog_cache_disk_use > 1024) {
             my $binlog_cache_size_R = ($binlog_cache_size * 1.5);
+	    writer("<alert id=\"25\">");
+            writer("<name>$alert_name</name>");
+            writer("<category>$alert_category</category>");
+	    writerx("Your binlog_cache utilization exceeds 25% utilization.");
             writerx("Your binlog_cache has failed to buffer more than 1024 transactions.");
             writerx("# increase binlog_cache_size, recommend binlog_cache_size = $binlog_cache_size_R");
+	    writer("<description>$alert_desc</description>");
+	    writer("<links>$alert_links</links>");
+	    writer("<solution>$alert_solution</solution>");
             $warn=1;
             $ALERT25=1;
         }
         else {
             $Binlog_cache_disk_use = 1024;
             my $binlog_cache_size_R = ($binlog_cache_size + $Binlog_cache_disk_use);
+	    writer("<alert id=\"25\">");
+            writer("<name>$alert_name</name>");
+            writer("<category>$alert_category</category>");
             writerx("Your binlog_cache_size exceeds 25% utilization");
-            writerx("# increase binlog_cache_size, recommend binlog_cache_size = $binlog_cache_size_R");                    
+            writerx("# increase binlog_cache_size, recommend binlog_cache_size = $binlog_cache_size_R");
+	    writer("<description>$alert_desc</description>");
+	    writer("<links>$alert_links</links>");
+	    writer("<solution>$alert_solution</solution>");
             $warn=1;
             $ALERT25=1;
         }
     }    
     if($warn==1) {
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
     }
-    writer("</alert>");
     return $ALERT25;
 }
 
 sub alert_26 {
-    writer("");
     my($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size,$max_tmp_tables,$Uptime) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("26");
-    writer("<alert id=\"26\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $warn=0;
     my $tmp_disk_ratio = undef;
@@ -2404,21 +2397,21 @@ sub alert_26 {
     my $tmp_per_sec = round($Created_tmp_tables/$Uptime);
     my $heap_to_tmp = round(($max_heap_table_size/$tmp_table_size)*100);
 
-    writerx("Current max_tmp_tables = $max_tmp_tables");
-    writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
-    writerx("Current tmp_table_size = $tmp_table_sizeHR");
-    writerx("Current Created_tmp_tables = $Created_tmp_tables");
-    writerx("Current Created_tmp_disk_tables = $Created_tmp_disk_tables");
-    writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
-    writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
-    writerx("Average usage = $tmp_per_sec tmp tables/sec");
-
-    if($tmp_table_size > $max_heap_table_size) {
-        writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");
-    }
     if($max_tmp_tables > 32){
+	writer("<alert id=\"26\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current max_tmp_tables = $max_tmp_tables");
+	writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
+	writerx("Current tmp_table_size = $tmp_table_sizeHR");
+	writerx("Current Created_tmp_tables = $Created_tmp_tables");
+	writerx("Current Created_tmp_disk_tables = $Created_tmp_disk_tables");
+	writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
+	writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
+	writerx("Average usage = $tmp_per_sec tmp tables/sec");
         writerx("Your max_tmp_tables is set to a greater value than default.");
         writerx("If you consistently need more tmp tables you probably would be better off adding more RAM.");
+	writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");
         writerx("# Recommend default setting max_tmp_tables = 32");
         $warn=1;
         $ALERT26=1;
@@ -2431,264 +2424,237 @@ sub alert_26 {
         $ALERT26=1;
     }
     else {
-        writerx("Current tmp table settings are fine.");
         $ALERT26=0;
     }
     if($warn==1) {
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
     }
-    writer("</alert>");
     return $ALERT26;
 }
 
 sub alert_27 {
-    writer("");
     my($flush_time) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("27");
-    writer("<alert id=\"27\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($flush_time > 0) {
+	writer("<alert id=\"27\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT27=1;
     }
     else {
-        writerx("Variable flush_time is set to zero value, which is correct.");
         $ALERT27=0;
     }
-    writer("</alert>");
     return $ALERT27;
 }
 
 sub alert_29 {
-    writer("");
     my($innodb_doublewrite) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("29");
-    writer("<alert id=\"29\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($innodb_doublewrite eq "ON") {
-        writerx("The innodb_doublewrite buffer is enabled, which is correct.");
         $ALERT29=0;
     }
     else {
+	writer("<alert id=\"29\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT29=1;
     }
-    writer("</alert>");
     return $ALERT29;
 }
 
 sub alert_30 {
-    writer("");
     my($innodb_flush_method,$version_compile_os) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("30");
-    writer("<alert id=\"30\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-    
-    writerx("Current innodb_flush_method = $innodb_flush_method");
+
     if ($version_compile_os =~ /win/) {
-        writerx("Server is not a unix based server, alert not able to process.");
         $ALERT30=0;
     }
     else {
-        writerx("Server is not windows based, continuing with check.");
         if($innodb_flush_method ne "O_DIRECT") {
+	    writer("<alert id=\"30\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current innodb_flush_method = $innodb_flush_method");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT30=1;
         }
         else {
-            writerx("Your innodb_flush_method is set correctly.");
             $ALERT30=0;
         }
     }
-    writer("</alert>");
     return $ALERT30;
 }
 
 sub alert_31 {
-    writer("");
     my($tx_isolation) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("31");
-    writer("<alert id=\"31\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current transaction-isolation (tx-isolation) = $tx_isolation");
     if(($tx_isolation =~ /REPEATABLE-READ/) || ($tx_isolation =~ /SERIALIZABLE/)) {
-        writerx("Your InnoDB transaction-isolation level is set correctly for ACID compliance.");
         $ALERT31=0;
     }
     else {
+	writer("<alert id=\"31\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current transaction-isolation (tx-isolation) = $tx_isolation");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT31=1;
     }    
-    writer("</alert>");
     return $ALERT31;
 }
 
 sub alert_32 {
-    writer("");
     my($innodb_lock_wait_timeout) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("32");
-    writer("<alert id=\"32\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-    
-    writerx("Current innodb_lock_wait_timeout = $innodb_lock_wait_timeout");
+
     if($innodb_lock_wait_timeout > 50) {
+	writer("<alert id=\"32\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current innodb_lock_wait_timeout = $innodb_lock_wait_timeout");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT32=1;
     }
     else {
-        writerx("innodb_lock_wait_timeout setting is fine.");
         $ALERT32=0;
     }
-    writer("</alert>");
     return $ALERT32;
 }
 
 sub alert_33 {
-    writer("");
     my($concurrent_insert) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("33");
-    writer("<alert id=\"33\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current concurrent_insert value = $concurrent_insert");
     if(($concurrent_insert eq "OFF") || ($concurrent_insert == 0)) {
+	writer("<alert id=\"33\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current concurrent_insert value = $concurrent_insert");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT33=1;
     }
     else {
-        writerx("Concurrency value is set correctly.");
         $ALERT33=0;
     }
-    writer("</alert>");
     return $ALERT33;
 }
 
 sub alert_34 {
-    writer("");
     my($query_cache_type,$query_cache_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("34");
-    writer("<alert id=\"34\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current query_cache_type = $query_cache_type");
-    writerx("Current query_cache_size = $query_cache_size");
     if($query_cache_type eq "OFF") { $query_cache_type = 0;}
     if($query_cache_type eq "ON") { $query_cache_type= 1;}
     if(($query_cache_type == 0) || ($query_cache_size == 0)) {
+	writer("<alert id=\"34\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current query_cache_type = $query_cache_type");
+	writerx("Current query_cache_size = $query_cache_size");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT34=1;
     }
     else {
-        writerx("Query cache is enabled.");
         $ALERT34=0;
     }
-    writer("</alert>");
     return $ALERT34;
 }
 
 sub alert_37 {
-    writer("");
     my($thread_cache_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("37");
-    writer("<alert id=\"37\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-    
-    writerx("Current thread_cache_size = $thread_cache_size");
+
     if($thread_cache_size == 0) {
+	writer("<alert id=\"37\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current thread_cache_size = $thread_cache_size");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT37=1;
     }
     else {
-        writerx("Your thread_cache is enabled. Good job!");
         $ALERT37=0;
     }
-    writer("</alert>");
     return $ALERT37;
 }
 
 sub alert_38 {
-    writer("");
     my($queries_per_second,$threshold_queries_per_second) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("38");
-    writer("<alert id=\"38\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current queries_per_second = $queries_per_second/sec");
-    writerx("Configured threshold = $threshold_queries_per_second/sec");
     if($queries_per_second >= $threshold_queries_per_second) {
+	writer("<alert id=\"38\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current queries_per_second = $queries_per_second/sec");
+	writerx("Configured threshold = $threshold_queries_per_second/sec");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT38=1;
     }
     else {
-        writerx("Queries per second is not over configured threshold.");
         $ALERT38=0;
     }
-    writer("</alert>");
     return $ALERT38;
 }
 
 sub alert_39 {
-    writer("");
     my($expire_logs_days) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("39");
-    writer("<alert id=\"39\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current binary log rotation = $expire_logs_days");
     if($expire_logs_days > 0) {
-        writerx("Purging setup correctly.");
         $ALERT39=0;
     }
     else {
+	writer("<alert id=\"39\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current binary log rotation = $expire_logs_days");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT39=1;
     }
-    writer("</alert>");
     return $ALERT39;
 }
 
 sub alert_56 {
-    writer("");
     my($log,$server_type) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("56");
-    writer("<alert id=\"56\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $S = undef;
     if($server_type eq 0) {
@@ -2703,65 +2669,74 @@ sub alert_56 {
     else {
         $S = "server type incorrectly set";
     }
-    writerx("Current general log setting = $log");
-    writerx("Current server type = $S");
+
     if($log eq "ON") {
         if(($server_type eq 0) || ($server_type = 1)) {
+	    writer("<alert id=\"56\">");
+	    writer("<name>$alert_name</name>");
+	    writer("<category>$alert_category</category>");
+	    writerx("Current general log setting = $log");
+	    writerx("Current server type = $S");
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
+	    writer("</alert>");
             $ALERT56=1;
         }
         elsif($server_type eq 2) {
-            writerx("General query log setting is fine for development server use. Please watch disk usage.");
             $ALERT56=0;
         }
         else {
+	    writer("<alert id=\"56\">");
+            writer("<name>$alert_name</name>");
+            writer("<category>$alert_category</category>");
+            writerx("Current general log setting = $log");
+            writerx("Current server type = $S");
+            writer("<description>$alert_desc</description>");
+            writer("<links>$alert_links</links>");
+            writer("<solution>$alert_solution</solution>");
             writerx("Server type set incorrectly. Please address.");
+	    writer("</alert>");
             $ALERT56=1;
         }
     }
     else {
-        writerx("General query log setting is fine for production use.");
         $ALERT56=0;
     }
-    writer("</alert>");
     return $ALERT56;
 }
 
 sub alert_57 {
-    writer("");
     my($log_warnings,$server_type) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("57");
-    writer("<alert id=\"57\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
-    writerx("Current warning log setting = $log_warnings");
     if(($log_warnings eq "OFF") || ($log_warnings == 0)) {
+	writer("<alert id=\"57\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("Current warning log setting = $log_warnings");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT57=1;
     }
     else {
-        writerx("Warning log setting is fine.");
         $ALERT57=0;
     }
-    writer("</alert>");
     return $ALERT57;
 }
 
 sub alert_100 {
-    writer("");
     my($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size,$max_tmp_tables,$Uptime) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("100");
-    writer("<alert id=\"100\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     my $warn=0;
+    my $max_heap_table_size_HR = human(round($max_heap_table_size));
+    my $max_heap_table_size_R = ($tmp_table_size * .8);
+    my $tmp_table_size_R = human($max_heap_table_size_R * 1.2);
     my $tmp_disk_ratio = undef;
+
     if($Created_tmp_tables == 0) {
         $tmp_disk_ratio=0;
     }
@@ -2773,311 +2748,215 @@ sub alert_100 {
     my $tmp_per_sec = round($Created_tmp_tables/$Uptime);
     my $heap_to_tmp = round(($max_heap_table_size/$tmp_table_size)*100);
 
-    writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
-    writerx("Current tmp_table_size = $tmp_table_sizeHR");
-    writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
-    writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
-
-    if($tmp_table_size > $max_heap_table_size) {
-        writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");
-    }
     if($heap_to_tmp < 75) {
-        my $max_heap_table_size_HR = human(round($max_heap_table_size));
-        my $max_heap_table_size_R = ($tmp_table_size * .8);
-        my $tmp_table_size_R = human($max_heap_table_size_R * 1.2);
-        writerx("Temporary tables larger than $max_heap_table_size_HR will not be allowed into ram.");
-        writerx("# If your memory-usage will allow it, increase max_heap_table_size to $max_heap_table_size_HR");
-        writerx("# Otherwise, decrease tmp_table_size to $tmp_table_size_R");
-        $ALERT100=1;
         $warn=1;
     }
     else {
-        writerx("Current max_heap_table_size settings are fine.");
         $ALERT100=0;
     }
     if($warn==1) {
+	writer("<alert id=\"100\">");
+        writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+        writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
+        writerx("Current tmp_table_size = $tmp_table_sizeHR");
+        writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
+        writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
+        writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");
+        writerx("Temporary tables larger than $max_heap_table_size_HR will not be allowed into ram.");
+        writerx("# If your memory-usage will allow it, increase max_heap_table_size to $max_heap_table_size_HR");
+        writerx("# Otherwise, decrease tmp_table_size to $tmp_table_size_R");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
     }
-    writer("</alert>");
     return $ALERT100;
 }
 
 sub alert_00 {
-    writer("");
     my $Uptime = $_[0];
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("99");
-    writer("<alert id=\"99\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
+
     if($Uptime < 172800) {
         $Uptime = round($Uptime / 3600); #fix for hours
+	writer("<alert id=\"99\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Current Uptime = $Uptime hours");
         writer("<description>$alert_desc</description>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT00=1;
     }
     else {
         $Uptime = round($Uptime / 3600); #fix for hours
-        writerx("Current Uptime = $Uptime hours");
-        writerx("Server has been running $Uptime hours, or more than 48 hours. Continuing with report.");
         $ALERT00=0;
     }
-    writer("</alert>");
     return $ALERT00;
 }
 
 # user account checks
 sub alert_47 {
-    writer("");
     my($illegal_global_user) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("47");
-    writer("<alert id=\"47\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if(!$illegal_global_user) {
-        writerx("No illegal global users found.");
         $ALERT47=0;
     }
     else {
+	writer("<alert id=\"47\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Illegal global users found: $illegal_global_user");
-
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT47=1;
     }
-    writer("</alert>");
     return $ALERT47;
 }
 
 sub alert_48 {
-    writer("");
     my($old_passwords) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("48");
-    writer("<alert id=\"48\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
     
     if($old_passwords eq "0") {
         $old_passwords = "OFF";
     }
     if($old_passwords eq "OFF") {
-        writerx("Old password hashing disabled.");
         $ALERT48=0;
     }
     else {
+	writer("<alert id=\"48\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Old password hashing is enabled!");
-
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT48=1;
     }
-    writer("</alert>");
     return $ALERT48;
 }
 
 sub alert_50 {
-    writer("");
     my($illegal_grant_user) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("50");
-    writer("<alert id=\"50\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($illegal_grant_user == 0) {
-        writerx("No illegal grant users found.");
         $ALERT50=0;
     }
     else {
+	writer("<alert id=\"50\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Illegal grant users found: $illegal_grant_user");
-
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT50=1;
     }
-    writer("</alert>");
     return $ALERT50;
 }
 
 sub alert_51 {
-    writer("");
     my($illegal_remote_root) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("51");
-    writer("<alert id=\"51\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if(!$illegal_remote_root) {
-        writerx("No illegal remote root users found.");
         $ALERT51=0;
     }
     else {
+	writer("<alert id=\"51\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writerx("Illegal remote root users found: $illegal_remote_root");
-
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+	writer("</alert>");
         $ALERT51=1;
     }
-    writer("</alert>");
     return $ALERT51;
 }
 
 sub alert_52 {
-    writer("");
     my($illegal_user_nopass) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("52");
-    writer("<alert id=\"52\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($illegal_user_nopass == 0) {
-        writerx("No empty passwords found.");
         $ALERT52=0;
     }
     else {
+	writer("<alert id=\"52\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         writerx("Empty passwords found for users: $illegal_user_nopass");
+	writer("</alert>");
         $ALERT52=1;
     }
-    writer("</alert>");
     return $ALERT52;
 }
 
 sub alert_53 {
-    writer("");
     my($illegal_user_noname) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("53");
-    writer("<alert id=\"53\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
 
     if($illegal_user_noname == 0) {
-        writerx("No empty usernames found.");
         $ALERT53=0;
     }
     else {
+	writer("<alert id=\"53\">");
+	writer("<name>$alert_name</name>");                                                                     
+	writer("<category>$alert_category</category>");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
         writerx("Found empty username for these entries: $illegal_user_noname");
+	writer("</alert>");
         $ALERT53=1;
     }
-    writer("</alert>");
     return $ALERT53;
 }
 
 # error code alerts
 sub alert_snmp {
-    writer("");
-    writer("<alert id=\"00\">");
-    writer("<name>SNMP client error codes</name>");
-    writer("<category>client errors</category>");
     my($server_snmp_error_code) = @_;    
     if($server_snmp_error_code == 0) {
-        writerx("No snmp error codes from client.");
         $ALERTSNMP=0;
     }
     else {
+	writer("<alert id=\"00\">");
+	writer("<name>SNMP client error codes</name>");
+	writer("<category>client errors</category>");
         writerx("Current snmp error for server: $server_snmp_error_code");
+	writer("</alert>");
         $ALERTSNMP=1;
     }
-    writer("</alert>");
     return $ALERTSNMP;
 }
 
 sub alert_mysql {
-    writer("");
-    writer("<alert id=\"00\">");
-    writer("<name>MySQL client error codes</name>");
-    writer("<category>client errors</category>");
     my($server_mysql_error_code) = @_;
     if($server_mysql_error_code== 0) {
-        writerx("No mysql error codes from client.");
         $ALERTMYSQL=0;
     }
     else {
+	writer("<alert id=\"00\">");
+	writer("<name>MySQL client error codes</name>");
+	writer("<category>client errors</category>");
         writerx("Current snmp error for server: $server_mysql_error_code");
+	writer("</alert>");
         $ALERTMYSQL=1;
     }
-    writer("</alert>");
     return $ALERTMYSQL;
-}
-
-#replication slave alerts if server is set as a slave
-sub alert_42 {
-    writer("");
-    my($Slave_SQL_Running) = @_;    
-    my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("42");
-    writer("<alert id=\"42\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-
-    writerx("Slave_SQL_Running  = $Slave_SQL_Running");
-    if($Slave_SQL_Running eq "NO") {
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-        $ALERT42=1;
-    }
-    else {
-        $ALERT42=0;
-    }
-    writer("</alert>");
-    return $ALERT42;
-}
-
-sub alert_43 {
-    writer("");
-    my($Slave_IO_Running) = @_;
-    my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("43");
-    writer("<alert id=\"43\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-
-    writerx("Slave_IO_Running  = $Slave_IO_Running");
-    if($Slave_IO_Running eq "NO") {
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-        $ALERT43=1;
-    }
-    else {
-        $ALERT43=0;
-    }
-    writer("</alert>");
-    return $ALERT43;
-}
-
-sub alert_44 {
-    writer("");
-    my($Seconds_Behind_Master,$threshold_seconds_behind_master) = @_;
-    my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("44");
-    writer("<alert id=\"44\">");
-    writer("<name>$alert_name</name>");
-    writer("<category>$alert_category</category>");
-
-    writerx("Current Seconds_Behind_Master = $Seconds_Behind_Master");
-    if($Seconds_Behind_Master >= $threshold_seconds_behind_master) {
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-        $ALERT44=1;
-    }
-    else {
-        $ALERT44=0;
-    }
-    writer("</alert>");
-    return $ALERT44;
 }
 
 sub analyze_data {
@@ -3633,24 +3512,72 @@ sub analyze_data {
 	$ALERT100 = alert_100($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size,$max_tmp_tables,$Uptime);
             
 # user account alerts
-	my $ALERT47 = alert_47($illegal_global_user);
-	my $ALERT48 = alert_48($old_passwords);
-	my $ALERT50 = alert_50($illegal_grant_user);
-	my $ALERT51 = alert_51($illegal_remote_root);
-	my $ALERT52 = alert_52($illegal_user_nopass);
-	my $ALERT53 = alert_53($illegal_user_noname);
-
+	$ALERT47 = alert_47($illegal_global_user);
+	$ALERT48 = alert_48($old_passwords);
+	$ALERT50 = alert_50($illegal_grant_user);
+	$ALERT51 = alert_51($illegal_remote_root);
+	$ALERT52 = alert_52($illegal_user_nopass);
+	$ALERT53 = alert_53($illegal_user_noname);
+	
 	$ALERTSNMP = alert_snmp($server_snmp_error_code);
 	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
             
 	# Insert report data into database
-	#xml_end();
+	debug_report("insert current alerts: [starting]");
+	alert_insert(99,$ALERT00);
+	alert_insert(1,$ALERT01);
+	alert_insert(3,$ALERT03);
+	alert_insert(4,$ALERT04);
+	alert_insert(5,$ALERT05);
+	alert_insert(6,$ALERT06);
+	alert_insert(7,$ALERT07);
+	alert_insert(8,$ALERT08);
+	alert_insert(9,$ALERT09);
+	alert_insert(10,$ALERT10);
+	alert_insert(11,$ALERT11);
+	alert_insert(12,$ALERT12);
+	alert_insert(13,$ALERT13);
+	alert_insert(14,$ALERT14);
+	alert_insert(15,$ALERT15);
+	alert_insert(16,$ALERT16);
+	alert_insert(17,$ALERT17);
+	alert_insert(18,$ALERT18);
+	alert_insert(19,$ALERT19);
+	alert_insert(20,$ALERT20);
+	alert_insert(21,$ALERT21);
+	alert_insert(22,$ALERT22);
+	alert_insert(23,$ALERT23);
+	alert_insert(24,$ALERT24);
+	alert_insert(25,$ALERT25);
+	alert_insert(26,$ALERT26);
+	alert_insert(27,$ALERT27);
+	alert_insert(29,$ALERT29);
+	alert_insert(30,$ALERT30);
+	alert_insert(31,$ALERT31);
+	alert_insert(32,$ALERT32);
+	alert_insert(33,$ALERT33);
+	alert_insert(34,$ALERT34);
+	alert_insert(37,$ALERT37);
+	alert_insert(38,$ALERT38);
+	alert_insert(39,$ALERT39);
+	alert_insert(56,$ALERT56);
+	alert_insert(57,$ALERT57);
+	alert_insert(100,$ALERT100);
+	alert_insert(47,$ALERT47);
+	alert_insert(48,$ALERT48);
+	alert_insert(50,$ALERT50);
+	alert_insert(51,$ALERT51);
+	alert_insert(52,$ALERT52);
+	alert_insert(53,$ALERT53);
+	debug_report("insert current alerts: [finished]");
+            
+	xml_end();
 	#insert_report($server_list_id,$server_statistics_id,$Creation_time);
     }
     else {
 	$ALERTSNMP = alert_snmp($server_snmp_error_code);
 	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
-	#xml_end();
+	xml_end();
 	#insert_report($server_list_id,$server_statistics_id,$Creation_time);
     }    
 }
@@ -3669,7 +3596,30 @@ sub export_html {
 
 sub export_xml {
     my $export_file = $commit_report.".$output";
+    debug_report("selecting current alerts from sqlite: [starting]");
+    my $dbh = DBI->connect(
+    "dbi:SQLite:dbname=$sqlite_file", 
+                           "",
+                           "",
+                           { RaiseError => 1 },
+                           ) or die $DBI::errstr;
 
+    my $sql1 = "select * from alerts_current, alerts_def where alerts_current.alert_state=1 and alerts_current.alerts_def_id = alerts_def.id;";
+    my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
+    $sth->execute or error_report("$DBI::errstr");    
+    debug_report("selecting current alerts from sqlite: [success]");
+
+    while(my $row = $sth->fetchrow_hashref) {
+	my $id = $row->{'alerts_def_id'};
+        my $alert_name = $row->{'alert_name'};
+        my $alert_desc = $row->{'alert_desc'};
+        my $alert_links = $row->{'alert_links'};
+        my $alert_solution = $row->{'alert_solution'};
+        my $alert_function = $row->{'alert_function'};
+        my $alert_category = $row->{'alert_category'};
+	my $alert_level = $row->{'alert_level'};
+    }
+    
     debug_report("Final report available in file: $export_file");
 }
 
@@ -3683,7 +3633,6 @@ sub export_report {
     #defaults to XML    
     $output = lc($output); #make string lowercase
     if($output) {
-	print "export_report starting for $output method.";
 	debug_report("Report export in $output format: [starting]");
 	if($output eq "xml") { export_xml(); }
 	elsif($output eq "html") { export_html(); }
@@ -3692,9 +3641,46 @@ sub export_report {
 	else { error_report("Unsupported report type. Exiting."); }	
     }
     else { #else it's XML by default
-	print "export_report starting for default method.";
+	debug_report("export_report starting for default method.");
 	export_xml();
     }    
+}
+
+sub alert_insert {
+    my($alerts_def_id,$alert_state) = @_;
+    my $dbh = DBI->connect(
+    "dbi:SQLite:dbname=$sqlite_file", 
+			   "",
+			   "",
+			   { RaiseError => 1 },
+			   ) or die $DBI::errstr;
+
+    $alerts_def_id =~ s/'//g; #remove quotes
+    $alert_state =~ s/'//g;
+
+    my $sql1 = "INSERT INTO `alerts_current` (
+`alerts_def_id` ,
+`alert_state` 
+)
+VALUES (
+'$alerts_def_id', '$alert_state');";
+    my $sth1 = $dbh->prepare($sql1) or error_report("$DBI::errstr");
+    $sth1->execute or error_report("$DBI::errstr");
+}
+
+sub alerts_truncate {
+    debug_report("truncating table alerts_current from sqlite: [starting]");
+    my $dbh = DBI->connect(
+    "dbi:SQLite:dbname=$sqlite_file", 
+                           "",
+                           "",
+                           { RaiseError => 1 },
+                           ) or die $DBI::errstr;
+
+    my $sql1 = "delete from alerts_current;";
+    my $sth1 = $dbh->prepare($sql1) or error_report("$DBI::errstr");
+    $sth1->execute or error_report("$DBI::errstr");
+    debug_report("truncating table alerts_current from sqlite: [finish]");
 }
 
 #something is odd and not working here - needs to be debugged
@@ -3906,6 +3892,7 @@ GO
     else {
 	debug_report("--sqlite-file specified as $sqlite_file_argv");
         $sqlite_file = $sqlite_file_argv;
+	alerts_truncate();
     }
 
     if(-e $sqlite_file) {
@@ -3918,6 +3905,8 @@ GO
 	error_report("SQLite file ($sqlite_file) specified does not exist. Exiting.");
     }    
 
+    if($verbose) { $verbose = 1; } else { $verbose = 0; }
+    
     start_xml();
     get_snmp_os_stats(
         $server_snmp_local_address,
@@ -3935,7 +3924,7 @@ GO
         $server_mysql_db,
         $server_mysql_host
 		    );
-    get_cnf();
+    #get_cnf(); #don't need to collect cnf file now - maybe later
     my $t1 = [gettimeofday]; #end timer
     my $elapse = tv_interval $t0, $t1; #calculate time
     writexml("   <item name=\"collection_time_elapse\"><![CDATA[$elapse]]></item>\n");
