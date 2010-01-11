@@ -49,13 +49,14 @@ if($client_id == 0) {
   $avg_size = round($overview_stats[0]['avg_size'],2)." GB";
   $stdev_size = round($overview_stats[0]['stdev_size'],2)." GB";
   $max_connections = round($overview_stats[0]['max_connections'],2);
-$min_connections = round($overview_stats[0]['min_connections'],2);
-$avg_connections = round($overview_stats[0]['avg_connections'],2);
-$stdev_connections = round($overview_stats[0]['stdev_connections'],2);
-$max_qps = round($overview_stats[0]['max_qps'],2);
-$min_qps = round($overview_stats[0]['min_qps'],2);
-$avg_qps = round($overview_stats[0]['avg_qps'],2);
-$stdev_qps = round($overview_stats[0]['stdev_qps'],2);
+  $min_connections = round($overview_stats[0]['min_connections'],2);
+  $avg_connections = round($overview_stats[0]['avg_connections'],2);
+  $stdev_connections = round($overview_stats[0]['stdev_connections'],2);
+  $max_qps = round($overview_stats[0]['max_qps'],2);
+  $min_qps = round($overview_stats[0]['min_qps'],2);
+  $avg_qps = round($overview_stats[0]['avg_qps'],2);
+  $stdev_qps = round($overview_stats[0]['stdev_qps'],2);
+  $ov_Creation_time = $overview_stats[0]['Creation_time'];
 
   $overview.= "<table id='content'><tr><td colspan='3'><h1>Environment - Weekly Stats</h1></td><td>&nbsp;</td></tr>";
   $overview.= "<tr><td>max_os_mem_used</td><td>$max_os_mem_used</td><td>&nbsp;</td></tr>";
@@ -74,8 +75,8 @@ $stdev_qps = round($overview_stats[0]['stdev_qps'],2);
   $overview.= "<tr><td>min_qps</td><td>$min_qps</td><td>&nbsp;</td></tr>";
   $overview.= "<tr><td>avg_qps</td><td>$avg_qps</td><td>&nbsp;</td></tr>";
   $overview.= "<tr><td>stdev_qps</td><td>$stdev_qps</td><td>&nbsp;</td></tr>";
+  $overview.= "<tr><td>Calculation date</td><td>$ov_Creation_time</td><td>&nbsp;</td></tr>";
   $overview.= "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
-
 
   $overview.= "<tr><td colspan='3'><h1>Environment - Weekly Activity</h1></td></tr>";
   $overview.= "<tr><td>".renderChartHTML("$nroot/includes/FCF_Line.swf", "", $g1, "kontrollbase", $width, $height)."</td>";
