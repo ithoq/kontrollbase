@@ -12,7 +12,7 @@
 ## All rights reserved.
 ################################################################################
 use strict;
-use warnings; 
+#use warnings; #enable for debugging
 use DBI;
 use Fcntl; 
 use POSIX qw(strftime);
@@ -3577,7 +3577,7 @@ sub analyze_data {
 	alert_insert(51,$ALERT51);
 	#alert_insert(52,$ALERT52);
 	#alert_insert(53,$ALERT53);
-	debug_report("insert current alerts: [finished]");
+	debug_report("insert current alerts: [finish]");
             
 	xml_end(); #end of XML document
 	#we're not inserting the report to SQLite because, well, there's no need to. Keeping for future need if needed for some reason.
@@ -3610,9 +3610,9 @@ sub export_file {
 
     sysopen(FILE, $export_file, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$export_file" or die $!;
-    if($verbose eq 1) {
-        print $note;
-    }
+    #if($verbose eq '1') {
+    #    print $note;
+    #}
     print FILE $note;    
     close FILE;
     return 0;
@@ -3660,7 +3660,6 @@ sub export_txt {
 
         foreach my $server($report->child('server')) {
 	    my $server_hostname = $server->attribute('hostname');
-	    debug_report("export_txt XML processing: [starting]");
 	    
 	    export_file("#########################################################",$export_file);
 	    export_file("Filename: $name",$export_file);
@@ -3698,13 +3697,16 @@ sub export_txt {
 			    export_file("$detail",$export_file);
 			}
 		    }
-		    #write a line break after each alert
+		    #write A Line break after each alert
 		    export_file("--------",$export_file);
 		}
 	    }
 	}
     }
-    print "Final report available in file: $export_file\n";
+    debug_report("export_txt XML processing: [finish]");
+    if($verbose eq '0') {
+        print "Final report available in file: $export_file\n";
+    }
     debug_report("Final report available in file: $export_file");
 }
 
@@ -3719,11 +3721,10 @@ sub export_html {
 
     foreach my $report ($xso->child('kontrollbase')->children('report')) {    
         my $report_date = $report->attribute('date');
-        debug_report("export_txt XML processing: [starting]");
+        debug_report("export_html XML processing: [starting]");
 
         foreach my $server($report->child('server')) {
             my $server_hostname = $server->attribute('hostname');
-            debug_report("export_html XML processing: [starting]");
             
 	    export_file('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',$export_file);
 	    export_file('<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">',$export_file);
@@ -3772,17 +3773,24 @@ sub export_html {
 	    export_file("</body></html>",$export_file);
         }
     }
-    print "Final report available in file: $export_file\n";
+    debug_report("export_html XML processing: [finish]");
+    if($verbose eq '0') {
+        print "Final report available in file: $export_file\n";
+    }
     debug_report("Final report available in file: $export_file");
 }
 
 sub export_xml {
     #XML report is easy, we are saving everything as XML data in the $commit_report so just refer user to that file
     my $export_file = $commit_report;
-    print "Final report available in file: $export_file\n";
+    if($verbose eq '0') {
+	print "Final report available in file: $export_file\n";
+    }
     debug_report("Final report available in file: $export_file");
 }
 
+# Not exporting PDF just yet... none of the perl pdf modules are available on Yum for redhat/centos/fedora yet and the goal is portability. 
+# Keeping the routine here until I decide to support it. Might be able to include the support from one module and paste it in-line 
 sub export_pdf{
     my $export_file = $commit_report;
     $export_file =~ s/.xml//g;
@@ -3956,6 +3964,11 @@ GetOptions (
     'prereq' => \$prereq
 	    );
 
+# Leaving out "--prereq      = prerequisite checks" from below until that is fixed. 
+# Keep getting the following errors
+# Found = in conditional, should be == at ./kontroll-reporter-cli.pl line 2902.
+# Found = in conditional, should be == at ./kontroll-reporter-cli.pl line 2923.
+
 if(!$ARGV[0]) { $ARGV[0] = '';}
 if($help || $ARGV[0] eq "help" || $ARGV[0] eq "?" || $ARGV[0] eq "h") {
     print<<HELP;
@@ -3970,7 +3983,6 @@ Kontrollbase package version: $package_version
 SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
 #########################################################
 --help        = this message
---prereq      = prerequisite checks
 
 --snmp-host        = snmp host address
 --snmp-port        = snmp port
@@ -4104,6 +4116,7 @@ GO
     debug_report("removing temporary files: [start]");
     log_clear(); #delete debug, error, xml_log files 
     debug_report("temporary files removed: [success]");
+    alerts_truncate();
     debug_report("reporter-cli process end: [success]");
 }
 
