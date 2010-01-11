@@ -3523,8 +3523,8 @@ sub analyze_data {
 	$ALERT48 = alert_48($old_passwords);
 	$ALERT50 = alert_50($illegal_grant_user);
 	$ALERT51 = alert_51($illegal_remote_root);
-	$ALERT52 = alert_52($illegal_user_nopass);
-	$ALERT53 = alert_53($illegal_user_noname);
+	#$ALERT52 = alert_52($illegal_user_nopass);
+	#$ALERT53 = alert_53($illegal_user_noname);
 	
 	#we're not writing out SNMP or MySQL errors to XML because if those alerted at all we wouldn't have gotten here.
 	#$ALERTSNMP = alert_snmp($server_snmp_error_code);
@@ -3575,8 +3575,8 @@ sub analyze_data {
 	alert_insert(48,$ALERT48);
 	alert_insert(50,$ALERT50);
 	alert_insert(51,$ALERT51);
-	alert_insert(52,$ALERT52);
-	alert_insert(53,$ALERT53);
+	#alert_insert(52,$ALERT52);
+	#alert_insert(53,$ALERT53);
 	debug_report("insert current alerts: [finished]");
             
 	xml_end(); #end of XML document
@@ -3588,7 +3588,7 @@ sub analyze_data {
 sub xml_head {
     my($hostname,$Creation_time) = @_;
     writer('<?xml version="1.0" encoding="UTF-8"?>');
-    writer('<!-- generator="kontroll-reporter-5.0_linux-x86.pl" -->');
+    writer('<!-- generator="kontroll-reporter-cli.pl" -->');
     writer('<!-- website="http://kontrollsoft.com" -->');
     writer('<!-- package_ver="2.0" -->');
     writer('<!-- copyright-notice "Copyright 2010-present, Matt Reid" -->');
@@ -3673,20 +3673,25 @@ sub export_txt {
 	    if($server->child('alert')) {
 		foreach my $alert($server->child('alert')) {
 		    my $alert_id = $alert->attribute('id');
-		    my $alert_name = $alert->child('name')->value;
-		    my $alert_cat = $alert->child('category')->value;
-		    my $alert_desc = $alert->child('description')->value;
-		    my $alert_solution = $alert->child('solution')->value;
-		    my $alert_links = $alert->child('links')->value;
+		    my $alert_name = undef;
+		    my $alert_cat = undef;
+		    my $alert_desc = undef;
+		    my $alert_solution = undef;
+		    my $alert_links = undef;
+
+		    if($alert->child('name')) { $alert_name = $alert->child('name')->value; }
+		    if($alert->child('category')) { $alert_cat = $alert->child('category')->value; }
+		    if($alert->child('description')) { $alert_desc = $alert->child('description')->value; }
+		    if($alert->child('solution')) { $alert_solution = $alert->child('solution')->value; }
+		    if($alert->child('links')) { $alert_links = $alert->child('links')->value; }
 		    
-		    if($alert_links = '') { $alert_links = "No Links.";}
 		    #export_file("$alert_id",$export_file);
 		    export_file("Alert: $alert_name",$export_file);
 		    export_file("Category: $alert_cat",$export_file);
 		    export_file("Description: $alert_desc",$export_file);
 		    export_file("Solution: $alert_solution",$export_file);
-		    export_file("Links: $alert_links",$export_file);
-		    
+		    export_file("Links: $alert_links",$export_file); ##LINKS ARE NOT BEING POPULATED? 		    
+
 		    if($alert->child('detail')) {
 			foreach my $details($alert->child('detail')) {
 			    my $detail = $details->value;
@@ -3704,8 +3709,70 @@ sub export_txt {
 }
 
 sub export_html {
-    my $export_file = $commit_report.".$output";
+    my $export_file = $commit_report;
+    $export_file =~ s/.xml//g;
+    $export_file = $export_file.".$output";
 
+    debug_report("operating on XML file: $commit_report");
+    my $parser = XML::Parser->new(ErrorContext => 2, Style => "Tree");
+    my $xso = XML::SimpleObject->new( $parser->parsefile($commit_report));
+
+    foreach my $report ($xso->child('kontrollbase')->children('report')) {    
+        my $report_date = $report->attribute('date');
+        debug_report("export_txt XML processing: [starting]");
+
+        foreach my $server($report->child('server')) {
+            my $server_hostname = $server->attribute('hostname');
+            debug_report("export_html XML processing: [starting]");
+            
+	    export_file('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',$export_file);
+	    export_file('<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">',$export_file);
+	    export_file('<head>',$export_file);
+	    export_file('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />',$export_file);
+	    export_file('<title>Kontrollbase Reporter-CLI report for $hostname</title>',$export_file);
+	    export_file('<link rel="stylesheet" type="text/css" media="all" href="http://kontrollsoft.com/kontrollbase/userguide/css/userguide-nofluff.css" />',$export_file);
+	    export_file("</head><body>",$export_file);
+            export_file("<h1>Kontrollbase Reporter CLI version</h1>",$export_file);
+	    export_file("<b>Filename: $name<br>",$export_file);
+            export_file("Copyright 2010-present Matt Reid<br>$website<br>",$export_file);
+            export_file("Kontrollbase package version: $package_version</b><br>",$export_file);
+
+	    ##process alerts
+            if($server->child('alert')) {
+                foreach my $alert($server->child('alert')) {
+                    my $alert_id = $alert->attribute('id');
+                    my $alert_name = undef;
+                    my $alert_cat = undef;
+                    my $alert_desc = undef;
+                    my $alert_solution = undef;
+                    my $alert_links = undef;
+
+                    if($alert->child('name')) { $alert_name = $alert->child('name')->value; }
+                    if($alert->child('category')) { $alert_cat = $alert->child('category')->value; }
+                    if($alert->child('description')) { $alert_desc = $alert->child('description')->value; }
+                    if($alert->child('solution')) { $alert_solution = $alert->child('solution')->value; }
+                    if($alert->child('links')) { $alert_links = $alert->child('links')->value; }
+
+                    export_file("<h2>Alert: $alert_name</h2>",$export_file);
+                    export_file("<em><b>Category</b> $alert_cat</em><br>",$export_file);
+                    export_file("<b>Description</b> $alert_desc<br>",$export_file);
+                    export_file("<b>Solution</b> $alert_solution<br>",$export_file);
+		    if($alert_links) { export_file("<b>Links</b> $alert_links<br>",$export_file); }
+                    
+                    if($alert->child('detail')) {
+                        foreach my $details($alert->child('detail')) {
+                            my $detail = $details->value;
+                            export_file("$detail",$export_file);
+                        }
+                    }
+                    #write a line break after each alert
+                    export_file("<br><br>",$export_file);
+                }
+            }
+	    export_file("</body></html>",$export_file);
+        }
+    }
+    print "Final report available in file: $export_file\n";
     debug_report("Final report available in file: $export_file");
 }
 
@@ -3717,7 +3784,9 @@ sub export_xml {
 }
 
 sub export_pdf{
-    my $export_file = $commit_report.".$output";
+    my $export_file = $commit_report;
+    $export_file =~ s/.xml//g;
+    $export_file = $export_file.".$output";
 
     debug_report("Final report available in file: $export_file");
 }
@@ -3918,7 +3987,7 @@ SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
 --sqlite-file      = SQLite DB file
 
 --output           = output style for report
-                     [XML,HTML,PDF,TXT]
+                     [XML,HTML,TXT]
 
 defaults if variables not specified
 snmp-host:        localhost
