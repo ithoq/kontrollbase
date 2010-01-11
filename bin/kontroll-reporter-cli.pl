@@ -43,6 +43,7 @@ my $server_mysql_host = 'localhost';
 my $sqlite_file = './kontroll-reporter-cli_sqlite3-alerts_def.db';
 my $output = 'XML';
 my $server_host = hostname; #using Sys::Hostname
+my $verbose = "0"; #'0' to turn verbose off (default), '1' to enable
 
 # Date formats for filenames and processing, best to not chage them
 my $datetime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
@@ -50,7 +51,7 @@ my $tmpfiletime = strftime "%Y-%m-%d%H%M%S", localtime;
 my $datetimefile =  strftime "%Y-%m-%d_%H%M%S", localtime;
 
 # Output and log files - needs to be writeable by script user
-my $report_file = "/tmp/kontrollbase-reporter-$server_host-$tmpfiletime.log"; 
+my $report_file = "/tmp/kontrollbase-reporter-$server_host-$tmpfiletime"; 
 my $error_log = "/tmp/kbase-$datetimefile-sys_error.log"; 
 my $debug_log = "/tmp/kbase-$datetimefile-sys_debug.log"; 
 my $xml_log = "/tmp/kbase-$datetimefile-xml.log"; # 
@@ -61,9 +62,8 @@ my $xml_log = "/tmp/kbase-$datetimefile-xml.log"; #
 my $name = "kontroll-reporter-cli.pl";
 my $website = "http://kontrollsoft.com";
 my $package_version = "2.1";
-my $commit_report = $report_file;
-my $verbose;
-
+my $commit_report = $report_file.'.xml'; #add xml extension since its our default output before further processing
+ 
 # this is really dirty but there are other things to fix first
 my($ALERT00,$ALERT01,$ALERT02,$ALERT03,$ALERT04,$ALERT05,$ALERT06,$ALERT07,$ALERT08,$ALERT09,$ALERT10,$ALERT11,$ALERT12,$ALERT13,$ALERT14,$ALERT15,$ALERT16,$ALERT17,$ALERT18,$ALERT19,$ALERT20,$ALERT21,$ALERT22,$ALERT23,$ALERT24,$ALERT25,$ALERT26,$ALERT27,$ALERT28,$ALERT29,$ALERT30,$ALERT31,$ALERT32,$ALERT33,$ALERT34,$ALERT35,$ALERT36,$ALERT37,$ALERT38,$ALERT39,$ALERT40,$ALERT41,$ALERT42,$ALERT43,$ALERT44,$ALERT45,$ALERT46,$ALERT47,$ALERT48,$ALERT49,$ALERT50,$ALERT51,$ALERT52,$ALERT53,$ALERT54,$ALERT55,$ALERT56,$ALERT57,$ALERT58,$ALERT100,$ALERTSNMP,$ALERTMYSQL) = 0;
 
@@ -616,12 +616,9 @@ sub writer {
     $note = $note."\n";
     sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
-    if($verbose = 1) {
-	print $note;
-    }
     print FILE $note;    
     close FILE;
-    #return 0;
+    return 0;
 }
 
 sub writerx {
@@ -629,9 +626,6 @@ sub writerx {
     $note = "<detail>".$note."</detail>\n";
     sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
-    if($verbose = 1) {
-        print $note;
-    }
     print FILE $note;
     close FILE;
     return 0;
@@ -654,7 +648,7 @@ sub debug_report {
     sysopen(FILE, $debug_log, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$debug_log" or die $!;
     print FILE $note;
-    if($verbose = 1) {
+    if($verbose eq 1) {
         print $note;
     }
     close FILE;
@@ -1347,10 +1341,10 @@ sub alert_07 {
         writer("<alert id=\"7\">");
 	writer("<name>$alert_name</name>");
         writer("<category>$alert_category</category>");
-        writerx("Query cache NOT enabled. Please enable.");
-        writer("<description>$alert_desc</description>");
+	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
+        writerx("Query cache NOT enabled. Please enable.");
         writer("</alert>");
         $ALERT07=1;
         return $ALERT07;
@@ -1366,14 +1360,14 @@ sub alert_07 {
 	    writer("<alert id=\"7\">");
 	    writer("<name>$alert_name</name>");
 	    writer("<category>$alert_category</category>");
+	    writer("<description>$alert_desc</description>");
+            writer("<links>$alert_links</links>");
+            writer("<solution>$alert_solution</solution>");
 	    writerx("Current Qcache_lowmem_prunes = $Qcache_lowmem_prunes");
 	    writerx("Current Qcache_free_memory = $Qcache_free_memory_HR");
 	    writerx("Current query_cache size = $query_cache_size_HR");
 	    writerx("Current query cache usage ratio = $Qratio%");
             writerx("query cache size recommended size = $query_cache_size_R");    
-            writer("<description>$alert_desc</description>");
-            writer("<links>$alert_links</links>");
-            writer("<solution>$alert_solution</solution>");
 	    writer("</alert>");
             $ALERT07=1;
         }
@@ -1572,6 +1566,9 @@ sub alert_11 {
 	writer("<alert id=\"11\">");
 	writer("<name>$alert_name</name>");
 	writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
+        writer("<links>$alert_links</links>");
+        writer("<solution>$alert_solution</solution>");
 	writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
 	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
 	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
@@ -1745,8 +1742,8 @@ sub alert_13 {
         if($key_cache_miss_rate >= 1000) {
             writerx("Your key_buffer_size miss rate is higher than 1:1000");
             writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
-	    writer("</alert>");
         }
+	writer("</alert>");
         $ALERT13=1;
     }
     else {
@@ -1914,14 +1911,13 @@ sub alert_16 {
 	writerx("Current passes_per_sort = $passes_per_sort");
 	writerx("Current sort_buffer_size = $sort_buffer_sizeHR");
 	writerx("Current read_rnd_buffer_size = $read_rnd_buffer_sizeHR");
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-
-        writerx("# Decrease sort_buffer_size, Current size is $sort_buffer_sizeHR");
+	writerx("# Decrease sort_buffer_size, Current size is $sort_buffer_sizeHR");
         writerx("# Recommend: sort_buffer_size = $sort_buffer_size_R");
         writerx("# Decrease read_rnd_buffer_size, Current size is $read_rnd_buffer_sizeHR");
         writerx("# Recommend: read_rnd_buffer_size = $read_rnd_buffer_size_R");
+        writer("<description>$alert_desc</description>");
+        writer("<links>$alert_links</links>");
+        writer("<solution>$alert_solution</solution>");
 	writer("</alert>");
         $ALERT16=1;
     }
@@ -1968,6 +1964,7 @@ sub alert_17 {
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
             writerx("# Recommend a starting point of $join_buffer_size_R_HR");
+	    writer("</alert>");
         }
         elsif($warn == 1) {
 	    writer("<alert id=\"17\">");
@@ -2067,12 +2064,14 @@ sub alert_20 {
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("20");
 
     my $immediate_locks_miss_rate = undef;
-
     my $innodb_ratio = round(($engine_count_innodb / $num_tables) * 100);
+    $immediate_locks_miss_rate=round(($Table_locks_immediate/$Table_locks_waited),2);
+ 
     if(($immediate_locks_miss_rate < 5000) && ($innodb_ratio <= 66)) {
 	writer("<alert id=\"20\">");
 	writer("<name>$alert_name</name>");
 	writer("<category>$alert_category</category>");
+	writerx("Current table lock wait ratio = $immediate_locks_miss_rate:$Questions");
         writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
@@ -2109,6 +2108,9 @@ sub alert_21 {
 	    writer("<alert id=\"21\">");
 	    writer("<name>$alert_name</name>");
 	    writer("<category>$alert_category</category>");
+	    writer("<description>$alert_desc</description>");
+	    writer("<links>$alert_links</links>");
+	    writer("<solution>$alert_solution</solution>");
 	    writerx("Current table_cache value = $table_cache tables");
 	    writerx("Current Open_tables = $Open_tables tables.");
 	    writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
@@ -2160,6 +2162,9 @@ sub alert_22 {
 	writer("<alert id=\"22\">");
 	writer("<name>$alert_name</name>");
 	writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
+        writer("<links>$alert_links</links>");
+        writer("<solution>$alert_solution</solution>");
         writerx("Current table_cache value = $table_cache tables");
         writerx("Current Open_tables = $Open_tables tables.");
         writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
@@ -2204,7 +2209,9 @@ sub alert_23 {
 	writer("<name>$alert_name</name>");
 	writer("<category>$alert_category</category>");
         writerx("Thread_cache disabled. Please enable thread caching.");
+	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
+        writer("<solution>$alert_solution</solution>");
         writer("</alert>");
         $ALERT23 = 1;
         return $ALERT23;
@@ -2329,6 +2336,9 @@ sub alert_25 {
 	    writer("<alert id=\"25\">");
 	    writer("<name>$alert_name</name>");
 	    writer("<category>$alert_category</category>");
+	    writer("<description>$alert_desc</description>");
+	    writer("<links>$alert_links</links>");
+	    writer("<solution>$alert_solution</solution>");
 	    writerx("Your binlog_cache has less than 25% utilization.");
 	    writerx("Current binlog_cache_size = $binlog_cache_size_HR");
 	    writerx("Current binlog cache usage by transactions: $Binlog_cache_use");
@@ -2784,7 +2794,8 @@ sub alert_00 {
 	writer("<name>$alert_name</name>");
 	writer("<category>$alert_category</category>");
         writerx("Current Uptime = $Uptime hours");
-        writer("<description>$alert_desc</description>");
+	writer("<description>$alert_desc</description>");
+        writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
 	writer("</alert>");
         $ALERT00=1;
@@ -2888,7 +2899,7 @@ sub alert_52 {
     my($illegal_user_nopass) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("52");
 
-    if($illegal_user_nopass == 0) {
+    if($illegal_user_nopass = 0) {
         $ALERT52=0;
     }
     else {
@@ -2909,7 +2920,7 @@ sub alert_53 {
     my($illegal_user_noname) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("53");
 
-    if($illegal_user_noname == 0) {
+    if($illegal_user_noname = 0) {
         $ALERT53=0;
     }
     else {
@@ -3464,12 +3475,8 @@ sub analyze_data {
     my $Creation_time = $datetime;    
 
     $os_mem_total = ($os_mem_total); # fix for bytes
-    #If we're generating an XML report for some reason then we would work with the sub call below but..
-    #    xml_head($hostname,$Creation_time);
+    xml_head($hostname,$Creation_time); #we're creating an XML document by default
 
-        #loop through alerts ordered by category... enable this once we finish all of the alerts.
-#       $sql1="select id from alerts_def order by alert_category asc;";
-#
     $ALERT00 = alert_00($Uptime);
     if($ALERT00 == 0) { 
 	$ALERT01 = alert_01($Aborted_connects);
@@ -3519,8 +3526,9 @@ sub analyze_data {
 	$ALERT52 = alert_52($illegal_user_nopass);
 	$ALERT53 = alert_53($illegal_user_noname);
 	
-	$ALERTSNMP = alert_snmp($server_snmp_error_code);
-	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
+	#we're not writing out SNMP or MySQL errors to XML because if those alerted at all we wouldn't have gotten here.
+	#$ALERTSNMP = alert_snmp($server_snmp_error_code);
+	#$ALERTMYSQL = alert_mysql($server_mysql_error_code);
             
 	# Insert report data into database
 	debug_report("insert current alerts: [starting]");
@@ -3571,20 +3579,127 @@ sub analyze_data {
 	alert_insert(53,$ALERT53);
 	debug_report("insert current alerts: [finished]");
             
-	xml_end();
+	xml_end(); #end of XML document
+	#we're not inserting the report to SQLite because, well, there's no need to. Keeping for future need if needed for some reason.
 	#insert_report($server_list_id,$server_statistics_id,$Creation_time);
     }
-    else {
-	$ALERTSNMP = alert_snmp($server_snmp_error_code);
-	$ALERTMYSQL = alert_mysql($server_mysql_error_code);
-	xml_end();
-	#insert_report($server_list_id,$server_statistics_id,$Creation_time);
-    }    
+}
+
+sub xml_head {
+    my($hostname,$Creation_time) = @_;
+    writer('<?xml version="1.0" encoding="UTF-8"?>');
+    writer('<!-- generator="kontroll-reporter-5.0_linux-x86.pl" -->');
+    writer('<!-- website="http://kontrollsoft.com" -->');
+    writer('<!-- package_ver="2.0" -->');
+    writer('<!-- copyright-notice "Copyright 2010-present, Matt Reid" -->');
+    writer('<!-- license-type "BSD http://www.opensource.org/licenses/bsd-license.php" -->');
+    writer(' <kontrollbase version="2.0">');
+    writer("  <report date=\"$Creation_time\">");
+    writer("   <server hostname=\"$hostname\">");
+}
+
+sub xml_end {
+    writer("   </server>");
+    writer("  </report>");
+    writer(" </kontrollbase>");
+}
+
+sub export_file {
+    my($note,$export_file) = @_;
+    $note = $note."\n";
+
+    sysopen(FILE, $export_file, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">>$export_file" or die $!;
+    if($verbose eq 1) {
+        print $note;
+    }
+    print FILE $note;    
+    close FILE;
+    return 0;
 }
 
 sub export_txt {
-    my $export_file = $commit_report.".$output";
 
+    my $export_file = $commit_report;
+    $export_file =~ s/.xml//g;
+    $export_file = $export_file.".$output";    
+
+    ## SQLite data select... NOT IN USE but keep it for later use somewhere else. 
+    # We have <details> in the XML file that are not in the database that we need to process, 
+    # so no SQLite select for out reporting needs here.
+    my $dbh = DBI->connect(
+    "dbi:SQLite:dbname=$sqlite_file", 
+                           "",
+                           "",
+                           { RaiseError => 1 },
+                           ) or die $DBI::errstr;
+
+    my $sql1 = "select * from alerts_current, alerts_def where alerts_current.alert_state=1 and alerts_current.alerts_def_id = alerts_def.id;";
+    my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
+    $sth->execute or error_report("$DBI::errstr");        
+    while(my $row = $sth->fetchrow_hashref) {
+        my $id = $row->{'alerts_def_id'};
+        my $alert_name = $row->{'alert_name'};
+        my $alert_desc = $row->{'alert_desc'};
+        my $alert_links = $row->{'alert_links'};
+        my $alert_solution = $row->{'alert_solution'};
+        my $alert_function = $row->{'alert_function'};
+        my $alert_category = $row->{'alert_category'};
+        my $alert_level = $row->{'alert_level'};
+	
+    }
+    #END SQLite 
+    ###########
+    debug_report("operating on XML file: $commit_report");
+    my $parser = XML::Parser->new(ErrorContext => 2, Style => "Tree");
+    my $xso = XML::SimpleObject->new( $parser->parsefile($commit_report));
+
+    foreach my $report ($xso->child('kontrollbase')->children('report')) {    
+        my $report_date = $report->attribute('date');
+        debug_report("export_txt XML processing: [starting]");
+
+        foreach my $server($report->child('server')) {
+	    my $server_hostname = $server->attribute('hostname');
+	    debug_report("export_txt XML processing: [starting]");
+	    
+	    export_file("#########################################################",$export_file);
+	    export_file("Filename: $name",$export_file);
+	    export_file("Kontrollbase Reporter CLI version",$export_file);
+	    export_file("Copyright 2010-present Matt Reid - $website",$export_file);
+	    export_file("Kontrollbase package version: $package_version",$export_file);
+	    export_file("#########################################################",$export_file);
+
+	    #process alerts
+	    if($server->child('alert')) {
+		foreach my $alert($server->child('alert')) {
+		    my $alert_id = $alert->attribute('id');
+		    my $alert_name = $alert->child('name')->value;
+		    my $alert_cat = $alert->child('category')->value;
+		    my $alert_desc = $alert->child('description')->value;
+		    my $alert_solution = $alert->child('solution')->value;
+		    my $alert_links = $alert->child('links')->value;
+		    
+		    if($alert_links = '') { $alert_links = "No Links.";}
+		    #export_file("$alert_id",$export_file);
+		    export_file("Alert: $alert_name",$export_file);
+		    export_file("Category: $alert_cat",$export_file);
+		    export_file("Description: $alert_desc",$export_file);
+		    export_file("Solution: $alert_solution",$export_file);
+		    export_file("Links: $alert_links",$export_file);
+		    
+		    if($alert->child('detail')) {
+			foreach my $details($alert->child('detail')) {
+			    my $detail = $details->value;
+			    export_file("$detail",$export_file);
+			}
+		    }
+		    #write a line break after each alert
+		    export_file("--------",$export_file);
+		}
+	    }
+	}
+    }
+    print "Final report available in file: $export_file\n";
     debug_report("Final report available in file: $export_file");
 }
 
@@ -3595,31 +3710,9 @@ sub export_html {
 }
 
 sub export_xml {
-    my $export_file = $commit_report.".$output";
-    debug_report("selecting current alerts from sqlite: [starting]");
-    my $dbh = DBI->connect(
-    "dbi:SQLite:dbname=$sqlite_file", 
-                           "",
-                           "",
-                           { RaiseError => 1 },
-                           ) or die $DBI::errstr;
-
-    my $sql1 = "select * from alerts_current, alerts_def where alerts_current.alert_state=1 and alerts_current.alerts_def_id = alerts_def.id;";
-    my $sth = $dbh->prepare($sql1) or error_report("$DBI::errstr");
-    $sth->execute or error_report("$DBI::errstr");    
-    debug_report("selecting current alerts from sqlite: [success]");
-
-    while(my $row = $sth->fetchrow_hashref) {
-	my $id = $row->{'alerts_def_id'};
-        my $alert_name = $row->{'alert_name'};
-        my $alert_desc = $row->{'alert_desc'};
-        my $alert_links = $row->{'alert_links'};
-        my $alert_solution = $row->{'alert_solution'};
-        my $alert_function = $row->{'alert_function'};
-        my $alert_category = $row->{'alert_category'};
-	my $alert_level = $row->{'alert_level'};
-    }
-    
+    #XML report is easy, we are saving everything as XML data in the $commit_report so just refer user to that file
+    my $export_file = $commit_report;
+    print "Final report available in file: $export_file\n";
     debug_report("Final report available in file: $export_file");
 }
 
@@ -3772,6 +3865,7 @@ log_clear();
 my $help = undef;
 my $prereq = undef;
 my $sqlite_file_argv = undef;
+my $verbose_mode = undef;
 
 GetOptions (
     'snmp-host=s' => \$server_snmp_local_address, 
@@ -3788,7 +3882,7 @@ GetOptions (
     'mysql-host=s' => \$server_mysql_host,
     'sqlite-file=s' => \$sqlite_file_argv,
     'output=s' => \$output,
-    'verbose' => \$verbose,
+    'verbose' => \$verbose_mode,
     'help' => \$help,
     'prereq' => \$prereq
 	    );
@@ -3862,7 +3956,7 @@ Kontrollbase package version: $package_version
 !! Requires SQLite database file to run !!
 SQLite file: kontroll-reporter-cli_sqlite3-alerts_def.db
 #########################################################
-Current Variable Settings - Verbose Mode
+Current Variable Settings 
 snmp address:     $server_snmp_local_address
 snmp port:        $server_snmp_port
 snmp rocommunity: $server_snmp_rocommunity
@@ -3905,7 +3999,7 @@ GO
 	error_report("SQLite file ($sqlite_file) specified does not exist. Exiting.");
     }    
 
-    if($verbose) { $verbose = 1; } else { $verbose = 0; }
+    if($verbose_mode) { $verbose = '1'; } 
     
     start_xml();
     get_snmp_os_stats(
