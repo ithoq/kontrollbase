@@ -1180,7 +1180,7 @@ sub xml_data_process {
 	    error_report("XML File is 0 size.");
 	    return 1;
 	}	
-	my $state = parse_data();
+	my $state = parse_data(); #XML file data is parsed
 	if($state == 1) { 
 	    error_report("XML data processing: [failed]"); 
 	    return 1;
