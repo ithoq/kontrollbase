@@ -55,6 +55,7 @@ include("doc_header.php");
 <li><a href="rga-alert_system.php">Understanding the Alert Process</a></li>
 <li><a href="rga-reporting_overview.php">Kontrollbase Reports</a></li>
 <li><a href="rga-graphs_overview.php">Kontrollbase Graphs</a></li>
+<li><a href="rga-kontrollbase-cli.php">Kontrollbase CLI Reporter</a></li>
 </ul>
 
 <h3>Performance and Scaling</h3>
