@@ -18,3 +18,6 @@ to the next.
 
 -revision 231
 	  added "$config['news_enable'] = TRUE;" to config.php file
+
+--revision 271
+	   updated schema file located in /install/schema to kontrollbase-schema-2.1.sql
