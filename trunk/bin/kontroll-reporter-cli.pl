@@ -4657,11 +4657,14 @@ sub export_html {
 	    export_file('<head>',$export_file);
 	    export_file('<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />',$export_file);
 	    export_file('<title>Kontrollbase Reporter-CLI report for $hostname</title>',$export_file);
-	    export_file('<link rel="stylesheet" type="text/css" media="all" href="http://kontrollsoft.com/kontrollbase/userguide/css/userguide-nofluff.css" />',$export_file);
+	    export_file('<style type="text/css">body {font-family: Helvetica, sans-serif; font-size: 10px;}</style>',$export_file);
 	    export_file("</head><body>",$export_file);
-            export_file("<h1>Kontrollbase Reporter CLI version</h1>",$export_file);
-	    export_file("<b>Filename: $name<br>",$export_file);
-            export_file("Copyright 2010-present Matt Reid<br>$website<br>",$export_file);
+            export_file("<h2>Kontrollbase Reporter CLI version</h2>",$export_file);
+	    export_file("<b>MySQL server tuning and analytics report for server: $server_host<br>",$export_file);
+	    export_file("Report generated on date: $datetime<br>",$export_file);
+	    export_file("Filename: $name<br>",$export_file);
+            export_file("Copyright 2010-present Matt Reid<br>$website | contact\@kontrollsoft.com<br>",$export_file);
+	    export_file("License: New-BSD license.<br>See LICENSE.txt that is bundled with this application.<br>",$export_file);
             export_file("Kontrollbase package version: $package_version</b><br>",$export_file);
 
 	    ##process alerts
@@ -4680,23 +4683,23 @@ sub export_html {
                     if($alert->child('solution')) { $alert_solution = $alert->child('solution')->value; }
                     if($alert->child('links')) { $alert_links = $alert->child('links')->value; }
 
-                    export_file("<h2>Alert: $alert_name</h2>",$export_file);
-                    export_file("<em><b>Category</b> $alert_cat</em><br>",$export_file);
-                    export_file("<b>Description</b> $alert_desc<br>",$export_file);
-                    export_file("<b>Solution</b> $alert_solution<br>",$export_file);
+                    export_file("<h3>Alert: $alert_name</h3>",$export_file);
+                    export_file("<em><b>Category:</b> $alert_cat</em><br>",$export_file);
+                    export_file("<b>Description:</b> $alert_desc<br>",$export_file);
+                    export_file("<b>Solution:</b> $alert_solution<br>",$export_file);
 		    if($alert_links) { export_file("<b>Links</b> $alert_links<br>",$export_file); }
                     
                     if($alert->child('detail')) {
                         foreach my $details($alert->child('detail')) {
                             my $detail = $details->value;
-                            export_file("$detail",$export_file);
+                            export_file("<em>$detail</em><br>",$export_file);
                         }
                     }
                     #write a line break after each alert
                     export_file("<br><br>",$export_file);
                 }
             }
-	    export_file("<h2>Analytics Report</h2>",$export_file);
+	    export_file("<h3>Analytics Report</h3>",$export_file);
 	    if($server->child('analytics_report')) {
                 foreach my $analytics_report($server->child('analytics_report')) {
                     if($analytics_report->child('analytics')) {
