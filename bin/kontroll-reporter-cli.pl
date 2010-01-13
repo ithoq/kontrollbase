@@ -566,6 +566,29 @@ my %varlist = (
     'illegal_user_noname' => '0',
     'collection_time_elapse' => '0');
 
+#Check variables to see if they are 0 so that we do not get division by zero errors                                   
+sub check_var {
+    my $var = $_[0];
+    #$var = chomp($var); #chomp was destroying our values..
+    debug_report("exceptionhandler: check_var($var)");
+    if($var == "YES") { return $var; }
+    elsif($var == "NO") { return $var; }
+    elsif($var == "ON") { return $var; }
+    elsif($var == "OFF") { return $var; }
+    else {
+	$var = sprintf("%d", $var);
+	if($var == 0) {
+	    $var = .01;
+	    debug_report("check_var variable value: $var");
+	    return $var;
+	}
+	else {
+	    debug_report("exceptionhandler: ($var > 0) continuing...");
+	    return $var;
+	}
+    }
+}
+
 sub human {
     my $val = $_[0];
     if($val < 1048576) {
@@ -626,6 +649,16 @@ sub writerx {
     $note = "<detail>".$note."</detail>\n";
     sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
     open FILE, ">>$commit_report" or die $!;
+    print FILE $note;
+    close FILE;
+    return 0;
+}
+sub wfile {
+    my $file = $_[0];
+    my $note = $_[1];
+    $note = "<analytics>".$note."</analytics>\n";
+    sysopen(FILE, $file, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">>$file" or die $!;
     print FILE $note;
     close FILE;
     return 0;
@@ -708,6 +741,880 @@ sub start_xml {
 sub end_xml {
     writexml("</server>
  </kontrollbase>");
+    return 0;
+}
+
+sub analyze_analytics {
+    debug_report("analyze_analytics: [starting]");
+    my   $Aborted_clients = $varlist{'Aborted_clients'};
+    my   $Aborted_connects = $varlist{'Aborted_connects'};
+    my   $Binlog_cache_disk_use = $varlist{'Binlog_cache_disk_use'};
+    my   $Binlog_cache_use = $varlist{'Binlog_cache_use'};
+    my   $Bytes_received = $varlist{'Bytes_received'};
+    my   $Bytes_sent = $varlist{'Bytes_sent'};
+    my   $Com_admin_commands = $varlist{'Com_admin_commands'};
+    my   $Com_alter_db = $varlist{'Com_alter_db'};
+    my   $Com_alter_table = $varlist{'Com_alter_table'};
+    my   $Com_analyze = $varlist{'Com_analyze'};
+    my   $Com_backup_table = $varlist{'Com_backup_table'};
+    my   $Com_begin = $varlist{'Com_begin'};
+    my   $Com_call_procedure = $varlist{'Com_call_procedure'};
+    my   $Com_change_db = $varlist{'Com_change_db'};
+    my   $Com_change_master = $varlist{'Com_change_master'};
+    my   $Com_check = $varlist{'Com_check'};
+    my   $Com_checksum = $varlist{'Com_checksum'};
+    my   $Com_commit = $varlist{'Com_commit'};
+    my   $Com_create_db = $varlist{'Com_create_db'};
+    my   $Com_create_function = $varlist{'Com_create_function'};
+    my   $Com_create_index = $varlist{'Com_create_index'};
+    my   $Com_create_table = $varlist{'Com_create_table'};
+    my   $Com_create_user = $varlist{'Com_create_user'};
+    my   $Com_dealloc_sql = $varlist{'Com_dealloc_sql'};
+    my   $Com_delete = $varlist{'Com_delete'};
+    my   $Com_delete_multi = $varlist{'Com_delete_multi'};
+    my   $Com_do = $varlist{'Com_do'};
+    my   $Com_drop_db = $varlist{'Com_drop_db'};
+    my   $Com_drop_function = $varlist{'Com_drop_function'};
+    my   $Com_drop_index = $varlist{'Com_drop_index'};
+    my   $Com_drop_table = $varlist{'Com_drop_table'};
+    my   $Com_drop_user = $varlist{'Com_drop_user'};
+    my   $Com_execute_sql = $varlist{'Com_execute_sql'};
+    my   $Com_flush = $varlist{'Com_flush'};
+    my   $Com_grant = $varlist{'Com_grant'};
+    my   $Com_ha_close = $varlist{'Com_ha_close'};
+    my   $Com_ha_open = $varlist{'Com_ha_open'};
+    my   $Com_ha_read = $varlist{'Com_ha_read'};
+    my   $Com_help = $varlist{'Com_help'};
+    my   $Com_insert = $varlist{'Com_insert'};
+    my   $Com_insert_select = $varlist{'Com_insert_select'};
+    my   $Com_kill = $varlist{'Com_kill'};
+    my   $Com_load = $varlist{'Com_load'};
+    my   $Com_load_master_data = $varlist{'Com_load_master_data'};
+    my   $Com_load_master_table = $varlist{'Com_load_master_table'};
+    my   $Com_lock_tables = $varlist{'Com_lock_tables'};
+    my   $Com_optimize = $varlist{'Com_optimize'};
+    my   $Com_preload_keys = $varlist{'Com_preload_keys'};
+    my   $Com_prepare_sql = $varlist{'Com_prepare_sql'};
+    my   $Com_purge = $varlist{'Com_purge'};
+    my   $Com_purge_before_date = $varlist{'Com_purge_before_date'};
+    my   $Com_rename_table = $varlist{'Com_rename_table'};
+    my   $Com_repair = $varlist{'Com_repair'};
+    my   $Com_replace = $varlist{'Com_replace'};
+    my   $Com_replace_select = $varlist{'Com_replace_select'};
+    my   $Com_reset = $varlist{'Com_reset'};
+    my   $Com_restore_table = $varlist{'Com_restore_table'};
+    my   $Com_revoke = $varlist{'Com_revoke'};
+    my   $Com_revoke_all = $varlist{'Com_revoke_all'};
+    my   $Com_rollback = $varlist{'Com_rollback'};
+    my   $Com_savepoint = $varlist{'Com_savepoint'};
+    my   $Com_select = $varlist{'Com_select'};
+    my   $Com_set_option = $varlist{'Com_set_option'};
+    my   $Com_show_binlog_events = $varlist{'Com_show_binlog_events'};
+    my   $Com_show_binlogs = $varlist{'Com_show_binlogs'};
+    my   $Com_show_charsets = $varlist{'Com_show_charsets'};
+    my   $Com_show_collations = $varlist{'Com_show_collations'};
+    my   $Com_show_column_types = $varlist{'Com_show_column_types'};
+    my   $Com_show_create_db = $varlist{'Com_show_create_db'};
+    my   $Com_show_create_table = $varlist{'Com_show_create_table'};
+    my   $Com_show_databases = $varlist{'Com_show_databases'};
+    my   $Com_show_errors = $varlist{'Com_show_errors'};
+    my   $Com_show_fields = $varlist{'Com_show_fields'};
+    my   $Com_show_grants = $varlist{'Com_show_grants'};
+    my   $Com_show_innodb_status = $varlist{'Com_show_innodb_status'};
+    my   $Com_show_keys = $varlist{'Com_show_keys'};
+    my   $Com_show_logs = $varlist{'Com_show_logs'};
+    my   $Com_show_master_status = $varlist{'Com_show_master_status'};
+    my   $Com_show_ndb_status = $varlist{'Com_show_ndb_status'};
+    my   $Com_show_new_master = $varlist{'Com_show_new_master'};
+    my   $Com_show_open_tables = $varlist{'Com_show_open_tables'};
+    my   $Com_show_privileges = $varlist{'Com_show_privileges'};
+    my   $Com_show_processlist = $varlist{'Com_show_processlist'};
+    my   $Com_show_slave_hosts = $varlist{'Com_show_slave_hosts'};
+    my   $Com_show_slave_status = $varlist{'Com_show_slave_status'};
+    my   $Com_show_status = $varlist{'Com_show_status'};
+    my   $Com_show_storage_engines = $varlist{'Com_show_storage_engines'};
+    my   $Com_show_tables = $varlist{'Com_show_tables'};
+    my   $Com_show_triggers = $varlist{'Com_show_triggers'};
+    my   $Com_show_variables = $varlist{'Com_show_variables'};
+    my   $Com_show_warnings = $varlist{'Com_show_warnings'};
+    my   $Com_slave_start = $varlist{'Com_slave_start'};
+    my   $Com_slave_stop = $varlist{'Com_slave_stop'};
+    my   $Com_stmt_close = $varlist{'Com_stmt_close'};
+    my   $Com_stmt_execute = $varlist{'Com_stmt_execute'};
+    my   $Com_stmt_fetch = $varlist{'Com_stmt_fetch'};
+    my   $Com_stmt_prepare = $varlist{'Com_stmt_prepare'};
+    my   $Com_stmt_reset = $varlist{'Com_stmt_reset'};
+    my   $Com_stmt_send_long_data = $varlist{'Com_stmt_send_long_data'};
+    my   $Com_truncate = $varlist{'Com_truncate'};
+    my   $Com_unlock_tables = $varlist{'Com_unlock_tables'};
+    my   $Com_update = $varlist{'Com_update'};
+    my   $Com_update_multi = $varlist{'Com_update_multi'};
+    my   $Com_xa_commit = $varlist{'Com_xa_commit'};
+    my   $Com_xa_end = $varlist{'Com_xa_end'};
+    my   $Com_xa_prepare = $varlist{'Com_xa_prepare'};
+    my   $Com_xa_recover = $varlist{'Com_xa_recover'};
+    my   $Com_xa_rollback = $varlist{'Com_xa_rollback'};
+    my   $Com_xa_start = $varlist{'Com_xa_start'};
+    my   $Compression = $varlist{'Compression'};
+    my   $Connections = $varlist{'Connections'};
+    my   $Created_tmp_disk_tables = $varlist{'Created_tmp_disk_tables'};
+    my   $Created_tmp_files = $varlist{'Created_tmp_files'};
+    my   $Created_tmp_tables = $varlist{'Created_tmp_tables'};
+    my   $Delayed_errors = $varlist{'Delayed_errors'};
+    my   $Delayed_insert_threads = $varlist{'Delayed_insert_threads'};
+    my   $Delayed_writes = $varlist{'Delayed_writes'};
+    my   $Flush_commands = $varlist{'Flush_commands'};
+    my   $Handler_commit = $varlist{'Handler_commit'};
+    my   $Handler_delete = $varlist{'Handler_delete'};
+    my   $Handler_discover = $varlist{'Handler_discover'};
+    my   $Handler_prepare = $varlist{'Handler_prepare'};
+    my   $Handler_read_first = $varlist{'Handler_read_first'};
+    my   $Handler_read_key = $varlist{'Handler_read_key'};
+    my   $Handler_read_next = $varlist{'Handler_read_next'};
+    my   $Handler_read_prev = $varlist{'Handler_read_prev'};
+    my   $Handler_read_rnd = $varlist{'Handler_read_rnd'};
+    my   $Handler_read_rnd_next = $varlist{'Handler_read_rnd_next'};
+    my   $Handler_rollback = $varlist{'Handler_rollback'};
+    my   $Handler_savepoint = $varlist{'Handler_savepoint'};
+    my   $Handler_savepoint_rollback = $varlist{'Handler_savepoint_rollback'};
+    my   $Handler_update = $varlist{'Handler_update'};
+    my   $Handler_write = $varlist{'Handler_write'};
+    my   $Innodb_buffer_pool_pages_data = $varlist{'Innodb_buffer_pool_pages_data'};
+    my   $Innodb_buffer_pool_pages_dirty = $varlist{'Innodb_buffer_pool_pages_dirty'};
+    my   $Innodb_buffer_pool_pages_flushed = $varlist{'Innodb_buffer_pool_pages_flushed'};
+    my   $Innodb_buffer_pool_pages_free = $varlist{'Innodb_buffer_pool_pages_free'};
+    my   $Innodb_buffer_pool_pages_misc = $varlist{'Innodb_buffer_pool_pages_misc'};
+    my   $Innodb_buffer_pool_pages_total = $varlist{'Innodb_buffer_pool_pages_total'};
+    my   $Innodb_buffer_pool_read_ahead_rnd = $varlist{'Innodb_buffer_pool_read_ahead_rnd'};
+    my   $Innodb_buffer_pool_read_ahead_seq = $varlist{'Innodb_buffer_pool_read_ahead_seq'};
+    my   $Innodb_buffer_pool_read_requests = $varlist{'Innodb_buffer_pool_read_requests'};
+    my   $Innodb_buffer_pool_reads = $varlist{'Innodb_buffer_pool_reads'};
+    my   $Innodb_buffer_pool_wait_free = $varlist{'Innodb_buffer_pool_wait_free'};
+    my   $Innodb_buffer_pool_write_requests = $varlist{'Innodb_buffer_pool_write_requests'};
+    my   $Innodb_data_fsyncs = $varlist{'Innodb_data_fsyncs'};
+    my   $Innodb_data_pending_fsyncs = $varlist{'Innodb_data_pending_fsyncs'};
+    my   $Innodb_data_pending_reads = $varlist{'Innodb_data_pending_reads'};
+    my   $Innodb_data_pending_writes = $varlist{'Innodb_data_pending_writes'};
+    my   $Innodb_data_read = $varlist{'Innodb_data_read'};
+    my   $Innodb_data_reads = $varlist{'Innodb_data_reads'};
+    my   $Innodb_data_writes = $varlist{'Innodb_data_writes'};
+    my   $Innodb_data_written = $varlist{'Innodb_data_written'};
+    my   $Innodb_dblwr_pages_written = $varlist{'Innodb_dblwr_pages_written'};
+    my   $Innodb_dblwr_writes = $varlist{'Innodb_dblwr_writes'};
+    my   $Innodb_log_waits = $varlist{'Innodb_log_waits'};
+    my   $Innodb_log_write_requests = $varlist{'Innodb_log_write_requests'};
+    my   $Innodb_log_writes = $varlist{'Innodb_log_writes'};
+    my   $Innodb_os_log_fsyncs = $varlist{'Innodb_os_log_fsyncs'};
+    my   $Innodb_os_log_pending_fsyncs = $varlist{'Innodb_os_log_pending_fsyncs'};
+    my   $Innodb_os_log_pending_writes = $varlist{'Innodb_os_log_pending_writes'};
+    my   $Innodb_os_log_written = $varlist{'Innodb_os_log_written'};
+    my   $Innodb_page_size = $varlist{'Innodb_page_size'};
+    my   $Innodb_pages_created = $varlist{'Innodb_pages_created'};
+    my   $Innodb_pages_read = $varlist{'Innodb_pages_read'};
+    my   $Innodb_pages_written = $varlist{'Innodb_pages_written'};
+    my   $Innodb_row_lock_current_waits = $varlist{'Innodb_row_lock_current_waits'};
+    my   $Innodb_row_lock_time = $varlist{'Innodb_row_lock_time'};
+    my   $Innodb_row_lock_time_avg = $varlist{'Innodb_row_lock_time_avg'};
+    my   $Innodb_row_lock_time_max = $varlist{'Innodb_row_lock_time_max'};
+    my   $Innodb_row_lock_waits = $varlist{'Innodb_row_lock_waits'};
+    my   $Innodb_rows_deleted = $varlist{'Innodb_rows_deleted'};
+    my   $Innodb_rows_inserted = $varlist{'Innodb_rows_inserted'};
+    my   $Innodb_rows_read = $varlist{'Innodb_rows_read'};
+    my   $Innodb_rows_updated = $varlist{'Innodb_rows_updated'};
+    my   $Key_blocks_not_flushed = $varlist{'Key_blocks_not_flushed'};
+    my   $Key_blocks_unused = $varlist{'Key_blocks_unused'};
+    my   $Key_blocks_used = $varlist{'Key_blocks_used'};
+    my   $Key_read_requests = $varlist{'Key_read_requests'};
+    my   $Key_reads = $varlist{'Key_reads'};
+    my   $Key_write_requests = $varlist{'Key_write_requests'};
+    my   $Key_writes = $varlist{'Key_writes'};
+    my   $Last_query_cost = $varlist{'Last_query_cost'};
+    my   $Max_used_connections = $varlist{'Max_used_connections'};
+    my   $Not_flushed_delayed_rows = $varlist{'Not_flushed_delayed_rows'};
+    my   $Open_files = $varlist{'Open_files'};
+    my   $Open_streams = $varlist{'Open_streams'};
+    my   $Open_tables = $varlist{'Open_tables'};
+    my   $Opened_tables = $varlist{'Opened_tables'};
+    my   $Prepared_stmt_count = $varlist{'Prepared_stmt_count'};
+    my   $Qcache_free_blocks = $varlist{'Qcache_free_blocks'};
+    my   $Qcache_free_memory = $varlist{'Qcache_free_memory'};
+    my   $Qcache_hits = $varlist{'Qcache_hits'};
+    my   $Qcache_inserts = $varlist{'Qcache_inserts'};
+    my   $Qcache_lowmem_prunes = $varlist{'Qcache_lowmem_prunes'};
+    my   $Qcache_not_cached = $varlist{'Qcache_not_cached'};
+    my   $Qcache_queries_in_cache = $varlist{'Qcache_queries_in_cache'};
+    my   $Qcache_total_blocks = $varlist{'Qcache_total_blocks'};
+    my   $Questions = $varlist{'Questions'};
+    my   $Rpl_status = $varlist{'Rpl_status'};
+    my   $Select_full_join = $varlist{'Select_full_join'};
+    my   $Select_full_range_join = $varlist{'Select_full_range_join'};
+    my   $Select_range = $varlist{'Select_range'};
+    my   $Select_range_check = $varlist{'Select_range_check'};
+    my   $Select_scan = $varlist{'Select_scan'};
+    my   $Slave_open_temp_tables = $varlist{'Slave_open_temp_tables'};
+    my   $Slave_retried_transactions = $varlist{'Slave_retried_transactions'};
+    my   $Slave_running = $varlist{'Slave_running'};
+    my   $Slow_launch_threads = $varlist{'Slow_launch_threads'};
+    my   $Slow_queries = $varlist{'Slow_queries'};
+    my   $Sort_merge_passes = $varlist{'Sort_merge_passes'};
+    my   $Sort_range = $varlist{'Sort_range'};
+    my   $Sort_rows = $varlist{'Sort_rows'};
+    my   $Sort_scan = $varlist{'Sort_scan'};
+    my   $Table_locks_immediate = $varlist{'Table_locks_immediate'};
+    my   $Table_locks_waited = $varlist{'Table_locks_waited'};
+    my   $Tc_log_max_pages_used = $varlist{'Tc_log_max_pages_used'};
+    my   $Tc_log_page_size = $varlist{'Tc_log_page_size'};
+    my   $Tc_log_page_waits = $varlist{'Tc_log_page_waits'};
+    my   $Threads_cached = $varlist{'Threads_cached'};
+    my   $Threads_connected = $varlist{'Threads_connected'};
+    my   $Threads_created = $varlist{'Threads_created'};
+    my   $Threads_running = $varlist{'Threads_running'};
+    my   $Uptime = $varlist{'Uptime'};
+    my   $os_load_1 = $varlist{'os_load_1'};
+    my   $os_load_5 = $varlist{'os_load_5'};
+    my   $os_load_15 = $varlist{'os_load_15'};
+    my   $os_mem_total = $varlist{'os_mem_total'};
+    my   $os_mem_used = $varlist{'os_mem_used'};
+    my   $os_swap_total = $varlist{'os_swap_total'};
+    my   $os_swap_free = $varlist{'os_swap_free'};
+    my   $os_cpu_user = $varlist{'os_cpu_user'};
+    my   $os_cpu_system = $varlist{'os_cpu_system'};
+    my   $os_cpu_idle = $varlist{'os_cpu_idle'};
+    my   $queries_per_second = $varlist{'queries_per_second'};
+    my   $num_schema = $varlist{'num_schema'};
+    my   $num_tables = $varlist{'num_tables'};
+    my   $num_connections = $varlist{'num_connections'};
+    my   $length_data = $varlist{'length_data'};
+    my   $length_index = $varlist{'length_index'};
+    my   $engine_count_innodb = $varlist{'engine_count_innodb'};
+    my   $engine_count_myisam = $varlist{'engine_count_myisam'};
+    my   $engine_myisam_size_data = $varlist{'engine_myisam_size_data'};
+    my   $engine_myisam_size_index = $varlist{'engine_myisam_size_index'};
+    my   $engine_innodb_size_data = $varlist{'engine_innodb_size_data'};
+    my   $engine_innodb_size_index = $varlist{'engine_innodb_size_index'};
+    my   $auto_increment_increment = $varlist{'auto_increment_increment'};
+    my   $auto_increment_offset = $varlist{'auto_increment_offset'};
+    my   $automatic_sp_privileges = $varlist{'automatic_sp_privileges'};
+    my   $back_log = $varlist{'back_log'};
+    my   $basedir = $varlist{'basedir'};
+    my   $binlog_cache_size = $varlist{'binlog_cache_size'};
+    my   $bulk_insert_buffer_size = $varlist{'bulk_insert_buffer_size'};
+    my   $character_set_client = $varlist{'character_set_client'};
+    my   $character_set_connection = $varlist{'character_set_connection'};
+    my   $character_set_database = $varlist{'character_set_database'};
+    my   $character_set_filesystem = $varlist{'character_set_filesystem'};
+    my   $character_set_results = $varlist{'character_set_results'};
+    my   $character_set_server = $varlist{'character_set_server'};
+    my   $character_set_system = $varlist{'character_set_system'};
+    my   $character_sets_dir = $varlist{'character_sets_dir'};
+    my   $collation_connection = $varlist{'collation_connection'};
+    my   $collation_database = $varlist{'collation_database'};
+    my   $collation_server = $varlist{'collation_server'};
+    my   $completion_type = $varlist{'completion_type'};
+    my   $concurrent_insert = $varlist{'concurrent_insert'};
+    my   $connect_timeout = $varlist{'connect_timeout'};
+    my   $variablesdir = $varlist{'datadir'};
+    my   $date_format = $varlist{'date_format'};
+    my   $datetime_format = $varlist{'datetime_format'};
+    my   $default_week_format = $varlist{'default_week_format'};
+    my   $delay_key_write = $varlist{'delay_key_write'};
+    my   $delayed_insert_limit = $varlist{'delayed_insert_limit'};
+    my   $delayed_insert_timeout = $varlist{'delayed_insert_timeout'};
+    my   $delayed_queue_size = $varlist{'delayed_queue_size'};
+    my   $div_precision_increment = $varlist{'div_precision_increment'};
+    my   $keep_files_on_create = $varlist{'keep_files_on_create'};
+    my   $engine_condition_pushdown = $varlist{'engine_condition_pushdown'};
+    my   $expire_logs_days = $varlist{'expire_logs_days'};
+    my   $flush = $varlist{'flush'};
+    my   $flush_time = $varlist{'flush_time'};
+    my   $ft_boolean_syntax = $varlist{'ft_boolean_syntax'};
+    my   $ft_max_word_len = $varlist{'ft_max_word_len'};
+    my   $ft_min_word_len = $varlist{'ft_min_word_len'};
+    my   $ft_query_expansion_limit = $varlist{'ft_query_expansion_limit'};
+    my   $ft_stopword_file = $varlist{'ft_stopword_file'};
+    my   $group_concat_max_len = $varlist{'group_concat_max_len'};
+    my   $have_archive = $varlist{'have_archive'};
+    my   $have_bdb = $varlist{'have_bdb'};
+    my   $have_blackhole_engine = $varlist{'have_blackhole_engine'};
+    my   $have_compress = $varlist{'have_compress'};
+    my   $have_crypt = $varlist{'have_crypt'};
+    my   $have_csv = $varlist{'have_csv'};
+    my   $have_dynamic_loading = $varlist{'have_dynamic_loading'};
+    my   $have_example_engine = $varlist{'have_example_engine'};
+    my   $have_federated_engine = $varlist{'have_federated_engine'};
+    my   $have_geometry = $varlist{'have_geometry'};
+    my   $have_innodb = $varlist{'have_innodb'};
+    my   $have_isam = $varlist{'have_isam'};
+    my   $have_merge_engine = $varlist{'have_merge_engine'};
+    my   $have_ndbcluster = $varlist{'have_ndbcluster'};
+    my   $have_openssl = $varlist{'have_openssl'};
+    my   $have_ssl = $varlist{'have_ssl'};
+    my   $have_query_cache = $varlist{'have_query_cache'};
+    my   $have_raid = $varlist{'have_raid'};
+    my   $have_rtree_keys = $varlist{'have_rtree_keys'};
+    my   $have_symlink = $varlist{'have_symlink'};
+    my   $hostname = $varlist{'hostname'};
+    my   $init_connect = $varlist{'init_connect'};
+    my   $init_file = $varlist{'init_file'};
+    my   $init_slave = $varlist{'init_slave'};
+    my   $innodb_additional_mem_pool_size = $varlist{'innodb_additional_mem_pool_size'};
+    my   $innodb_autoextend_increment = $varlist{'innodb_autoextend_increment'};
+    my   $innodb_buffer_pool_awe_mem_mb = $varlist{'innodb_buffer_pool_awe_mem_mb'};
+    my   $innodb_buffer_pool_size = $varlist{'innodb_buffer_pool_size'};
+    my   $innodb_checksums = $varlist{'innodb_checksums'};
+    my   $innodb_commit_concurrency = $varlist{'innodb_commit_concurrency'};
+    my   $innodb_concurrency_tickets = $varlist{'innodb_concurrency_tickets'};
+    my   $innodb_data_file_path = $varlist{'innodb_data_file_path'};
+    my   $innodb_data_home_dir = $varlist{'innodb_data_home_dir'};
+    my   $innodb_adaptive_hash_index = $varlist{'innodb_adaptive_hash_index'};
+    my   $innodb_doublewrite = $varlist{'innodb_doublewrite'};
+    my   $innodb_fast_shutdown = $varlist{'innodb_fast_shutdown'};
+    my   $innodb_file_io_threads = $varlist{'innodb_file_io_threads'};
+    my   $innodb_file_per_table = $varlist{'innodb_file_per_table'};
+    my   $innodb_flush_log_at_trx_commit = $varlist{'innodb_flush_log_at_trx_commit'};
+    my   $innodb_flush_method = $varlist{'innodb_flush_method'};
+    my   $innodb_force_recovery = $varlist{'innodb_force_recovery'};
+    my   $innodb_lock_wait_timeout = $varlist{'innodb_lock_wait_timeout'};
+    my   $innodb_locks_unsafe_for_binlog = $varlist{'innodb_locks_unsafe_for_binlog'};
+    my   $innodb_log_arch_dir = $varlist{'innodb_log_arch_dir'};
+    my   $innodb_log_archive = $varlist{'innodb_log_archive'};
+    my   $innodb_log_buffer_size = $varlist{'innodb_log_buffer_size'};
+    my   $innodb_log_file_size = $varlist{'innodb_log_file_size'};
+    my   $innodb_log_files_in_group = $varlist{'innodb_log_files_in_group'};
+    my   $innodb_log_group_home_dir = $varlist{'innodb_log_group_home_dir'};
+    my   $innodb_max_dirty_pages_pct = $varlist{'innodb_max_dirty_pages_pct'};
+    my   $innodb_max_purge_lag = $varlist{'innodb_max_purge_lag'};
+    my   $innodb_mirrored_log_groups = $varlist{'innodb_mirrored_log_groups'};
+    my   $innodb_open_files = $varlist{'innodb_open_files'};
+    my   $innodb_rollback_on_timeout = $varlist{'innodb_rollback_on_timeout'};
+    my   $innodb_support_xa = $varlist{'innodb_support_xa'};
+    my   $innodb_sync_spin_loops = $varlist{'innodb_sync_spin_loops'};
+    my   $innodb_table_locks = $varlist{'innodb_table_locks'};
+    my   $innodb_thread_concurrency = $varlist{'innodb_thread_concurrency'};
+    my   $innodb_thread_sleep_delay = $varlist{'innodb_thread_sleep_delay'};
+    my   $innodb_read_ahead = $varlist{'innodb_read_ahead'};
+    my   $innodb_ibuf_contract_const = $varlist{'innodb_ibuf_contract_const'};
+    my   $innodb_ibuf_contract_burst = $varlist{'innodb_ibuf_contract_burst'};
+    my   $innodb_buf_flush_const = $varlist{'innodb_buf_flush_const'};
+    my   $innodb_buf_flush_burst = $varlist{'innodb_buf_flush_burst'};
+    my   $interactive_timeout = $varlist{'interactive_timeout'};
+    my   $join_buffer_size = $varlist{'join_buffer_size'};
+    my   $key_buffer_size = $varlist{'key_buffer_size'};
+    my   $key_cache_age_threshold = $varlist{'key_cache_age_threshold'};
+    my   $key_cache_block_size = $varlist{'key_cache_block_size'};
+    my   $key_cache_division_limit = $varlist{'key_cache_division_limit'};
+    my   $language = $varlist{'language'};
+    my   $large_files_support = $varlist{'large_files_support'};
+    my   $large_page_size = $varlist{'large_page_size'};
+    my   $large_pages = $varlist{'large_pages'};
+    my   $lc_time_names = $varlist{'lc_time_names'};
+    my   $license = $varlist{'license'};
+    my   $local_infile = $varlist{'local_infile'};
+    my   $locked_in_memory = $varlist{'locked_in_memory'};
+    my   $log = $varlist{'log'};
+    my   $log_bin = $varlist{'log_bin'};
+    my   $log_bin_trust_function_creators = $varlist{'log_bin_trust_function_creators'};
+    my   $log_error = $varlist{'log_error'};
+    my   $log_queries_not_using_indexes = $varlist{'log_queries_not_using_indexes'};
+    my   $log_slave_updates = $varlist{'log_slave_updates'};
+    my   $log_slow_queries = $varlist{'log_slow_queries'};
+    my   $log_slow_filter = $varlist{'log_slow_filter'};
+    my   $log_slow_verbosity = $varlist{'log_slow_verbosity'};
+    my   $log_warnings = $varlist{'log_warnings'};
+    my   $long_query_time = $varlist{'long_query_time'};
+    my   $low_priority_updates = $varlist{'low_priority_updates'};
+    my   $lower_case_file_system = $varlist{'lower_case_file_system'};
+    my   $lower_case_table_names = $varlist{'lower_case_table_names'};
+    my   $max_allowed_packet = $varlist{'max_allowed_packet'};
+    my   $max_binlog_cache_size = $varlist{'max_binlog_cache_size'};
+    my   $max_binlog_size = $varlist{'max_binlog_size'};
+    my   $max_connect_errors = $varlist{'max_connect_errors'};
+    my   $max_connections = $varlist{'max_connections'};
+    my   $max_delayed_threads = $varlist{'max_delayed_threads'};
+    my   $max_error_count = $varlist{'max_error_count'};
+    my   $max_heap_table_size = $varlist{'max_heap_table_size'};
+    my   $max_insert_delayed_threads = $varlist{'max_insert_delayed_threads'};
+    my   $max_join_size = $varlist{'max_join_size'};
+    my   $max_length_for_sort_data = $varlist{'max_length_for_sort_data'};
+    my   $max_prepared_stmt_count = $varlist{'max_prepared_stmt_count'};
+    my   $max_relay_log_size = $varlist{'max_relay_log_size'};
+    my   $max_seeks_for_key = $varlist{'max_seeks_for_key'};
+    my   $max_sort_length = $varlist{'max_sort_length'};
+    my   $max_sp_recursion_depth = $varlist{'max_sp_recursion_depth'};
+    my   $max_tmp_tables = $varlist{'max_tmp_tables'};
+    my   $max_user_connections = $varlist{'max_user_connections'};
+    my   $max_write_lock_count = $varlist{'max_write_lock_count'};
+    my   $min_examined_row_limit = $varlist{'min_examined_row_limit'};
+    my   $multi_range_count = $varlist{'multi_range_count'};
+    my   $myisam_data_pointer_size = $varlist{'myisam_data_pointer_size'};
+    my   $myisam_max_sort_file_size = $varlist{'myisam_max_sort_file_size'};
+    my   $myisam_recover_options = $varlist{'myisam_recover_options'};
+    my   $myisam_repair_threads = $varlist{'myisam_repair_threads'};
+    my   $myisam_sort_buffer_size = $varlist{'myisam_sort_buffer_size'};
+    my   $myisam_stats_method = $varlist{'myisam_stats_method'};
+    my   $net_buffer_length = $varlist{'net_buffer_length'};
+    my   $net_read_timeout = $varlist{'net_read_timeout'};
+    my   $net_retry_count = $varlist{'net_retry_count'};
+    my   $net_write_timeout = $varlist{'net_write_timeout'};
+    my   $new = $varlist{'new'};
+    my   $old_passwords = $varlist{'old_passwords'};
+    my   $open_files_limit = $varlist{'open_files_limit'};
+    my   $optimizer_prune_level = $varlist{'optimizer_prune_level'};
+    my   $optimizer_search_depth = $varlist{'optimizer_search_depth'};
+    my   $pid_file = $varlist{'pid_file'};
+    my   $port = $varlist{'port'};
+    my   $preload_buffer_size = $varlist{'preload_buffer_size'};
+    my   $protocol_version = $varlist{'protocol_version'};
+    my   $query_alloc_block_size = $varlist{'query_alloc_block_size'};
+    my   $query_cache_limit = $varlist{'query_cache_limit'};
+    my   $query_cache_min_res_unit = $varlist{'query_cache_min_res_unit'};
+    my   $query_cache_size = $varlist{'query_cache_size'};
+    my   $query_cache_type = $varlist{'query_cache_type'};
+    my   $query_cache_wlock_invalidate = $varlist{'query_cache_wlock_invalidate'};
+    my   $query_prealloc_size = $varlist{'query_prealloc_size'};
+    my   $range_alloc_block_size = $varlist{'range_alloc_block_size'};
+    my   $log_slow_rate_limit = $varlist{'log_slow_rate_limit'};
+    my   $read_buffer_size = $varlist{'read_buffer_size'};
+    my   $read_only = $varlist{'read_only'};
+    my   $read_rnd_buffer_size = $varlist{'read_rnd_buffer_size'};
+    my   $relay_log = $varlist{'relay_log'};
+    my   $relay_log_index = $varlist{'relay_log_index'};
+    my   $relay_log_info_file = $varlist{'relay_log_info_file'};
+    my   $relay_log_purge = $varlist{'relay_log_purge'};
+    my   $relay_log_space_limit = $varlist{'relay_log_space_limit'};
+    my   $rpl_recovery_rank = $varlist{'rpl_recovery_rank'};
+    my   $secure_auth = $varlist{'secure_auth'};
+    my   $secure_file_priv = $varlist{'secure_file_priv'};
+    my   $server_id = $varlist{'server_id'};
+    my   $skip_external_locking = $varlist{'skip_external_locking'};
+    my   $skip_networking = $varlist{'skip_networking'};
+    my   $skip_show_database = $varlist{'skip_show_database'};
+    my   $slave_compressed_protocol = $varlist{'slave_compressed_protocol'};
+    my   $slave_load_tmpdir = $varlist{'slave_load_tmpdir'};
+    my   $slave_net_timeout = $varlist{'slave_net_timeout'};
+    my   $slave_skip_errors = $varlist{'slave_skip_errors'};
+    my   $slave_transaction_retries = $varlist{'slave_transaction_retries'};
+    my   $slow_launch_time = $varlist{'slow_launch_time'};
+    my   $socket = $varlist{'socket'};
+    my   $sort_buffer_size = $varlist{'sort_buffer_size'};
+    my   $sql_big_selects = $varlist{'sql_big_selects'};
+    my   $sql_mode = $varlist{'sql_mode'};
+    my   $sql_notes = $varlist{'sql_notes'};
+    my   $sql_warnings = $varlist{'sql_warnings'};
+    my   $ssl_ca = $varlist{'ssl_ca'};
+    my   $ssl_capath = $varlist{'ssl_capath'};
+    my   $ssl_cert = $varlist{'ssl_cert'};
+    my   $ssl_cipher = $varlist{'ssl_cipher'};
+    my   $ssl_key = $varlist{'ssl_key'};
+    my   $storage_engine = $varlist{'storage_engine'};
+    my   $sync_binlog = $varlist{'sync_binlog'};
+    my   $sync_frm = $varlist{'sync_frm'};
+    my   $system_time_zone = $varlist{'system_time_zone'};
+    my   $table_cache = $varlist{'table_cache'};
+    my   $table_lock_wait_timeout = $varlist{'table_lock_wait_timeout'};
+    my   $table_type = $varlist{'table_type'};
+    my   $thread_cache_size = $varlist{'thread_cache_size'};
+    my   $thread_stack = $varlist{'thread_stack'};
+    my   $time_format = $varlist{'time_format'};
+    my   $time_zone = $varlist{'time_zone'};
+    my   $timed_mutexes = $varlist{'timed_mutexes'};
+    my   $tmp_table_size = $varlist{'tmp_table_size'};
+    my   $tmpdir = $varlist{'tmpdir'};
+    my   $transaction_alloc_block_size = $varlist{'transaction_alloc_block_size'};
+    my   $transaction_prealloc_size = $varlist{'transaction_prealloc_size'};
+    my   $tx_isolation = $varlist{'tx_isolation'};
+    my   $updatable_views_with_limit = $varlist{'updatable_views_with_limit'};
+    my   $version = $varlist{'version'};
+    my   $version_comment = $varlist{'version_comment'};
+    my   $version_compile_machine = $varlist{'version_compile_machine'};
+    my   $version_compile_os = $varlist{'version_compile_os'};
+    my   $wait_timeout = $varlist{'wait_timeout'};   
+
+    #query analysis
+    my $Questions=check_var($Questions);
+    my $Com_select=check_var($Com_select);
+    my $Uptime=check_var($Uptime);
+    my $Com_delete=check_var($Com_delete);
+    my $Com_insert=check_var($Com_insert);
+    my $Com_insert_select=check_var($Com_insert_select);
+    my $Com_update=check_var($Com_update);
+    my $Com_update_multi=check_var($Com_update_multi);
+    my $Com_commit=check_var($Com_commit);
+    my $Com_select=check_var($Com_select);
+
+    my $_Questions=substr(human($Questions),0,-1);
+    my $_reads=$Com_select;
+    my $_readsR=substr(human($Com_select),0,-1);
+    my $_readsP=((round(($Com_select/$Questions),4))*100);
+    my $_readsS=round(($Com_select/$Uptime),4);
+    my $_writes = ($Com_delete + $Com_delete_multi + $Com_insert + $Com_insert_select + $Com_update + $Com_update_multi);
+    my $_writesR=substr(human(($_writes)),0,-1);
+    my $_writesP=((round(($_writes/$Questions),4))*100);
+    my $_writesS=round(($_writes/$Uptime),4);
+    $_writesP=check_var($_writesP);
+    $_readsP=check_var($_readsP);
+
+    my $_inserts=($Com_insert+$Com_insert_select);
+    my $_insertsR=substr(human(($_inserts)),0,-1);
+    my $_insertsP=((round(($_inserts/$Questions),4))*100);
+    my $_updates=($Com_update+$Com_update_multi);
+    my $_updatesR=substr(human(($_updates)),0,-1);
+    my $_updatesP=((round(($_updates/$Questions),4))*100);
+    my $_deletes=($Com_delete+$Com_delete_multi);
+    my $_deletesR=substr(human(($_deletes)),0,-1);
+    my $_deletesP=((round(($_deletes/$Questions),4))*100);
+    my $_selects=($Com_select+$Com_insert_select);
+    my $_selectsR=substr(human(($_selects)),0,-1);
+    my $_selectsP=((round(($_selects/$Questions),4))*100);
+    my $_readVSwrite=round(($_readsP/$_writesP),1);
+    my $_writeVSread=round(($_writesP/$_readsP),1);
+    my $_txS=round(($Com_commit/$Uptime),4);
+    
+#connections
+    my $Connections=check_var($Connections);
+    my $Aborted_connects=check_var($Aborted_connects);
+    my $Threads_connected=check_var($Threads_connected);
+    my $max_connections=check_var($max_connections);
+    my $Max_used_connections=check_var($Max_used_connections);
+    my $Uptime=check_var($Uptime);
+    my $_ConnectionsR=substr(human($Connections),0,-1);
+    my $_connSucR=substr(human(($Connections-$Aborted_connects)),0,-1);
+    my $_connSuc=($Connections-$Aborted_connects);
+    my $_connSucP=round(((($Connections-$Aborted_connects)/$Connections)*100),2);
+    my $_connU=round((($Threads_connected/$max_connections)*100),2);
+    my $_connAbortR=substr(human($Aborted_connects),0,-1);
+    my $_connAbortP=round((($Aborted_connects/$Connections)*100),2);
+    my $_connMaxUsage=round((($Max_used_connections/$max_connections)*100),2);
+    my $_connAvgConSec=round(($Threads_connected/$Uptime),2);
+    
+#myisamstats
+    my $key_buffer_size=check_var($key_buffer_size);
+    my $key_cache_block_size=check_var($key_cache_block_size);
+    my $Key_blocks_unused=check_var($Key_blocks_unused);
+    my $Key_read_requests=check_var($Key_read_requests);
+    my $Key_writes=check_var($Key_writes);
+    my $Key_reads=check_var($Key_reads);
+    my $Key_write_requests=check_var($Key_write_requests);
+    my $delay_key_write=check_var($delay_key_write);
+    
+    my $_myisamAllocatedMemR=substr(human($key_buffer_size),0,-1);
+    my $_myisamAllocatedMem=$key_buffer_size;
+    my $_myisamBlockSizeR=substr(human($key_cache_block_size),0,-1);
+    my $_myisamBlockSize=$key_cache_block_size;
+    my $_myisamCurrentBlocksR=substr(human(round(($key_buffer_size/$key_cache_block_size),4)),0,-1);
+    my $_myisamCurrentBlocks=round(($key_buffer_size/$key_cache_block_size),4);
+    my $_myisamUsedBlocksR=substr(human(round((($key_buffer_size/$key_cache_block_size)-$Key_blocks_unused),4)),0,-1);
+    my $_myisamUsedBlocks=round((($key_buffer_size/$key_cache_block_size)-$Key_blocks_unused),4);
+    my $_myisamUsedBlocksP=round((($_myisamUsedBlocks/$_myisamCurrentBlocks)*100),2);
+    my $_myisamCacheHitRate=round(($Key_reads/$Key_read_requests),4);
+    my $_myisamBlocksToDiskR=substr(human($Key_writes),0,-1);
+    my $_myisamBlocksToDisk=$Key_writes;
+    my $_myisamCacheWritesDisk=round(($Key_write_requests/$Key_writes),1);
+    my $_myisamCacheWritesDiskP=round(((($Key_write_requests/$Key_writes)/($Key_writes+$Key_write_requests))*100),2);
+    my $_myisamIndexDelayUpdate= $delay_key_write; # (0/1) 1=enable, sometimes mysql has it set as ON/OFF
+    
+#innodbstats
+    my $innodb_buffer_pool_size=check_var($innodb_buffer_pool_size);
+    my $os_mem_total=check_var($os_mem_total);
+    my $Innodb_buffer_pool_pages_free=check_var($Innodb_buffer_pool_pages_free);
+    my $Innodb_buffer_pool_read_requests=check_var($Innodb_buffer_pool_read_requests);
+    my $Innodb_buffer_pool_reads=check_var($Innodb_buffer_pool_reads);
+    my $Innodb_buffer_pool_wait_free=check_var($Innodb_buffer_pool_wait_free);
+    my $Innodb_buffer_pool_write_requests=check_var($Innodb_buffer_pool_write_requests);
+    my $innodb_additional_mem_pool_size=check_var($innodb_additional_mem_pool_size);
+    my $innodb_log_buffer_size=check_var($innodb_log_buffer_size);
+    my $Innodb_log_waits=check_var($Innodb_log_waits);
+    my $Innodb_log_writes=check_var($Innodb_log_writes);
+    
+    my $_innodbAllocatedMemR=substr(human($innodb_buffer_pool_size),0,-1);
+    my $_innodbAllocatedMem=$innodb_buffer_pool_size;
+    my $_innodballocatedMemP=round((($innodb_buffer_pool_size/$os_mem_total)*100),2);
+    my $_innodbFreeMem=$Innodb_buffer_pool_pages_free;
+    my $_innodbBlocksFromCacheR=substr(human($Innodb_buffer_pool_read_requests),0,-1);
+    my $_innodbBlocksFromCache=$Innodb_buffer_pool_read_requests;
+    my $_innodbBlocksFromDiskR=substr(human($Innodb_buffer_pool_reads),0,-1);
+    my $_innodbBlocksFromDisk=$Innodb_buffer_pool_reads;
+    my $_innodbCacheHitRate=round(($Innodb_buffer_pool_reads/$Innodb_buffer_pool_read_requests),2);
+    
+    if($Innodb_buffer_pool_wait_free==0){$Innodb_buffer_pool_wait_free=1;}
+    if($Innodb_buffer_pool_write_requests==0){$Innodb_buffer_pool_write_requests=1;}
+    
+    my $_innodbCacheWriteWaitRequired=round(($Innodb_buffer_pool_wait_free/$Innodb_buffer_pool_write_requests),2);
+    my $_innodbAdditionalMemoryAllowedR=substr(human($innodb_additional_mem_pool_size),0,-1);
+    my $_innodbAdditionalMemoryAllowed=$innodb_additional_mem_pool_size;
+    my $_innodbFreePageWaits=$Innodb_buffer_pool_wait_free;
+    my $_innodbLogBufferSizeR=substr(human($innodb_log_buffer_size),0,-1);
+    my $_innodbLogBufferSize=$innodb_log_buffer_size;
+    my $_innodbLogWaitsRequired=round(($Innodb_log_waits/$Innodb_log_writes),2);
+    my $_innodbFreePageWaits=$Innodb_log_waits;
+    
+#tablecache
+    my $table_cache=check_var($table_cache);
+    my $Open_tables=check_var($Open_tables);
+    my $Opened_tables=check_var($Opened_tables);
+    my $Uptime=check_var($Uptime);
+    
+    my $_tableCacheAllowable=$table_cache;
+    my $_tableCacheOpen=$Open_tables;
+    my $_tableCacheOpenP=round((($table_cache/$Open_tables)*100),2);
+    my $_tableCacheAvgSec=round(($Opened_tables/$Uptime),1);
+    my $_tableCacheMissesP=round((($Open_tables/$Opened_tables)*100),2);
+#querycache
+    my $have_query_cache=check_var($have_query_cache);
+    my $query_cache_size=check_var($query_cache_size);
+    my $query_cache_min_res_unit=check_var($query_cache_min_res_unit);
+    my $Qcache_total_blocks=check_var($Qcache_total_blocks);
+    my $query_cache_limit=check_var($query_cache_limit);
+    my $Qcache_free_memory=check_var($Qcache_free_memory);
+    my $Qcache_hits=check_var($Qcache_hits);
+    my $Qcache_inserts=check_var($Qcache_inserts);
+    my $query_prealloc_size=check_var($query_prealloc_size);
+    my $Qcache_free_blocks=check_var($Qcache_free_blocks);
+    my $Qcache_total_blocks=check_var($Qcache_total_blocks);
+    my $Qcache_queries_in_cache=check_var($Qcache_queries_in_cache);
+    my $Qcache_not_cached=check_var($Qcache_not_cached);
+    my $Qcache_lowmem_prunes=check_var($Qcache_lowmem_prunes);
+    
+    my $_qcacheEnabled=$have_query_cache;
+    my $_qcacheSizeR=substr(human($query_cache_size),0,-1);
+    my $_qcacheSize=$query_cache_size;
+    my $_qcacheBlockSize=$query_cache_min_res_unit;
+    my $_qcacheTotalBlocks=$Qcache_total_blocks;
+    my $_qcacheMaxQuerySizeR=substr(human($query_cache_limit),0,-1);
+    my $_qcacheMaxQuerySize=$query_cache_limit;
+    my $_qcacheFreeMemR=substr(human($Qcache_free_memory),0,-1);
+    my $_qcacheFreeMem=$Qcache_free_memory;
+    my $_qcacheUtilized=round(($Qcache_free_memory/$query_cache_size),4);
+    my $_qcacheHitRate=round(($Qcache_hits/($Qcache_inserts+$Qcache_hits)),4);
+    my $_qcacheParsingBufferR=substr(human($query_prealloc_size),0,-1);
+    my $_qcacheParsingBuffer=$query_prealloc_size;
+    my $_qcacheFragmentation=round(($Qcache_free_blocks/ceil($Qcache_total_blocks/2)),4);
+    my $_qcacheQuestionsInCacheR=substr(human($Qcache_queries_in_cache),0,-1);
+    my $_qcacheQuestionsInCache=$Qcache_queries_in_cache;
+    my $_qcacheQuestionsAbleToBeCachedR=substr(human($Qcache_inserts),0,-1);
+    my $_qcacheQuestionsAbleToBeCached=$Qcache_inserts;
+    my $_qcacheQuestionsNotCachedR=substr(human($Qcache_not_cached),0,-1);
+    my $_qcacheQuestionsNotCached=$Qcache_not_cached;
+    my $_qcacheHitsTotalR=substr(human($Qcache_hits),0,-1);
+    my $_qcacheHitsTotal=$Qcache_hits;
+    my $_qcacheQuestionsServedFromCacheP=round((($Qcache_hits/$Qcache_queries_in_cache)/100),4);
+    my $_qcacheQuestionsRemovedR=substr(human($Qcache_lowmem_prunes),0,-1);
+    my $_qcacheQuestionsRemoved=$Qcache_lowmem_prunes;
+    my $_qcacheQuestionsRemovedP=round(($Qcache_lowmem_prunes/$Qcache_inserts),4);
+    
+#sortbuffer
+    my $sort_buffer_size=check_var($sort_buffer_size);
+    my $Sort_range=check_var($Sort_range);
+    my $Questions=check_var($Questions);
+    my $Sort_scan=check_var($Sort_scan);
+    my $Sort_rows=check_var($Sort_rows);
+    my $Sort_merge_passes=check_var($Sort_merge_passes);
+    
+    my $_sortSizeR=substr(human($sort_buffer_size),0,-1);
+    my $_sortSize=$sort_buffer_size;
+    my $_sortRange=round((($Sort_range/$Questions)*100),2);
+    my $_sortScanP=round((($Sort_scan/$Questions)*100),2);
+    my $_SortMergePassesP=round((($Sort_merge_passes/$Questions)*100),2);
+    my $_SortRows=$Sort_rows;
+    my $_sortMaxRamAllowedR=substr(human(($sort_buffer_size*$max_connections)),0,-1);
+    my $_sortSelectRange=round(($Sort_range/$Questions),4);
+    
+#tablelocks
+    my $Table_locks_immediate=check_var($Table_locks_immediate);
+    my $Table_locks_waited=check_var($Table_locks_waited);
+    
+    my $_tableLocksNonWaitingR=substr(human($Table_locks_immediate),0,-1);
+    my $_tableLocksNonWaiting=$Table_locks_immediate;
+    my $_tableLocksWaitingR=substr(human($Table_locks_waited),0,-1);
+    my $_tableLocksWaiting=$Table_locks_waited;
+    my $_tableLocksContention=round(($Table_locks_waited/($Table_locks_waited+$Table_locks_immediate)),4);
+    
+#tmptable
+    my $tmp_table_size=check_var($tmp_table_size);
+    my $max_heap_table_size=check_var($max_heap_table_size);
+    my $Created_tmp_tables=check_var($Created_tmp_tables);
+    my $Created_tmp_disk_tables=check_var($Created_tmp_disk_tables);
+    
+    my $_tmpTableSizeR=substr(human($tmp_table_size),0,-1);
+    my $_tmpTableSize=$tmp_table_size;
+    my $_tmpTableHeapSizeR=substr(human($max_heap_table_size),0,-1);
+    my $_tmpTableHeapSize=$max_heap_table_size;
+    my $_tmpTableCreatedR=substr(human($Created_tmp_tables),0,-1);
+    my $_tmpTableCreated=$Created_tmp_tables;
+    my $_tmpTablecreatedOnDiskR=substr(human($Created_tmp_disk_tables),0,-1);
+    my $_tmpTablecreatedOnDisk=$Created_tmp_disk_tables;
+    my $_tmpTablecreatedOnDiskP=round((($Created_tmp_disk_tables/$Created_tmp_tables)*100),2);
+    
+#indexes
+    my $Handler_read_rnd_next=check_var($Handler_read_rnd_next);
+    my $Handler_read_rnd=check_var($Handler_read_rnd);
+    my $Handler_read_first=check_var($Handler_read_first);
+    my $Handler_read_next=check_var($Handler_read_next);
+    my $Handler_read_key=check_var($Handler_read_key);
+    my $Handler_read_prev=check_var($Handler_read_prev);
+    my $_indexUsageP = round(((($Handler_read_rnd_next + $Handler_read_rnd) / ($Handler_read_rnd_next + $Handler_read_rnd + $Handler_read_first + $Handler_read_next + $Handler_read_key + $Handler_read_prev))*100),2);
+    
+    my $_indexSelectsFullTableScanR=substr(human($Select_scan),0,-1);
+    my $_indexSelectsFullTableScan=$Select_scan;
+    my $_indexJoinsFullTableScanR=substr(human($Select_full_join),0,-1);
+    my $_indexJoinsFullTableScan=$Select_full_join;
+    
+#joinbuffer
+    my $join_buffer_size=check_var($join_buffer_size);
+    my $Sort_range=check_var($Sort_range);
+    my $Questions=check_var($Questions);
+    my $Sort_scan=check_var($Sort_scan);
+    
+    my $_joinSizeR=substr(human($join_buffer_size),0,-1);
+    my $_joinSize=$join_buffer_size;
+    my $_joinScanP=round(((($Select_full_join+$Select_full_range_join)/$Questions)*100),2);
+    my $_SelectFullJoin=$Select_full_join;
+    my $_SelectFullRangeJoin=$Select_full_range_join;
+    my $_joinMaxMemUsage=substr(human($join_buffer_size*$max_connections),0,-1);
+    
+#threadstatus
+    my $thread_cache_size=check_var($thread_cache_size);
+    my $Threads_connected=check_var($Threads_connected);
+    my $Threads_created=check_var($Threads_created);
+    my $Threads_running=check_var($Threads_running);
+    my $Threads_cached=check_var($Threads_cached);
+    my $Delayed_insert_threads=check_var($Delayed_insert_threads);
+    my $Slow_launch_threads=check_var($Slow_launch_threads);
+
+    my $file = $commit_report; #swap variables for this sub
+
+    my $xstart = "<analytics_report>\n";
+    my $xend = "</analytics_report>\n";
+
+    # Start the XML section for analytics
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">>$commit_report" or die $!;
+    print FILE $xstart;
+    close FILE;
+    
+    wfile($file,"QueryTrafficStats");
+    wfile($file,"totalqueries,$_Questions");
+    wfile($file,"totalreadqueries,$_readsR");
+    wfile($file,"totalwritequeries,$_writesR");
+    wfile($file,"totalinsertqueries,$_insertsR");
+    wfile($file,"insertqueriestototal,$_insertsP%");
+    wfile($file,"totalselectqueries,$_selectsR");
+    wfile($file,"selectqueriestototal,$_selectsP%");
+    wfile($file,"totalupdatequeries,$_updatesR");
+    wfile($file,"updatequeriestototal,$_updatesP%");
+    wfile($file,"totaldeletequeries,$_deletesR");
+    wfile($file,"deletequeriestototal,$_deletesP%");
+    wfile($file,"percentageorreadstototal,$_readsP%");
+    wfile($file,"percentageofwritestototal,$_writesP%");
+    wfile($file,"ratioofreadstowrites,$_readVSwrite");
+    wfile($file,"ratioofwritestoreads,$_writeVSread");
+    wfile($file,"readqueriesper/sec,$_readsS");
+    wfile($file,"writequeriesper/sec,$_writesS");
+    wfile($file,"transactioncommits,$Com_commit");
+    wfile($file,"transactioncommitsper/sec,$_txS");
+    wfile($file,"QueryCacheStats");
+    wfile($file,"Enabled,$_qcacheEnabled");
+    wfile($file,"Cachesize,$_qcacheSizeR");
+    wfile($file,"BlockSize,$_qcacheBlockSize");
+    wfile($file,"TotalBlocks,$_qcacheTotalBlocks");
+    wfile($file,"Maxquerysizeincache,$_qcacheMaxQuerySizeR");
+    wfile($file,"Freecachememory,$_qcacheFreeMemR");
+    wfile($file,"Cacheutilization,$_qcacheUtilized%");
+    wfile($file,"Cachetotalhits,$_qcacheHitsTotalR");
+    wfile($file,"Cachehitrate,$_qcacheHitRate%");
+    wfile($file,"Parsingbuffer,$_qcacheParsingBufferR");
+    wfile($file,"CacheFragmentation,$_qcacheFragmentation%");
+    wfile($file,"Questionsincache,$_qcacheQuestionsInCacheR");
+    wfile($file,"Questionsabletobecached,$_qcacheQuestionsAbleToBeCachedR");
+    wfile($file,"Questionsnotabletobecached,$_qcacheQuestionsNotCachedR");
+    wfile($file,"Questionsservedfromcachepercentage,$_qcacheQuestionsServedFromCacheP%");
+    wfile($file,"Questionsprunedfromcache,$_qcacheQuestionsRemovedR");
+    wfile($file,"Percentagequestionspurgedfromcache,$_qcacheQuestionsRemovedP%");
+    wfile($file,"totalconnectionsmade,$_ConnectionsR");
+    wfile($file,"ConnectionStats");
+    wfile($file,"successfulconnectionstotal,$_connSucR");
+    wfile($file,"successfulconnections,$_connSucP%");
+    wfile($file,"abortedconnectionstotal,$_connAbortR");
+    wfile($file,"abortedconnections,$_connAbortP%");
+    wfile($file,"averageconnectionspersecond,$_connAvgConSec/sec");
+    wfile($file,"maxallowedconnections,$max_connections");
+    wfile($file,"currentopenconnections,$Threads_connected");
+    wfile($file,"currentconnectionsusage,$_connU%");
+    wfile($file,"maxconnectionusage,$_connMaxUsage%");
+    wfile($file,"maxconnectionerrorsallowable,$max_connect_errors");
+    wfile($file,"connectiontimeoutvalue,$connect_timeout");
+    wfile($file,"ThreadStats");
+    wfile($file,"Threadcachesize,$thread_cache_size");
+    wfile($file,"Threadsconnected,$Threads_connected");
+    wfile($file,"Threadscreated,$Threads_created");
+    wfile($file,"Threadsrunning,$Threads_running");
+    wfile($file,"Threadscached,$Threads_cached");
+    wfile($file,"Delayedinsertthreads,$Delayed_insert_threads");
+    wfile($file,"Slowlaunchthreads,$Slow_launch_threads");
+    wfile($file,"IndexUsageStats");
+    wfile($file,"queriesutilizingindexes,$_indexUsageP%");
+    wfile($file,"selectqueriesusingfulltablescan,$_indexSelectsFullTableScanR");
+    wfile($file,"joinsqueriesusingfulltablescan,$_indexJoinsFullTableScanR");
+    wfile($file,"TableLockingStats");
+    wfile($file,"Tableswithnon-waitinglocks,$_tableLocksNonWaitingR");
+    wfile($file,"Tableswaitingforlocks,$_tableLocksWaitingR");
+    wfile($file,"Tablesthathadlockingcontention,$_tableLocksContention");
+    wfile($file,"TableCacheStats");
+    wfile($file,"Tablecachesize,$_tableCacheAllowable");
+    wfile($file,"Currentopentables,$_tableCacheOpen");
+    wfile($file,"Tablecacheutilization,$_tableCacheOpenP%");
+    wfile($file,"Averagetablesopenper/sec,$_tableCacheAvgSec");
+    wfile($file,"Percentagecachemisses,$_tableCacheMissesP%");
+    wfile($file,"TempTableStats");
+    wfile($file,"Sizeofconnectionbasedtmptable,$_tmpTableSizeR");
+    wfile($file,"Sizeofmemorybasedtmptable,$_tmpTableHeapSizeR");
+    wfile($file,"Temptablescreatedtotal,$_tmpTableCreatedR");
+    wfile($file,"Temptablescreatedondisk,$_tmpTablecreatedOnDiskR");
+    wfile($file,"Percentoftemptablescreatedondisk,$_tmpTablecreatedOnDiskP%");
+    wfile($file,"Sort Buffer Stats");
+    wfile($file,"Sort buffer size, $_sortSizeR");
+    wfile($file,"Percentage of sort range scan, $_sortRange%");
+    wfile($file,"Percentage of sort scan, $_sortScanP%");
+    wfile($file,"Percentage of sort merge passes, $_SortMergePassesP%");
+    wfile($file,"Rows sorted, $_SortRows");
+    wfile($file,"Maximum RAM consumable by sort buffer, $_sortMaxRamAllowedR");
+    wfile($file,"Join Buffer Stats");
+    wfile($file,"Join buffer size, $_joinSizeR");
+    wfile($file,"Max memory available to JOINs, $_joinMaxMemUsage");
+    wfile($file,"Select Full Joins, $_SelectFullJoin");
+    wfile($file,"Select Full Range Joins, $_SelectFullRangeJoin");
+    wfile($file,"Percentage of join scan, $_joinScanP%");
+    wfile($file,"MyISAM Stats");
+    wfile($file,"allocated cache memory, $_myisamAllocatedMemR");
+    wfile($file,"block size, $_myisamBlockSizeR");
+    wfile($file,"current blocks, $_myisamCurrentBlocksR");
+    wfile($file,"used blocks, $_myisamUsedBlocksR");
+    wfile($file,"used blocks percent, $_myisamUsedBlocksP%");
+    wfile($file,"cache hit rate, $_myisamCacheHitRate");
+    wfile($file,"blocks written to disk, $_myisamBlocksToDiskR");
+    wfile($file,"cache writes to disk, $_myisamCacheWritesDisk");
+    wfile($file,"cache writes to disks percent, $_myisamCacheWritesDiskP%");
+    wfile($file,"index delay update, $_myisamIndexDelayUpdate");
+    wfile($file,"InnoDB Stats");
+    wfile($file,"allocated memory buffer pool size, $_innodbAllocatedMemR");
+    wfile($file,"allocated innodb-mem to os-mem, $_innodballocatedMemP%");
+    wfile($file,"free innodb memory, $_innodbFreeMem");
+    wfile($file,"blocks served from cache, $_innodbBlocksFromCacheR");
+    wfile($file,"blocks served from disk, $_innodbBlocksFromDiskR");
+    wfile($file,"cache hit rate, $_innodbCacheHitRate");
+    wfile($file,"cache write wait required, $_innodbCacheWriteWaitRequired");
+    wfile($file,"additional memory allowed, $_innodbAdditionalMemoryAllowedR");
+    wfile($file,"free page waits, $_innodbFreePageWaits");
+    wfile($file,"log buffer size, $_innodbLogBufferSizeR");
+    wfile($file,"log waits required, $_innodbLogWaitsRequired%");
+    wfile($file,"number of free page waits, $_innodbFreePageWaits");
+
+    sysopen(FILE, $commit_report, O_RDWR|O_EXCL|O_CREAT, 0644);
+    open FILE, ">>$commit_report" or die $!;
+    print FILE $xend;
+    close FILE;
+    
+    debug_report("analyze_analytics: [finish]");
     return 0;
 }
 
@@ -2971,6 +3878,7 @@ sub alert_mysql {
 }
 
 sub analyze_data {
+    debug_report("analyze_data process: [starting]");
     my $server_list_id = $varlist{'server_list_id'};
     my $cnf_file = $varlist{'cnf_file'};
     my $os_load_1 = $varlist{'os_load_1'};
@@ -3529,8 +4437,11 @@ sub analyze_data {
 	#we're not writing out SNMP or MySQL errors to XML because if those alerted at all we wouldn't have gotten here.
 	#$ALERTSNMP = alert_snmp($server_snmp_error_code);
 	#$ALERTMYSQL = alert_mysql($server_mysql_error_code);
-            
-	# Insert report data into database
+	
+	#start the analytics reporting process
+	analyze_analytics();
+
+	# Insert report data into database	
 	debug_report("insert current alerts: [starting]");
 	alert_insert(99,$ALERT00);
 	alert_insert(1,$ALERT01);
@@ -3578,7 +4489,7 @@ sub analyze_data {
 	#alert_insert(52,$ALERT52);
 	#alert_insert(53,$ALERT53);
 	debug_report("insert current alerts: [finish]");
-            
+	debug_report("analyze_data process: [finish]");            
 	xml_end(); #end of XML document
 	#we're not inserting the report to SQLite because, well, there's no need to. Keeping for future need if needed for some reason.
 	#insert_report($server_list_id,$server_statistics_id,$Creation_time);
@@ -4109,8 +5020,8 @@ GO
 	analyze_data(); #reporting code, where we actually generate results.
     }
     else {
-	exit 1;
 	debug_report("reporter-cli process end: [failure]");
+	exit 1;
     }
     export_report(); #export report in required format
     debug_report("removing temporary files: [start]");

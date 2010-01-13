@@ -282,7 +282,7 @@ print "
      title: 'Analytics',
      deferredRender: true,
      height: 480,
-     width:440,
+     width: 1600,
      layout : 'fit',
    items: [
    {
