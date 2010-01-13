@@ -1,0 +1,26 @@
+################################################################################
+## NAME: kontroll-client-5.0.x_linux-x86.pl
+## VERSION: 2.0.1
+## DATE: 2008-12-01
+## AUTHOR: Matt Reid
+## WEBSITE: http://kontrollsoft.com
+## EMAIL: kontact@kontrollsoft.com
+## LICENSE: PLEASE REFER TO THE LICENSE.txt file bundled with this software release
+## to understand your right and options for using this software.
+## Copyright 2008 Kontrollsoft LLC
+## All rights reserved.
+################################################################################
+RELEASE: 2.1.0 
+
+1. if issuing a point release, all issues from milestone have been addressed: OK
+2. config sample files exist: OK
+3. system/application/config/config.php not present: OK
+4. system/application/config/database.php not present: OK
+5. version.txt file is current with revision #: OK
+6. proper SQL files are located in install/sql/ : OK
+7. release_notes.txt has been updated to document any relevant matters: OK
+8. any obfuscated files are updated to current version of non-obfuscated file(s): OK
+9. logic or UI changes updated in documentation: OK
+10. any files created or added have been added to svn repo and committed: OK
+11. files are from 'svn export':  OK
+12. any alert changes in reporter or analytics are copied to reporter-cli: OK
