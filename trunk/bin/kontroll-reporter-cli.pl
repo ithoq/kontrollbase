@@ -2455,7 +2455,7 @@ sub alert_11 {
 	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
 	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
 	writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
-	writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+	writerx("Maximum size for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
 	writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
 	writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
 	writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
@@ -2470,29 +2470,6 @@ sub alert_11 {
         $ALERT11=0;
     }
 
-    if($Innodb_buffer_pool_pages_ratio > .995) {
-	writer("<alert id=\"11\">");
-	writer("<name>$alert_name</name>");
-	writer("<category>$alert_category</category>");
-	writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-	writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
-	writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
-	writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
-	writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
-	writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
-	writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
-	writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
-	writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
-	writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
-        writerx("You may want to consider increasing the innodb_buffer_pool_size based on the Innodb_buffer_pool_pages_ratio.");
-	writer("</alert>");
-        $ALERT11=1;
-    }
-    else  {
-        $ALERT11=0;
-    }
     return $ALERT11;
 }
 
@@ -2543,29 +2520,29 @@ sub alert_12 {
         $ALERT12=0;
     }
     
-    if($Innodb_buffer_pool_pages_ratio < .995) {
-	writer("<alert id=\"12\">");
-        writer("<name>$alert_name</name>");
-        writer("<category>$alert_category</category>");
-        writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
-        writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
-        writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
-        writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
-        writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
-        writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
-        writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
-        writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
-        writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-        writerx("You may want to consider decreasing the innodb_buffer_pool_size based on the Innodb_buffer_pool_pages_ratio.");
-	writer("</alert>");
-        $ALERT12=1;
-    }
-    else  {
-        $ALERT12=0;
-    }
+#    if($Innodb_buffer_pool_pages_ratio < .995) {
+#	writer("<alert id=\"12\">");
+#        writer("<name>$alert_name</name>");
+#        writer("<category>$alert_category</category>");
+#        writerx("Current innodb aggregate index space: $engine_innodb_size_indexHR");
+#        writerx("Current innodb aggregate data space: $engine_innodb_size_dataHR");
+#        writerx("Current innodb_buffer_pool_size = $innodb_buffer_pool_sizeHR.");
+#        writerx("Total needed for innodb index+data space: $needed_innodb_buffer_sizeHR");
+#        writerx("Allowable MAX for innodb_buffer_pool_size (85% of OS mem total): $allowed_innodb_buffer_sizeHR");
+#        writerx("Recommended size of innodb_buffer_pool size for 85% fill: $innodb_recommend");
+#        writerx("Innodb_buffer_pool_pages_free: $Innodb_buffer_pool_pages_free");
+#        writerx("Innodb_buffer_pool_pages_total: $Innodb_buffer_pool_pages_total");
+#        writerx("Current Innodb_buffer_pool_pages_ratio = $Innodb_buffer_pool_pages_ratio : 1");
+#        writer("<description>$alert_desc</description>");
+#        writer("<links>$alert_links</links>");
+#        writer("<solution>$alert_solution</solution>");
+#        writerx("You may want to consider decreasing the innodb_buffer_pool_size based on the Innodb_buffer_pool_pages_ratio.");
+#	writer("</alert>");
+#        $ALERT12=1;
+#    }
+#    else  {
+#        $ALERT12=0;
+#    }
     return $ALERT12;
 }
 
