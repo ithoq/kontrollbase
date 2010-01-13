@@ -15,7 +15,7 @@ use strict;
 #use warnings; #enable for debugging
 use DBI;
 use Fcntl; 
-use POSIX qw(strftime);
+use POSIX qw(strftime ceil);
 use Time::HiRes qw(gettimeofday tv_interval);
 use Getopt::Long;
 use Sys::Hostname;
@@ -571,15 +571,16 @@ sub check_var {
     my $var = $_[0];
     #$var = chomp($var); #chomp was destroying our values..
     debug_report("exceptionhandler: check_var($var)");
-    if($var == "YES") { return $var; }
-    elsif($var == "NO") { return $var; }
-    elsif($var == "ON") { return $var; }
-    elsif($var == "OFF") { return $var; }
+    if($var eq "YES") { return $var; }
+    elsif($var eq "NO") { return $var; }
+    elsif($var eq "ON") { return $var; }
+    elsif($var eq "OFF") { return $var; }
     else {
 	$var = sprintf("%d", $var);
+	#debug_report("exceptionhandler: check_var($var)");
 	if($var == 0) {
 	    $var = .01;
-	    debug_report("check_var variable value: $var");
+	    debug_report("exceptionhandler: check_var new value: $var");
 	    return $var;
 	}
 	else {
@@ -4612,6 +4613,20 @@ sub export_txt {
 		    export_file("--------",$export_file);
 		}
 	    }
+	    export_file("Analytics Report",$export_file);
+	    export_file("--------",$export_file);
+	    if($server->child('analytics_report')) {
+		foreach my $analytics_report($server->child('analytics_report')) {
+		    if($analytics_report->child('analytics')) {
+                        foreach my $analytics($analytics_report->child('analytics')) {
+                            my $value = $analytics->value;
+                            export_file("$value",$export_file);
+                        }
+                    }
+		    
+		}
+	    }
+	    export_file("--------",$export_file);
 	}
     }
     debug_report("export_txt XML processing: [finish]");
@@ -4679,6 +4694,18 @@ sub export_html {
                     }
                     #write a line break after each alert
                     export_file("<br><br>",$export_file);
+                }
+            }
+	    export_file("<h2>Analytics Report</h2>",$export_file);
+	    if($server->child('analytics_report')) {
+                foreach my $analytics_report($server->child('analytics_report')) {
+                    if($analytics_report->child('analytics')) {
+                        foreach my $analytics($analytics_report->child('analytics')) {
+                            my $value = $analytics->value;
+                            export_file("$value<br>",$export_file);
+                        }
+                    }
+                    
                 }
             }
 	    export_file("</body></html>",$export_file);
