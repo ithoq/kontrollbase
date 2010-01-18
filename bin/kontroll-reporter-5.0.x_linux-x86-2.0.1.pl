@@ -541,14 +541,14 @@ sub alert_10 {
 
 sub alert_11 {
     writer("");
-    my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data) = @_;
+    my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data,$num_tables) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("11");
     writer("<alert id=\"11\">");
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
     
     my $allowed_innodb_buffer_size = ($os_mem_total * .85);
-    my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.10);
+    my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.15);
 
     my $innodb_buffer_pool_sizeHR = human($innodb_buffer_pool_size);
     my $allowed_innodb_buffer_sizeHR = human($allowed_innodb_buffer_size);
@@ -593,14 +593,14 @@ sub alert_11 {
 
 sub alert_12 {
     writer("");
-    my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data) = @_;
+    my($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data,$num_tables) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("12");
     writer("<alert id=\"12\">");
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
     my $allowed_innodb_buffer_size = ($os_mem_total * .85);
-    my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.10);
+    my $needed_innodb_buffer_size = (($engine_innodb_size_index + $engine_innodb_size_data)* 1.15);
 
     my $innodb_buffer_pool_sizeHR = human($innodb_buffer_pool_size);
     my $allowed_innodb_buffer_sizeHR = human($allowed_innodb_buffer_size);
@@ -1095,6 +1095,10 @@ sub alert_20 {
     writer("<category>$alert_category</category>");
 
     my $immediate_locks_miss_rate = undef;
+
+    if(($Table_locks_immediate == 0 ) || ($Table_locks_waited ==0 )) { $immediate_locks_miss_rate = .001; }
+    else { $immediate_locks_miss_rate=round(($Table_locks_immediate/$Table_locks_waited),2); }
+
     if($Table_locks_waited > 0) {
         $immediate_locks_miss_rate=round($Table_locks_immediate/$Table_locks_waited);
         writerx("Current table lock wait ratio = $immediate_locks_miss_rate:$Questions");
@@ -2620,8 +2624,8 @@ sub analyze_data {
 	    $ALERT08 = alert_08($os_mem_total,$max_heap_table_size,$tmp_table_size,$read_buffer_size,$read_rnd_buffer_size,$sort_buffer_size,$thread_stack,$join_buffer_size,$binlog_cache_size,$max_connections,$Max_used_connections,$innodb_buffer_pool_size,$innodb_additional_mem_pool_size,$innodb_log_buffer_size,$key_buffer_size,$query_cache_size);
 	    $ALERT09 = alert_09($read_buffer_size,$Handler_read_rnd_next,$Com_select);
 	    $ALERT10 = alert_10($Created_tmp_tables,$Created_tmp_disk_tables,$max_heap_table_size,$tmp_table_size);
-	    $ALERT11 = alert_11($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data);
-	    $ALERT12 = alert_12($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data);
+	    $ALERT11 = alert_11($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data,$num_tables,$engine_count_innodb);
+	    $ALERT12 = alert_12($innodb_buffer_pool_size,$engine_innodb_size_index,$Innodb_buffer_pool_pages_free,$Innodb_buffer_pool_pages_total,$innodb_file_per_table,$innodb_commit_concurrency,$innodb_thread_concurrency,$os_mem_total,$engine_innodb_size_data,$num_tables,$engine_count_innodb);
 	    $ALERT13 = alert_13($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size);
 	    $ALERT14 = alert_14($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size);
 	    $ALERT15 = alert_15($Sort_scan,$Sort_range,$sort_buffer_size,$read_rnd_buffer_size,$Sort_merge_passes);
