@@ -608,11 +608,8 @@ sub alert_11 {
         $ALERT11=1;
     }
     else {
-        writerx("You do not need to increase the size of the innodb_buffer_pool_size based on the data+index sizes.");
         $ALERT11=0;
     }
-
-    writer("</alert>");
     return $ALERT11;
 }
 
@@ -686,7 +683,6 @@ sub alert_12 {
         $ALERT12=1;
     }
     else {
-        writer("You do not need to decrease the size of the innodb_buffer_pool_size based on the data+index sizes.");
         $ALERT12=0;
     }
     
@@ -697,7 +693,6 @@ sub alert_12 {
 #    else  {
 #	$ALERT12=0;
 #    }
-    writer("</alert>");
     return $ALERT12;
 }
 
