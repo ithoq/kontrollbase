@@ -107,29 +107,29 @@ Prerequisite DBI.pm located
 Prerequisite /Math/Calc/Units.pm located
 All required Perl modules are available.</code>
 
-<h2>The Simplest Method for Installing Requirements</h2>
+<a name="simple"></a><h2>The Simplest Method for Installing Requirements</h2>
 The easiest way to do this is to use Redhat/Centos for your server. This is because RPMforge has all of the required modules as RPM files. You may find that Ubuntu/Debian has most or all of the packages in their various repositories but we don't keep very up to date on that platform since most enterprise servers that we encounter run Redhat and, as such, the application is built and developed on that OS. So, here are the instructions for the quickets method of installing all required dependencies.<br>
 <h3>Install the RPMforge repository RPM for your particular OS</h3>
-<strong>This is required since most of the RPMs are not found in the standard OS repositories.</strong><br>
+This is required since most of the RPMs are not found in the standard OS repositories.<br>
 <code>http://dag.wieers.com/rpm/FAQ.php#B</code>
 
 <h3>Install MySQL client and server</h3>
-<strong>Not required if you are installing MySQL from alternate means</strong><br>
+Not required if you are installing MySQL from alternate means<br>
 <code>yum -y install mysql mysql-server</code>
 
 <h3>Install Apache and PHP requirements</h3>
-<strong>You might already have Apache installed but you may not have the other PHP modules installed</strong><br>
+You might already have Apache installed but you may not have the other PHP modules installed.<br>
 <code>yum -y install httpd php php-mysql php-mbstring php-xml</code>
 
 <h3>Install Perl and Perl modules requirements</h3>
-<strong>You probably already have Perl installed but you definitely need the other modules.</strong><br>
+You probably already have Perl installed but you definitely need the other modules.<br>
 <code>yum -y install perl perl-DBD-mysql perl-DBI perl-Digest-HMAC perl-XML-LibXML perl-XML-Simple perl-XML-Parser perl-XML-SimpleObject perl-XML-LibXML-Common perl-Crypt-DES perl-Math-Calc-Units perl-Net-SNMP </code>
 
 <h3>For Reporter-CLI functionality if desired</h3>
 <code>yum -y install sqlite perl-DBD-SQLite</code>
 
 <h3>Check that all requirements are met</h3>
-<strong>Go to the bin/ directory and run the php script for checking requirements.</strong><br>
+Go to the bin/ directory and run the php script for checking requirements.<br>
 <code>ROOT-(root@localhost)-(/usr/local/src/kontrollbase-read-only/bin)-ROOT
 ROOT-(0)> php ./kontroll-check_reqs.php 
 Starting...
