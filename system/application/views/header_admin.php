@@ -33,7 +33,6 @@ function head(
 <title>Kontrollbase 2.0.1 - MySQL Monitoring</title>
 
 <link rel="stylesheet" type="text/css" href="$nroot/includes/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="$nroot/userguide/css/userguide-nofluff.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/ext-all.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/xtheme-slate.css" />
 <link rel="stylesheet" type="text/css" href="$nroot/includes/extjs/resources/css/kb_extras.css" />
@@ -522,24 +521,7 @@ print "
      autoScroll:true
    }
 
-   ]}]},
-   {
-   title: 'User Guide',
-   deferredRender: true,
-   height: 480,
-   width:440,
-   layout : 'fit',
-   listeners: {activate: refreshTab},
-   items: {
-     xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/userguide/toc-embed.php'
-   },
-   shim:false,
-   frame:true,
-   animCollapse:false,
-   enableTabScroll:true,
-   autoScroll:true
-   }
+   ]}]}
    ]}]};
 
  
