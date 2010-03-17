@@ -11,23 +11,34 @@ include("doc_header.php");
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Contacting Support</h1>
-There are several methods. We're not a 24x7 operation since this is a two man programming team with fulltime coirporate jobs. However, Matt Reid is the main contact and offers most any support you need that is out of the scope of this use Guide.
+Kontrollsoft is available for support most hours of the day. The most efficient way to get a problem solved is to search and/or post on the forums as someone might have run into the same issue that you need an answer to. We have a ticketing system for submitting support requests, <a title="http://support.kontrollsoft.com/" href="http://support.kontrollsoft.com" target="_blank">you can find it here: http://support.kontrollsoft.com</a>. We are also available via many instant messenger protocols and email as well. The bug tracking system is reserved solely for making us aware of an issue with the software once you have it installed and working.
 
-<h2>Support Methods</h2>
-<ul>
-<li>Support Forum: http://kontrollsoft.com/forum</li>
-<li>Kontrollsoft Bug Tracking: http://code.google.com/p/kontrollbase/issues/list</li> 
-<li>AIM: "kontrollsoft" - available 9am-5pm PST</li> 
-<li>YIM: "kontrollsoft" - available 9am-5pm PST</li> 
-<li>ICQ: "586343417" - available 9am-5pm PST</li> 
-<li>GTalk: support@kontrollsoft. available 9am-5pm PST</li> 
-<li>Jabber: support@kontrollsoft. available 9am-5pm PST</li> 
-<li>IRC: irc.freenode.net, channel #kontrollbase</li> 
-<li>Mail: support at kontrollsoft dot com</li> 
-<li>RSS: Keep up to date on news postings - http://feeds2.feedburner.com/Kontrollsoft</li> 
-<li>Pastebin: need to paste us some code - http://kontrollsoft.pastebin.com</li> 
-</ul>
+<hr />
+<h3>Support contact methods</h3>
+<strong>Support Forum</strong>: <a href="http://kontrollsoft.com/forum">click here</a>
+<strong>Support Ticketing System</strong>: <a href="http://support.kontrollsoft.com">click here</a>
+<strong>Kontrollsoft Bug Tracking</strong>: <a href="http://code.google.com/p/kontrollbase/issues/list">click here</a>
+<strong>Kontrollkit Bug Tracking</strong>: <a href="http://code.google.com/p/kontrollkit/issues/list">click here</a>
+<strong>AIM</strong>: user "kontrollbase" available 9am-5pm PST
+<strong>YIM</strong>: user "kontrollbase" available 9am-5pm PST
+<strong>GTalk</strong>: user: "support@kontrollsoft.com" available 9am-5pm PST
+<strong>Jabber</strong>: user: "support@kontrollsoft.com" available 9am-5pm PST
+<strong>IRC</strong>: irc.freenode.net, channel #kontrollbase
+<strong>Mail</strong>: support at kontrollsoft dot com
+<strong>RSS</strong>: Keep up to date on news postings - <a title="http://feeds2.feedburner.com/Kontrollsoft" href="http://feeds2.feedburner.com/Kontrollsoft" target="_blank">http://feeds2.feedburner.com/Kontrollsoft</a>
+<strong>Pastebin</strong>: need to paste us some code - <a href="http://kontrollsoft.pastebin.com">http://kontrollsoft.pastebin.com</a>
+
+<hr />
+<h3>Donate to the cause</h3>
+Have you enjoyed our software support? Donate some spare change to our coding group to show you appreciate our efforts. Even a dollar or forty will go a long way to paying for the bandwidth usage of our demo servers.
+<a title="http://kontrollsoft.com/donations" href="http://kontrollsoft.com/donations" target="_self"><img src="http://kontrollsoft.com/images/paypal-rect.png" alt="" />
+Click here to make a donation</a>
+
+<hr />
+<h3>Join us on LinkedIn</h3>
+Want to expand your network and add to our discussions? Join the LinkedIn user's group. Click below to join now.
+
+<a href="http://www.linkedin.com/groups?gid=2655021"><img class="alignleft size-full wp-image-620" title="linkedin" src="http://kontrollsoft.com/wp-content/uploads/2010/01/linkedin.gif" alt="" width="116" height="54" /></a>
 
 </div>
 <!-- END CONTENT -->
