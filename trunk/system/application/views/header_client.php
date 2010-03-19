@@ -291,8 +291,6 @@ print "
    {
    title: 'Overview',
    deferredRender: true,
-   width:440,
-   height:480,
    layout : 'fit',
    listeners: {activate: refreshTab},
    autoLoad: {url: '$nroot/includes/pages/$overview'},
@@ -338,26 +336,11 @@ print "
 	     ],
    stripeRows: true,
    autoExpandColumn: 'hostname',
-   listeners: { render: function(){this.store.loadData(summaryData);}}},
-   {
-   title: 'User Guide',
-   deferredRender: true,
-   height: 480,
-   width:440,
-   layout : 'fit',
-   listeners: {activate: refreshTab},
-   items: {
-     xtype          : 'iframepanel',
-     defaultSrc  : '$nroot/userguide/toc-embed.php'
+   listeners: { render: function(){this.store.loadData(summaryData);}
+     }
    },
-   shim:false,
-   frame:true,
-   animCollapse:false,
-   enableTabScroll:true,
-   autoScroll:true
-   }
-	   
-	   ]}]};
+   ]}
+   ]};
 
  
  new Ext.Viewport({

@@ -353,8 +353,6 @@ print "
    {
    title: 'Alert Management',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    items: [ 
    {
@@ -369,8 +367,6 @@ print "
    {
    title: 'Current Alerts',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -386,8 +382,6 @@ print "
    {
    title: 'Acknowledged',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -403,8 +397,6 @@ print "
    {
    title: 'Ignored',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -422,8 +414,6 @@ print "
    {
    title: 'System Management',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    items: [
    {
@@ -438,8 +428,6 @@ print "
    {
    title: 'Hosts',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -455,8 +443,6 @@ print "
    {
    title: 'Users',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -472,8 +458,6 @@ print "
    {
    title: 'Clients',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    listeners: {activate: refreshTab},
    items: {
@@ -489,8 +473,6 @@ print "
    {
      title: 'System',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -506,8 +488,6 @@ print "
    {
      title: 'Debug Log',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
