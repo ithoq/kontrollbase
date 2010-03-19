@@ -297,6 +297,7 @@ print "
    autoScroll: true,
    animScroll: true,
    collapsible: false,
+   enableTabScroll:true,
    bodyStyle: 'padding:5px 0px 0px 5px',
    items: [
    {
@@ -363,6 +364,7 @@ print "
    activeTab: 0,
    autoScroll: true,
    animScroll: true,
+   enableTabScroll:true,
    items: [
    {
    title: 'Current Alerts',
