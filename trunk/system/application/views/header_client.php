@@ -286,6 +286,7 @@ print "
    autoScroll: true,
    animScroll: true,
    collapsible: false,
+   enableTabScroll:true,
    bodyStyle: 'padding:5px 0px 0px 5px',
    items: [
    {
