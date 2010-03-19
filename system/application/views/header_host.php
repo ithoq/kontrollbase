@@ -256,16 +256,17 @@ print "
    region: 'center',
    margins: '5 0 0 0',
    activeTab: 0,
-   autoScroll: true,
-   animScroll: true,
    collapsible: false,
+   shim:false,
+   frame:true,
+   animCollapse:false,
+   enableTabScroll:true,
+   autoScroll:true,
    bodyStyle: 'padding:5px 0px 0px 5px',
    items: [
    {
    title: 'Host Overview',
    deferredRender: true,
-   width:440,
-   height:480,
    layout : 'fit',
    items: {
      xtype          : 'iframepanel',
@@ -280,24 +281,29 @@ print "
    {
      title: 'Analytics',
      deferredRender: true,
-     height: 480,
-     width: 1600,
      layout : 'fit',
-   items: [
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true,
+     items: [
    {
      xtype: 'tabpanel',
      plain: true,
      region: 'center',
      margins: '0 5 5 5',
      activeTab: 0,
-     autoScroll: true,
      animScroll: true,
-   items: [
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+     autoScroll:true,     
+     items: [
    {
      title: 'export',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -313,8 +319,6 @@ print "
    {
      title: 'query analysis',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -330,8 +334,6 @@ print "
    {
      title: 'query cache',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -347,8 +349,6 @@ print "
    {
      title: 'connections',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -364,8 +364,6 @@ print "
    {
      title: 'threads',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -381,8 +379,6 @@ print "
    {
      title: 'index usage',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -398,8 +394,6 @@ print "
    {
      title: 'table locking',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -415,8 +409,6 @@ print "
    {
      title: 'table cache',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -432,8 +424,6 @@ print "
    {
      title: 'temp tables',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -449,8 +439,6 @@ print "
    {
      title: 'sort buffer',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -466,8 +454,6 @@ print "
    {
      title: 'join buffer',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -483,8 +469,6 @@ print "
    {
      title: 'myisam',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -500,8 +484,6 @@ print "
    {
      title: 'innodb',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -518,8 +500,6 @@ print "
    {
    title: 'Perf Report',
    deferredRender: true,
-   width:440,
-   height:480,
    layout : 'fit',
    items: {
      xtype          : 'iframepanel',
@@ -534,8 +514,6 @@ print "
    { 
    title: 'Graphs',
    deferredRender: true,
-   width:440,
-   height:480,
    layout : 'fit',
    items: {  
      xtype          : 'iframepanel', 
@@ -550,8 +528,6 @@ print "
    {
      title: 'Variables',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
    items: [
    {
@@ -566,8 +542,6 @@ print "
    {
      title: 'CNF File',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -583,8 +557,6 @@ print "
    {
      title: 'Global Variables',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -600,8 +572,6 @@ print "
    {
      title: 'Global Status',
      deferredRender: true,
-     height: 480,
-     width:440,
      layout : 'fit',
      listeners: {activate: refreshTab},
      items: {
@@ -642,8 +612,6 @@ print "
    {
    title: 'Replication',
    deferredRender: true,
-   height: 480,
-   width:440,
    layout : 'fit',
    items: {
      xtype          : 'iframepanel',
