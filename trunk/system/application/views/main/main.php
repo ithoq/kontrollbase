@@ -28,16 +28,50 @@ $overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http:
 
 <link rel="stylesheet" type="text/css" href="'.$nroot.'/includes/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="'.$nroot.'/userguide/css/userguide-nofluff.css" />
+
+<style type="text/css"> 
+    #container {
+        padding:10px;
+    }
+    #container .x-panel {
+        margin:10px;
+    }
+    #container .x-panel-ml {
+        padding-left:1px;
+    }
+    #container .x-panel-mr {
+        padding-right:1px;
+    }
+    #container .x-panel-bl {
+        padding-left:2px;
+    }
+ 
+    #container .x-panel-br {
+        padding-right:2px;
+    }
+    #container .x-panel-body {
+ 
+    }
+    #container .x-panel-mc {
+        padding-top:0;
+    }
+    #container .x-panel-bc .x-panel-footer {
+        padding-bottom:2px;
+    }
+    #container .x-panel-nofooter .x-panel-bc {
+        height:2px;
+    }
+    #container .x-toolbar {
+        border:1px solid #99BBE8;
+        border-width: 0 0 1px 0;
+    }
+    .chart {
+        background-image: url(chart.gif) !important;
+    }
+    </style>
+
 </head>
 <body>';
-
-// THIS DATA CAN BE FOUND ELSEWHERE - like the Summary tab. I'll put the RSS feeds somewhere else... currently they seems rather useless.
-//$overview.="<h2>Statistics Available Via  RSS</h2><table class='tableborder'><tr><th>Summary RSS</th><th>Summary RSS-XML</th><th>Alerts RSS</th><th>Alerts RSS-XML</th></tr>";
-//$overview.="<td class='td'><a href='$nroot/index.php/rss/summary/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-//$overview.="<td class='td'><a href='$nroot/index.php/rss/summary_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-//$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-//$overview.="<td class='td'><a href='$nroot/index.php/rss/alerts_xml/' target='_blank'><img src='$nroot/includes/images/rss-rectangle.jpg'></a></td>";
-//$overview.="</table></td></tr></table>";
 
 if($client_id == 0) {
   $max_os_mem_used = round($overview_stats[0]['max_os_mem_used'],2)." GB";
