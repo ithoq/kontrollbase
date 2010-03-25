@@ -2224,6 +2224,18 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 	  $i++;
 	}
     }
+    else {
+      log_message('debug', "count = 0");
+      $strXML = "<graph caption='$name' xAxisName='$xaxis' yAxisName='$yaxis' 
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='$sess_system_graph_animation_enable'
+showgridbg='1' showhovercap='1' showColumnShadow='1' 
+shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
+showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
+canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
+    }
     $strXML .= "</graph>";
     return $strXML;
   }
@@ -2291,6 +2303,18 @@ canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickne
 	$strXML .= "<set name='$val2' value='$val1' color='ff6600' showName='0'/>\n";
 	$i++;
       }
+    }
+    else {
+      log_message('debug', "count = 0");
+      $strXML = "<graph caption='$name' xAxisName='$xaxis' yAxisName='$yaxis' 
+showValues='0' rotateNames='1' decimalPrecision='2' showLimits='1' animation='$sess_system_graph_animation_enable'
+showgridbg='1' showhovercap='1' showColumnShadow='1' 
+shadowYShift='0' shadowXShift='1' showAnchors='1' anchorRadius='2' anchorBgColor='b8b8b8' anchorScale='0' anchorAlpha='40' 
+showAlternateHGridColor='1' AlternateHGridColor='ff5904' divLineColor='ff5904' divLineAlpha='20' alternateHGridAlpha='5' 
+canvasBorderColor='b8b8b8' baseFontColor='666666' lineColor='99ccff' lineThickness='1'>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
+      $strXML .= "<set name='null' value='0.1' color='ff6600' showName='0'/>\n";
     }
     $strXML .= "</graph>";
     return $strXML;
