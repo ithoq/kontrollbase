@@ -3107,7 +3107,6 @@ sub alert_22 {
             writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
             my $table_cache_R = round($Open_tables * 1.6);
             writerx("# Decrease the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
-            writer("</alert>");
             $ALERT22=1;
         }
         else {
@@ -3125,9 +3124,9 @@ sub alert_22 {
 
         writerx("Table cache is set to 0 size.");
         writerx("# Enable a value for table_cache, Current value is $table_cache. Recommend table_cache=$table_cache_R");
-        writer("</alert>");
         $ALERT22=1;
     }
+    writer("</alert>");
     return $ALERT22;
 }
 
