@@ -2962,14 +2962,8 @@ sub alert_19 {
 
     if($open_files_ratio >= $thresh) {
         my $open_files_limit_R = undef;
-        if($open_files_limit <= 65535) {
-            my $tc3 = ($table_cache * 3);
-            if($tc3 <= 65535) {
-                $open_files_limit_R = $tc3;
-            }
-            else {
-                $open_files_limit_R = 65535; #this is the highest we can go
-            }
+        if($open_files_limit <= 64515) { #65535 - 1024 = highest we can go and give headroom for other procs
+	    $open_files_limit_R = 64515;
 	    writer("<alert id=\"19\">");
 	    writer("<name>$alert_name</name>");
 	    writer("<category>$alert_category</category>");
@@ -2979,7 +2973,7 @@ sub alert_19 {
             writer("<description>$alert_desc</description>");
             writer("<links>$alert_links</links>");
             writer("<solution>$alert_solution</solution>");
-            writerx("# Recommend a starting point of open_files_limit = $open_files_limit_R");
+            writerx("# Recommend a setting of open_files_limit = $open_files_limit_R");
 	    writer("</alert>");
             $ALERT19=1;
         }
@@ -3036,44 +3030,24 @@ sub alert_21 {
         $table_cache_hit_rate=100;
         $table_cache_fill=(($Open_tables*100)/$table_cache);
     }
-    if($table_cache !=0) {
-        if(($table_cache_hit_rate >= 95) && ($table_cache_fill >= 95)) {
-            $ALERT21=1;
-            my $table_cache_R = round($Open_tables * 1.6);
-	    writer("<alert id=\"21\">");
-	    writer("<name>$alert_name</name>");
-	    writer("<category>$alert_category</category>");
-	    writer("<description>$alert_desc</description>");
-	    writer("<links>$alert_links</links>");
-	    writer("<solution>$alert_solution</solution>");
-	    writerx("Current table_cache value = $table_cache tables");
-	    writerx("Current Open_tables = $Open_tables tables.");
-	    writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
-	    writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
-            writerx("# Increase the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
-	    writer("</alert>");
-        }
-        else {
-            $ALERT21=0;
-        }
+    if(($table_cache_hit_rate >= 95) || ($table_cache_fill >= 95)) {
+	$ALERT21=1;
+	my $table_cache_R = round($Open_tables * 1.6);
+	writer("<alert id=\"21\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
+	writer("<links>$alert_links</links>");
+	writer("<solution>$alert_solution</solution>");
+	writerx("Current table_cache value = $table_cache tables");
+	writerx("Current Open_tables = $Open_tables tables.");
+	writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
+	writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
+	writerx("# Increase the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
+	writer("</alert>");
     }
     else {
-        my $table_cache_R = round($Open_tables * 1.6);
-	writer("<alert id=\"21\">");
-        writer("<name>$alert_name</name>");
-        writer("<category>$alert_category</category>");
-        writerx("Current table_cache value = $table_cache tables");
-        writerx("Current Open_tables = $Open_tables tables.");
-        writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
-        writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-
-        writerx("Table cache is set to 0 size.");
-        writerx("# Enable a value for table_cache, Current value is $table_cache. Recommend table_cache=$table_cache_R");
-	writer("</alert>");
-        $ALERT21=1;
+	$ALERT21=0;
     }
     return $ALERT21;
 }
@@ -3093,40 +3067,26 @@ sub alert_22 {
         $table_cache_hit_rate=100;
         $table_cache_fill=(($Open_tables*100)/$table_cache);
     }
-    if($table_cache !=0) {
-        if(($table_cache_hit_rate <= 75) && ($table_cache_fill <= 75)) {
-            writer("<alert id=\"22\">");
-            writer("<name>$alert_name</name>");
-            writer("<category>$alert_category</category>");
-            writer("<description>$alert_desc</description>");
-            writer("<links>$alert_links</links>");
-            writer("<solution>$alert_solution</solution>");
-            writerx("Current table_cache value = $table_cache tables");
-            writerx("Current Open_tables = $Open_tables tables.");
-            writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
-            writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
-            my $table_cache_R = round($Open_tables * 1.6);
-            writerx("# Decrease the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
-            $ALERT22=1;
-        }
-        else {
-            $ALERT22=0;
-        }
+    if(($table_cache_hit_rate <= 75) || ($table_cache_fill <= 75)) {
+	writer("<alert id=\"22\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writer("<description>$alert_desc</description>");
+	writer("<links>$alert_links</links>");
+	writer("<solution>$alert_solution</solution>");
+	writerx("Current table_cache value = $table_cache tables");
+	writerx("Current Open_tables = $Open_tables tables.");
+	writerx("Current table_cache_fill_ratio is: $table_cache_fill %");
+	writerx("Current table_cache_hit_rate is: $table_cache_hit_rate %");
+	my $table_cache_R = round($Open_tables * 1.6);
+	writerx("# Decrease the table_cache, Current size is $table_cache. Recommend table_cache=$table_cache_R");
+	writer("</alert>");
+	$ALERT22=1;
     }
     else {
-        my $table_cache_R = round($Open_tables * 1.6);
-        writer("<alert id=\"22\">");
-        writer("<name>$alert_name</name>");
-        writer("<category>$alert_category</category>");
-        writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
-
-        writerx("Table cache is set to 0 size.");
-        writerx("# Enable a value for table_cache, Current value is $table_cache. Recommend table_cache=$table_cache_R");
-        $ALERT22=1;
+	$ALERT22=0;
     }
-    writer("</alert>");
+
     return $ALERT22;
 }
 
