@@ -1096,19 +1096,12 @@ sub alert_19 {
     writerx("Current usage ration = $open_files_ratio %");
 
     if($open_files_ratio >= $thresh) {	
-	my $open_files_limit_R = undef;
-	if($open_files_limit <= 65535) {
-	    my $tc3 = ($table_cache * 3);
-	    if($tc3 <= 65535) {
-		$open_files_limit_R = $tc3;
-	    }
-	    else {
-		$open_files_limit_R = 65535; #this is the highest we can go
-	    }
+	if($open_files_limit <= 64515) { #65535 - 1024 = highest we can go and give headroom for other procs            
+            $open_files_limit_R = 64515;
 	    writer("<description>$alert_desc</description>");
 	    writer("<links>$alert_links</links>");
 	    writer("<solution>$alert_solution</solution>");
-
+	    
 	    writerx("# Recommend a starting point of open_files_limit = $open_files_limit_R");
 	    $ALERT19=1;
 	}
