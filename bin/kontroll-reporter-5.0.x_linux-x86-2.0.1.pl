@@ -1945,7 +1945,7 @@ sub alert_52 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    if($illegal_user_nopass == 0) {
+    if(($illegal_user_nopass == 0)||($illegal_user_nopass != '')) {
 	writerx("No empty passwords found.");
 	$ALERT52=0;
     }
@@ -1969,7 +1969,7 @@ sub alert_53 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    if($illegal_user_noname == 0) {
+    if(($illegal_user_noname == 0)||($illegal_user_noname != '')) {
 	writerx("No empty usernames found.");
 	$ALERT53=0;
     }
