@@ -1644,6 +1644,14 @@ sub parse_data {
 	my $qsec = ($Questions/$Uptime);
 	$varlist{'queries_per_second'}=$qsec;
 	my $os_mem_total = $varlist{'os_mem_total'};
+
+	# We do the following to compensate for the OID for os_mem_used actually outputting the memAvailReal so we have to subtract that from the total to get the used value.
+	my $os_mem_total = $varlist{'os_mem_total'};
+	my $os_mem_used = $varlist{'os_mem_used'};
+	$os_mem_total =~ s/'//g;
+        $os_mem_used =~ s/'//g;
+	$varlist{'os_mem_used'} = $os_mem_total - $os_mem_used;
+
 	debug_report("$h MySQL Connection status [OK]");
 
 	#print compute time from xml
