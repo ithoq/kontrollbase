@@ -174,7 +174,7 @@ print "
  
  var border = {
  id:'border-panel',
- title: 'Kontrollbase',
+ title: '<img src="$nroot/includes/images/kontrollbase_logo-trans32.png" align="center">',
  layout:'border',
  region:'center',
  bodyBorder: false,

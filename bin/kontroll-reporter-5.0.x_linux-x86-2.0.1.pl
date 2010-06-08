@@ -1003,29 +1003,12 @@ sub alert_17 {
     }
     if($ALERT17 == 1) {
 	my $join_buffer_size_R = ($join_buffer_size * 2);
-	my $warn = 0;
-	if($join_buffer_size_R >= 4194304) {
-	    $join_buffer_size_R = (4194304 - 8192);
-	    $warn = 1;
-	}
 	my $join_buffer_size_R_HR = human($join_buffer_size_R);
-	if($warn == 0) {
-	    writer("<description>$alert_desc</description>");
-	    writer("<links>$alert_links</links>");
-	    writer("<solution>$alert_solution</solution>");
 
-	    writerx("# Recommend a starting point of $join_buffer_size_R_HR");	
-	}
-	elsif($warn == 1) {
-	    writer("<description>$alert_desc</description>");
-	    writer("<links>$alert_links</links>");
-	    writer("<solution>$alert_solution</solution>");
-
-	    writerx("Join buffer is already set to 4M or greater. It is not recommended to set this higher than 4M but experiementally you can try it. If this alert does not go away unless your join_buffer_size is set higher than 4M please contact kontact\@kontrollsoft.com and let us know as we are tuning this alert.");
-	    $join_buffer_size_R = ($join_buffer_size * 1.5);
-	    $join_buffer_size_R_HR = human($join_buffer_size_R);
-	    writerx("# Recommend a starting point of $join_buffer_size_R_HR");	    
-	}
+	writer("<description>$alert_desc</description>");
+	writer("<links>$alert_links</links>");
+	writer("<solution>$alert_solution</solution>");	
+	writerx("# Recommend a starting point of $join_buffer_size_R_HR");	
     }
     writer("</alert>");
     return $ALERT17;
