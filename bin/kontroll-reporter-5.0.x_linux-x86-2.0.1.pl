@@ -1158,8 +1158,8 @@ sub alert_21 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    my $table_cache_hit_rate = undef;
-    my $table_cache_fill = undef;
+    my $table_cache_hit_rate = 0;
+    my $table_cache_fill = 0;
 
     if(($Opened_tables != 0) && ($table_cache != 0)) {
         $table_cache_hit_rate=round(($Open_tables*100)/$Opened_tables);
@@ -1196,8 +1196,8 @@ sub alert_22 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    my $table_cache_hit_rate = undef;
-    my $table_cache_fill = undef;
+    my $table_cache_hit_rate = 0;
+    my $table_cache_fill = 0;
 
     if(($Opened_tables != 0) && ($table_cache != 0)) {
         $table_cache_hit_rate=round(($Open_tables*100)/$Opened_tables);
