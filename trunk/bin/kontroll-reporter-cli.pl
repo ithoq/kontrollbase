@@ -2879,45 +2879,20 @@ sub alert_17 {
     }
     if($ALERT17 == 1) {
         my $join_buffer_size_R = ($join_buffer_size * 2);
-        my $warn = 0;
-        if($join_buffer_size_R >= 4194304) {
-            $join_buffer_size_R = (4194304 - 8192);
-            $warn = 1;
-        }
         my $join_buffer_size_R_HR = human($join_buffer_size_R);
-        if($warn == 0) {
-	    writer("<alert id=\"17\">");
-	    writer("<name>$alert_name</name>");
-	    writer("<category>$alert_category</category>");
-	    writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
-	    writerx("Current join_buffer_size = $join_buffer_sizeHR");
-	    writerx("Current Select_full_join = $Select_full_join");
-	    writerx("Current Select_range_check = $Select_range_check");
-	    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
-            writer("<description>$alert_desc</description>");
-            writer("<links>$alert_links</links>");
-            writer("<solution>$alert_solution</solution>");
-            writerx("# Recommend a starting point of $join_buffer_size_R_HR");
-	    writer("</alert>");
-        }
-        elsif($warn == 1) {
-	    writer("<alert id=\"17\">");
-	    writer("<name>$alert_name</name>");
-	    writer("<category>$alert_category</category>");
-	    writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
-	    writerx("Current join_buffer_size = $join_buffer_sizeHR");
-	    writerx("Current Select_full_join = $Select_full_join");
-	    writerx("Current Select_range_check = $Select_range_check");
-	    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
-            writer("<description>$alert_desc</description>");
-            writer("<links>$alert_links</links>");
-            writer("<solution>$alert_solution</solution>");
-
-            $join_buffer_size_R = ($join_buffer_size * 1.5);
-            $join_buffer_size_R_HR = human($join_buffer_size_R);
-            writerx("# Recommend a starting point of $join_buffer_size_R_HR");      
-	    writer("</alert>");
-        }
+	writer("<alert id=\"17\">");
+	writer("<name>$alert_name</name>");
+	writer("<category>$alert_category</category>");
+	writerx("You have had $Select_range_check joins without keys that check for key usage after each row.");
+	writerx("Current join_buffer_size = $join_buffer_sizeHR");
+	writerx("Current Select_full_join = $Select_full_join");
+	writerx("Current Select_range_check = $Select_range_check");
+	writerx("You have had $Select_full_join queries where a join could not use an index properly.");
+	writer("<description>$alert_desc</description>");
+	writer("<links>$alert_links</links>");
+	writer("<solution>$alert_solution</solution>");
+	writerx("# Recommend a starting point of $join_buffer_size_R_HR");
+	writer("</alert>");
     }
     return $ALERT17;
 }
