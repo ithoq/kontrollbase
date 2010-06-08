@@ -989,7 +989,6 @@ sub alert_17 {
     writerx("Current join_buffer_size = $join_buffer_sizeHR");
     writerx("Current Select_full_join = $Select_full_join");
     writerx("Current Select_range_check = $Select_range_check");
-    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
 
     if(($Select_range_check == 0) && ($Select_full_join == 0)) {
         writerx("Your joins are using indexes properly.");
@@ -1004,7 +1003,7 @@ sub alert_17 {
 	$ALERT17=1;	
     }
     if($ALERT17 == 1) {
-	my $join_buffer_size_R = ($join_buffer_size * 2);
+	my $join_buffer_size_R = ($join_buffer_size * 1.125);
 	my $join_buffer_size_R_HR = human($join_buffer_size_R);
 
 	writer("<description>$alert_desc</description>");
