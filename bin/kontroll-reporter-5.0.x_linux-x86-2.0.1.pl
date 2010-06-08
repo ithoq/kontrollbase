@@ -990,6 +990,9 @@ sub alert_17 {
     writerx("Current Select_full_join = $Select_full_join");
     writerx("Current Select_range_check = $Select_range_check");
     writerx("You have had $Select_full_join queries where a join could not use an index properly.");
+    if($join_buffer_size > 4194304) {
+	$ALERT17=0;
+    }
     if(($Select_range_check == 0) && ($Select_full_join == 0)) {
         writerx("Your joins are using indexes properly.");
 	$ALERT17=0;
