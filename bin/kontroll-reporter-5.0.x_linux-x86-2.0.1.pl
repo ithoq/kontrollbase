@@ -1080,7 +1080,7 @@ sub alert_19 {
 
     if($open_files_ratio >= $thresh) {	
 	if($open_files_limit <= 64515) { #65535 - 1024 = highest we can go and give headroom for other procs            
-            $open_files_limit_R = 64515;
+            my $open_files_limit_R = 64515;
 	    writer("<description>$alert_desc</description>");
 	    writer("<links>$alert_links</links>");
 	    writer("<solution>$alert_solution</solution>");
