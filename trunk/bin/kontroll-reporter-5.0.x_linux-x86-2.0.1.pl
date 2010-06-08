@@ -990,14 +990,13 @@ sub alert_17 {
     writerx("Current Select_full_join = $Select_full_join");
     writerx("Current Select_range_check = $Select_range_check");
     writerx("You have had $Select_full_join queries where a join could not use an index properly.");
-    if($join_buffer_size > 4194304) {
-	$ALERT17=0;
-    }
+
     if(($Select_range_check == 0) && ($Select_full_join == 0)) {
         writerx("Your joins are using indexes properly.");
 	$ALERT17=0;
     }
     if($Select_full_join > 0) {
+	writerx("You had $Select_full_join Select_full_joins that would benefit from a larger join_buffer_size.");
 	$ALERT17=1;
     }
     if($Select_range_check > 0) {
@@ -1030,28 +1029,11 @@ sub alert_18 {
     writerx("Current join_buffer_size = $join_buffer_sizeHR");
     writerx("Current Select_full_join = $Select_full_join");
     writerx("Current Select_range_check = $Select_range_check");
-    writerx("You have had $Select_full_join queries where a join could not use an index properly.");
-    
-    if($join_buffer_size > 4194304) {
-	$ALERT18 = 1;
-	my $join_buffer_size_R = 4194303;
-	$join_buffer_size_R = ($join_buffer_size_R - 8192);
-	my $join_buffer_size_R_HR = human($join_buffer_size_R);
-	writer("<description>$alert_desc</description>");
-        writer("<links>$alert_links</links>");
-        writer("<solution>$alert_solution</solution>");
 
-	writerx("# Recommend a starting point of $join_buffer_size_R_HR");
-    }
-    elsif($join_buffer_size == 4194304) {
-        $ALERT18 = 0;
-        writerx("Your join_buffer_size is already at the maximum recommended setting.");
-        if($Select_full_join > 0 || $Select_range_check > 0 || $log_queries_not_using_indexes eq "ON") {
-            writerx("Check your slow queries log to find the joins that are NOT using indexes.");
-        }
-        elsif($Select_full_join >0 || $Select_range_check> 0 || $log_queries_not_using_indexes eq "OFF") {
-            writerx("# Enable log_queries_not_using_indexes in the cnf file so that you can find the join queries that are not using indexes. These queries will show up in the slow log. You may then begin the process of adding the appropriate indexes to your tables.");
-        }	
+    if(($Select_range_check == 0) || ($Select_full_join == 0)) {
+	writerx("You have had $Select_range_check queries where a query could not use an index properly.");
+	writerx("You have had $Select_full_join queries where a join could not use an index properly.");
+	$ALERT18=1;
     }
     else {
 	$ALERT18=0;
