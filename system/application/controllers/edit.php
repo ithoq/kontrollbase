@@ -268,12 +268,15 @@ class Edit extends Controller {
 	  $server_client_id = $this->input->post('server_client_id');
 	  $role_tier = $this->input->post('role_tier');
 
-	  if($server_client_id = "system user") { $server_client_id = 0;}
+	  if(($server_client_id == "system user") || ($server_client_id == "System User")) { $server_client_id = 0;}
 	  log_message('debug', "edit user: role_tier:$role_tier, server_client_id:$server_client_id");
 	  log_message('debug', "edit user: system_user_email: $system_user_email, system_user_pass: $system_user_pass");
 	  log_message('debug', "edit user: system_user_name: $system_user_name, system_user_id: $system_user_id");
-          //check to ensure that client user can only be associated with a !0 $server_client_id
+
+          //First: check to ensure that client user can only be associated with a !0 $server_client_id AND
           //check to ensure that admin user can only be a role_tier=1, standard can only be role_tier=1, client can only be =2
+	  //Second: check to ensure that a user being moved from client mode to system user mode, we set client id to 0
+	  if(($server_client_id == 0) && ($role_tier == 2)) { $role_tier = 1; }
           if((($role_tier == 0) || ($role_tier == 1)) && ($server_client_id != 0)) {
             log_message('debug', "Add user: user is system or admin but trying to be set as client");
             echo "{success: false, errors: { reason: 'Users set to \'Admin\' or \'System\' cannot be associated with client type other than \'System User\'. Please retry your settings.' }}";

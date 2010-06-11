@@ -91,7 +91,7 @@ sub get_snmp_os_stats {
     my $sysSwapTotal_OID = '.1.3.6.1.4.1.2021.4.3.0';
     my $sysSwapFree_OID = '.1.3.6.1.4.1.2021.4.4.0';
     my $sysRamTotal_OID = '.1.3.6.1.4.1.2021.4.5.0';
-    my $sysRamUsed_OID = '.1.3.6.1.4.1.2021.4.6.0';
+    my $sysRamUsed_OID = '.1.3.6.1.4.1.2021.4.6.0'; #NOTE: this is actually Available RAM but we convert it to RAM used in the stats-gather script. There is no OID for used_ram for some odd reason... at least I couldn't find one. So we use math! to solve the problem! :)
     my $sysLoad1_OID = '.1.3.6.1.4.1.2021.10.1.3.1';
     my $sysLoad5_OID = '.1.3.6.1.4.1.2021.10.1.3.2';
     my $sysLoad15_OID = '.1.3.6.1.4.1.2021.10.1.3.3';
