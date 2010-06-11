@@ -40,7 +40,7 @@ var clients = new Ext.data.SimpleStore({
 foreach ($clients as $a) {
   print "['".$a['id']."','".$a['server_client_name']."'],\n";
 }
-print "['','']]});\n\n";
+print "['0','System User']]});\n\n";
 
 print<<<HEAD
 var type = new Ext.data.SimpleStore({
@@ -62,7 +62,7 @@ foreach($user as $key => $value) {
     if($vKey == 'creation_time') { $creation_time=$vValue; }
   }
 }
-if($server_client_id == 0) { $server_client_name="system user"; }
+if($server_client_id == 0) { $server_client_name="System User"; }
 
 print<<<HEAD
 Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
