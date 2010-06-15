@@ -259,7 +259,7 @@ class Edit extends Controller {
 	  $this->form_validation->set_rules('system_user_pass', 'system_user_pass', 'trim|required|min_length[6]');
 	  $this->form_validation->set_rules('system_user_email', 'system_user_email', 'trim|required|valid_email');
 	  $this->form_validation->set_rules('server_client_id', 'server_client_id', 'trim|required');
-	  $this->form_validation->set_rules('role_tier', 'role_tier', 'trim|required');
+	  $this->form_validation->set_rules('role_tier', 'role_tier', 'trim|required');	  
 
 	  $system_user_id = $this->input->post('system_user_id');
 	  $system_user_name = $this->input->post('system_user_name');
@@ -267,7 +267,13 @@ class Edit extends Controller {
 	  $system_user_email = $this->input->post('system_user_email');
 	  $server_client_id = $this->input->post('server_client_id');
 	  $role_tier = $this->input->post('role_tier');
+	  $password_change_check = $this->input->post('password_change_check');
 
+	  //Check if user is having password changed so we don't re-md5 their password in the model
+	  if($password_change_check == "on") { $password_change_check == TRUE; } else { $password_change_check == FALSE; }
+	  log_message('debug', "password_change_check = $password_change_check");
+	  
+	  //Check state of client_id and do some logic and logging for debug
 	  if(($server_client_id == "system user") || ($server_client_id == "System User")) { $server_client_id = 0;}
 	  log_message('debug', "edit user: role_tier:$role_tier, server_client_id:$server_client_id");
 	  log_message('debug', "edit user: system_user_email: $system_user_email, system_user_pass: $system_user_pass");
@@ -300,7 +306,8 @@ class Edit extends Controller {
 					      $system_user_pass,
 					      $system_user_email,
 					      $server_client_id,
-					      $role_tier);
+					      $role_tier,
+					      $password_change_check);
 	      if($state == 0) {
 		log_message('debug', "Login controller: JSON = {success: true}");
 		echo "{success: true}"; 

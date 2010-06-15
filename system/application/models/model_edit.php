@@ -215,8 +215,10 @@ UPDATE `server_list` SET
 		     $system_user_pass,
 		     $system_user_email,
 		     $server_client_id,
-		     $role_tier) {
+		     $role_tier,
+		     $password_change_check) {
     
+    $password_change_check = $this->db->escape_str($password_change_check);
     $system_user_id = $this->db->escape_str($system_user_id);
     $system_user_name = $this->db->escape_str($system_user_name);
     $system_user_pass = $this->db->escape_str($system_user_pass);
@@ -225,13 +227,23 @@ UPDATE `server_list` SET
     $role_tier = $this->db->escape_str($role_tier);
     
     $dbr = $this->load->database('write', TRUE);
-    $sql0="UPDATE `system_users` SET 
+    if($password_change_check == TRUE) {
+      $sql0="UPDATE `system_users` SET 
 `system_user_name` = '$system_user_name',
 `system_user_pass` = md5('$system_user_pass'),
 `system_user_email` = '$system_user_email',
 `server_client_id` = '$server_client_id',
 `role_tier` = '$role_tier' 
 WHERE `system_users`.`id` = '$system_user_id' LIMIT 1";
+    }
+    else {
+      $sql0="UPDATE `system_users` SET 
+`system_user_name` = '$system_user_name',
+`system_user_email` = '$system_user_email',
+`server_client_id` = '$server_client_id',
+`role_tier` = '$role_tier' 
+WHERE `system_users`.`id` = '$system_user_id' LIMIT 1";
+    }
 
     $this->db->trans_start();
     qstart();

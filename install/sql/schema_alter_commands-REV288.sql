@@ -1,2 +1,0 @@
-update alerts_def set alert_desc = 'Server connection usage ratio needs to be optimized.' where id = '5';
-update alerts_def set alert_name = 'max_connections to max_used_connections ratio not optimal.' where id = '5';
