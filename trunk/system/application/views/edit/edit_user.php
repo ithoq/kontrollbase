@@ -190,6 +190,13 @@ Ext.onReady(function(){
 			       allowBlank:false
 			       },
 			   {
+			   xtype: 'checkbox',
+			       checked: false,
+			       value: 'off',
+			       boxLabel: 'Select if changing password',
+			       name: 'password_change_check'
+			       },
+			   {
 			   fieldLabel:'Email',
 			       name:'system_user_email',
 			       inputType: 'text',

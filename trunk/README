@@ -1,0 +1,47 @@
+   * Kontrollbase
+   *
+   * An open source MySQL monitoring and analytics application
+   *
+   * @package Kontrollbase
+   * @author Matt Reid
+   * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+   * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+   * @link http://kontrollbase.com
+
+
+README BEFORE INSTALLING
+==================================
+Before installing please ensure you have the following installed
+1. MySQL 5.0 or greater
+2. Apache or other webserver that supports PHP, recommend Apache 2.0+
+3. Perl 5.8+
+4. Perl pre-requisite modules installed: see the documentation for more information
+5. You can check if your system has the proper perl and php modules installed by running "php bin/kontroll-check_reqs.php"
+
+TO INSTALL THE KONTROLLBASE
+==================================
+1. Create a mysql schema/database for the application and the users needed by the application. If you are installing on a MySQL server that is not localhost just replace 'localhost' below with the IP address of the webserver that will be connecting to the database server. See the MySQL documentation for more information if you do not understand this step.
+mysql> create database kontrollbase;
+mysql> grant all on kontrollbase.* to 'kb_app'@'localhost' identified by '<your password here>';
+mysql> grant all on kontrollbase.* to 'kb_admin'@'localhost' identified by '<your password here>'; 
+
+2. Import the SQL file to load data into the database
+shell> mysql -ukontrollbase -p kontrollbase < install/sql/kontrollbase-<ver#>.sql
+
+3. Make sure all of the application files are owned by the web server process user
+shell> cd <install directory>
+shell> chown -R apache:apache *
+
+If you are using a different webserver than apache or your apache server is running under a different user and 'apache' just replace apache:apache in the preceding command with the user:group that you need to. 
+
+4. Open a web browser and go to the install URL and follow the directions
+http://my_url_here.com/kontrollbase/install.php
+
+QUESTIONS
+==================================
+Please see the documentation for more details:
+http://wiki.kontrollsoft.com/wiki/KontrollBase
+
+If you cannot figure out how to install Kontrollbase or have questions please contact Support
+http://kontrollsoft.com/support
+

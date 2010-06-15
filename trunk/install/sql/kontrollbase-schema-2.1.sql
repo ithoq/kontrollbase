@@ -1048,3 +1048,6 @@ SET character_set_client = @saved_cs_client;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2010-01-12 11:51:09
+
+update alerts_def set alert_desc = 'Server connection usage ratio needs to be optimized.' where id = '5';
+update alerts_def set alert_name = 'max_connections to max_used_connections ratio not optimal.' where id = '5';
