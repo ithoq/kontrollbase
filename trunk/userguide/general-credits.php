@@ -37,7 +37,6 @@ This application was made possible with the help of OpenSource software and/or q
 <li><a href="http://ubuntu.com" target="_blank">Ubuntu Linux</a></li>
 <li><a href="http://debian.org" target="_blank">Debian Linux</a></li>
 <li><a href="http://mysql.com" target="_blank">MySQL</a></li>
-<li><a href="http://www.dlmonitor.com" target="_blank">DL Monitor</a></li>
 </ul>
 
 </div>
