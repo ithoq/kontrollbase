@@ -177,14 +177,14 @@ NULL , '$server_client_name', '$server_client_email', '$server_client_phone', NO
     $sql0="INSERT INTO `system_users` (
 `id` ,
 `system_user_name` ,
-md5(`system_user_pass`),
+`system_user_pass`,
 `system_user_email` ,
 `server_client_id` ,
 `role_tier` ,
 `creation_time`
 )
 VALUES (
-NULL , '$system_user_name', '$system_user_pass', '$system_user_email', '$server_client_id', '$role_tier', NOW());";
+NULL , '$system_user_name', md5('$system_user_pass'), '$system_user_email', '$server_client_id', '$role_tier', NOW());";
     $this->db->trans_start();
     $this->db->query($sql0);
     $this->db->trans_complete();
