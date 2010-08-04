@@ -75,7 +75,7 @@ sub error_report {
     exit 1;
 }
 
-sub qcache_preload {
+sub stats_pruner {
     my $dbh = DBI->connect( 
         "DBI:mysql:$mysql_r_db:$mysql_r_host", 
         $mysql_r_user, 
@@ -612,5 +612,5 @@ SELECT * FROM server_statistics  WHERE Creation_time < DATE_SUB(CURDATE(), INTER
 
 config_connect();
 debug_report("#### stats_pruner start");
-qcache_preload();
+stats_pruner();
 debug_report("#### stats_pruner end");
