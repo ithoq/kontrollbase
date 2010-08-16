@@ -2599,7 +2599,7 @@ sub alert_13 {
     my($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("13");
 
-    my $key_cache_miss_rate = undef;
+    my $key_cache_miss_rate=round($Key_read_requests/$Key_reads);
     my $key_buffer_ratio = undef;
     my $key_buffer_ratioRND = undef;
     my $key_buffer_fill = undef;
@@ -2673,10 +2673,6 @@ sub alert_13 {
             writerx("Your key_buffer_size is too large, less than 50% utilized,");
             writerx("Recommended key_buffer_size = $key_recommend");
         }
-        if($key_cache_miss_rate >= 1000) {
-            writerx("Your key_buffer_size miss rate is higher than 1:1000");
-            writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
-        }
 	writer("</alert>");
         $ALERT13=1;
     }
@@ -2690,7 +2686,7 @@ sub alert_14 {
     my($Key_reads,$Key_read_requests,$Key_blocks_used,$Key_blocks_unused,$key_buffer_size) = @_;
     my($alert_name,$alert_desc,$alert_links,$alert_solution,$alert_function,$alert_category) = get_info("14");
     
-    my $key_cache_miss_rate = undef;
+    my $key_cache_miss_rate=round($Key_read_requests/$Key_reads);
     my $key_buffer_ratio = undef;
     my $key_buffer_ratioRND = undef;
     my $key_buffer_fill = undef;
@@ -2759,7 +2755,10 @@ sub alert_14 {
         writer("<solution>$alert_solution</solution>");
         writerx("Increase the key_buffer_size (we want between 75-90% buffer fill ratio)");
         writerx("Recommended key_buffer_size = $key_recommend");
-#        writerx("Recommend incremental increase: change to $key_buffer_sizeC");
+	if($key_cache_miss_rate >= 1000) {
+            writerx("Your key_buffer_size miss rate is higher than 1:1000");
+            writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
+        }
 	writer("</alert>");
         $ALERT14=1;
     }
