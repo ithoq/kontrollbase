@@ -766,20 +766,13 @@ sub alert_13 {
     writerx("Current key_buffer_size = $key_buffer_sizeHR");
     writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
 
-    if(($key_cache_miss_rate >= 1000) || ($key_buffer_ratio <= 50)) {
+    if($key_buffer_ratio <= 50) {
 	my $key_buffer_sizeC = human($key_buffer_size / 2);
 	writer("<description>$alert_desc</description>");
         writer("<links>$alert_links</links>");
         writer("<solution>$alert_solution</solution>");
-
-	if($key_buffer_ratio <= 50) {
-	    writerx("Your key_buffer_size is too large, less than 50% utilized,");
-	    writerx("Recommended key_buffer_size = $key_recommend");
-	}
-	if($key_cache_miss_rate >= 1000) {
-	    writerx("Your key_buffer_size miss rate is higher than 1:1000");
-	    writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
-	}
+	writerx("Your key_buffer_size is too large, less than 50% utilized,");
+	writerx("Recommended key_buffer_size = $key_recommend");
 	$ALERT13=1;
     }
     else {
@@ -854,7 +847,7 @@ sub alert_14 {
     writerx("Current key_buffer_size = $key_buffer_sizeHR");
     writerx("Recommended key_buffer_size for 95% fill = $key_recommend");
 
-#    if(($key_cache_miss_rate <= 100) && ($key_cache_miss_rate >= 0) && ($key_buffer_ratioRND >= 80)) {
+
     if(($Key_blocks_unused == 0) || ($key_buffer_ratioRND >= 85)) {
         my $key_buffer_sizeC = human($key_buffer_size * 2);
 	writer("<description>$alert_desc</description>");
@@ -863,7 +856,12 @@ sub alert_14 {
 
         writerx("Increase the key_buffer_size (we want between 75-90% buffer fill ratio)");
 	writerx("Recommended key_buffer_size = $key_recommend");
-#        writerx("Recommend incremental increase: change to $key_buffer_sizeC");
+
+	if($key_cache_miss_rate >= 1000) {
+            writerx("Your key_buffer_size miss rate is higher than 1:1000");
+            writerx("If you are getting a fill rate over 95% but have a miss rate of over 1:1000 then you probably want to look into optimizing your indexes. See Key_read_requests/Key_reads.");
+        }
+
         $ALERT14=1;
     }
     else {
