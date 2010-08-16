@@ -704,7 +704,7 @@ sub alert_13 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
 
-    my $key_cache_miss_rate = undef;
+    my $key_cache_miss_rate=round($Key_read_requests/$Key_reads);
     my $key_buffer_ratio = undef;
     my $key_buffer_ratioRND = undef;
     my $key_buffer_fill = undef;
@@ -791,7 +791,7 @@ sub alert_14 {
     writer("<name>$alert_name</name>");
     writer("<category>$alert_category</category>");
     
-    my $key_cache_miss_rate = undef;
+    my $key_cache_miss_rate=round($Key_read_requests/$Key_reads);
     my $key_buffer_ratio = undef;
     my $key_buffer_ratioRND = undef;
     my $key_buffer_fill = undef;
