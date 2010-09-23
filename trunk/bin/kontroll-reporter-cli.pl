@@ -3274,29 +3274,29 @@ sub alert_26 {
     my $tmp_per_sec = round($Created_tmp_tables/$Uptime);
     my $heap_to_tmp = round(($max_heap_table_size/$tmp_table_size)*100);
 
-    if($max_tmp_tables > 32){
-	writer("<alert id=\"26\">");
-	writer("<name>$alert_name</name>");
-	writer("<category>$alert_category</category>");
-	writerx("Current max_tmp_tables = $max_tmp_tables");
-	writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
-	writerx("Current tmp_table_size = $tmp_table_sizeHR");
-	writerx("Current Created_tmp_tables = $Created_tmp_tables");
-	writerx("Current Created_tmp_disk_tables = $Created_tmp_disk_tables");
-	writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
-	writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
-	writerx("Average usage = $tmp_per_sec tmp tables/sec");
-        writerx("Your max_tmp_tables is set to a greater value than default.");
-        writerx("If you consistently need more tmp tables you probably would be better off adding more RAM.");
-	writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");
-        writerx("# Recommend default setting max_tmp_tables = 32");
-        $warn=1;
-        $ALERT26=1;
-    }
     if($tmp_disk_ratio >= 75) {
         my $tmp_table_size_R = human($tmp_table_size * (((100 - $tmp_disk_ratio)/100)+1));
+        writer("<alert id=\"26\">");
+        writer("<name>$alert_name</name>");
+        writer("<category>$alert_category</category>");
+        writerx("Current max_tmp_tables = $max_tmp_tables");
+        writerx("Current max_heap_table_size = $max_heap_table_sizeHR");
+        writerx("Current tmp_table_size = $tmp_table_sizeHR");
+        writerx("Current Created_tmp_tables = $Created_tmp_tables");
+        writerx("Current Created_tmp_disk_tables = $Created_tmp_disk_tables");
+        writerx("Currently $tmp_disk_ratio% of tmp tables were created on disk");
+        writerx("Ratio of tmp_table_size to in-memory allowance: $heap_to_tmp%");
+        writerx("Average usage = $tmp_per_sec tmp tables/sec");	
         writerx("# Increase tmp_table_size, Current size is $tmp_table_sizeHR. Recommend tmp_table_size = $tmp_table_size_R ");
         writerx("# Increase max_heap_table_size, Current size is $max_heap_table_size.");
+
+	if($max_tmp_tables > 32){
+	    writerx("Your max_tmp_tables is set to a greater value than default.");
+	    writerx("If you consistently need more tmp tables you probably would be better off adding more RAM.");
+	    writerx("Note: Effective in-memory tmp_table_size is limited to max_heap_table_size.");                                   
+	    writerx("# Recommend default setting max_tmp_tables = 32");
+	}
+
         $warn=1;
         $ALERT26=1;
     }
