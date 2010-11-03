@@ -28,7 +28,7 @@ my $debug_log = undef;
 my $datetime =  strftime "%Y-%m-%d %H:%M:%S", localtime;
 
 #interval days value to prune
-my $interval = "180"; #default 180 days / 6 months
+my $interval = "30"; #default 30 days / 1 months
 
 # If you have issues with the php binary not being found please specify the full path in the commands below.
 sub config_connect {    
