@@ -17,8 +17,8 @@ $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root 
 // start the right table
 $file = "includes/FusionCharts.php";
 $this->load->file($file, true);
-$width = 240;
-$height = 130;
+$width = 325;
+$height = 180;
 
 $overview='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">

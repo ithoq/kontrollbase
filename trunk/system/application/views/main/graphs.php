@@ -17,8 +17,8 @@ $this->load->view('header_graphs',$g);
 $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root path
 $file = "includes/FusionCharts.php";
 $this->load->file($file, true);
-$width = 240;
-$height = 130;
+$width = 325;
+$height = 180;
 $attributes = array('name' => 'graphform');
 $data00 = array(
 		'name'        => 'sday',
