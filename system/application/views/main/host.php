@@ -17,8 +17,8 @@ $nroot = substr_replace($root,"",-1); //remove the trailing slash from the root 
 $report = "<a href='$nroot/index.php/main/report/$server_statistics_id/$server_list_id' target='_self'>click</a>";
 $file = "includes/FusionCharts.php";
 $this->load->file($file, true);
-$width = 240;
-$height = 130;
+$width = 325;
+$height = 180;
 
 if($slave == '1') { $slv_state = "yes"; }
 elseif($slave == '0') { $slv_state = "no"; }
