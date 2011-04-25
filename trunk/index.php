@@ -1,4 +1,16 @@
 <?php
+  /**
+   * Kontrollbase
+   *
+   * An open source MySQL monitoring and analytics application
+   * ID: $Id$
+   * @package Kontrollbase
+   * @author Matt Reid
+   * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+   * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+   * @link http://kontrollbase.com
+   */
+
 /*
 |---------------------------------------------------------------
 | PHP ERROR REPORTING LEVEL

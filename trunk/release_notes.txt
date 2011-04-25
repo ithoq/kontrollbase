@@ -2,7 +2,7 @@
    * Kontrollbase
    *
    * An open source MySQL monitoring and analytics application
-   *
+   * ID: $Id$
    * @package Kontrollbase
    * @author Matt Reid
    * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
