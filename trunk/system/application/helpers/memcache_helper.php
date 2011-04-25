@@ -6,7 +6,7 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
    * An open source MySQL monitoring and analytics application
    *
    * @package Kontrollbase
-   * @author Matt Reid
+   * ID: $Id$
    * @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
    * @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
    * @link http://kontrollbase.com
