@@ -332,6 +332,16 @@ Ext.apply(Ext.form.VTypes, {
 				 typeAhead: true,
 				 value: 'server role type?',
 				 triggerAction: 'all'
+				 },
+			     {
+			     fieldLabel:'Notes',
+				 name:'server_notes',
+				 xtype: 'textarea',
+				 inputType: 'text',
+				 width:250,
+				 height:80,
+				 value: '$server_notes',
+				 allowBlank:true
 				 }
 			     ],      
 		      buttons:[

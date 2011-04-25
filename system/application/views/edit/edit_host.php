@@ -64,6 +64,7 @@ foreach($server as $key => $value) {
     if($vKey == 'server_snmp_port') { $server_snmp_port=$vValue; }
     if($vKey == 'server_snmp_rocommunity') { $server_snmp_rocommunity=$vValue; }
     if($vKey == 'server_snmp_version') { $server_snmp_version=$vValue; }
+    if($vKey == 'server_notes') { $server_notes=$vValue; }
     if($vKey == 'threshold_queries_per_second') { $threshold_queries_per_second=$vValue; }
     if($vKey == 'threshold_seconds_behind_master') { $threshold_seconds_behind_master=$vValue; }
     if($vKey == 'server_client_name') { $server_client_name=$vValue; }
@@ -323,7 +324,7 @@ Ext.apply(Ext.form.VTypes, {
 				 width:250,
 				 value: '$threshold_seconds_behind_master',
 				 allowBlank:false
-				 },
+				 },			     
 			     {
 			     xtype: 'combo',
 				 name: 'server_client_id',
@@ -387,6 +388,16 @@ Ext.apply(Ext.form.VTypes, {
 				 typeAhead: true,
 				 value: '$active',
 				 triggerAction: 'all'
+				 },
+			     {
+			     fieldLabel:'Notes',
+				 name:'server_notes',
+				 xtype: 'textarea',
+				 inputType: 'text',
+				 width:250,
+				 height:80,
+				 value: '$server_notes',
+				 allowBlank:true
 				 }
 			     ],      
 		      buttons:[ 

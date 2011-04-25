@@ -57,6 +57,7 @@ class Add extends Controller {
 	  $this->form_validation->set_rules('server_snmp_port', 'server_snmp_port', 'trim|required|numeric');
 	  $this->form_validation->set_rules('server_snmp_rocommunity', 'server_snmp_rocommunity', 'trim|required');
 	  $this->form_validation->set_rules('server_snmp_version', 'server_snmp_version', 'trim|required|numeric|max_length[1]');
+	  $this->form_validation->set_rules('server_notes', 'server_notes', 'trim|required');
 	  $this->form_validation->set_rules('threshold_queries_per_second', 'threshold_queries_per_second', 'trim|required|numeric');
 	  $this->form_validation->set_rules('threshold_seconds_behind_master', 'threshold_seconds_behind_master', 'trim|required|numeric');	  
 
@@ -76,6 +77,7 @@ class Add extends Controller {
 	  $server_snmp_port = $this->input->post('server_snmp_port');
 	  $server_snmp_rocommunity = $this->input->post('server_snmp_rocommunity');
 	  $server_snmp_version = $this->input->post('server_snmp_version');
+	  $server_notes = $this->input->post('server_notes');
 	  $threshold_queries_per_second = $this->input->post('threshold_queries_per_second');
 	  $threshold_seconds_behind_master = $this->input->post('threshold_seconds_behind_master');
 
@@ -116,6 +118,7 @@ class Add extends Controller {
 					  $server_snmp_port,
 					  $server_snmp_rocommunity,
 					  $server_snmp_version,
+					  $server_notes,
 					  $threshold_queries_per_second,
 					  $threshold_seconds_behind_master);
 	    if($state == 0) {
