@@ -282,6 +282,7 @@ CREATE TABLE `server_list` (
   `server_snmp_port` int(5) NOT NULL DEFAULT '161',
   `server_snmp_rocommunity` varchar(255) NOT NULL DEFAULT 'public',
   `server_snmp_version` char(1) NOT NULL DEFAULT '1',
+  `server_notes` longtext, 
   `threshold_queries_per_second` bigint(32) NOT NULL DEFAULT '100',
   `threshold_seconds_behind_master` int(16) NOT NULL DEFAULT '3600',
   `creation_time` datetime NOT NULL,
