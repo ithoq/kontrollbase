@@ -1,3 +1,12 @@
+-- Kontrollbase
+-- An open source MySQL monitoring and analytics application
+-- ID: $Id$
+-- @package Kontrollbase
+-- @author Matt Reid
+-- @copyright Copyright (c) 2009 Matt Reid, Kontrollbase LLC
+-- @license http://kontrollsoft.com/kontrollbase/userguide/general-LICENSE.php
+-- @link http://kontrollbase.com
+
 -- MySQL dump 10.13  Distrib 5.4.3-beta, for apple-darwin9.5.0 (i386)
 --
 -- Host: localhost    Database: kontrollbase
