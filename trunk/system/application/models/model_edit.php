@@ -54,6 +54,7 @@ class Model_edit extends Model
 		    "server_snmp_port" => "NULL",
 		    "server_snmp_rocommunity" => "NULL",
 		    "server_snmp_version" => "NULL",
+		    "server_notes" => "NULL",
 		    "threshold_queries_per_second" => "NULL",
 		    "threshold_seconds_behind_master" => "NULL",
 		    "server_client_name" => "NULL",
@@ -81,6 +82,7 @@ class Model_edit extends Model
 		     $server_snmp_port,
 		     $server_snmp_rocommunity,
 		     $server_snmp_version,
+		     $server_notes,
 		     $threshold_queries_per_second,
 		     $threshold_seconds_behind_master) {
     
@@ -102,6 +104,7 @@ class Model_edit extends Model
     $server_snmp_port = $this->db->escape_str($server_snmp_port);
     $server_snmp_rocommunity = $this->db->escape_str($server_snmp_rocommunity);
     $server_snmp_version = $this->db->escape_str($server_snmp_version);
+    $server_notes = $this->db->escape_str($server_notes);
     $threshold_queries_per_second = $this->db->escape_str($threshold_queries_per_second);
     $threshold_seconds_behind_master = $this->db->escape_str($threshold_seconds_behind_master);
     
@@ -126,6 +129,7 @@ UPDATE `server_list` SET
 `server_snmp_port` = '$server_snmp_port',
 `server_snmp_rocommunity` = '$server_snmp_rocommunity',
 `server_snmp_version` = '$server_snmp_version',
+`server_notes` = '$server_notes',
 `threshold_queries_per_second` = '$threshold_queries_per_second',
 `threshold_seconds_behind_master` = '$threshold_seconds_behind_master'
  WHERE `id` = '$server_list_id' LIMIT 1";
@@ -149,6 +153,7 @@ UPDATE `server_list` SET
 `server_snmp_port` = '$server_snmp_port',
 `server_snmp_rocommunity` = '$server_snmp_rocommunity',
 `server_snmp_version` = '$server_snmp_version',
+`server_notes` = '$server_notes',
 `threshold_queries_per_second` = '$threshold_queries_per_second',
 `threshold_seconds_behind_master` = '$threshold_seconds_behind_master'
  WHERE `id` = '$server_list_id' LIMIT 1";

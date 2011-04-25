@@ -43,6 +43,7 @@ class Model_add extends Model
 		    $server_snmp_port,
 		    $server_snmp_rocommunity,
 		    $server_snmp_version,
+		    $server_notes,
 		    $threshold_queries_per_second,
 		    $threshold_seconds_behind_master) {
     
@@ -63,6 +64,7 @@ class Model_add extends Model
     $server_snmp_port = $this->db->escape_str($server_snmp_port);
     $server_snmp_rocommunity = $this->db->escape_str($server_snmp_rocommunity);
     $server_snmp_version = $this->db->escape_str($server_snmp_version);
+    $server_notes = $this->db->escape_str($server_notes);
     $threshold_queries_per_second = $this->db->escape_str($threshold_queries_per_second);
     $threshold_seconds_behind_master = $this->db->escape_str($threshold_seconds_behind_master);
     
@@ -86,6 +88,7 @@ class Model_add extends Model
 `server_snmp_port` ,
 `server_snmp_rocommunity` ,
 `server_snmp_version` ,
+`server_notes`,
 `threshold_queries_per_second` ,
 `threshold_seconds_behind_master` ,
 `creation_time`
@@ -109,6 +112,7 @@ NULL ,
 '$server_snmp_port',
 '$server_snmp_rocommunity',
 '$server_snmp_version',
+'$server_notes',
 '$threshold_queries_per_second',
 '$threshold_seconds_behind_master',
 NOW())";
