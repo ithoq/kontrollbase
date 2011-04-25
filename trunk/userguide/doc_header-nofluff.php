@@ -1,7 +1,7 @@
 <?php
   /** 
    * @package Kontrollbase
-   * @author Matt Reid 
+   * ID: $Id$ 
    * @link http://kontrollsoft.com
    */
 ?>
