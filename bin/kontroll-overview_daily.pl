@@ -3,7 +3,7 @@
 ## NAME: kontroll-overview_daily.pl
 ## VERSION: 2.0.1
 ## DATE: 2008-12-01
-## AUTHOR: Matt Reid
+## ID: $Id$
 ## WEBSITE: http://kontrollsoft.com
 ## EMAIL: kontact@kontrollsoft.com
 ## LICENSE: PLEASE REFER TO THE LICENSE.txt file bundled with this software release
