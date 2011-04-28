@@ -315,7 +315,7 @@ print "
    autoScroll:true
    },
    { 
-     title: 'Graphs',
+     title: 'Summary Graphs',
      deferredRender: true,
      layout : 'fit',
      items: {  
