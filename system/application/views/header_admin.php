@@ -315,6 +315,20 @@ print "
    autoScroll:true
    },
    {
+     title: 'Env Graphs',
+     deferredRender: true,
+     width:440,
+     height:480,
+     layout : 'fit',
+     listeners: {activate: refreshTab},
+     autoLoad: {url: '$nroot/index.php/main/graphs/0'},
+     shim:false,
+     frame:true,
+     animCollapse:false,
+     enableTabScroll:true,
+   autoScroll:true
+   },
+   {
    title: 'Summary Data',
    xtype: 'grid',
    layout: 'fit',
