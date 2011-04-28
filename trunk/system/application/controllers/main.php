@@ -74,7 +74,6 @@ class Main extends Controller {
     auth();
     log_message('debug', "main_host auth check finished, continuing...");
     set_session_vars(); // set session variables [ variables_helper.php ]
-
     memcache_start(); // start memcache if enabled in config
     $this->load->model('Model_main', 'main');
     $this->load->library('form_validation');
@@ -226,14 +225,16 @@ class Main extends Controller {
     $eday = $this->input->post('eday');
     
     if(!$server_temp_id) {
+      log_message('debug', "main_graphs: server_temp_id not set, continuing.");
+      $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
+      if(!$server_list_id) { 
+	log_message('debug', "main_graphs: server_list_id not set");
+      }
       $prevWeek = time() - (7 * 24 * 60 * 60);
       $eday = date('Y-m-d');
-      $sday = date('Y-m-d', $prevWeek);
-      $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
-      if(!$server_list_id) {
-	index();
-      }
+      $sday = date('Y-m-d', $prevWeek);      
     }
+
     else {
       $server_list_id = $server_temp_id;
       if($this->form_validation->run() == FALSE) {
