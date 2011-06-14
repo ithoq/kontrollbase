@@ -225,16 +225,18 @@ class Main extends Controller {
     $eday = $this->input->post('eday');
     
     if(!$server_temp_id) {
-      log_message('debug', "main_graphs: server_temp_id not set, continuing.");
+      log_message('debug', "main_graphs: server_temp_id not set, checking for URI server_list_id");
       $server_list_id = ($this->uri->segment(3))?$this->uri->segment(3):0;
       if(!$server_list_id) { 
-	log_message('debug', "main_graphs: server_list_id not set");
+	log_message('debug', "main_graphs: server_list_id not set via FORM or URI");
+	$server_list_id = 0;
+	if((!$sday) || (!$eday)) {
+	$prevWeek = time() - (7 * 24 * 60 * 60);	
+	$eday = date('Y-m-d');
+	$sday = date('Y-m-d', $prevWeek);      
+	}
       }
-      $prevWeek = time() - (7 * 24 * 60 * 60);
-      $eday = date('Y-m-d');
-      $sday = date('Y-m-d', $prevWeek);      
     }
-
     else {
       $server_list_id = $server_temp_id;
       if($this->form_validation->run() == FALSE) {
@@ -248,7 +250,7 @@ class Main extends Controller {
     $g['slave'] = $this->main->get_slave($server_list_id);
     $g['hostname'] = $this->main->get_host_info($server_list_id,"server_hostname");
     $g['ip_address'] = $this->main->get_host_info($server_list_id,"server_ipaddress");
-    $g['server_list_id'] = $this->main->get_host_info($server_list_id,"id");
+    $g['server_list_id'] = $server_list_id;
     $g['server_statistics_id'] = $this->main->get_server_statistics_id($server_list_id);
     $g['version'] = $this->main->get_stats($server_list_id,"version");
     $g['engine'] = $this->main->get_stats($server_list_id,"storage_engine");
